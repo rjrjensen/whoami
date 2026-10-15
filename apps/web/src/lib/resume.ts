@@ -46,7 +46,7 @@ export const site = content as unknown as {
   about: {
     tagline: string;
     beyond: { title: string; text: string }[];
-    projects: { name: string; url: string; text: string }[];
+    projects: { name: string; url: string; linkLabel?: string; source?: string; text: string }[];
   };
   variants: Record<VariantId, Variant>;
 };

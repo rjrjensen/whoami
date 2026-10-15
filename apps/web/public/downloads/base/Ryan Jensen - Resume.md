@@ -8,14 +8,16 @@ I use software to innovate, automate, and improve development and user experienc
 
 ## Technical Skills <sub>(\* indicates proficiency)</sub>
 
-- **Languages:** C#\*, SQL\*, Kotlin\*, Java, JavaScript, TypeScript, Python
-- **Backend Frameworks:** .NET (Core)\*, .NET Framework, Spring / Spring Boot, GraphQL, Ktor, Node.js
-- **Frontend Frameworks:** Blazor\*, Angular\*, React / Next.js, Bootstrap\*, Tailwind, WPF, Vue.js
-- **DevOps / CI/CD:** Git\*, GitHub\*, GitHub Actions\*, Azure DevOps\*, Concourse CI\*, Terraform\*
+- **Languages:** C#\*, SQL\*, Kotlin\*, Java, JavaScript, TypeScript, Python, HTML, CSS / Sass / Less, Bash, PowerShell
+- **Backend Frameworks:** .NET (Core)\*, .NET Framework, Spring / Spring Boot, GraphQL, Ktor, Node.js, Express, Apollo GraphQL
+- **Frontend Frameworks:** Blazor\*, Angular\*, React / Next.js, Bootstrap\*, Tailwind, WPF, Vue.js, AngularJS, jQuery, RxJS, HTMX, Material UI
+- **DevOps / CI/CD:** Git\*, GitHub\*, GitHub Actions\*, Azure DevOps\*, Concourse CI\*, Terraform\*, Ansible, Linux (cron)
 - **ORM:** Entity Framework Core\*, Spring Data JPA, Dapper, Exposed
 - **Containerization:** Docker\*, Kubernetes, NuGet\*, npm
-- **Tooling:** JetBrains IDEs, Visual Studio / VS Code, SSMS / SSIS, dbt
-- **Cloud:** AWS\*, Azure\*, Google Cloud
+- **Data:** SQL Server, PostgreSQL, MySQL, SQLite, MongoDB, Redis, Elasticsearch
+- **Build & Testing:** Gradle, Maven, Yarn, Webpack, Cypress, Selenium, Gherkin
+- **Tooling:** JetBrains IDEs, Visual Studio / VS Code, SSMS / SSIS, dbt, Eclipse, Postman, Figma
+- **Cloud:** AWS\*, Azure\*, Google Cloud, AWS Lambda, EC2, S3, RDS, CloudFront, Amplify, Elastic Beanstalk, EventBridge
 - **Project Management:** Scrum\*, Kanban, Agile, Jira\*, GitHub Projects
 - **Leadership:** Hiring & interviewing, Mentoring & coaching, Technical delivery leadership, Vendor management, Technology strategy & budgeting
 
@@ -44,11 +46,11 @@ _November 2021 – Present · Remote_
 The company's sole developer and IT person for its clinic payment and patient management platform, inherited from a larger development team. Report directly to leadership and own technology strategy and roadmap, budget and vendor selection, and security and compliance. Partner closely with teams at the company's software vendors, including DataX, ACHeck, and Web.com.
 
 - Cut monthly AWS costs ~91%, from ~$1,400 to ~$120, over three years of incremental modernization with Terraform, CloudFront path-based routing, and right-sized infrastructure, while improving availability, stability, and speed.
-- Modernized the platform from an AngularJS frontend and .NET Framework 4.5 API on Windows Server 2012 EC2 instances to React on AWS Amplify and a .NET 10 Minimal API on Elastic Beanstalk, with SQL Server moved to RDS and SQL Agent jobs replaced by EventBridge-triggered Lambda functions.
+- Modernized the platform from an AngularJS frontend and .NET Framework 4.5 API on Windows Server 2012 EC2 instances to React on AWS Amplify and a .NET 10 Minimal API on Elastic Beanstalk, with SQL Server moved to RDS and SQL Agent jobs replaced by EventBridge-triggered Lambda functions and cron jobs on a small Linux instance. Now migrating the database to PostgreSQL and moving the platform toward serverless.
 - Integrated third-party software offerings with resiliency and fallback plans for critical processes, including ACH payment processing.
 - Handle everything from patient onboarding and document signing to customer support and keeping the lights on.
 
-**Technologies:** .NET Framework 4.5 → .NET 10, AngularJS → React, AWS Amplify, Elastic Beanstalk, RDS for SQL Server, EventBridge + Lambda, CloudFront, Terraform
+**Technologies:** .NET Framework 4.5 → .NET 10, AngularJS → React, SQL Server → PostgreSQL (in progress), AWS Amplify, Elastic Beanstalk, RDS, EventBridge + Lambda, Linux (cron), CloudFront, Terraform
 
 **Note:** Currently part-time, supporting new feature requests and regular software updates.
 

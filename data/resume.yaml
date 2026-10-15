@@ -2,7 +2,7 @@
 # Structure follows the JSON Resume schema (https://jsonresume.org/schema) with a few extensions:
 #   variants: [base, manager, lead]  -> limit an item to those versions (omit = all versions)
 #   tags: [...]                      -> lets a version pull matching highlights to the top
-#   summary: { default: ..., manager: ... } -> per-version wording
+#   summary / highlight text: { default: ..., manager: ... } -> per-version wording
 
 basics:
   name: Ryan Jensen
@@ -49,6 +49,10 @@ skills:
       - { name: JavaScript }
       - { name: TypeScript }
       - { name: Python }
+      - { name: HTML, variants: [base, lead] }
+      - { name: CSS / Sass / Less, variants: [base, lead] }
+      - { name: Bash, variants: [base, lead] }
+      - { name: PowerShell, variants: [base, lead] }
   - name: Backend Frameworks
     keywords:
       - { name: .NET (Core), proficient: true }
@@ -57,6 +61,8 @@ skills:
       - { name: GraphQL }
       - { name: Ktor }
       - { name: Node.js }
+      - { name: Express, variants: [base, lead] }
+      - { name: Apollo GraphQL, variants: [base, lead] }
   - name: Frontend Frameworks
     keywords:
       - { name: Blazor, proficient: true }
@@ -66,6 +72,11 @@ skills:
       - { name: Tailwind }
       - { name: WPF }
       - { name: Vue.js }
+      - { name: AngularJS, variants: [base, lead] }
+      - { name: jQuery, variants: [base, lead] }
+      - { name: RxJS, variants: [base, lead] }
+      - { name: HTMX, variants: [base, lead] }
+      - { name: Material UI, variants: [base, lead] }
   - name: DevOps / CI/CD
     keywords:
       - { name: Git, proficient: true }
@@ -74,6 +85,8 @@ skills:
       - { name: Azure DevOps, proficient: true }
       - { name: Concourse CI, proficient: true }
       - { name: Terraform, proficient: true }
+      - { name: Ansible, variants: [base, lead] }
+      - { name: Linux (cron), variants: [base, lead] }
   - name: ORM
     keywords:
       - { name: Entity Framework Core, proficient: true }
@@ -86,17 +99,48 @@ skills:
       - { name: Kubernetes }
       - { name: NuGet, proficient: true }
       - { name: npm }
+  - name: Data
+    variants: [base, lead]
+    keywords:
+      - { name: SQL Server }
+      - { name: PostgreSQL }
+      - { name: MySQL }
+      - { name: SQLite }
+      - { name: MongoDB }
+      - { name: Redis }
+      - { name: Elasticsearch }
+  - name: Build & Testing
+    variants: [base, lead]
+    keywords:
+      - { name: Gradle }
+      - { name: Maven }
+      - { name: Yarn }
+      - { name: Webpack }
+      - { name: Cypress }
+      - { name: Selenium }
+      - { name: Gherkin }
   - name: Tooling
     keywords:
       - { name: JetBrains IDEs }
       - { name: Visual Studio / VS Code }
       - { name: SSMS / SSIS }
       - { name: dbt }
+      - { name: Eclipse, variants: [base, lead] }
+      - { name: Postman, variants: [base, lead] }
+      - { name: Figma, variants: [base, lead] }
   - name: Cloud
     keywords:
       - { name: AWS, proficient: true }
       - { name: Azure, proficient: true }
       - { name: Google Cloud }
+      - { name: AWS Lambda, variants: [base, lead] }
+      - { name: EC2, variants: [base, lead] }
+      - { name: S3, variants: [base, lead] }
+      - { name: RDS, variants: [base, lead] }
+      - { name: CloudFront, variants: [base, lead] }
+      - { name: Amplify, variants: [base, lead] }
+      - { name: Elastic Beanstalk, variants: [base, lead] }
+      - { name: EventBridge, variants: [base, lead] }
   - name: Project Management
     keywords:
       - { name: Scrum, proficient: true }
@@ -164,16 +208,21 @@ work:
           Terraform, CloudFront path-based routing, and right-sized infrastructure, while improving availability,
           stability, and speed.
         tags: [architecture, cost]
-      - text: >-
-          Modernized the platform from an AngularJS frontend and .NET Framework 4.5 API on Windows Server 2012 EC2
-          instances to React on AWS Amplify and a .NET 10 Minimal API on Elastic Beanstalk, with SQL Server moved to
-          RDS and SQL Agent jobs replaced by EventBridge-triggered Lambda functions.
+      - text:
+          manager: >-
+            Modernized the platform from AngularJS and .NET Framework on Windows EC2 to React, .NET 10, and managed AWS
+            services; now migrating to PostgreSQL and moving toward serverless.
+          default: >-
+            Modernized the platform from an AngularJS frontend and .NET Framework 4.5 API on Windows Server 2012 EC2
+            instances to React on AWS Amplify and a .NET 10 Minimal API on Elastic Beanstalk, with SQL Server moved to
+            RDS and SQL Agent jobs replaced by EventBridge-triggered Lambda functions and cron jobs on a small Linux
+            instance. Now migrating the database to PostgreSQL and moving the platform toward serverless.
         tags: [architecture]
       - text: Integrated third-party software offerings with resiliency and fallback plans for critical processes, including ACH payment processing.
         tags: [architecture, vendors]
       - text: Handle everything from patient onboarding and document signing to customer support and keeping the lights on.
         variants: [base, lead]
-    technologies: [".NET Framework 4.5 → .NET 10", AngularJS → React, AWS Amplify, Elastic Beanstalk, RDS for SQL Server, EventBridge + Lambda, CloudFront, Terraform]
+    technologies: [".NET Framework 4.5 → .NET 10", AngularJS → React, SQL Server → PostgreSQL (in progress), AWS Amplify, Elastic Beanstalk, RDS, EventBridge + Lambda, Linux (cron), CloudFront, Terraform]
 
   - name: Principal Financial Group
     position: Contract Senior Software Engineer
