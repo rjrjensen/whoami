@@ -20,26 +20,46 @@ resource "cloudflare_dns_record" "site_www" {
   comment = "Vercel (managed by Terraform)"
 }
 
-# Email Routing replaces the Squarespace (Mailgun) forwarding: anything@ryanjensen.dev goes to var.email_forward_to.
-# Cloudflare adds its own MX/SPF records when routing is enabled. The destination must click a verification email once.
-resource "cloudflare_email_routing_address" "inbox" {
-  count      = var.email_forward_to == "" ? 0 : 1
-  account_id = var.cloudflare_account_id
-  email      = var.email_forward_to
-}
+# Email: ryanjensen.dev is a Google Workspace alias domain, so contact@ryanjensen.dev (and any alias) lands in
+# ryan@rjrjensen.com's inbox and Gmail can reply from it. Add the domain in Workspace Admin first; it gives
+# the verification token and DKIM key that go in terraform.tfvars.
 
-resource "cloudflare_email_routing_settings" "ryanjensen_dev" {
-  count   = var.email_forward_to == "" ? 0 : 1
-  zone_id = cloudflare_zone.ryanjensen_dev.id
-}
-
-resource "cloudflare_email_routing_catch_all" "ryanjensen_dev" {
-  count    = var.email_forward_to == "" ? 0 : 1
+resource "cloudflare_dns_record" "site_google_mx" {
+  for_each = local.google_mx
   zone_id  = cloudflare_zone.ryanjensen_dev.id
-  name     = "Forward everything"
-  enabled  = true
-  matchers = [{ type = "all" }]
-  actions  = [{ type = "forward", value = [var.email_forward_to] }]
+  name     = "ryanjensen.dev"
+  type     = "MX"
+  content  = each.key
+  priority = each.value
+  ttl      = 1
+  comment  = "Google Workspace mail (managed by Terraform)"
+}
 
-  depends_on = [cloudflare_email_routing_settings.ryanjensen_dev]
+resource "cloudflare_dns_record" "site_spf" {
+  zone_id = cloudflare_zone.ryanjensen_dev.id
+  name    = "ryanjensen.dev"
+  type    = "TXT"
+  content = "\"v=spf1 include:_spf.google.com ~all\""
+  ttl     = 1
+  comment = "Google Workspace SPF (managed by Terraform)"
+}
+
+resource "cloudflare_dns_record" "site_google_verification" {
+  count   = var.ryanjensen_dev_google_verification == "" ? 0 : 1
+  zone_id = cloudflare_zone.ryanjensen_dev.id
+  name    = "ryanjensen.dev"
+  type    = "TXT"
+  content = "\"${var.ryanjensen_dev_google_verification}\""
+  ttl     = 1
+  comment = "Google Workspace domain verification (managed by Terraform)"
+}
+
+resource "cloudflare_dns_record" "site_google_dkim" {
+  count   = var.ryanjensen_dev_google_dkim == "" ? 0 : 1
+  zone_id = cloudflare_zone.ryanjensen_dev.id
+  name    = "google._domainkey.ryanjensen.dev"
+  type    = "TXT"
+  content = var.ryanjensen_dev_google_dkim
+  ttl     = 1
+  comment = "Google Workspace DKIM (managed by Terraform)"
 }

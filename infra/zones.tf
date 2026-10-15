@@ -9,3 +9,9 @@ resource "cloudflare_zone" "rjrjensen_com" {
   name    = "rjrjensen.com"
   type    = "full"
 }
+
+resource "cloudflare_zone" "cleancodedesign_com" {
+  account = { id = var.cloudflare_account_id }
+  name    = "cleancodedesign.com"
+  type    = "full"
+}

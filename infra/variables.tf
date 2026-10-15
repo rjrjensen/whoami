@@ -6,11 +6,17 @@ variable "cloudflare_account_id" {
 variable "github_repo" {
   description = "GitHub repo that Vercel deploys from, as owner/name."
   type        = string
-  default     = "rjrjensen/ryanjensen.dev"
+  default     = "rjrjensen/whoami"
 }
 
-variable "email_forward_to" {
-  description = "Inbox that mail sent to any address at ryanjensen.dev is forwarded to. Leave empty to skip email routing."
+variable "ryanjensen_dev_google_verification" {
+  description = "TXT verification value from Google Workspace Admin when adding ryanjensen.dev as an alias domain (google-site-verification=...)."
+  type        = string
+  default     = ""
+}
+
+variable "ryanjensen_dev_google_dkim" {
+  description = "DKIM TXT value from Google Workspace Admin for ryanjensen.dev (Apps → Gmail → Authenticate email). Paste it as Google shows it."
   type        = string
   default     = ""
 }

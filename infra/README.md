@@ -1,7 +1,7 @@
 # Infrastructure
 
 Terraform manages:
-- **Cloudflare:** DNS for both domains, the rjrjensen.com → ryanjensen.dev redirect, and email forwarding for ryanjensen.dev.
+- **Cloudflare:** DNS for ryanjensen.dev, rjrjensen.com, and cleancodedesign.com; the rjrjensen.com → ryanjensen.dev redirect; and the Google Workspace mail records.
 - **Vercel:** the site project and its domains.
 
 State lives in a Cloudflare R2 bucket.
@@ -22,17 +22,15 @@ State lives in a Cloudflare R2 bucket.
 4. **Create an R2 API token** (*R2 → Manage API tokens → Create*): Object Read & Write, limited to `ryanjensen-tfstate`. Save its **Access Key ID** and **Secret Access Key**.
 5. **Create an API token for Terraform** (*My Profile → API Tokens → Create Token → Custom*) with these permissions:
    - Account · Account Settings · Read
-   - Account · Email Routing Addresses · Edit
-   - Zone · Zone · Edit (to create the two zones)
+   - Zone · Zone · Edit (to create the zones)
    - Zone · DNS · Edit
    - Zone · Single Redirect · Edit
-   - Zone · Email Routing Rules · Edit
    - Account resources: your account. Zone resources: all zones in your account.
 
 ### 2. Vercel
 
 1. Sign in at vercel.com with GitHub.
-2. Install the **Vercel GitHub app** and give it access to `rjrjensen/ryanjensen.dev`.
+2. Install the **Vercel GitHub app** and give it access to `rjrjensen/whoami`.
 3. *Account Settings → Tokens*: create a token for Terraform.
 
 ### 3. Local secrets
@@ -50,7 +48,7 @@ Then copy the two example files and fill them in:
 
 ```sh
 cp backend.hcl.example backend.hcl            # R2 endpoint with your account ID
-cp terraform.tfvars.example terraform.tfvars  # account ID + the inbox for @ryanjensen.dev mail
+cp terraform.tfvars.example terraform.tfvars  # account ID (Workspace values can wait; see below)
 ```
 
 ### 4. Apply
@@ -68,9 +66,9 @@ The output lists the **nameservers** Cloudflare assigned to each domain.
 
 Do these **in order**. Step 1 protects your Google Workspace email on rjrjensen.com.
 
-1. **Turn off DNSSEC for rjrjensen.com** at Squarespace (*Domains → rjrjensen.com → DNS → DNSSEC*). It's currently on. If the nameservers change while it's on, email and the website can break for up to a day. Wait **24 hours** after turning it off.
-2. **Switch nameservers** at Squarespace for both domains (*DNS → Nameservers → Use custom nameservers*) to the values from `terraform output nameservers`.
-3. **Wait for Cloudflare to show both zones as Active.** This usually takes under an hour and can take up to 24. Then check:
+1. **Turn off DNSSEC** at Squarespace (*Domains → [domain] → DNS → DNSSEC*). rjrjensen.com and ryanjensen.dev are done; **cleancodedesign.com still has it on**. If nameservers change while it's on, the domain can stop resolving for up to a day. Wait **24 hours** after turning it off.
+2. **Switch nameservers** at Squarespace for all three domains (*DNS → Nameservers → Use custom nameservers*) to the values from `terraform output nameservers`.
+3. **Wait for Cloudflare to show the zones as Active.** This usually takes under an hour and can take up to 24. Then check:
    - Mail still reaches you@rjrjensen.com.
    - https://rjrjensen.com redirects to https://ryanjensen.dev.
    - https://ryanjensen.dev loads.
@@ -78,10 +76,24 @@ Do these **in order**. Step 1 protects your Google Workspace email on rjrjensen.
    - Unlock each domain at Squarespace and copy its **authorization code**.
    - Paste the code in Cloudflare and pay for one year. The year is added to your current expiration.
    - Approve the transfer email from Squarespace if it arrives. Transfers finish within 5 days.
-5. **Turn DNSSEC back on** in Cloudflare for both zones (*DNS → Settings → Enable DNSSEC*). With Cloudflare as registrar, it adds the DS record automatically.
+   - **Wait until all three show as transferred** before closing your Squarespace account.
+5. **Turn DNSSEC back on** in Cloudflare for each zone (*DNS → Settings → Enable DNSSEC*). With Cloudflare as registrar, it adds the DS record automatically.
 
 ## What changes when DNS moves
 
 - **rjrjensen.com website:** it currently points at a GitHub Pages site (`rjrjensen.github.io`). After the move, it redirects to ryanjensen.dev instead.
 - **rjrjensen.com email:** no change. Google Workspace MX, SPF, and DKIM records are copied exactly. One existing TXT verification token of unknown origin is also kept.
-- **ryanjensen.dev email:** Squarespace's email forwarding, which runs on Mailgun, stops. Cloudflare Email Routing replaces it and forwards every address to `email_forward_to`. Cloudflare sends a one-time verification email to that inbox; click it.
+- **ryanjensen.dev and cleancodedesign.com email:** both had Squarespace's default forwarding records (Mailgun), with nothing set up to use them. They're dropped.
+  - ryanjensen.dev gets Google Workspace mail records (see below).
+  - cleancodedesign.com gets records that say it sends and receives no mail, so nobody can spoof it.
+- **GitHub Pages:** in the `rjrjensen.github.io` repo, go to *Settings → Pages* and remove the custom domain `www.rjrjensen.com`, or delete its `CNAME` file. After that, keep the repo, archive it, or delete it; nothing depends on it.
+
+## Email at ryanjensen.dev (Google Workspace alias domain)
+
+This makes `contact@ryanjensen.dev` (or any address you like) arrive in your ryan@rjrjensen.com inbox, and lets Gmail reply *as* that address. It costs nothing extra and needs no new inbox.
+
+1. In [Google Workspace Admin](https://admin.google.com): *Account → Domains → Manage domains → Add a domain*. Enter `ryanjensen.dev` and choose **User alias domain**.
+2. Google shows a TXT verification value (`google-site-verification=...`). Put it in `terraform.tfvars` as `ryanjensen_dev_google_verification`, run `terraform apply`, then click *Verify* in Admin. The zone must be Active in Cloudflare first.
+3. *Apps → Google Workspace → Gmail → Authenticate email*: select ryanjensen.dev and generate a DKIM key. Put the TXT value in `ryanjensen_dev_google_dkim`, `terraform apply`, then click *Start authentication*.
+4. *Directory → Users → you → Alternate email addresses*: add `contact@ryanjensen.dev`.
+5. In Gmail: *Settings → Accounts → Send mail as → Add another address*, so replies can come from contact@ryanjensen.dev.

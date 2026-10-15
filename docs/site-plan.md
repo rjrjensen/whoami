@@ -32,6 +32,50 @@ A hiring manager, recruiter, or future teammate who lands on the site can make a
 9. **Contact:** see *Contact & trusted access* below.
 10. **Admin (private):** answer skill questions from Fit Check, review reports, edit skill confirmations, approve contacts and testimonials, and track the job search (see *Job search tracker*).
 
+## About me (personal page)
+
+`/about`: who Ryan is outside work. Hiring managers hire people, and this is where the "would I enjoy working with him?" question gets answered.
+
+- **Family:** a short paragraph. Keep children's names, faces, schools, and ages off the public web; a photo from behind or at a distance tells the story without identifying them.
+- **Hobbies and interests:** each with a photo.
+- **Personal projects:** what, why, and what he learned, with links to code. These double as evidence for skills.
+- **Currently learning:** pulled from the skills radar (below). It shows growth in progress.
+- **Photos:** a handful, served through `next/image` (responsive sizes, lazy loading). Every photo needs alt text written by Ryan, and location metadata (EXIF GPS) is stripped at build time.
+
+## Skills radar (what the market wants)
+
+The goal is to keep Ryan's skills aligned with what in-demand roles ask for. Ryan learns each skill himself; the radar only says what's worth learning next.
+
+- **Sources:**
+  - every job description pasted into Fit Check
+  - every posting saved in the job search tracker
+  - a scheduled weekly search for target roles at or above the salary floor
+- **Extraction:** each posting is broken into normalized skills (e.g. "K8s" → Kubernetes) with must-have vs. nice-to-have, plus the posting's pay range when listed.
+- **Ranking:** skills are ranked by how often they appear, weighted by pay and by how closely the role matches the targets. Trends show over time (rising or falling).
+- **Comparison:** each skill is marked as one of:
+  - **Have:** demonstrated
+  - **Close:** transferable from something Ryan already knows
+  - **Gap:** not yet
+  - **Not pursuing:** Ryan has said he doesn't plan to learn it
+
+  The admin dashboard shows the top gaps as a learning backlog.
+- **Learning loop:**
+  1. Ryan marks a skill as learning and links courses, projects, or notes.
+  2. When he's done, the skill moves to demonstrated, with a personal project or job as evidence.
+  3. It then appears on the public site with that evidence.
+
+## Where data lives
+
+- **Flat files in git:** `data/*.yaml`. Everything that appears on the public site and in the resumes. Versioned, reviewable, free, and the site stays fully static and fast.
+- **Database:** Cloudflare D1 (SQLite). Everything private or fast-changing:
+  - the skill registry (Ryan's answers and evidence)
+  - Fit Check reports
+  - contact submissions
+  - testimonial submissions
+  - the job search tracker
+  - skills radar data
+- **The bridge:** when Ryan approves a change in the admin app (a confirmed skill, a new testimonial), the app opens a **pull request** against `data/*.yaml` through the GitHub API. Merging it rebuilds the site. Git stays the source of truth for public content, and every public change gets a review step.
+
 ## Contact & trusted access
 
 The phone number is never public: not on the page, and not in the site's downloadable resumes (those builds leave it out). Resumes Ryan hands out directly still include it.
@@ -167,8 +211,11 @@ Ryan wants Next.js on Vercel (marketable) and SvelteKit on Cloudflare (lightweig
 
 ## Domains
 
-- `ryanjensen.dev` → Vercel.
-- `rjrjensen.com` → 301 redirect to `ryanjensen.dev`. Only web traffic redirects. **Keep the MX/email records** so ryan@rjrjensen.com keeps working.
+All three domains are registered and served through Cloudflare, managed by Terraform in `infra/`.
+
+- **`ryanjensen.dev`:** the site, hosted on Vercel. It's also a Google Workspace alias domain, so mail to contact@ryanjensen.dev lands in Ryan's inbox.
+- **`rjrjensen.com`:** web traffic gets a 301 redirect to `ryanjensen.dev`. Google Workspace email (ryan@rjrjensen.com) is unchanged.
+- **`cleancodedesign.com`:** parked. No site, no mail, and anti-spoofing records.
 
 ## Phases
 

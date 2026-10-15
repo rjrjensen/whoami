@@ -206,7 +206,7 @@ export function ResumePage({ variant }: { variant: VariantId }) {
           </p>
           <p>
             Built with Next.js on Vercel.{" "}
-            <a href="https://github.com/rjrjensen/ryanjensen.dev" className="underline underline-offset-4 hover:text-ink">
+            <a href="https://github.com/rjrjensen/whoami" className="underline underline-offset-4 hover:text-ink">
               View the source
             </a>
             .

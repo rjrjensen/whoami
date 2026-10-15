@@ -1,3 +1,6 @@
 # Copy to terraform.tfvars (gitignored) and fill in.
 cloudflare_account_id = "your-cloudflare-account-id"
-email_forward_to      = "you@example.com"
+
+# From Google Workspace Admin after adding ryanjensen.dev as an alias domain. Leave empty until you have them.
+ryanjensen_dev_google_verification = ""
+ryanjensen_dev_google_dkim         = ""

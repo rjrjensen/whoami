@@ -1,14 +1,6 @@
 # rjrjensen.com: Google Workspace email stays exactly as it is; the website redirects to ryanjensen.dev.
 
 locals {
-  google_mx = {
-    "aspmx.l.google.com"      = 1
-    "alt1.aspmx.l.google.com" = 5
-    "alt2.aspmx.l.google.com" = 5
-    "alt3.aspmx.l.google.com" = 10
-    "alt4.aspmx.l.google.com" = 10
-  }
-
   # Copied from the Squarespace zone on 2026-10-15. The DKIM key is split into 255-character strings as published.
   google_dkim = join(" ", [
     "\"v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoM/zXcPHKbvnPXbwnTT4I9hslMxopGzUmy4wgyMvt6cMwi4v5Jg1kzeH+GiUPV9c3bSEqGOhXG0QXkr9UeYLXYPvaKGuqJWouoxNJm2KoPeM+WfMD3M+O3mZTHkUEEmktau6nunIsvC\"",
