@@ -5,10 +5,10 @@ export function Skills({ variant }: { variant: Variant }) {
     <section id="skills" aria-labelledby="skills-title" className="border-y border-line bg-surface">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
         <h2 id="skills-title" className="font-display text-4xl sm:text-5xl">
-          Skills, with receipts
+          The honest inventory
         </h2>
         <p className="mt-4 max-w-2xl text-muted">
-          Select a skill to see where I&rsquo;ve used it.{" "}
+          I wasn&rsquo;t kidding about the wild range of tech stacks. Select a skill to see where I&rsquo;ve used it.{" "}
           <span className="inline-flex items-center gap-1.5 align-middle">
             <span aria-hidden="true" className="inline-block size-2.5 rounded-full bg-signal" /> marks a skill I&rsquo;m proficient in.
           </span>

@@ -21,7 +21,7 @@ export type Job = {
 };
 export type Download = { ext: string; bytes: number };
 export type Variant = {
-  cfg: { file: string; label: string; headline: string; summary: string };
+  cfg: { file: string; label: string; headline: string; summary: string; intro: string };
   basics: {
     name: string;
     email: string;
@@ -43,6 +43,11 @@ export const site = content as unknown as {
   generatedAt: string;
   preferences: { workArrangement: string; workAuthorization: string };
   impact: { value: string; label: string }[];
+  about: {
+    tagline: string;
+    beyond: { title: string; text: string }[];
+    projects: { name: string; url: string; text: string }[];
+  };
   variants: Record<VariantId, Variant>;
 };
 

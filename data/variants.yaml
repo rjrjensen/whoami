@@ -1,5 +1,6 @@
 # Each version picks a headline and summary, and can pull tagged highlights to the top of each job.
 # Items marked `variants: [...]` in resume.yaml only appear in the versions they list.
+# `summary` goes on the resumes; `intro` is the website's more personal version, in Ryan's own voice.
 
 base:
   file: Ryan Jensen - Resume
@@ -8,6 +9,10 @@ base:
   summary: >-
     I use software to innovate, automate, and improve development and user experiences. My skills lie heavily in
     scalable, full-stack web and native applications.
+  intro: >-
+    I'm a software engineer in West Des Moines, Iowa, with a career spent building, breaking, fixing, and shipping
+    software across a wild range of tech stacks. These days I wear two hats: Software Consultant at Source Allies,
+    and the entire IT department at Patient Preferred.
 
 manager:
   file: Ryan Jensen - Software Engineering Manager
@@ -18,6 +23,11 @@ manager:
     Engineering leader with 8+ years of full-stack software experience and nearly four years supervising
     frontline teams before that. I hire, mentor, and grow engineers, own technology strategy and budgets, and
     lead delivery across .NET, JVM, and JavaScript stacks on AWS and Azure.
+  intro: >-
+    I've spent my career building, breaking, fixing, and shipping software, and these days a lot of that work is
+    about people. I've been Source Allies' #1 interviewer, mentored apprentices and interns, and run a company's
+    entire technology operation on my own. Before any of that, I ran sort crews and delivery routes at UPS, so
+    leading a team isn't new to me.
   promote: [leadership, hiring, mentoring, initiative, vendors, cost]
 
 lead:
@@ -29,4 +39,8 @@ lead:
     Full-stack engineer with 8+ years designing, modernizing, and shipping scalable systems across .NET, JVM, and
     JavaScript stacks. I lead technical delivery, architect cloud and serverless platforms, speed up CI/CD, and
     mentor the engineers around me.
+  intro: >-
+    I love the craft. I've spent 8+ years building, breaking, fixing, and shipping software across .NET, JVM, and
+    JavaScript stacks, and I'm happiest untangling the hard problem, modernizing the legacy system nobody wants to
+    touch, and bringing the rest of the team along with me.
   promote: [architecture, delivery, ai, leadership]

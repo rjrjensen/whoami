@@ -3,12 +3,14 @@ import { getVariant, site, VARIANTS, yearsOfSoftware, type VariantId } from "@/l
 import { Experience } from "./experience";
 import { Skills } from "./skills";
 import { Downloads } from "./downloads";
+import { BeyondTheCode } from "./beyond-the-code";
 import { PersonJsonLd } from "./person-json-ld";
 
 const NAV = [
   { href: "#experience", label: "Experience" },
   { href: "#skills", label: "Skills" },
   { href: "#education", label: "Education" },
+  { href: "#beyond", label: "About me" },
   { href: "#downloads", label: "Resume" },
   { href: "#contact", label: "Contact" },
 ];
@@ -87,9 +89,10 @@ export function ResumePage({ variant }: { variant: VariantId }) {
 
           <p className="hero-in font-mono text-sm uppercase tracking-[0.18em] text-signal">{basics.label}</p>
           <h1 id="hero-title" className="hero-in hero-in-2 mt-3 font-display text-6xl leading-[0.95] tracking-tight sm:text-8xl">
+            <span className="block text-3xl text-muted sm:text-4xl">Hey, I&rsquo;m</span>
             {basics.name}
           </h1>
-          <p className="hero-in hero-in-3 mt-6 max-w-3xl text-lg leading-relaxed text-muted sm:text-xl">{basics.summary}</p>
+          <p className="hero-in hero-in-3 mt-6 max-w-3xl text-lg leading-relaxed text-muted sm:text-xl">{v.cfg.intro}</p>
           <p className="hero-in hero-in-3 mt-4 max-w-3xl font-display text-2xl italic leading-snug sm:text-3xl">
             From loading trucks to leading engineering teams, I&rsquo;ve been shipping things since 2013.
           </p>
@@ -122,7 +125,7 @@ export function ResumePage({ variant }: { variant: VariantId }) {
         <section aria-labelledby="impact-title" className="border-y border-line bg-surface">
           <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
             <h2 id="impact-title" className="font-mono text-xs uppercase tracking-[0.18em] text-muted">
-              Impact, by the numbers
+              A few numbers I&rsquo;m proud of
             </h2>
             <ul className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
               {site.impact.map((s) => (
@@ -165,17 +168,20 @@ export function ResumePage({ variant }: { variant: VariantId }) {
           </div>
         </section>
 
+        <BeyondTheCode />
+
         <Downloads current={variant} />
 
         {/* Contact */}
         <section id="contact" aria-labelledby="contact-title" className="bg-accent text-accent-ink">
           <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
             <h2 id="contact-title" className="font-display text-5xl sm:text-6xl">
-              Let&rsquo;s talk.
+              Let&rsquo;s connect.
             </h2>
             <p className="mt-4 max-w-2xl text-lg opacity-90">
-              Hiring for an engineering manager or lead engineer role? Send me the job description and a little about the team. I reply
-              quickly, and I&rsquo;m happy to share my phone number once we&rsquo;ve connected.
+              I&rsquo;m always open to interesting conversations, whether it&rsquo;s a job opportunity, a collaboration, a cool open-source
+              project, or just talking shop. If you&rsquo;re hiring, send me the job description and a little about the team. I&rsquo;ll get
+              back to you quickly, and I&rsquo;m happy to share my phone number once we&rsquo;ve connected.
             </p>
             <ul className="mt-8 flex flex-wrap gap-3">
               <li>
@@ -205,7 +211,7 @@ export function ResumePage({ variant }: { variant: VariantId }) {
             © {new Date(site.generatedAt).getFullYear()} {basics.name}. Last updated {site.generatedAt}.
           </p>
           <p>
-            Built with Next.js on Vercel.{" "}
+            Built with caffeine, curiosity, and way too many <em>vertical</em> browser tabs. Next.js on Vercel.{" "}
             <a href="https://github.com/rjrjensen/whoami" className="underline underline-offset-4 hover:text-ink">
               View the source
             </a>

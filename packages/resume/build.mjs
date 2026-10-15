@@ -2,7 +2,8 @@
 //   node packages/resume/build.mjs handouts   -> dist/<version>/, includes phone (for handing out directly)
 //   node packages/resume/build.mjs site       -> apps/web/public/downloads/<version>/, no phone (public)
 // PDF conversion needs LibreOffice (`soffice`) on PATH; it's skipped with a warning if missing.
-import { writeFileSync, mkdirSync, rmSync, existsSync, statSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, statSync } from "node:fs";
+import { parse } from "yaml";
 import { execFileSync } from "node:child_process";
 import { stringify as toToml } from "smol-toml";
 import { root, variants, preferences, impact, resolve, range, educationLine } from "./resume-data.mjs";
@@ -84,7 +85,8 @@ function skillEvidence(skills, work) {
 
 rmSync(out, { recursive: true, force: true });
 const manifest = {};
-const siteContent = { generatedAt: new Date().toISOString().slice(0, 10), preferences, impact, variants: {} };
+const about = parse(readFileSync(`${root}data/about.yaml`, "utf8"));
+const siteContent = { generatedAt: new Date().toISOString().slice(0, 10), preferences, impact, about, variants: {} };
 for (const v of Object.keys(variants)) {
   const r = resolve(v, { includePhone });
   const dir = `${out}/${v}`;

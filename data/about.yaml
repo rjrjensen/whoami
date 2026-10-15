@@ -1,0 +1,29 @@
+# "Beyond the code": the personal side, in Ryan's words (adapted from his rjrjensen.github.io profile).
+tagline: Software engineer, tinkerer, and builder of things that work for a long time.
+
+beyond:
+  - title: Husband & father
+    text: >-
+      First and foremost, I'm a husband to the best, most beautiful, smart, and funny wife I could have met, and a
+      father to a wonderful, spunky, and frightfully intelligent boy. When he's awake, I try to spend as much time as
+      I can with him: watching him grow, feeding him strawberries, and playing piano together.
+  - title: Gaming
+    text: >-
+      I've always been a gamer. It's how I unwind, and honestly, it's part of what got me into software in the first
+      place. Long RPG session or something competitive, I'm always down.
+  - title: Anime
+    text: >-
+      Yeah, I watch anime. My top 10 changes every season, though One Piece is almost always number one. If you want
+      to talk about what's airing or debate subs vs. dubs, I'm your guy.
+  - title: Home lab
+    text: >-
+      I run my own home lab and love experimenting with infrastructure, self-hosting, and networking, and generally
+      seeing how things work under the hood. If it has a config file, I'm going to mess with it.
+
+projects:
+  - name: Marbles
+    url: https://github.com/rjrjensen/Marbles
+    text: >-
+      A digital version of a board game invented by my mom's side of the family. It brings out the best (and worst)
+      in everyone at family gatherings, and I've wanted to put it on a screen for years. The repo is up and waiting
+      for me to carve out the time.
