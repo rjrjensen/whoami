@@ -25,9 +25,17 @@ export function BeyondTheCode() {
             <li key={p.name} className="reveal rounded-2xl border border-line bg-surface p-6">
               <h4 className="text-lg font-semibold">{p.name}</h4>
               <p className="mt-2 leading-relaxed text-muted">{p.text}</p>
-              <a href={p.url} className="mt-4 inline-flex min-h-11 items-center font-medium text-accent underline-offset-4 hover:underline">
-                View {p.name} on GitHub<span aria-hidden="true">&nbsp;→</span>
-              </a>
+              <p className="mt-4 flex flex-wrap gap-x-6">
+                <a href={p.url} className="inline-flex min-h-11 items-center font-medium text-accent underline-offset-4 hover:underline">
+                  {p.linkLabel ?? `Visit ${p.name}`}
+                  <span aria-hidden="true">&nbsp;→</span>
+                </a>
+                {p.source && (
+                  <a href={p.source} className="inline-flex min-h-11 items-center text-muted underline-offset-4 hover:text-ink hover:underline">
+                    Source on GitHub
+                  </a>
+                )}
+              </p>
             </li>
           ))}
         </ul>

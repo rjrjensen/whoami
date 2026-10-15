@@ -36,12 +36,12 @@ export function resolve(v, { includePhone = true } = {}) {
   const work = resume.work.filter((w) => inVariant(w, v)).map((w) => ({
     ...w,
     summary: pick(w.summary, v),
-    highlights: orderHighlights((w.highlights ?? []).filter((h) => inVariant(h, v)), cfg.promote).map((h) => h.text),
+    highlights: orderHighlights((w.highlights ?? []).filter((h) => inVariant(h, v)), cfg.promote).map((h) => pick(h.text, v)),
   }));
   return {
     cfg,
     basics: { ...basics, ...(includePhone && phone ? { phone } : {}), label: cfg.headline, summary: cfg.summary },
-    skills: resume.skills.filter((s) => inVariant(s, v)),
+    skills: resume.skills.filter((s) => inVariant(s, v)).map((s) => ({ ...s, keywords: s.keywords.filter((k) => inVariant(k, v)) })),
     work,
     education: resume.education,
     certificates: resume.certificates,
