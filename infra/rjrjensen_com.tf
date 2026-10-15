@@ -1,4 +1,4 @@
-# rjrjensen.com: Google Workspace email stays exactly as it is; the website redirects to ryanjensen.dev.
+# rjrjensen.com: Google Workspace email stays exactly as it is. The website redirect is in redirects.tf.
 
 locals {
   # Copied from the Squarespace zone on 2026-10-15. The DKIM key is split into 255-character strings as published.
@@ -45,48 +45,4 @@ resource "cloudflare_dns_record" "verification" {
   content = "\"3b8nw1j0hmjk9rp7jqr816c29599kc57\""
   ttl     = 1
   comment = "Existing verification token, origin unknown; carried over from Squarespace (managed by Terraform)"
-}
-
-# Proxied placeholder records so Cloudflare receives web traffic and the redirect rule below can answer it.
-# 192.0.2.1 is a reserved documentation address; requests never reach it.
-resource "cloudflare_dns_record" "redirect_apex" {
-  zone_id = cloudflare_zone.rjrjensen_com.id
-  name    = "rjrjensen.com"
-  type    = "A"
-  content = "192.0.2.1"
-  ttl     = 1
-  proxied = true
-  comment = "Redirect placeholder (managed by Terraform)"
-}
-
-resource "cloudflare_dns_record" "redirect_www" {
-  zone_id = cloudflare_zone.rjrjensen_com.id
-  name    = "www.rjrjensen.com"
-  type    = "A"
-  content = "192.0.2.1"
-  ttl     = 1
-  proxied = true
-  comment = "Redirect placeholder (managed by Terraform)"
-}
-
-resource "cloudflare_ruleset" "redirect_to_ryanjensen_dev" {
-  zone_id = cloudflare_zone.rjrjensen_com.id
-  name    = "Redirect to ryanjensen.dev"
-  kind    = "zone"
-  phase   = "http_request_dynamic_redirect"
-
-  rules = [{
-    description = "rjrjensen.com and www → ryanjensen.dev, keeping the path and query string"
-    expression  = "(http.host in {\"rjrjensen.com\" \"www.rjrjensen.com\"})"
-    action      = "redirect"
-    action_parameters = {
-      from_value = {
-        status_code           = 301
-        preserve_query_string = true
-        target_url = {
-          expression = "concat(\"https://ryanjensen.dev\", http.request.uri.path)"
-        }
-      }
-    }
-  }]
 }

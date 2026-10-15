@@ -51,6 +51,12 @@ The goal is to keep Ryan's skills aligned with what in-demand roles ask for. Rya
   - every posting saved in the job search tracker
   - a scheduled weekly search for target roles at or above the salary floor
 - **Extraction:** each posting is broken into normalized skills (e.g. "K8s" → Kubernetes) with must-have vs. nice-to-have, plus the posting's pay range when listed.
+- **Tiers:** postings are grouped by pay, so the radar shows today's targets and the path beyond them:
+  - **Target:** at or above the salary floor
+  - **Stretch:** around the stretch goal
+  - **Aspirational:** $300k+ (e.g. Director of Engineering, Senior/Principal EM, Staff/Principal Engineer at large tech and fintech companies)
+
+  For aspirational roles, the radar also tracks **non-skill requirements**: degrees (BS/MS/MBA, required vs. preferred), years of people management, managing managers, org size, and domain experience. These surface early, since a degree takes years to earn.
 - **Ranking:** skills are ranked by how often they appear, weighted by pay and by how closely the role matches the targets. Trends show over time (rising or falling).
 - **Comparison:** each skill is marked as one of:
   - **Have:** demonstrated
@@ -73,7 +79,7 @@ The goal is to keep Ryan's skills aligned with what in-demand roles ask for. Rya
   - contact submissions
   - testimonial submissions
   - the job search tracker
-  - skills radar data
+  - the skills radar: raw postings, extracted skills and requirements, weekly snapshots for trends
 - **The bridge:** when Ryan approves a change in the admin app (a confirmed skill, a new testimonial), the app opens a **pull request** against `data/*.yaml` through the GitHub API. Merging it rebuilds the site. Git stays the source of truth for public content, and every public change gets a review step.
 
 ## Contact & trusted access
@@ -215,7 +221,7 @@ All three domains are registered and served through Cloudflare, managed by Terra
 
 - **`ryanjensen.dev`:** the site, hosted on Vercel. It's also a Google Workspace alias domain, so mail to contact@ryanjensen.dev lands in Ryan's inbox.
 - **`rjrjensen.com`:** web traffic gets a 301 redirect to `ryanjensen.dev`. Google Workspace email (ryan@rjrjensen.com) is unchanged.
-- **`cleancodedesign.com`:** parked. No site, no mail, and anti-spoofing records.
+- **`cleancodedesign.com`:** redirects to `ryanjensen.dev` for now (undecided long term). No mail, plus anti-spoofing records.
 
 ## Phases
 

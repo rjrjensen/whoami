@@ -1,5 +1,5 @@
-# cleancodedesign.com: parked. No website and no mail, so these records tell other mail servers to reject
-# anything claiming to be from this domain (stops spammers from spoofing it).
+# cleancodedesign.com: no mail, so these records tell other mail servers to reject anything claiming to be
+# from this domain (stops spammers from spoofing it). The website redirect is in redirects.tf.
 
 resource "cloudflare_dns_record" "ccd_null_mx" {
   zone_id  = cloudflare_zone.cleancodedesign_com.id

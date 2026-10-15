@@ -1,7 +1,7 @@
 # Infrastructure
 
 Terraform manages:
-- **Cloudflare:** DNS for ryanjensen.dev, rjrjensen.com, and cleancodedesign.com; the rjrjensen.com → ryanjensen.dev redirect; and the Google Workspace mail records.
+- **Cloudflare:** DNS for ryanjensen.dev, rjrjensen.com, and cleancodedesign.com; redirects from rjrjensen.com and cleancodedesign.com to ryanjensen.dev; and the Google Workspace mail records.
 - **Vercel:** the site project and its domains.
 
 State lives in a Cloudflare R2 bucket.
@@ -66,11 +66,11 @@ The output lists the **nameservers** Cloudflare assigned to each domain.
 
 Do these **in order**. Step 1 protects your Google Workspace email on rjrjensen.com.
 
-1. **Turn off DNSSEC** at Squarespace (*Domains → [domain] → DNS → DNSSEC*). rjrjensen.com and ryanjensen.dev are done; **cleancodedesign.com still has it on**. If nameservers change while it's on, the domain can stop resolving for up to a day. Wait **24 hours** after turning it off.
+1. **Turn off DNSSEC** at Squarespace (*Domains → [domain] → DNS → DNSSEC*). Done for all three domains. If nameservers change while it's on, the domain can stop resolving for up to a day. Wait **24 hours** after turning it off.
 2. **Switch nameservers** at Squarespace for all three domains (*DNS → Nameservers → Use custom nameservers*) to the values from `terraform output nameservers`.
 3. **Wait for Cloudflare to show the zones as Active.** This usually takes under an hour and can take up to 24. Then check:
    - Mail still reaches you@rjrjensen.com.
-   - https://rjrjensen.com redirects to https://ryanjensen.dev.
+   - https://rjrjensen.com and https://cleancodedesign.com redirect to https://ryanjensen.dev.
    - https://ryanjensen.dev loads.
 4. **Transfer the registrations** (Cloudflare dashboard → *Domain Registration → Transfer Domains*):
    - Unlock each domain at Squarespace and copy its **authorization code**.
@@ -85,8 +85,8 @@ Do these **in order**. Step 1 protects your Google Workspace email on rjrjensen.
 - **rjrjensen.com email:** no change. Google Workspace MX, SPF, and DKIM records are copied exactly. One existing TXT verification token of unknown origin is also kept.
 - **ryanjensen.dev and cleancodedesign.com email:** both had Squarespace's default forwarding records (Mailgun), with nothing set up to use them. They're dropped.
   - ryanjensen.dev gets Google Workspace mail records (see below).
-  - cleancodedesign.com gets records that say it sends and receives no mail, so nobody can spoof it.
-- **GitHub Pages:** in the `rjrjensen.github.io` repo, go to *Settings → Pages* and remove the custom domain `www.rjrjensen.com`, or delete its `CNAME` file. After that, keep the repo, archive it, or delete it; nothing depends on it.
+  - cleancodedesign.com gets records that say it sends and receives no mail, so nobody can spoof it. Its website redirects to ryanjensen.dev.
+- **GitHub Pages:** the custom domain is already removed from `rjrjensen.github.io`. Until the nameservers move, also delete the old Pages records at Squarespace: the four `A` records on `@` (185.199.x.x) and the `www` CNAME to `rjrjensen.github.io`. Otherwise, while they still point at GitHub with no site claiming them, someone else could attach `www.rjrjensen.com` to their own Pages site. Cloudflare's zone doesn't include them at all.
 
 ## Email at ryanjensen.dev (Google Workspace alias domain)
 
