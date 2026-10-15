@@ -83,6 +83,14 @@ function skillEvidence(skills, work) {
   return evidence;
 }
 
+// Catch text cut short by YAML (e.g. an unquoted " #" starts a comment): every summary and bullet must end in punctuation.
+for (const v of Object.keys(variants)) {
+  const r = resolve(v);
+  const texts = r.work.flatMap((w) => [w.summary, ...w.highlights, ...(w.roles ?? []).flatMap((x) => x.highlights)]).filter(Boolean);
+  const bad = texts.filter((t) => !/[.!?)]$/.test(t.trim()));
+  if (bad.length) throw new Error(`Text in data/resume.yaml looks truncated (no ending punctuation):\n  ${bad.join("\n  ")}`);
+}
+
 rmSync(out, { recursive: true, force: true });
 const manifest = {};
 const about = parse(readFileSync(`${root}data/about.yaml`, "utf8"));

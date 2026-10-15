@@ -25,24 +25,25 @@ Engineering leader with 8+ years of full-stack software experience and nearly fo
 
 _December 2024 – Present · Urbandale, IA_
 
-Delivered software consulting across 4+ client engagements spanning financial services, insurance, identity management, and enterprise web platforms. Work covered full-stack development, technical delivery leadership, coaching, and generative AI.
+Consultant across 4+ client engagements in financial services, insurance, identity management, and enterprise web, spanning full-stack development, delivery leadership, coaching, and generative AI.
 
-- Served as technical delivery lead on a data engineering engagement using SQL Server, Databricks, and dbt, with project management and coaching responsibilities.
-- Ranked #1 interviewer at Source Allies for 2025 and the first half of 2026. Interviewed 30+ candidates; about 10 were hired and are still with the company.
-- Mentored and taught the company's apprentices.
-- Bootstrapped a generative AI initiative using AWS Bedrock, Python, and Node.js.
-- Led internationalization of a client's customer-facing portal and outgoing email system, adding full English/French support using Vue I18n and Thymeleaf on a Vue.js frontend and Java/Spring Boot backend, covering both web pages and email layouts.
+- Ranked #1 interviewer for 2025 and the first half of 2026, with 30+ interviews and ~10 hires still with the company.
+- Technical delivery lead for a data engineering engagement (SQL Server, Databricks, dbt), including project management and coaching.
+- Mentor and teach the company's apprentices.
+- Bootstrapped a generative AI initiative on AWS Bedrock.
+- Led English/French internationalization of a client's customer portal and outgoing email (Vue I18n, Thymeleaf, Spring Boot).
+- Reworked the frontend of a high-traffic identity-management application.
 
-**Technologies:** Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS, AWS Bedrock, Azure, SQL Server, Databricks, dbt
+**Technologies:** Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt
 
 ### Fractional CTO — Patient Preferred Financial Services
 
 _November 2021 – Present · Remote_
 
-The company's sole developer and IT person for its clinic payment and patient management platform, inherited from a larger development team. Report directly to leadership and own technology strategy and roadmap, budget and vendor selection, and security and compliance. Partner closely with teams at the company's software vendors, including DataX, ACHeck, and Web.com.
+Took over a clinic payment and patient-management platform from a larger development team and run it solo, reporting to leadership. Own technology strategy, budget, vendor relationships (DataX, ACHeck, Web.com), and security and compliance.
 
-- Integrated third-party software offerings with resiliency and fallback plans for critical processes, including ACH payment processing.
-- Cut monthly AWS costs ~91%, from ~$1,400 to ~$120, over three years of incremental modernization with Terraform, CloudFront path-based routing, and right-sized infrastructure, while improving availability, stability, and speed.
+- Built resiliency and fallback plans into critical third-party integrations, including ACH payments.
+- Cut monthly AWS costs ~91% (~$1,400 → ~$120) over three years while improving availability, stability, and speed.
 - Modernized the platform from an AngularJS frontend, .NET Framework API, and SQL Server with SQL Jobs on Windows Server 2012 EC2 instances to SSR Next.js on AWS via OpenNext, modern .NET Minimal APIs on AWS Lambda, PostgreSQL on AWS RDS, and crontab on a nano Linux instance.
 
 **Technologies:** .NET Framework 4.5 → .NET 10, AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform
@@ -53,66 +54,69 @@ The company's sole developer and IT person for its clinic payment and patient ma
 
 _June 2024 – December 2024 · Des Moines, IA (Remote)_
 
-Upgraded legacy .NET applications and set up CI/CD pipelines using GitHub Actions. Supported the team on migrations from on-prem to AWS, including Lambda for serverless applications and SNS for pub/sub messaging. Reduced build times in existing pipelines by at least 80% to improve developer experience and tighten feedback loops.
+Modernized legacy .NET applications and the pipelines that ship them.
+
+- Cut build times in existing pipelines by 80%+, tightening developer feedback loops.
+- Set up CI/CD in GitHub Actions and supported on-prem-to-AWS migrations using Lambda and SNS.
 
 ### Software Engineer 3 — Wellabe, Inc.
 
 _July 2022 – June 2024 · Des Moines, IA_
 
-Led several small teams rewriting parts or all of applications to unify the company tech stack, adopt modern frameworks and tooling, and optimize the performance of legacy software. Migrated older WPF desktop apps to Blazor web apps. Supported and improved daily business-critical batch programs. Reengineered CI/CD processes to increase developer throughput and added requirements to encourage test coverage. Built a department wiki to centralize company, department, and team documentation. Served as senior engineering mentor to 7 junior and mid-level engineers.
+Led small teams modernizing the company's software and unifying its tech stack.
 
-- Led the team that owned the company's main revenue-generating software product, delivering features on request.
-- Responsible for every engineer on the team: trained them, answered their questions, and paired with each intern for their entire internship.
+- Led the team that owned the company's main revenue-generating product, training and supporting every engineer on it.
+- Mentored 7 junior and mid-level engineers and paired with each intern for their entire internship.
+- Migrated WPF desktop apps to Blazor web apps and improved the performance of legacy software.
+- Reengineered CI/CD to increase developer throughput and added test-coverage requirements.
+- Improved business-critical daily batch programs and built a department wiki to centralize documentation.
 
 ### Contract Senior Software Developer — Far Reach Inc.
 
 _March 2022 – June 2022 · Contract via Modis_
 
-Consulted on a homegrown ERP system. Implemented full-stack features and changes using Angular, RxJS, .NET, and SQL Server on a hosted Azure instance. Accelerated development using ASP.NET Boilerplate, PrimeNG, and Bootstrap.
+Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap.
 
 ### Software Engineer — Hy-Vee, Inc.
 
 _October 2019 – March 2022_
 
-Led an effort to migrate widely used code libraries from a file share to a GitHub repository with a full CI/CD pipeline, cloud artifact storage, and automated test suites. Leveraged existing CI/CD technologies to cut pipeline build times by at least 50%. Legacy applications were primarily .NET (mixed C# and VB) with WinForms frontends. Greenfield applications were built with React and RxJS on a backend of Kotlin, Spring Boot, Ktor, and GraphQL, federated into a supergraph with Apollo Federation and hosted on Google Cloud.
+Worked across legacy .NET and WinForms applications and greenfield React, Kotlin, Spring Boot, Ktor, and GraphQL services, federated with Apollo on Google Cloud.
 
-- Served on a task force that built a Tax API to manage tax values for retail products at every Hy-Vee location (roughly 280 grocery stores and 175 convenience stores at the time).
-- Solved the problem of loading millions of tax records onto the servers of newly built stores: data went out in batches, with a check after each batch to confirm every item was accounted for.
-- Used a pub/sub architecture to release new tax values to all stores.
+- Led the move of widely used shared libraries from a file share to GitHub, with CI/CD, artifact storage, and automated tests.
+- Helped build a Tax API on a task force, managing product tax values for 450+ grocery and convenience stores and publishing updates to every store over pub/sub.
+- Seeded new stores with millions of tax records in batches, with a check after each batch that every item was accounted for.
+- Cut CI/CD build times by 50%+.
 
 ### Software Developer — Stine Seed, Inc.
 
 _May 2019 – October 2019 · Dallas Center, IA_
 
-Developed features for employee-facing portals used to manage seed production, packaging, and sales. Maintained a tight feedback loop with users as implementations were deployed and tested. Used Angular for the frontend and .NET Core for the backend, with CI/CD handled through custom Azure DevOps processes I built.
+Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core), set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.
 
 ### Associate .NET Developer — Brownells, Inc.
 
 _January 2018 – April 2019 · Grinnell, IA_
 
-Integrated a new third-party ERP offering with existing WMS and POS systems. Constructed message pathways and failover processes in a pub/sub architecture between all systems. The frontend was built with Razor Pages, jQuery, AJAX, and Bootstrap; the backend used .NET Framework ASP.NET APIs, with a message bus built on IBM MQ.
+Integrated a new third-party ERP with existing WMS and POS systems, building pub/sub message pathways and failover on IBM MQ, with a Razor Pages, jQuery, and Bootstrap frontend on .NET Framework APIs.
 
 ### Package Handler → Local Sort Supervisor → Package Center Supervisor — UPS
 
 _March 2013 – December 2017 · Ames, IA_
 
-Promoted twice, from package handler to Package Center Supervisor. Supervised 30+ drivers and 40+ inside employees, holding workgroups accountable for safety, production, and attendance. Personally trained more than half of them and kept their certifications current.
+Promoted twice in two years. Supervised 30+ drivers and 40+ inside employees on safety, production, and attendance, and personally trained more than half of them.
 
 **Package Center Supervisor** (March 2015 – December 2017)
 
-- Oversaw all delivery drivers during the day, supporting their needs, keeping every route running smoothly, and handling emergencies.
-- Tracked operational data including fuel usage, time card accuracy, and a continually updated map of the delivery region.
+- Ran daytime delivery operations for every driver: kept routes on track, handled emergencies, and tracked fuel use, time-card accuracy, and the delivery-area map.
 
 **Local Sort Supervisor** (March 2014 – March 2015)
 
-- Ran the evening local sort, ensuring packages from 30+ package cars were unloaded and sorted into five outbound trailers, with small packages separated and bagged.
-- Handled training, terminations, and other personnel management for the sort crew.
+- Ran the evening sort of 30+ package cars into five outbound trailers, and handled training, certifications, terminations, and personnel management.
 
 **Package Handler** (March 2013 – March 2014)
 
-- Loaded and unloaded trucks.
-- Moved into international package processing, verifying packages met requirements to ship internationally by air or freight.
-- Trained in hazardous materials handling, classification, and proper shipping.
+- Loaded and unloaded trucks, then processed international shipments for air and freight; trained in hazardous-materials handling and classification.
 
 ## Education & Certifications
 

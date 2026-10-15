@@ -27,8 +27,8 @@ name = "Source Allies"
 position = "Software Consultant"
 location = "Urbandale, IA"
 startDate = "2024-12"
-summary = "Delivered software consulting across 4+ client engagements spanning financial services, insurance, identity management, and enterprise web platforms. Work covered full-stack development, technical delivery leadership, coaching, and generative AI.\n\nTechnologies: Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS, AWS Bedrock, Azure, SQL Server, Databricks, dbt"
-highlights = [ "Served as technical delivery lead on a data engineering engagement using SQL Server, Databricks, and dbt, with project management and coaching responsibilities.", "Ranked #1 interviewer at Source Allies for 2025 and the first half of 2026. Interviewed 30+ candidates; about 10 were hired and are still with the company.", "Mentored and taught the company's apprentices.", "Bootstrapped a generative AI initiative using AWS Bedrock, Python, and Node.js.", "Led internationalization of a client's customer-facing portal and outgoing email system, adding full English/French support using Vue I18n and Thymeleaf on a Vue.js frontend and Java/Spring Boot backend, covering both web pages and email layouts." ]
+summary = "Consultant across 4+ client engagements in financial services, insurance, identity management, and enterprise web, spanning full-stack development, delivery leadership, coaching, and generative AI.\n\nTechnologies: Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt"
+highlights = [ "Ranked #1 interviewer for 2025 and the first half of 2026, with 30+ interviews and ~10 hires still with the company.", "Technical delivery lead for a data engineering engagement (SQL Server, Databricks, dbt), including project management and coaching.", "Mentor and teach the company's apprentices.", "Bootstrapped a generative AI initiative on AWS Bedrock.", "Led English/French internationalization of a client's customer portal and outgoing email (Vue I18n, Thymeleaf, Spring Boot).", "Reworked the frontend of a high-traffic identity-management application." ]
 
 [[work]]
 name = "Patient Preferred Financial Services"
@@ -36,8 +36,8 @@ url = "https://patientpreferredservices.com"
 position = "Fractional CTO"
 location = "Remote"
 startDate = "2021-11"
-summary = "The company's sole developer and IT person for its clinic payment and patient management platform, inherited from a larger development team. Report directly to leadership and own technology strategy and roadmap, budget and vendor selection, and security and compliance. Partner closely with teams at the company's software vendors, including DataX, ACHeck, and Web.com.\n\nTechnologies: .NET Framework 4.5 → .NET 10, AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform"
-highlights = [ "Integrated third-party software offerings with resiliency and fallback plans for critical processes, including ACH payment processing.", "Cut monthly AWS costs ~91%, from ~$1,400 to ~$120, over three years of incremental modernization with Terraform, CloudFront path-based routing, and right-sized infrastructure, while improving availability, stability, and speed.", "Modernized the platform from an AngularJS frontend, .NET Framework API, and SQL Server with SQL Jobs on Windows Server 2012 EC2 instances to SSR Next.js on AWS via OpenNext, modern .NET Minimal APIs on AWS Lambda, PostgreSQL on AWS RDS, and crontab on a nano Linux instance." ]
+summary = "Took over a clinic payment and patient-management platform from a larger development team and run it solo, reporting to leadership. Own technology strategy, budget, vendor relationships (DataX, ACHeck, Web.com), and security and compliance.\n\nTechnologies: .NET Framework 4.5 → .NET 10, AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform"
+highlights = [ "Built resiliency and fallback plans into critical third-party integrations, including ACH payments.", "Cut monthly AWS costs ~91% (~$1,400 → ~$120) over three years while improving availability, stability, and speed.", "Modernized the platform from an AngularJS frontend, .NET Framework API, and SQL Server with SQL Jobs on Windows Server 2012 EC2 instances to SSR Next.js on AWS via OpenNext, modern .NET Minimal APIs on AWS Lambda, PostgreSQL on AWS RDS, and crontab on a nano Linux instance." ]
 
 [[work]]
 name = "Principal Financial Group"
@@ -45,8 +45,8 @@ position = "Contract Senior Software Engineer"
 location = "Des Moines, IA (Remote)"
 startDate = "2024-06"
 endDate = "2024-12"
-summary = "Upgraded legacy .NET applications and set up CI/CD pipelines using GitHub Actions. Supported the team on migrations from on-prem to AWS, including Lambda for serverless applications and SNS for pub/sub messaging. Reduced build times in existing pipelines by at least 80% to improve developer experience and tighten feedback loops."
-highlights = []
+summary = "Modernized legacy .NET applications and the pipelines that ship them."
+highlights = [ "Cut build times in existing pipelines by 80%+, tightening developer feedback loops.", "Set up CI/CD in GitHub Actions and supported on-prem-to-AWS migrations using Lambda and SNS." ]
 
 [[work]]
 name = "Wellabe, Inc."
@@ -54,15 +54,15 @@ position = "Software Engineer 3"
 location = "Des Moines, IA"
 startDate = "2022-07"
 endDate = "2024-06"
-summary = "Led several small teams rewriting parts or all of applications to unify the company tech stack, adopt modern frameworks and tooling, and optimize the performance of legacy software. Migrated older WPF desktop apps to Blazor web apps. Supported and improved daily business-critical batch programs. Reengineered CI/CD processes to increase developer throughput and added requirements to encourage test coverage. Built a department wiki to centralize company, department, and team documentation. Served as senior engineering mentor to 7 junior and mid-level engineers."
-highlights = [ "Led the team that owned the company's main revenue-generating software product, delivering features on request.", "Responsible for every engineer on the team: trained them, answered their questions, and paired with each intern for their entire internship." ]
+summary = "Led small teams modernizing the company's software and unifying its tech stack."
+highlights = [ "Led the team that owned the company's main revenue-generating product, training and supporting every engineer on it.", "Mentored 7 junior and mid-level engineers and paired with each intern for their entire internship.", "Migrated WPF desktop apps to Blazor web apps and improved the performance of legacy software.", "Reengineered CI/CD to increase developer throughput and added test-coverage requirements.", "Improved business-critical daily batch programs and built a department wiki to centralize documentation." ]
 
 [[work]]
 name = "Far Reach Inc."
 position = "Contract Senior Software Developer"
 startDate = "2022-03"
 endDate = "2022-06"
-summary = "Consulted on a homegrown ERP system. Implemented full-stack features and changes using Angular, RxJS, .NET, and SQL Server on a hosted Azure instance. Accelerated development using ASP.NET Boilerplate, PrimeNG, and Bootstrap."
+summary = "Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap."
 highlights = []
 
 [[work]]
@@ -70,8 +70,8 @@ name = "Hy-Vee, Inc."
 position = "Software Engineer"
 startDate = "2019-10"
 endDate = "2022-03"
-summary = "Led an effort to migrate widely used code libraries from a file share to a GitHub repository with a full CI/CD pipeline, cloud artifact storage, and automated test suites. Leveraged existing CI/CD technologies to cut pipeline build times by at least 50%. Legacy applications were primarily .NET (mixed C# and VB) with WinForms frontends. Greenfield applications were built with React and RxJS on a backend of Kotlin, Spring Boot, Ktor, and GraphQL, federated into a supergraph with Apollo Federation and hosted on Google Cloud."
-highlights = [ "Served on a task force that built a Tax API to manage tax values for retail products at every Hy-Vee location (roughly 280 grocery stores and 175 convenience stores at the time).", "Solved the problem of loading millions of tax records onto the servers of newly built stores: data went out in batches, with a check after each batch to confirm every item was accounted for.", "Used a pub/sub architecture to release new tax values to all stores." ]
+summary = "Worked across legacy .NET and WinForms applications and greenfield React, Kotlin, Spring Boot, Ktor, and GraphQL services, federated with Apollo on Google Cloud."
+highlights = [ "Led the move of widely used shared libraries from a file share to GitHub, with CI/CD, artifact storage, and automated tests.", "Helped build a Tax API on a task force, managing product tax values for 450+ grocery and convenience stores and publishing updates to every store over pub/sub.", "Seeded new stores with millions of tax records in batches, with a check after each batch that every item was accounted for.", "Cut CI/CD build times by 50%+." ]
 
 [[work]]
 name = "Stine Seed, Inc."
@@ -79,7 +79,7 @@ position = "Software Developer"
 location = "Dallas Center, IA"
 startDate = "2019-05"
 endDate = "2019-10"
-summary = "Developed features for employee-facing portals used to manage seed production, packaging, and sales. Maintained a tight feedback loop with users as implementations were deployed and tested. Used Angular for the frontend and .NET Core for the backend, with CI/CD handled through custom Azure DevOps processes I built."
+summary = "Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core), set up CI/CD in Azure DevOps, and kept a tight feedback loop with users."
 highlights = []
 
 [[work]]
@@ -88,7 +88,7 @@ position = "Associate .NET Developer"
 location = "Grinnell, IA"
 startDate = "2018-01"
 endDate = "2019-04"
-summary = "Integrated a new third-party ERP offering with existing WMS and POS systems. Constructed message pathways and failover processes in a pub/sub architecture between all systems. The frontend was built with Razor Pages, jQuery, AJAX, and Bootstrap; the backend used .NET Framework ASP.NET APIs, with a message bus built on IBM MQ."
+summary = "Integrated a new third-party ERP with existing WMS and POS systems, building pub/sub message pathways and failover on IBM MQ, with a Razor Pages, jQuery, and Bootstrap frontend on .NET Framework APIs."
 highlights = []
 
 [[work]]
@@ -97,8 +97,8 @@ position = "Package Handler → Local Sort Supervisor → Package Center Supervi
 location = "Ames, IA"
 startDate = "2013-03"
 endDate = "2017-12"
-summary = "Promoted twice, from package handler to Package Center Supervisor. Supervised 30+ drivers and 40+ inside employees, holding workgroups accountable for safety, production, and attendance. Personally trained more than half of them and kept their certifications current."
-highlights = [ "Package Center Supervisor: Oversaw all delivery drivers during the day, supporting their needs, keeping every route running smoothly, and handling emergencies.", "Package Center Supervisor: Tracked operational data including fuel usage, time card accuracy, and a continually updated map of the delivery region.", "Local Sort Supervisor: Ran the evening local sort, ensuring packages from 30+ package cars were unloaded and sorted into five outbound trailers, with small packages separated and bagged.", "Local Sort Supervisor: Handled training, terminations, and other personnel management for the sort crew.", "Package Handler: Loaded and unloaded trucks.", "Package Handler: Moved into international package processing, verifying packages met requirements to ship internationally by air or freight.", "Package Handler: Trained in hazardous materials handling, classification, and proper shipping." ]
+summary = "Promoted twice in two years. Supervised 30+ drivers and 40+ inside employees on safety, production, and attendance, and personally trained more than half of them."
+highlights = [ "Package Center Supervisor: Ran daytime delivery operations for every driver: kept routes on track, handled emergencies, and tracked fuel use, time-card accuracy, and the delivery-area map.", "Local Sort Supervisor: Ran the evening sort of 30+ package cars into five outbound trailers, and handled training, certifications, terminations, and personnel management.", "Package Handler: Loaded and unloaded trucks, then processed international shipments for air and freight; trained in hazardous-materials handling and classification." ]
 
 [[education]]
 institution = "Trident University International"
