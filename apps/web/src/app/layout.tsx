@@ -12,7 +12,7 @@ const base = site.variants.base;
 export const metadata: Metadata = {
   metadataBase: new URL(base.basics.url),
   title: { default: `${base.basics.name}: Engineering Leader & Software Engineer`, template: `%s · ${base.basics.name}` },
-  description: base.cfg.summary,
+  description: site.about.tagline,
   authors: [{ name: base.basics.name, url: base.basics.url }],
   openGraph: { type: "profile", siteName: base.basics.name, locale: "en_US" },
   twitter: { card: "summary_large_image" },

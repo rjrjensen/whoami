@@ -39,13 +39,13 @@ Delivered software consulting across 4+ client engagements spanning financial se
 
 _November 2021 – Present · Remote_
 
-The company's sole technology owner, reporting directly to leadership. Own technology strategy and roadmap, budget and vendor selection, and security and compliance. Partner closely with teams at the company's software vendors, including DataX, ACHeck, and Web.com.
+The company's sole developer and IT person for its clinic payment and patient management platform, inherited from a larger development team. Report directly to leadership and own technology strategy and roadmap, budget and vendor selection, and security and compliance. Partner closely with teams at the company's software vendors, including DataX, ACHeck, and Web.com.
 
-- Integrated third-party software offerings with resiliency and fallback plans for critical processes.
-- Architected the next phase of the company's systems from the ground up: migrated the frontend from AngularJS to React, and the backend from an ASP.NET API to an ASP.NET Core API with satellite serverless modules, all moved off Windows VMs in AWS. The entire system now runs on AWS serverless products, lowering costs by ~75% and maximizing scalability.
-- Implemented solutions that minimize cost and automate repetitive tasks.
+- Integrated third-party software offerings with resiliency and fallback plans for critical processes, including ACH payment processing.
+- Cut monthly AWS costs ~91%, from ~$1,400 to ~$120, over three years of incremental modernization with Terraform, CloudFront path-based routing, and right-sized infrastructure, while improving availability, stability, and speed.
+- Modernized the platform from an AngularJS frontend and .NET Framework 4.5 API on Windows Server 2012 EC2 instances to React on AWS Amplify and a .NET 10 Minimal API on Elastic Beanstalk, with SQL Server moved to RDS and SQL Agent jobs replaced by EventBridge-triggered Lambda functions.
 
-**Technologies:** .NET Framework → modern .NET, AngularJS → React, Microsoft SQL Server → PostgreSQL, AWS Serverless, Terraform
+**Technologies:** .NET Framework 4.5 → .NET 10, AngularJS → React, AWS Amplify, Elastic Beanstalk, RDS for SQL Server, EventBridge + Lambda, CloudFront, Terraform
 
 **Note:** Currently part-time, supporting new feature requests and regular software updates.
 

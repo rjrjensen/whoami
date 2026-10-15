@@ -16,7 +16,7 @@ export default function Image() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 120, lineHeight: 1, fontFamily: "serif" }}>{basics.name}</div>
           <div style={{ marginTop: 28, fontSize: 36, color: "#a5afb9", maxWidth: 950 }}>
-            From loading trucks to leading engineering teams. Shipping things since 2013.
+            Builder of things that work for a long time. Shipping things since 2013.
           </div>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 18, fontSize: 30, color: "#63d2c8" }}>

@@ -6,8 +6,8 @@
   },
   "impact": [
     {
-      "value": "~75%",
-      "label": "lower infrastructure costs after moving Patient Preferred to AWS serverless"
+      "value": "91%",
+      "label": "lower monthly AWS costs at Patient Preferred, from ~$1,400 to ~$120"
     },
     {
       "value": "80%+",
@@ -26,13 +26,42 @@
       "label": "Hy-Vee grocery and convenience stores served by the Tax API"
     }
   ],
+  "about": {
+    "tagline": "Software engineer, tinkerer, and builder of things that work for a long time.",
+    "beyond": [
+      {
+        "title": "Husband & father",
+        "text": "First and foremost, I'm a husband to the best, most beautiful, smart, and funny wife I could have met, and a father to a wonderful, spunky, and frightfully intelligent boy. When he's awake, I try to spend as much time as I can with him: watching him grow, feeding him strawberries, and playing piano together."
+      },
+      {
+        "title": "Gaming",
+        "text": "I've always been a gamer. It's how I unwind, and honestly, it's part of what got me into software in the first place. Long RPG session or something competitive, I'm always down."
+      },
+      {
+        "title": "Anime",
+        "text": "Yeah, I watch anime. My top 10 changes every season, though One Piece is almost always number one. If you want to talk about what's airing or debate subs vs. dubs, I'm your guy."
+      },
+      {
+        "title": "Home lab",
+        "text": "I run my own home lab and love experimenting with infrastructure, self-hosting, and networking, and generally seeing how things work under the hood. If it has a config file, I'm going to mess with it."
+      }
+    ],
+    "projects": [
+      {
+        "name": "Marbles",
+        "url": "https://github.com/rjrjensen/Marbles",
+        "text": "A digital version of a board game invented by my mom's side of the family. It brings out the best (and worst) in everyone at family gatherings, and I've wanted to put it on a screen for years. The repo is up and waiting for me to carve out the time."
+      }
+    ]
+  },
   "variants": {
     "base": {
       "cfg": {
         "file": "Ryan Jensen - Resume",
         "label": "Complete",
         "headline": "Software Engineer & Technology Leader",
-        "summary": "I use software to innovate, automate, and improve development and user experiences. My skills lie heavily in scalable, full-stack web and native applications."
+        "summary": "I use software to innovate, automate, and improve development and user experiences. My skills lie heavily in scalable, full-stack web and native applications.",
+        "intro": "I'm a software engineer in West Des Moines, Iowa, with a career spent building, breaking, fixing, and shipping software across a wild range of tech stacks. These days I wear two hats: Software Consultant at Source Allies, and the entire IT department at Patient Preferred."
       },
       "basics": {
         "name": "Ryan Jensen",
@@ -328,17 +357,21 @@
           "location": "Remote",
           "startDate": "2021-11",
           "note": "Currently part-time, supporting new feature requests and regular software updates.",
-          "summary": "The company's sole technology owner, reporting directly to leadership. Own technology strategy and roadmap, budget and vendor selection, and security and compliance. Partner closely with teams at the company's software vendors, including DataX, ACHeck, and Web.com.",
+          "summary": "The company's sole developer and IT person for its clinic payment and patient management platform, inherited from a larger development team. Report directly to leadership and own technology strategy and roadmap, budget and vendor selection, and security and compliance. Partner closely with teams at the company's software vendors, including DataX, ACHeck, and Web.com.",
           "highlights": [
-            "Architected the next phase of the company's systems from the ground up: migrated the frontend from AngularJS to React, and the backend from an ASP.NET API to an ASP.NET Core API with satellite serverless modules, all moved off Windows VMs in AWS. The entire system now runs on AWS serverless products, lowering costs by ~75% and maximizing scalability.",
-            "Implemented solutions that minimize cost and automate repetitive tasks.",
-            "Integrated third-party software offerings with resiliency and fallback plans for critical processes."
+            "Cut monthly AWS costs ~91%, from ~$1,400 to ~$120, over three years of incremental modernization with Terraform, CloudFront path-based routing, and right-sized infrastructure, while improving availability, stability, and speed.",
+            "Modernized the platform from an AngularJS frontend and .NET Framework 4.5 API on Windows Server 2012 EC2 instances to React on AWS Amplify and a .NET 10 Minimal API on Elastic Beanstalk, with SQL Server moved to RDS and SQL Agent jobs replaced by EventBridge-triggered Lambda functions.",
+            "Integrated third-party software offerings with resiliency and fallback plans for critical processes, including ACH payment processing.",
+            "Handle everything from patient onboarding and document signing to customer support and keeping the lights on."
           ],
           "technologies": [
-            ".NET Framework → modern .NET",
+            ".NET Framework 4.5 → .NET 10",
             "AngularJS → React",
-            "Microsoft SQL Server → PostgreSQL",
-            "AWS Serverless",
+            "AWS Amplify",
+            "Elastic Beanstalk",
+            "RDS for SQL Server",
+            "EventBridge + Lambda",
+            "CloudFront",
             "Terraform"
           ]
         },
@@ -614,23 +647,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 136420
+            "bytes": 138401
           },
           {
             "ext": "docx",
-            "bytes": 14821
+            "bytes": 14997
           },
           {
             "ext": "md",
-            "bytes": 9193
+            "bytes": 9566
           },
           {
             "ext": "json",
-            "bytes": 12217
+            "bytes": 12599
           },
           {
             "ext": "toml",
-            "bytes": 10514
+            "bytes": 10888
           }
         ]
       }
@@ -641,6 +674,7 @@
         "label": "Engineering Manager",
         "headline": "Software Engineering Manager",
         "summary": "Engineering leader with 8+ years of full-stack software experience and nearly four years supervising frontline teams before that. I hire, mentor, and grow engineers, own technology strategy and budgets, and lead delivery across .NET, JVM, and JavaScript stacks on AWS and Azure.",
+        "intro": "I've spent my career building, breaking, fixing, and shipping software, and these days a lot of that work is about people. I've been Source Allies' #1 interviewer, mentored apprentices and interns, and run a company's entire technology operation on my own. Before any of that, I ran sort crews and delivery routes at UPS, so leading a team isn't new to me.",
         "promote": [
           "leadership",
           "hiring",
@@ -942,17 +976,20 @@
           "location": "Remote",
           "startDate": "2021-11",
           "note": "Currently part-time, supporting new feature requests and regular software updates.",
-          "summary": "The company's sole technology owner, reporting directly to leadership. Own technology strategy and roadmap, budget and vendor selection, and security and compliance. Partner closely with teams at the company's software vendors, including DataX, ACHeck, and Web.com.",
+          "summary": "The company's sole developer and IT person for its clinic payment and patient management platform, inherited from a larger development team. Report directly to leadership and own technology strategy and roadmap, budget and vendor selection, and security and compliance. Partner closely with teams at the company's software vendors, including DataX, ACHeck, and Web.com.",
           "highlights": [
-            "Integrated third-party software offerings with resiliency and fallback plans for critical processes.",
-            "Architected the next phase of the company's systems from the ground up: migrated the frontend from AngularJS to React, and the backend from an ASP.NET API to an ASP.NET Core API with satellite serverless modules, all moved off Windows VMs in AWS. The entire system now runs on AWS serverless products, lowering costs by ~75% and maximizing scalability.",
-            "Implemented solutions that minimize cost and automate repetitive tasks."
+            "Integrated third-party software offerings with resiliency and fallback plans for critical processes, including ACH payment processing.",
+            "Cut monthly AWS costs ~91%, from ~$1,400 to ~$120, over three years of incremental modernization with Terraform, CloudFront path-based routing, and right-sized infrastructure, while improving availability, stability, and speed.",
+            "Modernized the platform from an AngularJS frontend and .NET Framework 4.5 API on Windows Server 2012 EC2 instances to React on AWS Amplify and a .NET 10 Minimal API on Elastic Beanstalk, with SQL Server moved to RDS and SQL Agent jobs replaced by EventBridge-triggered Lambda functions."
           ],
           "technologies": [
-            ".NET Framework → modern .NET",
+            ".NET Framework 4.5 → .NET 10",
             "AngularJS → React",
-            "Microsoft SQL Server → PostgreSQL",
-            "AWS Serverless",
+            "AWS Amplify",
+            "Elastic Beanstalk",
+            "RDS for SQL Server",
+            "EventBridge + Lambda",
+            "CloudFront",
             "Terraform"
           ]
         },
@@ -1228,23 +1265,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 134153
+            "bytes": 135105
           },
           {
             "ext": "docx",
-            "bytes": 14749
+            "bytes": 14869
           },
           {
             "ext": "md",
-            "bytes": 9056
+            "bytes": 9317
           },
           {
             "ext": "json",
-            "bytes": 12062
+            "bytes": 12323
           },
           {
             "ext": "toml",
-            "bytes": 10375
+            "bytes": 10636
           }
         ]
       }
@@ -1255,6 +1292,7 @@
         "label": "Lead Software Engineer",
         "headline": "Lead Software Engineer",
         "summary": "Full-stack engineer with 8+ years designing, modernizing, and shipping scalable systems across .NET, JVM, and JavaScript stacks. I lead technical delivery, architect cloud and serverless platforms, speed up CI/CD, and mentor the engineers around me.",
+        "intro": "I love the craft. I've spent 8+ years building, breaking, fixing, and shipping software across .NET, JVM, and JavaScript stacks, and I'm happiest untangling the hard problem, modernizing the legacy system nobody wants to touch, and bringing the rest of the team along with me.",
         "promote": [
           "architecture",
           "delivery",
@@ -1532,17 +1570,21 @@
           "location": "Remote",
           "startDate": "2021-11",
           "note": "Currently part-time, supporting new feature requests and regular software updates.",
-          "summary": "The company's sole technology owner, reporting directly to leadership. Own technology strategy and roadmap, budget and vendor selection, and security and compliance. Partner closely with teams at the company's software vendors, including DataX, ACHeck, and Web.com.",
+          "summary": "The company's sole developer and IT person for its clinic payment and patient management platform, inherited from a larger development team. Report directly to leadership and own technology strategy and roadmap, budget and vendor selection, and security and compliance. Partner closely with teams at the company's software vendors, including DataX, ACHeck, and Web.com.",
           "highlights": [
-            "Architected the next phase of the company's systems from the ground up: migrated the frontend from AngularJS to React, and the backend from an ASP.NET API to an ASP.NET Core API with satellite serverless modules, all moved off Windows VMs in AWS. The entire system now runs on AWS serverless products, lowering costs by ~75% and maximizing scalability.",
-            "Integrated third-party software offerings with resiliency and fallback plans for critical processes.",
-            "Implemented solutions that minimize cost and automate repetitive tasks."
+            "Cut monthly AWS costs ~91%, from ~$1,400 to ~$120, over three years of incremental modernization with Terraform, CloudFront path-based routing, and right-sized infrastructure, while improving availability, stability, and speed.",
+            "Modernized the platform from an AngularJS frontend and .NET Framework 4.5 API on Windows Server 2012 EC2 instances to React on AWS Amplify and a .NET 10 Minimal API on Elastic Beanstalk, with SQL Server moved to RDS and SQL Agent jobs replaced by EventBridge-triggered Lambda functions.",
+            "Integrated third-party software offerings with resiliency and fallback plans for critical processes, including ACH payment processing.",
+            "Handle everything from patient onboarding and document signing to customer support and keeping the lights on."
           ],
           "technologies": [
-            ".NET Framework → modern .NET",
+            ".NET Framework 4.5 → .NET 10",
             "AngularJS → React",
-            "Microsoft SQL Server → PostgreSQL",
-            "AWS Serverless",
+            "AWS Amplify",
+            "Elastic Beanstalk",
+            "RDS for SQL Server",
+            "EventBridge + Lambda",
+            "CloudFront",
             "Terraform"
           ]
         },
@@ -1768,23 +1810,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 113732
+            "bytes": 115220
           },
           {
             "ext": "docx",
-            "bytes": 14184
+            "bytes": 14364
           },
           {
             "ext": "md",
-            "bytes": 7813
+            "bytes": 8186
           },
           {
             "ext": "json",
-            "bytes": 10557
+            "bytes": 10939
           },
           {
             "ext": "toml",
-            "bytes": 9036
+            "bytes": 9410
           }
         ]
       }
