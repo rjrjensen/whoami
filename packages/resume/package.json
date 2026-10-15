@@ -1,0 +1,14 @@
+{
+  "name": "@ryanjensen/resume",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./resume-data.mjs"
+  },
+  "dependencies": {
+    "docx": "^9.11.0",
+    "smol-toml": "^1.9.1",
+    "yaml": "^2.9.1"
+  }
+}

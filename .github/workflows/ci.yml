@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run lint -w @ryanjensen/web
+      - run: npm run typecheck -w @ryanjensen/web
+      - run: npm run build -w @ryanjensen/web
+      - name: Accessibility and layout checks
+        working-directory: apps/web
+        run: |
+          npx playwright install --with-deps chromium
+          npx next start -p 3000 &
+          npx -y wait-on http://localhost:3000
+          npm run test:a11y -- http://localhost:3000
+
+  infra:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: infra
+    steps:
+      - uses: actions/checkout@v5
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.16.5
+      - run: terraform fmt -check -recursive
+      - run: terraform init -backend=false -input=false
+      - run: terraform validate

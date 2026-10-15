@@ -1,0 +1,173 @@
+"$schema" = "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json"
+
+[basics]
+name = "Ryan Jensen"
+email = "ryan@rjrjensen.com"
+url = "https://ryanjensen.dev"
+label = "Software Engineering Manager"
+summary = "Engineering leader with 8+ years of full-stack software experience and nearly four years supervising frontline teams before that. I hire, mentor, and grow engineers, own technology strategy and budgets, and lead delivery across .NET, JVM, and JavaScript stacks on AWS and Azure."
+
+[basics.location]
+city = "West Des Moines"
+region = "IA"
+countryCode = "US"
+
+[[basics.profiles]]
+network = "GitHub"
+username = "rjrjensen"
+url = "https://github.com/rjrjensen"
+
+[[basics.profiles]]
+network = "LinkedIn"
+username = "rjrjensen"
+url = "https://www.linkedin.com/in/rjrjensen/"
+
+[[work]]
+name = "Source Allies"
+position = "Software Consultant"
+location = "Urbandale, IA"
+startDate = "2024-12"
+summary = "Delivered software consulting across 4+ client engagements spanning financial services, insurance, identity management, and enterprise web platforms. Work covered full-stack development, technical delivery leadership, coaching, and generative AI.\n\nTechnologies: Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS, AWS Bedrock, Azure, SQL Server, Databricks, dbt"
+highlights = [ "Served as technical delivery lead on a data engineering engagement using SQL Server, Databricks, and dbt, with project management and coaching responsibilities.", "Ranked #1 interviewer at Source Allies for 2025 and the first half of 2026. Interviewed 30+ candidates; about 10 were hired and are still with the company.", "Mentored and taught the company's apprentices.", "Bootstrapped a generative AI initiative using AWS Bedrock, Python, and Node.js.", "Led internationalization of a client's customer-facing portal and outgoing email system, adding full English/French support using Vue I18n and Thymeleaf on a Vue.js frontend and Java/Spring Boot backend, covering both web pages and email layouts." ]
+
+[[work]]
+name = "Patient Preferred Financial Services"
+url = "https://patientpreferredservices.com"
+position = "Fractional CTO"
+location = "Remote"
+startDate = "2021-11"
+summary = "The company's sole technology owner, reporting directly to leadership. Own technology strategy and roadmap, budget and vendor selection, and security and compliance. Partner closely with teams at the company's software vendors, including DataX, ACHeck, and Web.com.\n\nTechnologies: .NET Framework → modern .NET, AngularJS → React, Microsoft SQL Server → PostgreSQL, AWS Serverless, Terraform"
+highlights = [ "Integrated third-party software offerings with resiliency and fallback plans for critical processes.", "Architected the next phase of the company's systems from the ground up: migrated the frontend from AngularJS to React, and the backend from an ASP.NET API to an ASP.NET Core API with satellite serverless modules, all moved off Windows VMs in AWS. The entire system now runs on AWS serverless products, lowering costs by ~75% and maximizing scalability.", "Implemented solutions that minimize cost and automate repetitive tasks." ]
+
+[[work]]
+name = "Principal Financial Group"
+position = "Contract Senior Software Engineer"
+location = "Des Moines, IA (Remote)"
+startDate = "2024-06"
+endDate = "2024-12"
+summary = "Upgraded legacy .NET applications and set up CI/CD pipelines using GitHub Actions. Supported the team on migrations from on-prem to AWS, including Lambda for serverless applications and SNS for pub/sub messaging. Reduced build times in existing pipelines by at least 80% to improve developer experience and tighten feedback loops."
+highlights = []
+
+[[work]]
+name = "Wellabe, Inc."
+position = "Software Engineer 3"
+location = "Des Moines, IA"
+startDate = "2022-07"
+endDate = "2024-06"
+summary = "Led several small teams rewriting parts or all of applications to unify the company tech stack, adopt modern frameworks and tooling, and optimize the performance of legacy software. Migrated older WPF desktop apps to Blazor web apps. Supported and improved daily business-critical batch programs. Reengineered CI/CD processes to increase developer throughput and added requirements to encourage test coverage. Built a department wiki to centralize company, department, and team documentation. Served as senior engineering mentor to 7 junior and mid-level engineers."
+highlights = [ "Led the team that owned the company's main revenue-generating software product, delivering features on request.", "Responsible for every engineer on the team: trained them, answered their questions, and paired with each intern for their entire internship." ]
+
+[[work]]
+name = "Far Reach Inc."
+position = "Contract Senior Software Developer"
+startDate = "2022-03"
+endDate = "2022-06"
+summary = "Consulted on a homegrown ERP system. Implemented full-stack features and changes using Angular, RxJS, .NET, and SQL Server on a hosted Azure instance. Accelerated development using ASP.NET Boilerplate, PrimeNG, and Bootstrap."
+highlights = []
+
+[[work]]
+name = "Hy-Vee, Inc."
+position = "Software Engineer"
+startDate = "2019-10"
+endDate = "2022-03"
+summary = "Led an effort to migrate widely used code libraries from a file share to a GitHub repository with a full CI/CD pipeline, cloud artifact storage, and automated test suites. Leveraged existing CI/CD technologies to cut pipeline build times by at least 50%. Legacy applications were primarily .NET (mixed C# and VB) with WinForms frontends. Greenfield applications were built with React and RxJS on a backend of Kotlin, Spring Boot, Ktor, and GraphQL, federated into a supergraph with Apollo Federation and hosted on Google Cloud."
+highlights = [ "Served on a task force that built a Tax API to manage tax values for retail products at every Hy-Vee location (roughly 280 grocery stores and 175 convenience stores at the time).", "Solved the problem of loading millions of tax records onto the servers of newly built stores: data went out in batches, with a check after each batch to confirm every item was accounted for.", "Used a pub/sub architecture to release new tax values to all stores." ]
+
+[[work]]
+name = "Stine Seed, Inc."
+position = "Software Developer"
+location = "Dallas Center, IA"
+startDate = "2019-05"
+endDate = "2019-10"
+summary = "Developed features for employee-facing portals used to manage seed production, packaging, and sales. Maintained a tight feedback loop with users as implementations were deployed and tested. Used Angular for the frontend and .NET Core for the backend, with CI/CD handled through custom Azure DevOps processes I built."
+highlights = []
+
+[[work]]
+name = "Brownells, Inc."
+position = "Associate .NET Developer"
+location = "Grinnell, IA"
+startDate = "2018-01"
+endDate = "2019-04"
+summary = "Integrated a new third-party ERP offering with existing WMS and POS systems. Constructed message pathways and failover processes in a pub/sub architecture between all systems. The frontend was built with Razor Pages, jQuery, AJAX, and Bootstrap; the backend used .NET Framework ASP.NET APIs, with a message bus built on IBM MQ."
+highlights = []
+
+[[work]]
+name = "UPS"
+position = "Package Handler → Local Sort Supervisor → Package Center Supervisor"
+location = "Ames, IA"
+startDate = "2013-03"
+endDate = "2017-12"
+summary = "Promoted twice, from package handler to Package Center Supervisor. Supervised 30+ drivers and 40+ inside employees, holding workgroups accountable for safety, production, and attendance. Personally trained more than half of them and kept their certifications current."
+highlights = [ "Package Center Supervisor: Oversaw all delivery drivers during the day, supporting their needs, keeping every route running smoothly, and handling emergencies.", "Package Center Supervisor: Tracked operational data including fuel usage, time card accuracy, and a continually updated map of the delivery region.", "Local Sort Supervisor: Ran the evening local sort, ensuring packages from 30+ package cars were unloaded and sorted into five outbound trailers, with small packages separated and bagged.", "Local Sort Supervisor: Handled training, terminations, and other personnel management for the sort crew.", "Package Handler: Loaded and unloaded trucks.", "Package Handler: Moved into international package processing, verifying packages met requirements to ship internationally by air or freight.", "Package Handler: Trained in hazardous materials handling, classification, and proper shipping." ]
+
+[[education]]
+institution = "Trident University International"
+studyType = "B.S."
+area = "Computer Science"
+endDate = "2017"
+
+[[education]]
+institution = "Iowa State University"
+studyType = "Coursework"
+area = "Computer Engineering"
+location = "Ames, IA"
+startDate = "2013"
+endDate = "2016"
+
+[[education]]
+institution = "Marshalltown Community College"
+studyType = "A.A."
+area = "Liberal Arts"
+location = "Marshalltown, IA"
+startDate = "2011"
+endDate = "2013"
+
+[[certificates]]
+name = "AWS Certified Cloud Practitioner"
+issuer = "Amazon Web Services"
+
+[[certificates]]
+name = "Scrum Fundamentals Certified"
+issuer = "SCRUMstudy"
+date = "2018"
+
+[[skills]]
+name = "Languages"
+keywords = [ "C#", "SQL", "Kotlin", "Java", "JavaScript", "TypeScript", "Python" ]
+
+[[skills]]
+name = "Backend Frameworks"
+keywords = [ ".NET (Core)", ".NET Framework", "Spring / Spring Boot", "GraphQL", "Ktor", "Node.js" ]
+
+[[skills]]
+name = "Frontend Frameworks"
+keywords = [ "Blazor", "Angular", "React / Next.js", "Bootstrap", "Tailwind", "WPF", "Vue.js" ]
+
+[[skills]]
+name = "DevOps / CI/CD"
+keywords = [ "Git", "GitHub", "GitHub Actions", "Azure DevOps", "Concourse CI", "Terraform" ]
+
+[[skills]]
+name = "ORM"
+keywords = [ "Entity Framework Core", "Spring Data JPA", "Dapper", "Exposed" ]
+
+[[skills]]
+name = "Containerization"
+keywords = [ "Docker", "Kubernetes", "NuGet", "npm" ]
+
+[[skills]]
+name = "Tooling"
+keywords = [ "JetBrains IDEs", "Visual Studio / VS Code", "SSMS / SSIS", "dbt" ]
+
+[[skills]]
+name = "Cloud"
+keywords = [ "AWS", "Azure", "Google Cloud" ]
+
+[[skills]]
+name = "Project Management"
+keywords = [ "Scrum", "Kanban", "Agile", "Jira", "GitHub Projects" ]
+
+[[skills]]
+name = "Leadership"
+keywords = [ "Hiring & interviewing", "Mentoring & coaching", "Technical delivery leadership", "Vendor management", "Technology strategy & budgeting" ]
+

@@ -1,0 +1,5 @@
+[tools]
+terraform = "1.16.5"
+
+[env]
+_.file = { path = "infra/.env", redact = true }

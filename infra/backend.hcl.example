@@ -1,0 +1,2 @@
+# Copy to backend.hcl (gitignored). Find the account ID in the Cloudflare dashboard.
+endpoints = { s3 = "https://<cloudflare-account-id>.r2.cloudflarestorage.com" }

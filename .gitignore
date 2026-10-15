@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env*
+!.env.example
+.dev.vars
+private/
+
+# Terraform
+infra/.terraform/
+infra/*.tfvars
+infra/backend.hcl
+infra/*.tfplan
+
+# Next.js (also in apps/web/.gitignore)
+.next/

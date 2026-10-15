@@ -1,0 +1,16 @@
+{
+  "name": "ryanjensen-dev",
+  "version": "1.0.0",
+  "scripts": {
+    "handouts": "node packages/resume/build.mjs handouts",
+    "downloads": "node packages/resume/build.mjs site",
+    "dev": "npm run dev -w @ryanjensen/web",
+    "build": "npm run downloads && npm run build -w @ryanjensen/web"
+  },
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

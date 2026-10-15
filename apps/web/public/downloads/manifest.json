@@ -1,0 +1,80 @@
+{
+  "base": {
+    "label": "Complete",
+    "file": "Ryan Jensen - Resume",
+    "formats": [
+      {
+        "ext": "pdf",
+        "bytes": 136420
+      },
+      {
+        "ext": "docx",
+        "bytes": 14821
+      },
+      {
+        "ext": "md",
+        "bytes": 9193
+      },
+      {
+        "ext": "json",
+        "bytes": 12217
+      },
+      {
+        "ext": "toml",
+        "bytes": 10514
+      }
+    ]
+  },
+  "manager": {
+    "label": "Engineering Manager",
+    "file": "Ryan Jensen - Software Engineering Manager",
+    "formats": [
+      {
+        "ext": "pdf",
+        "bytes": 134153
+      },
+      {
+        "ext": "docx",
+        "bytes": 14749
+      },
+      {
+        "ext": "md",
+        "bytes": 9056
+      },
+      {
+        "ext": "json",
+        "bytes": 12062
+      },
+      {
+        "ext": "toml",
+        "bytes": 10375
+      }
+    ]
+  },
+  "lead": {
+    "label": "Lead Software Engineer",
+    "file": "Ryan Jensen - Lead Software Engineer",
+    "formats": [
+      {
+        "ext": "pdf",
+        "bytes": 113732
+      },
+      {
+        "ext": "docx",
+        "bytes": 14184
+      },
+      {
+        "ext": "md",
+        "bytes": 7813
+      },
+      {
+        "ext": "json",
+        "bytes": 10557
+      },
+      {
+        "ext": "toml",
+        "bytes": 9036
+      }
+    ]
+  }
+}

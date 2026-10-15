@@ -1,0 +1,32 @@
+# Each version picks a headline and summary, and can pull tagged highlights to the top of each job.
+# Items marked `variants: [...]` in resume.yaml only appear in the versions they list.
+
+base:
+  file: Ryan Jensen - Resume
+  label: Complete
+  headline: Software Engineer & Technology Leader
+  summary: >-
+    I use software to innovate, automate, and improve development and user experiences. My skills lie heavily in
+    scalable, full-stack web and native applications.
+
+manager:
+  file: Ryan Jensen - Software Engineering Manager
+  label: Engineering Manager
+  headline: Software Engineering Manager
+  # DRAFT: review for voice and accuracy
+  summary: >-
+    Engineering leader with 8+ years of full-stack software experience and nearly four years supervising
+    frontline teams before that. I hire, mentor, and grow engineers, own technology strategy and budgets, and
+    lead delivery across .NET, JVM, and JavaScript stacks on AWS and Azure.
+  promote: [leadership, hiring, mentoring, initiative, vendors, cost]
+
+lead:
+  file: Ryan Jensen - Lead Software Engineer
+  label: Lead Software Engineer
+  headline: Lead Software Engineer
+  # DRAFT: review for voice and accuracy
+  summary: >-
+    Full-stack engineer with 8+ years designing, modernizing, and shipping scalable systems across .NET, JVM, and
+    JavaScript stacks. I lead technical delivery, architect cloud and serverless platforms, speed up CI/CD, and
+    mentor the engineers around me.
+  promote: [architecture, delivery, ai, leadership]

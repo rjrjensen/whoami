@@ -1,0 +1,21 @@
+# Testimonials and feedback. Only entries with consent: public | anonymized AND approved: true are shown on the site.
+# consent: public | anonymized | private | pending
+# source: vouch-form | small-improvements | linkedin | other
+# Fields `growth` and `referenceEmail` are private and never published.
+
+testimonials: []
+# - name: Jane Doe
+#   title: Senior Engineer, Example Co
+#   relationship: peer            # manager | peer | report | mentee | client | hire | other
+#   workedAt: Source Allies
+#   years: "2025"
+#   impact: >-
+#     What Ryan did that made the biggest difference...
+#   quote: One or two sentence pull quote.
+#   vouches: ["C#", Mentoring & coaching]
+#   growth: ""                     # private
+#   referenceEmail: ""             # private
+#   linkedin: https://www.linkedin.com/in/...
+#   consent: pending
+#   approved: false
+#   source: small-improvements
