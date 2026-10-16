@@ -31,3 +31,21 @@ CI runs on every push and pull request:
 - A production build
 - An axe accessibility scan (WCAG 2.2 AA) of every page, in light and dark mode, at phone and desktop widths, which also fails if any page scrolls sideways
 - Terraform format and validation
+
+## Analytics
+
+PostHog, set up in `apps/web/src/instrumentation-client.ts`; settings are in `apps/web/src/lib/analytics-config.ts`. No cookies or browser storage, so there's no consent banner. Visitors with Do Not Track or Global Privacy Control on aren't tracked at all. Events go through the same-origin `/rj-relay` rewrite so ad blockers don't drop them.
+
+Analytics only runs on the deployed site. To try it locally, build with `NEXT_PUBLIC_POSTHOG_ENABLE_LOCAL=1`; set `NEXT_PUBLIC_POSTHOG_KEY=""` to turn it off anywhere.
+
+| Event | When | Properties |
+| --- | --- | --- |
+| `$pageview` | page load and client-side navigation (PostHog built-in) | |
+| `resume_download` | a download link is clicked | `variant` (`base`/`manager`/`lead`), `format` (`pdf`, `docx`, …) |
+| `version_switch` | the "Viewing as" switcher changes version | `from_variant`, `to_variant` |
+| `skill_popover_open` | a skill's "where I used it" popover opens | `skill`, `skill_group` |
+| `outbound_link_click` | a link to another site is clicked | `host`, `url` |
+| `contact_email_click` | the email link is clicked | |
+| `scroll_depth` | each of 25/50/75/100% is reached, once per page | `percent` |
+
+Session replay needs `POSTHOG_MODE = "memory"` in the settings file; the default `"cookieless"` mode can't record (see the comment there).
