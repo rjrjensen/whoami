@@ -27,7 +27,7 @@ impact:
   - value: "80%+"
     label: faster CI/CD builds at Principal Financial Group
   - value: "#1"
-    label: interviewer at Source Allies in 2025, with 30+ interviews and ~10 hires
+    label: interviewer at Source Allies in 2025 and 2026, with 30+ interviews and ~10 hires
   - value: "70+"
     label: drivers and warehouse staff supervised at UPS
   - value: "450+"
@@ -147,7 +147,6 @@ skills:
       - { name: Jira, proficient: true }
       - { name: GitHub Projects }
   - name: Leadership
-    variants: [base, manager]
     keywords:
       - { name: Hiring & interviewing }
       - { name: Mentoring & coaching }
@@ -276,7 +275,7 @@ work:
   - name: Stine Seed, Inc.
     position: Software Developer
     location: Dallas Center, IA
-    startDate: 2019-05
+    startDate: 2019-04
     endDate: 2019-10
     summary: >-
       Developed features for employee-facing portals used to manage seed production, packaging, and sales.
@@ -286,7 +285,7 @@ work:
   - name: Brownells, Inc.
     position: Associate .NET Developer
     location: Grinnell, IA
-    startDate: 2018-01
+    startDate: 2017-12
     endDate: 2019-04
     summary: >-
       Integrated a new third-party ERP offering with existing WMS and POS systems. Constructed message pathways and
