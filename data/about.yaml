@@ -24,7 +24,7 @@ projects:
   - name: Marbles
     url: https://marbls.co
     linkLabel: Play Marbles at marbls.co
-    source: https://github.com/rjrjensen/Marbles
+    source: https://github.com/rjrjensen/marbls
     text: >-
       A digital version of a board game invented by my mom's side of the family. It brings out the best (and worst)
       in everyone at family gatherings, and I'd wanted to put it on a screen for years. It's finally live and
