@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15",
+  "generatedAt": "2026-10-16",
   "preferences": {
     "workArrangement": "Open to on-site, hybrid, or remote",
     "workAuthorization": "US citizen; no sponsorship required"
@@ -442,13 +442,6 @@
               "name": "Google Cloud"
             },
             {
-              "name": "AWS Lambda",
-              "variants": [
-                "base",
-                "lead"
-              ]
-            },
-            {
               "name": "EC2",
               "variants": [
                 "base",
@@ -477,21 +470,14 @@
               ]
             },
             {
-              "name": "Amplify",
+              "name": "Lambda",
               "variants": [
                 "base",
                 "lead"
               ]
             },
             {
-              "name": "Elastic Beanstalk",
-              "variants": [
-                "base",
-                "lead"
-              ]
-            },
-            {
-              "name": "EventBridge",
+              "name": "OpenNext",
               "variants": [
                 "base",
                 "lead"
@@ -590,20 +576,16 @@
           "summary": "The company's sole developer and IT person for its clinic payment and patient management platform, inherited from a larger development team. Report directly to leadership and own technology strategy and roadmap, budget and vendor selection, and security and compliance. Partner closely with teams at the company's software vendors, including DataX, ACHeck, and Web.com.",
           "highlights": [
             "Cut monthly AWS costs ~91%, from ~$1,400 to ~$120, over three years of incremental modernization with Terraform, CloudFront path-based routing, and right-sized infrastructure, while improving availability, stability, and speed.",
-            "Modernized the platform from an AngularJS frontend and .NET Framework 4.5 API on Windows Server 2012 EC2 instances to React on AWS Amplify and a .NET 10 Minimal API on Elastic Beanstalk, with SQL Server moved to RDS and SQL Agent jobs replaced by EventBridge-triggered Lambda functions and cron jobs on a small Linux instance. Now migrating the database to PostgreSQL and moving the platform toward serverless.",
+            "Modernized the platform from an AngularJS frontend, .NET Framework API, and SQL Server with SQL Jobs on Windows Server 2012 EC2 instances to SSR Next.js on AWS via OpenNext, modern .NET Minimal APIs on AWS Lambda, PostgreSQL on AWS RDS, and crontab on a nano Linux instance.",
             "Integrated third-party software offerings with resiliency and fallback plans for critical processes, including ACH payment processing.",
             "Handle everything from patient onboarding and document signing to customer support and keeping the lights on."
           ],
           "technologies": [
             ".NET Framework 4.5 → .NET 10",
-            "AngularJS → React",
-            "SQL Server → PostgreSQL (in progress)",
-            "AWS Amplify",
-            "Elastic Beanstalk",
-            "RDS",
-            "EventBridge + Lambda",
-            "Linux (cron)",
-            "CloudFront",
+            "AngularJS → Next.js",
+            "SQL Server → PostgreSQL",
+            "EC2 → CloudFront + Lambda + OpenNext",
+            "SQL Jobs → Linux (crontab)",
             "Terraform"
           ]
         },
@@ -905,7 +887,6 @@
         "Google Cloud": [
           "Hy-Vee, Inc."
         ],
-        "AWS Lambda": [],
         "EC2": [
           "Patient Preferred Financial Services"
         ],
@@ -916,13 +897,11 @@
         "CloudFront": [
           "Patient Preferred Financial Services"
         ],
-        "Amplify": [
-          "Patient Preferred Financial Services"
+        "Lambda": [
+          "Patient Preferred Financial Services",
+          "Principal Financial Group"
         ],
-        "Elastic Beanstalk": [
-          "Patient Preferred Financial Services"
-        ],
-        "EventBridge": [
+        "OpenNext": [
           "Patient Preferred Financial Services"
         ],
         "Scrum": [],
@@ -944,23 +923,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 141906
+            "bytes": 141839
           },
           {
             "ext": "docx",
-            "bytes": 15370
+            "bytes": 15288
           },
           {
             "ext": "md",
-            "bytes": 10130
+            "bytes": 9932
           },
           {
             "ext": "json",
-            "bytes": 13645
+            "bytes": 13427
           },
           {
             "ext": "toml",
-            "bytes": 11586
+            "bytes": 11384
           }
         ]
       }
@@ -1277,18 +1256,14 @@
           "highlights": [
             "Integrated third-party software offerings with resiliency and fallback plans for critical processes, including ACH payment processing.",
             "Cut monthly AWS costs ~91%, from ~$1,400 to ~$120, over three years of incremental modernization with Terraform, CloudFront path-based routing, and right-sized infrastructure, while improving availability, stability, and speed.",
-            "Modernized the platform from AngularJS and .NET Framework on Windows EC2 to React, .NET 10, and managed AWS services; now migrating to PostgreSQL and moving toward serverless."
+            "Modernized the platform from an AngularJS frontend, .NET Framework API, and SQL Server with SQL Jobs on Windows Server 2012 EC2 instances to SSR Next.js on AWS via OpenNext, modern .NET Minimal APIs on AWS Lambda, PostgreSQL on AWS RDS, and crontab on a nano Linux instance."
           ],
           "technologies": [
             ".NET Framework 4.5 → .NET 10",
-            "AngularJS → React",
-            "SQL Server → PostgreSQL (in progress)",
-            "AWS Amplify",
-            "Elastic Beanstalk",
-            "RDS",
-            "EventBridge + Lambda",
-            "Linux (cron)",
-            "CloudFront",
+            "AngularJS → Next.js",
+            "SQL Server → PostgreSQL",
+            "EC2 → CloudFront + Lambda + OpenNext",
+            "SQL Jobs → Linux (crontab)",
             "Terraform"
           ]
         },
@@ -1564,23 +1539,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 135433
+            "bytes": 135761
           },
           {
             "ext": "docx",
-            "bytes": 14858
+            "bytes": 14869
           },
           {
             "ext": "md",
-            "bytes": 9246
+            "bytes": 9318
           },
           {
             "ext": "json",
-            "bytes": 12252
+            "bytes": 12324
           },
           {
             "ext": "toml",
-            "bytes": 10565
+            "bytes": 10637
           }
         ]
       }
@@ -1976,13 +1951,6 @@
               "name": "Google Cloud"
             },
             {
-              "name": "AWS Lambda",
-              "variants": [
-                "base",
-                "lead"
-              ]
-            },
-            {
               "name": "EC2",
               "variants": [
                 "base",
@@ -2011,21 +1979,14 @@
               ]
             },
             {
-              "name": "Amplify",
+              "name": "Lambda",
               "variants": [
                 "base",
                 "lead"
               ]
             },
             {
-              "name": "Elastic Beanstalk",
-              "variants": [
-                "base",
-                "lead"
-              ]
-            },
-            {
-              "name": "EventBridge",
+              "name": "OpenNext",
               "variants": [
                 "base",
                 "lead"
@@ -2100,20 +2061,16 @@
           "summary": "The company's sole developer and IT person for its clinic payment and patient management platform, inherited from a larger development team. Report directly to leadership and own technology strategy and roadmap, budget and vendor selection, and security and compliance. Partner closely with teams at the company's software vendors, including DataX, ACHeck, and Web.com.",
           "highlights": [
             "Cut monthly AWS costs ~91%, from ~$1,400 to ~$120, over three years of incremental modernization with Terraform, CloudFront path-based routing, and right-sized infrastructure, while improving availability, stability, and speed.",
-            "Modernized the platform from an AngularJS frontend and .NET Framework 4.5 API on Windows Server 2012 EC2 instances to React on AWS Amplify and a .NET 10 Minimal API on Elastic Beanstalk, with SQL Server moved to RDS and SQL Agent jobs replaced by EventBridge-triggered Lambda functions and cron jobs on a small Linux instance. Now migrating the database to PostgreSQL and moving the platform toward serverless.",
+            "Modernized the platform from an AngularJS frontend, .NET Framework API, and SQL Server with SQL Jobs on Windows Server 2012 EC2 instances to SSR Next.js on AWS via OpenNext, modern .NET Minimal APIs on AWS Lambda, PostgreSQL on AWS RDS, and crontab on a nano Linux instance.",
             "Integrated third-party software offerings with resiliency and fallback plans for critical processes, including ACH payment processing.",
             "Handle everything from patient onboarding and document signing to customer support and keeping the lights on."
           ],
           "technologies": [
             ".NET Framework 4.5 → .NET 10",
-            "AngularJS → React",
-            "SQL Server → PostgreSQL (in progress)",
-            "AWS Amplify",
-            "Elastic Beanstalk",
-            "RDS",
-            "EventBridge + Lambda",
-            "Linux (cron)",
-            "CloudFront",
+            "AngularJS → Next.js",
+            "SQL Server → PostgreSQL",
+            "EC2 → CloudFront + Lambda + OpenNext",
+            "SQL Jobs → Linux (crontab)",
             "Terraform"
           ]
         },
@@ -2372,7 +2329,6 @@
         "Google Cloud": [
           "Hy-Vee, Inc."
         ],
-        "AWS Lambda": [],
         "EC2": [
           "Patient Preferred Financial Services"
         ],
@@ -2383,13 +2339,11 @@
         "CloudFront": [
           "Patient Preferred Financial Services"
         ],
-        "Amplify": [
-          "Patient Preferred Financial Services"
+        "Lambda": [
+          "Patient Preferred Financial Services",
+          "Principal Financial Group"
         ],
-        "Elastic Beanstalk": [
-          "Patient Preferred Financial Services"
-        ],
-        "EventBridge": [
+        "OpenNext": [
           "Patient Preferred Financial Services"
         ],
         "Scrum": [],
@@ -2404,23 +2358,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 118641
+            "bytes": 118535
           },
           {
             "ext": "docx",
-            "bytes": 14739
+            "bytes": 14655
           },
           {
             "ext": "md",
-            "bytes": 8750
+            "bytes": 8552
           },
           {
             "ext": "json",
-            "bytes": 11985
+            "bytes": 11767
           },
           {
             "ext": "toml",
-            "bytes": 10108
+            "bytes": 9906
           }
         ]
       }

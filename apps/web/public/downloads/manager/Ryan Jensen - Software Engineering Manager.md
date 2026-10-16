@@ -43,9 +43,9 @@ The company's sole developer and IT person for its clinic payment and patient ma
 
 - Integrated third-party software offerings with resiliency and fallback plans for critical processes, including ACH payment processing.
 - Cut monthly AWS costs ~91%, from ~$1,400 to ~$120, over three years of incremental modernization with Terraform, CloudFront path-based routing, and right-sized infrastructure, while improving availability, stability, and speed.
-- Modernized the platform from AngularJS and .NET Framework on Windows EC2 to React, .NET 10, and managed AWS services; now migrating to PostgreSQL and moving toward serverless.
+- Modernized the platform from an AngularJS frontend, .NET Framework API, and SQL Server with SQL Jobs on Windows Server 2012 EC2 instances to SSR Next.js on AWS via OpenNext, modern .NET Minimal APIs on AWS Lambda, PostgreSQL on AWS RDS, and crontab on a nano Linux instance.
 
-**Technologies:** .NET Framework 4.5 → .NET 10, AngularJS → React, SQL Server → PostgreSQL (in progress), AWS Amplify, Elastic Beanstalk, RDS, EventBridge + Lambda, Linux (cron), CloudFront, Terraform
+**Technologies:** .NET Framework 4.5 → .NET 10, AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform
 
 **Note:** Currently part-time, supporting new feature requests and regular software updates.
 
