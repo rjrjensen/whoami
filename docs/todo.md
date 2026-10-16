@@ -32,6 +32,13 @@ Tasks only Ryan can do (accounts, payments, approvals). Claude keeps this list c
 - [ ] **Add ryanjensen.dev as a Google Workspace alias domain.** Do this after the ryanjensen.dev zone is Active in Cloudflare. Steps are in `infra/README.md` → *Email at ryanjensen.dev*.
   - Then tell Claude to switch the site's contact address to contact@ryanjensen.dev.
 
+## Analytics (PostHog)
+
+- [ ] Confirm the project is on **US** cloud (the URL starts with `us.posthog.com`). If it's EU, tell Claude, because the region is one setting in `apps/web/src/lib/analytics-config.ts`.
+- [ ] Project settings → turn on **cookieless server hash mode**; without it, PostHog ignores every event the site sends.
+- [ ] Project settings → **Authorized URLs**: add `https://ryanjensen.dev`.
+- [ ] Decide on session replay: it only works if the site switches from cookieless to in-memory IDs (each full page load then counts as a new visitor). If you want it, tell Claude and turn on session replay in PostHog.
+
 ## Content
 
 - [ ] Review the homepage tagline and the numbers strip (drafts)

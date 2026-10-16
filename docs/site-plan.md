@@ -201,7 +201,7 @@ Job description text
   - JSON-LD `Person` structured data.
   - Open Graph share cards generated per version.
   - Sitemap.
-- **Analytics:** privacy-friendly with no cookie banner needed (e.g. Vercel Analytics or Plausible). It tracks Fit Check usage, downloads, and contact clicks.
+- **Analytics:** PostHog with no cookies or browser storage, so no cookie banner. Events are listed in the README; Fit Check usage gets added in Phase 4.
 
 ## Stack
 

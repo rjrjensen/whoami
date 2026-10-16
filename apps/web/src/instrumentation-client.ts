@@ -1,0 +1,119 @@
+// PostHog analytics. Event names are documented in README.md → Analytics.
+// Components stay server-rendered: they mark elements with data-* attributes and the delegated
+// listeners below turn those into events.
+import type { PostHog } from "posthog-js";
+import { POSTHOG_HOSTS, POSTHOG_KEY, POSTHOG_MODE, POSTHOG_PROXY_PATH } from "@/lib/analytics-config";
+
+const SCROLL_MILESTONES = [25, 50, 75, 100];
+
+function analyticsAllowed(): boolean {
+  if (!POSTHOG_KEY) return false;
+  const local = process.env.NODE_ENV !== "production" || ["localhost", "127.0.0.1", "[::1]"].includes(location.hostname);
+  if (local && process.env.NEXT_PUBLIC_POSTHOG_ENABLE_LOCAL !== "1") return false;
+  // Honor Do Not Track and Global Privacy Control. posthog-js's respect_dnt doesn't stop cookieless capture.
+  const nav = navigator as Navigator & { globalPrivacyControl?: boolean };
+  return nav.doNotTrack !== "1" && nav.globalPrivacyControl !== true;
+}
+
+function trackClicks(posthog: PostHog) {
+  document.addEventListener(
+    "click",
+    (event) => {
+      const el = (event.target as Element | null)?.closest<HTMLElement>("a[href], [data-track]");
+      if (!el) return;
+
+      const track = el.dataset.track;
+      if (track === "resume_download") {
+        posthog.capture("resume_download", { variant: el.dataset.variant, format: el.dataset.format });
+        return;
+      }
+      if (track === "version_switch") {
+        posthog.capture("version_switch", { from_variant: el.dataset.from, to_variant: el.dataset.to });
+        return;
+      }
+
+      if (!(el instanceof HTMLAnchorElement)) return;
+      if (el.protocol === "mailto:") {
+        posthog.capture("contact_email_click");
+      } else if (el.protocol.startsWith("http") && el.host !== location.host) {
+        posthog.capture("outbound_link_click", { host: el.host, url: el.href });
+      }
+    },
+    { capture: true },
+  );
+}
+
+function trackSkillPopovers(posthog: PostHog) {
+  // toggle doesn't bubble, so listen in the capture phase.
+  document.addEventListener(
+    "toggle",
+    (event) => {
+      const el = event.target as HTMLElement;
+      if ((event as ToggleEvent).newState === "open" && el.dataset.skill) {
+        posthog.capture("skill_popover_open", { skill: el.dataset.skill, skill_group: el.dataset.skillGroup });
+      }
+    },
+    { capture: true },
+  );
+}
+
+function trackScrollDepth(posthog: PostHog) {
+  let path = location.pathname;
+  let reached = new Set<number>();
+  let pending = false;
+
+  const measure = () => {
+    pending = false;
+    if (location.pathname !== path) {
+      path = location.pathname;
+      reached = new Set();
+    }
+    const doc = document.documentElement;
+    const depth = doc.scrollHeight <= innerHeight ? 100 : ((scrollY + innerHeight) / doc.scrollHeight) * 100;
+    for (const milestone of SCROLL_MILESTONES) {
+      // 1% slack so the last milestone fires despite sub-pixel rounding.
+      if (depth >= milestone - 1 && !reached.has(milestone)) {
+        reached.add(milestone);
+        posthog.capture("scroll_depth", { percent: milestone });
+      }
+    }
+  };
+
+  addEventListener(
+    "scroll",
+    () => {
+      if (!pending) {
+        pending = true;
+        requestAnimationFrame(measure);
+      }
+    },
+    { passive: true },
+  );
+}
+
+if (analyticsAllowed()) {
+  // Loaded on demand so visitors who aren't tracked never download the SDK.
+  import("posthog-js")
+    .then(({ default: posthog }) => {
+      posthog.init(POSTHOG_KEY, {
+        api_host: POSTHOG_PROXY_PATH,
+        ui_host: POSTHOG_HOSTS.ui,
+        defaults: "2026-05-30", // includes capture_pageview: "history_change" for client-side navigations
+        ...(POSTHOG_MODE === "cookieless"
+          ? { cookieless_mode: "always" as const, disable_session_recording: true }
+          : { persistence: "memory" as const }),
+        person_profiles: "identified_only",
+        autocapture: false, // the explicit events below are the ones we report on
+        session_recording: { maskAllInputs: true },
+        disable_surveys: true,
+        disable_conversations: true,
+        disable_product_tours: true,
+      });
+      trackClicks(posthog);
+      trackSkillPopovers(posthog);
+      trackScrollDepth(posthog);
+    })
+    .catch(() => {
+      // Analytics must never break the page.
+    });
+}

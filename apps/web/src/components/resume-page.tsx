@@ -74,6 +74,9 @@ export function ResumePage({ variant }: { variant: VariantId }) {
                     <Link
                       href={opt.href}
                       aria-current={current ? "page" : undefined}
+                      data-track={current ? undefined : "version_switch"}
+                      data-from={variant}
+                      data-to={opt.id}
                       className={`flex min-h-11 items-center justify-center rounded-full px-3 text-sm transition-colors sm:px-4 ${
                         current ? "bg-accent text-accent-ink" : "text-muted hover:bg-surface-2 hover:text-ink"
                       }`}

@@ -37,6 +37,9 @@ export function Downloads({ current }: { current: VariantId }) {
                       <a
                         href={downloadHref(id, d.file, f.ext)}
                         download
+                        data-track="resume_download"
+                        data-variant={id}
+                        data-format={f.ext}
                         className="flex min-h-12 items-center justify-between gap-3 rounded-xl border border-line px-4 transition-colors hover:border-accent hover:bg-accent-soft"
                       >
                         <span>

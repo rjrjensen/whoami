@@ -37,6 +37,8 @@ export function Skills({ variant }: { variant: Variant }) {
                         id={id}
                         popover="auto"
                         role="dialog"
+                        data-skill={k.name}
+                        data-skill-group={group.name}
                         aria-label={`Where Ryan used ${k.name}`}
                         className="fixed left-1/2 top-1/2 w-[min(22rem,calc(100vw-2rem))] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-line bg-surface p-5 text-ink shadow-2xl backdrop:bg-black/30"
                       >
