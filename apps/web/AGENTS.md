@@ -7,3 +7,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## Analytics hooks
+
+PostHog events come from `data-track` and related `data-*` attributes (listed in the root README → Analytics), read by delegated listeners in `src/instrumentation-client.ts`. When moving, splitting, or redesigning components, keep those attributes on the new elements, and add matching ones to new downloads, version switchers, or skill popovers.

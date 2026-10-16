@@ -4,23 +4,20 @@ Tasks only Ryan can do (accounts, payments, approvals). Claude keeps this list c
 
 ## Infrastructure (see `infra/README.md` for details)
 
-- [ ] **Before anything else:** delete the old GitHub Pages records for rjrjensen.com at Squarespace, so nobody can claim `www.rjrjensen.com` in the meantime:
-  - the four **A** records on `@`: `185.199.108.15`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-  - the **CNAME** record on `www` → `rjrjensen.github.io`
-  - Leave every **MX** and **TXT** record alone (that's your email).
+- [x] ~~Delete the old GitHub Pages records at Squarespace~~ (no longer needed: the nameservers moved to Cloudflare, which doesn't serve them)
 - [x] Turn off DNSSEC for rjrjensen.com, ryanjensen.dev, and cleancodedesign.com (Squarespace)
 - [x] Unlock the domains at Squarespace
 - [x] Remove the custom domain from the `rjrjensen.github.io` GitHub Pages site
-- [ ] Cloudflare:
+- [x] Cloudflare:
   - copy the account ID
   - enable R2 and create the `ryanjensen-tfstate` bucket
   - create an R2 API token
   - create a Terraform API token
-- [ ] Vercel: sign in with GitHub, give the Vercel GitHub app access to `rjrjensen/whoami`, and create a token
-- [ ] Create `infra/.env`, `infra/backend.hcl`, and `infra/terraform.tfvars`
-- [ ] `terraform init -backend-config=backend.hcl && terraform apply`
-- [ ] Wait 24 hours after the DNSSEC change, then switch all three domains' nameservers at Squarespace to the ones Terraform printed
-- [ ] When the zones show **Active** in Cloudflare, tell Claude so it can verify:
+- [x] Vercel: sign in with GitHub, give the Vercel GitHub app access to `rjrjensen/whoami`, and create a token
+- [x] Create `infra/.env`, `infra/backend.hcl`, and `infra/terraform.tfvars`
+- [x] `terraform init -backend-config=backend.hcl && terraform apply`
+- [x] Wait 24 hours after the DNSSEC change, then switch all three domains' nameservers at Squarespace to the ones Terraform printed
+- [x] When the zones show **Active** in Cloudflare, tell Claude so it can verify:
   - email
   - the redirects
   - the live site
@@ -29,15 +26,19 @@ Tasks only Ryan can do (accounts, payments, approvals). Claude keeps this list c
 
 ## Email
 
-- [ ] **Add ryanjensen.dev as a Google Workspace alias domain.** Do this after the ryanjensen.dev zone is Active in Cloudflare. Steps are in `infra/README.md` → *Email at ryanjensen.dev*.
+- [x] **Add ryanjensen.dev as a Google Workspace alias domain.** Do this after the ryanjensen.dev zone is Active in Cloudflare. Steps are in `infra/README.md` → *Email at ryanjensen.dev*.
+- [ ] Confirm DKIM for ryanjensen.dev shows **Authenticating email** in Admin (*Apps → Google Workspace → Gmail → Authenticate email*). Can take up to 48 hours.
+- [ ] Add `contact@ryanjensen.dev` as an alternate email on your user, and add it in Gmail under *Send mail as*.
   - Then tell Claude to switch the site's contact address to contact@ryanjensen.dev.
 
 ## Analytics (PostHog)
 
-- [ ] Confirm the project is on **US** cloud (the URL starts with `us.posthog.com`). If it's EU, tell Claude, because the region is one setting in `apps/web/src/lib/analytics-config.ts`.
-- [ ] Project settings → turn on **cookieless server hash mode**; without it, PostHog ignores every event the site sends.
-- [ ] Project settings → **Authorized URLs**: add `https://ryanjensen.dev`.
-- [ ] Decide on session replay: it only works if the site switches from cookieless to in-memory IDs (each full page load then counts as a new visitor). If you want it, tell Claude and turn on session replay in PostHog.
+- [x] Confirm the project is on **US** cloud (the URL starts with `us.posthog.com`). If it's EU, tell Claude, because the region is one setting in `apps/web/src/lib/analytics-config.ts`.
+- [x] Project settings → turn on **cookieless server hash mode**; without it, PostHog ignores every event the site sends.
+- [x] Project settings → **Authorized URLs**: add `https://ryanjensen.dev`.
+- [x] Session replay: skipped in favor of cookieless mode, click capture, and heatmaps.
+- [ ] Project settings → **Autocapture**: make sure **Enable autocapture for web** is on; if it's off there, PostHog skips click capture even though the site asks for it.
+- [ ] Put `?ref=` tracking links on your profiles (e.g. `https://ryanjensen.dev/?ref=linkedin`, `?ref=github`) and use `?ref=<company>` for links you send recruiters. See README → Analytics.
 
 ## Content
 

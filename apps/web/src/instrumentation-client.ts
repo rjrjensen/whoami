@@ -15,6 +15,15 @@ function analyticsAllowed(): boolean {
   return nav.doNotTrack !== "1" && nav.globalPrivacyControl !== true;
 }
 
+/**
+ * `?ref=<source>` (e.g. ?ref=linkedin, ?ref=acme) tags every event from this page load with `ref`, so a visit
+ * can be tied to the profile or the person the link was handed to. Kept in memory only, like everything else.
+ */
+function tagReferral(posthog: PostHog) {
+  const ref = new URLSearchParams(location.search).get("ref")?.trim().toLowerCase().slice(0, 64);
+  if (ref) posthog.register({ ref });
+}
+
 function trackClicks(posthog: PostHog) {
   document.addEventListener(
     "click",
@@ -103,12 +112,16 @@ if (analyticsAllowed()) {
           ? { cookieless_mode: "always" as const, disable_session_recording: true }
           : { persistence: "memory" as const }),
         person_profiles: "identified_only",
-        autocapture: false, // the explicit events below are the ones we report on
+        // Clicks only (no form changes or submits), for click stats, heatmaps, rage clicks, and dead clicks.
+        autocapture: { dom_event_allowlist: ["click"] },
+        capture_heatmaps: true,
+        capture_dead_clicks: true,
         session_recording: { maskAllInputs: true },
         disable_surveys: true,
         disable_conversations: true,
         disable_product_tours: true,
       });
+      tagReferral(posthog);
       trackClicks(posthog);
       trackSkillPopovers(posthog);
       trackScrollDepth(posthog);
