@@ -17,7 +17,7 @@ Full-stack engineer with 8+ years designing, modernizing, and shipping scalable 
 - **Data:** SQL Server, PostgreSQL, MySQL, SQLite, MongoDB, Redis, Elasticsearch
 - **Build & Testing:** Gradle, Maven, Yarn, Webpack, Cypress, Selenium, Gherkin
 - **Tooling:** JetBrains IDEs, Visual Studio / VS Code, SSMS / SSIS, dbt, Eclipse, Postman, Figma
-- **Cloud:** AWS\*, Azure\*, Google Cloud, AWS Lambda, EC2, S3, RDS, CloudFront, Amplify, Elastic Beanstalk, EventBridge
+- **Cloud:** AWS\*, Azure\*, Google Cloud, EC2, S3, RDS, CloudFront, Lambda, OpenNext
 - **Project Management:** Scrum\*, Kanban, Agile, Jira\*, GitHub Projects
 
 ## Experience
@@ -45,11 +45,11 @@ _November 2021 – Present · Remote_
 The company's sole developer and IT person for its clinic payment and patient management platform, inherited from a larger development team. Report directly to leadership and own technology strategy and roadmap, budget and vendor selection, and security and compliance. Partner closely with teams at the company's software vendors, including DataX, ACHeck, and Web.com.
 
 - Cut monthly AWS costs ~91%, from ~$1,400 to ~$120, over three years of incremental modernization with Terraform, CloudFront path-based routing, and right-sized infrastructure, while improving availability, stability, and speed.
-- Modernized the platform from an AngularJS frontend and .NET Framework 4.5 API on Windows Server 2012 EC2 instances to React on AWS Amplify and a .NET 10 Minimal API on Elastic Beanstalk, with SQL Server moved to RDS and SQL Agent jobs replaced by EventBridge-triggered Lambda functions and cron jobs on a small Linux instance. Now migrating the database to PostgreSQL and moving the platform toward serverless.
+- Modernized the platform from an AngularJS frontend, .NET Framework API, and SQL Server with SQL Jobs on Windows Server 2012 EC2 instances to SSR Next.js on AWS via OpenNext, modern .NET Minimal APIs on AWS Lambda, PostgreSQL on AWS RDS, and crontab on a nano Linux instance.
 - Integrated third-party software offerings with resiliency and fallback plans for critical processes, including ACH payment processing.
 - Handle everything from patient onboarding and document signing to customer support and keeping the lights on.
 
-**Technologies:** .NET Framework 4.5 → .NET 10, AngularJS → React, SQL Server → PostgreSQL (in progress), AWS Amplify, Elastic Beanstalk, RDS, EventBridge + Lambda, Linux (cron), CloudFront, Terraform
+**Technologies:** .NET Framework 4.5 → .NET 10, AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform
 
 **Note:** Currently part-time, supporting new feature requests and regular software updates.
 
