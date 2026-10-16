@@ -15,7 +15,7 @@
     },
     {
       "value": "#1",
-      "label": "interviewer at Source Allies in 2025, with 30+ interviews and ~10 hires"
+      "label": "interviewer at Source Allies in 2025 and 2026, with 30+ interviews and ~10 hires"
     },
     {
       "value": "70+",
@@ -509,10 +509,6 @@
         },
         {
           "name": "Leadership",
-          "variants": [
-            "base",
-            "manager"
-          ],
           "keywords": [
             {
               "name": "Hiring & interviewing"
@@ -639,7 +635,7 @@
           "name": "Stine Seed, Inc.",
           "position": "Software Developer",
           "location": "Dallas Center, IA",
-          "startDate": "2019-05",
+          "startDate": "2019-04",
           "endDate": "2019-10",
           "summary": "Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core), set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.",
           "highlights": []
@@ -648,7 +644,7 @@
           "name": "Brownells, Inc.",
           "position": "Associate .NET Developer",
           "location": "Grinnell, IA",
-          "startDate": "2018-01",
+          "startDate": "2017-12",
           "endDate": "2019-04",
           "summary": "Integrated a new third-party ERP with existing WMS and POS systems, building pub/sub message pathways and failover on IBM MQ, with a Razor Pages, jQuery, and Bootstrap frontend on .NET Framework APIs.",
           "highlights": []
@@ -919,15 +915,15 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 139088
+            "bytes": 139090
           },
           {
             "ext": "docx",
-            "bytes": 14373
+            "bytes": 14369
           },
           {
             "ext": "md",
-            "bytes": 7711
+            "bytes": 7714
           },
           {
             "ext": "json",
@@ -1186,10 +1182,6 @@
         },
         {
           "name": "Leadership",
-          "variants": [
-            "base",
-            "manager"
-          ],
           "keywords": [
             {
               "name": "Hiring & interviewing"
@@ -1316,7 +1308,7 @@
           "name": "Stine Seed, Inc.",
           "position": "Software Developer",
           "location": "Dallas Center, IA",
-          "startDate": "2019-05",
+          "startDate": "2019-04",
           "endDate": "2019-10",
           "summary": "Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core), set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.",
           "highlights": []
@@ -1325,7 +1317,7 @@
           "name": "Brownells, Inc.",
           "position": "Associate .NET Developer",
           "location": "Grinnell, IA",
-          "startDate": "2018-01",
+          "startDate": "2017-12",
           "endDate": "2019-04",
           "summary": "Integrated a new third-party ERP with existing WMS and POS systems, building pub/sub message pathways and failover on IBM MQ, with a Razor Pages, jQuery, and Bootstrap frontend on .NET Framework APIs.",
           "highlights": []
@@ -1535,7 +1527,7 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 135460
+            "bytes": 135461
           },
           {
             "ext": "docx",
@@ -1543,7 +1535,7 @@
           },
           {
             "ext": "md",
-            "bytes": 7457
+            "bytes": 7460
           },
           {
             "ext": "json",
@@ -2011,6 +2003,26 @@
               "name": "GitHub Projects"
             }
           ]
+        },
+        {
+          "name": "Leadership",
+          "keywords": [
+            {
+              "name": "Hiring & interviewing"
+            },
+            {
+              "name": "Mentoring & coaching"
+            },
+            {
+              "name": "Technical delivery leadership"
+            },
+            {
+              "name": "Vendor management"
+            },
+            {
+              "name": "Technology strategy & budgeting"
+            }
+          ]
         }
       ],
       "work": [
@@ -2120,7 +2132,7 @@
           "name": "Stine Seed, Inc.",
           "position": "Software Developer",
           "location": "Dallas Center, IA",
-          "startDate": "2019-05",
+          "startDate": "2019-04",
           "endDate": "2019-10",
           "summary": "Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core), set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.",
           "highlights": []
@@ -2129,7 +2141,7 @@
           "name": "Brownells, Inc.",
           "position": "Associate .NET Developer",
           "location": "Grinnell, IA",
-          "startDate": "2018-01",
+          "startDate": "2017-12",
           "endDate": "2019-04",
           "summary": "Integrated a new third-party ERP with existing WMS and POS systems, building pub/sub message pathways and failover on IBM MQ, with a Razor Pages, jQuery, and Bootstrap frontend on .NET Framework APIs.",
           "highlights": []
@@ -2348,7 +2360,12 @@
         "Kanban": [],
         "Agile": [],
         "Jira": [],
-        "GitHub Projects": []
+        "GitHub Projects": [],
+        "Hiring & interviewing": [],
+        "Mentoring & coaching": [],
+        "Technical delivery leadership": [],
+        "Vendor management": [],
+        "Technology strategy & budgeting": []
       },
       "downloads": {
         "label": "Lead Software Engineer",
@@ -2356,23 +2373,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 118792
+            "bytes": 119535
           },
           {
             "ext": "docx",
-            "bytes": 13920
+            "bytes": 13964
           },
           {
             "ext": "md",
-            "bytes": 6716
+            "bytes": 6864
           },
           {
             "ext": "json",
-            "bytes": 9972
+            "bytes": 10218
           },
           {
             "ext": "toml",
-            "bytes": 8073
+            "bytes": 8257
           }
         ]
       }

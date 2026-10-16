@@ -90,13 +90,13 @@ Worked across legacy .NET and WinForms applications and greenfield React, Kotlin
 
 ### Software Developer — Stine Seed, Inc.
 
-_May 2019 – October 2019 · Dallas Center, IA_
+_April 2019 – October 2019 · Dallas Center, IA_
 
 Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core), set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.
 
 ### Associate .NET Developer — Brownells, Inc.
 
-_January 2018 – April 2019 · Grinnell, IA_
+_December 2017 – April 2019 · Grinnell, IA_
 
 Integrated a new third-party ERP with existing WMS and POS systems, building pub/sub message pathways and failover on IBM MQ, with a Razor Pages, jQuery, and Bootstrap frontend on .NET Framework APIs.
 
