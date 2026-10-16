@@ -4,12 +4,14 @@ dist/
 !.env.example
 .dev.vars
 private/
+.claude/worktrees/
 
 # Terraform
 infra/.terraform/
 infra/*.tfvars
 infra/backend.hcl
 infra/*.tfplan
+infra/tfplan
 
 # Next.js (also in apps/web/.gitignore)
 .next/
