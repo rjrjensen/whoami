@@ -105,7 +105,7 @@
       "name": "Stine Seed, Inc.",
       "position": "Software Developer",
       "location": "Dallas Center, IA",
-      "startDate": "2019-05",
+      "startDate": "2019-04",
       "endDate": "2019-10",
       "summary": "Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core), set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.",
       "highlights": []
@@ -114,7 +114,7 @@
       "name": "Brownells, Inc.",
       "position": "Associate .NET Developer",
       "location": "Grinnell, IA",
-      "startDate": "2018-01",
+      "startDate": "2017-12",
       "endDate": "2019-04",
       "summary": "Integrated a new third-party ERP with existing WMS and POS systems, building pub/sub message pathways and failover on IBM MQ, with a Razor Pages, jQuery, and Bootstrap frontend on .NET Framework APIs.",
       "highlights": []
@@ -291,6 +291,16 @@
         "Agile",
         "Jira",
         "GitHub Projects"
+      ]
+    },
+    {
+      "name": "Leadership",
+      "keywords": [
+        "Hiring & interviewing",
+        "Mentoring & coaching",
+        "Technical delivery leadership",
+        "Vendor management",
+        "Technology strategy & budgeting"
       ]
     }
   ]
