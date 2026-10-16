@@ -198,25 +198,14 @@ work:
     startDate: 2021-11
     note: Currently part-time, supporting new feature requests and regular software updates.
     summary: >-
-      The company's sole developer and IT person for its clinic payment and patient management platform, inherited
-      from a larger development team. Report directly to leadership and own technology strategy and roadmap, budget
-      and vendor selection, and security and compliance. Partner closely with teams at the company's software
-      vendors, including DataX, ACHeck, and Web.com.
+      The company's sole developer and IT person for its clinic payment and patient management platform, inherited from a larger development team. Report directly to leadership and own technology strategy and roadmap, budget and vendor selection, and security and compliance. Partner closely with teams at the company's software vendors, including DataX, ACHeck, and Web.com.\n\nTechnologies: .NET Framework 4.5 → .NET 10, AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform
     highlights:
       - text: >-
-          Cut monthly AWS costs ~91%, from ~$1,400 to ~$120, over three years of incremental modernization with
-          Terraform, CloudFront path-based routing, and right-sized infrastructure, while improving availability,
-          stability, and speed.
+          Cut monthly AWS costs ~91%, from ~$1,400 to ~$120, over three years of incremental modernization with Terraform, CloudFront path-based routing, and right-sized infrastructure, while improving availability, stability, and speed.
         tags: [architecture, cost]
       - text:
-          manager: >-
-            Modernized the platform from AngularJS and .NET Framework on Windows EC2 to React, .NET 10, and managed AWS
-            services; now migrating to PostgreSQL and moving toward serverless.
           default: >-
-            Modernized the platform from an AngularJS frontend and .NET Framework 4.5 API on Windows Server 2012 EC2
-            instances to React on AWS Amplify and a .NET 10 Minimal API on Elastic Beanstalk, with SQL Server moved to
-            RDS and SQL Agent jobs replaced by EventBridge-triggered Lambda functions and cron jobs on a small Linux
-            instance. Now migrating the database to PostgreSQL and moving the platform toward serverless.
+            Modernized the platform from an AngularJS frontend, .NET Framework API, and SQL Server with SQL Jobs on Windows Server 2012 EC2 instances to SSR Next.js on AWS OpenNext, modern .NET Minimal APIs on AWS Lambda, and PostgreSQL on AWS RDS and crontab on a nano Linux instance.
         tags: [architecture]
       - text: Integrated third-party software offerings with resiliency and fallback plans for critical processes, including ACH payment processing.
         tags: [architecture, vendors]
