@@ -287,14 +287,12 @@
         "AWS",
         "Azure",
         "Google Cloud",
-        "AWS Lambda",
         "EC2",
         "S3",
         "RDS",
         "CloudFront",
-        "Amplify",
-        "Elastic Beanstalk",
-        "EventBridge"
+        "Lambda",
+        "OpenNext"
       ]
     },
     {
