@@ -40,6 +40,15 @@ function trackClicks(posthog: PostHog) {
         posthog.capture("version_switch", { from_variant: el.dataset.from, to_variant: el.dataset.to });
         return;
       }
+      if (track === "page_turn") {
+        posthog.capture("page_turn", {
+          from_page: el.dataset.from,
+          to_page: el.dataset.to,
+          direction: el.dataset.direction,
+          method: el.dataset.method ?? "click",
+        });
+        return;
+      }
 
       if (!(el instanceof HTMLAnchorElement)) return;
       if (el.protocol === "mailto:") {

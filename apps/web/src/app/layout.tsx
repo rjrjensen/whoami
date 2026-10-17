@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { site } from "@/lib/resume";
+import { SiteHeader } from "@/components/site-header";
+import { KeyboardTurn } from "@/components/keyboard-turn";
 import "./globals.css";
 
 const sans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -27,7 +29,14 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${sans.variable} ${mono.variable} ${display.variable}`}>
+    // view-transition-name keeps React from opting the root out of view transitions, so pages can turn (globals.css).
+    // data-scroll-behavior lets Next jump (not smooth-scroll) to the top of the new page during a navigation.
+    <html
+      lang="en"
+      className={`${sans.variable} ${mono.variable} ${display.variable}`}
+      style={{ viewTransitionName: "root" }}
+      data-scroll-behavior="smooth"
+    >
       <body className="min-h-dvh">
         <a
           href="#main"
@@ -35,6 +44,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         >
           Skip to content
         </a>
+        <SiteHeader name={base.basics.name} />
+        <KeyboardTurn />
         {children}
       </body>
     </html>

@@ -5,7 +5,8 @@ import { chromium } from "playwright";
 import AxeBuilder from "@axe-core/playwright";
 
 const base = process.argv[2] ?? "http://localhost:3000";
-const pages = ["/", "/manager", "/lead"];
+const sections = ["", "/experience", "/skills", "/about", "/resume", "/contact"];
+const pages = ["", "/manager", "/lead"].flatMap((v) => sections.map((s) => v + s || "/"));
 const viewports = { phone: { width: 360, height: 780 }, desktop: { width: 1366, height: 900 } };
 let failures = 0;
 

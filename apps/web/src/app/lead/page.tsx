@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ResumePage } from "@/components/resume-page";
+import { SitePage } from "@/components/site-page";
 import { getVariant } from "@/lib/resume";
 
 const v = getVariant("lead");
@@ -11,5 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function LeadPage() {
-  return <ResumePage variant="lead" />;
+  return <SitePage variant="lead" page="home" />;
 }

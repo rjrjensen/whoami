@@ -1,5 +1,5 @@
-import { ResumePage } from "@/components/resume-page";
+import { SitePage } from "@/components/site-page";
 
 export default function Home() {
-  return <ResumePage variant="base" />;
+  return <SitePage variant="base" page="home" />;
 }
