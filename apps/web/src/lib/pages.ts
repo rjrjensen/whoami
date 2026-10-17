@@ -4,8 +4,7 @@ import { VARIANTS, type VariantId } from "./resume";
 export const PAGES = [
   { id: "home", slug: "", label: "Home", title: "Hey, I'm Ryan" },
   { id: "experience", slug: "experience", label: "Experience", title: "Experience" },
-  { id: "skills", slug: "skills", label: "Skills", title: "Skills" },
-  { id: "education", slug: "education", label: "Education", title: "Education & certifications" },
+  { id: "skills", slug: "skills", label: "Skills", title: "Skills & education" },
   { id: "about", slug: "about", label: "About me", title: "Beyond the code" },
   { id: "resume", slug: "resume", label: "Resume", title: "Download my resume" },
   { id: "contact", slug: "contact", label: "Contact", title: "Let's connect" },

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { site } from "@/lib/resume";
 import { SiteHeader } from "@/components/site-header";
+import { KeyboardTurn } from "@/components/keyboard-turn";
 import "./globals.css";
 
 const sans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           Skip to content
         </a>
         <SiteHeader name={base.basics.name} />
+        <KeyboardTurn />
         {children}
       </body>
     </html>

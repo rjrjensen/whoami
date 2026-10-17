@@ -3,9 +3,9 @@ import type { Variant } from "@/lib/resume";
 export function Education({ variant: v }: { variant: Variant }) {
   return (
     <section id="education" aria-labelledby="education-title" className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-      <h1 id="education-title" className="font-display text-4xl sm:text-5xl">
+      <h2 id="education-title" className="font-display text-4xl sm:text-5xl">
         Education &amp; certifications
-      </h1>
+      </h2>
       <div className="mt-10 grid gap-4 md:grid-cols-2">
         <ul className="space-y-4">
           {v.education.map((e) => (

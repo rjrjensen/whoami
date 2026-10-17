@@ -29,6 +29,8 @@ export function PageTurn({ variant, page }: { variant: VariantId; page: PageId }
           href={pageHref(variant, prev.id)}
           transitionTypes={["page-back"]}
           {...track(prev.id, "back")}
+          data-key-turn="prev"
+          aria-keyshortcuts="ArrowLeft"
           className="group inline-flex min-h-12 items-center gap-3 rounded-full px-2 text-muted transition-colors hover:text-ink"
         >
           <span className="grid size-12 place-items-center rounded-full border border-line bg-surface transition-transform group-hover:-translate-x-0.5">
@@ -44,8 +46,13 @@ export function PageTurn({ variant, page }: { variant: VariantId; page: PageId }
         <span />
       )}
 
-      <p className="whitespace-nowrap font-mono text-xs uppercase tracking-[0.18em] text-muted">
-        Page {i + 1} <span className="normal-case">of</span> {PAGES.length}
+      <p className="text-center font-mono text-xs uppercase tracking-[0.18em] text-muted">
+        <span className="whitespace-nowrap">
+          Page {i + 1} <span className="normal-case">of</span> {PAGES.length}
+        </span>
+        <span aria-hidden="true" className="mt-1 hidden normal-case tracking-normal lg:block">
+          or use ← → keys
+        </span>
       </p>
 
       {next ? (
@@ -53,6 +60,8 @@ export function PageTurn({ variant, page }: { variant: VariantId; page: PageId }
           href={pageHref(variant, next.id)}
           transitionTypes={["page-forward"]}
           {...track(next.id, "forward")}
+          data-key-turn="next"
+          aria-keyshortcuts="ArrowRight"
           className="group inline-flex min-h-12 items-center gap-3 rounded-full text-ink"
         >
           <span className="text-right text-sm">

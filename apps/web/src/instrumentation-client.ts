@@ -41,7 +41,12 @@ function trackClicks(posthog: PostHog) {
         return;
       }
       if (track === "page_turn") {
-        posthog.capture("page_turn", { from_page: el.dataset.from, to_page: el.dataset.to, direction: el.dataset.direction });
+        posthog.capture("page_turn", {
+          from_page: el.dataset.from,
+          to_page: el.dataset.to,
+          direction: el.dataset.direction,
+          method: el.dataset.method ?? "click",
+        });
         return;
       }
 
