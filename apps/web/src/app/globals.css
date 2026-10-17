@@ -98,6 +98,10 @@ body {
   .hero-in-3 { animation-delay: 180ms; }
 }
 
+html {
+  scroll-padding-top: 4.5rem; /* keep #anchor targets clear of the sticky header */
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
@@ -122,5 +126,78 @@ body {
   [popover] {
     margin: 0;
     inset: auto;
+  }
+}
+
+/* Page turns between sections (see site-page.tsx). */
+::view-transition {
+  pointer-events: none; /* clicks during a turn reach the new page */
+}
+
+/* The header stays put while the page below it turns. */
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header) {
+  display: none;
+}
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+/* The visible page (everything but the header) turns. Types come from <Link transitionTypes>; see lib/pages.ts. */
+/* Forward: the current page lifts from the right edge and swings over the spine on the left. */
+html:active-view-transition-type(page-forward)::view-transition-old(root) {
+  z-index: 1;
+  transform-origin: left center;
+  animation: page-lift var(--page-turn) both;
+}
+html:active-view-transition-type(page-forward)::view-transition-new(root) {
+  animation: page-shade var(--page-turn) reverse both;
+}
+/* Back: the previous page swings back down over the current one. */
+html:active-view-transition-type(page-back)::view-transition-new(root) {
+  z-index: 1;
+  transform-origin: left center;
+  animation: page-lift var(--page-turn) reverse both;
+}
+html:active-view-transition-type(page-back)::view-transition-old(root) {
+  animation: page-shade var(--page-turn) both;
+}
+
+:root {
+  --page-turn: 650ms cubic-bezier(0.45, 0.05, 0.3, 1);
+}
+
+@keyframes page-lift {
+  from {
+    transform: perspective(2400px) rotateY(0deg);
+    filter: brightness(1);
+  }
+  60% {
+    filter: brightness(0.92);
+  }
+  to {
+    transform: perspective(2400px) rotateY(-95deg);
+    filter: brightness(0.75);
+  }
+}
+
+@keyframes page-shade {
+  from {
+    filter: brightness(1);
+  }
+  to {
+    filter: brightness(0.82);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
   }
 }

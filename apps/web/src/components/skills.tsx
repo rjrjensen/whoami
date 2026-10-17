@@ -1,12 +1,13 @@
+import Link from "next/link";
 import { slug, type Variant } from "@/lib/resume";
 
-export function Skills({ variant }: { variant: Variant }) {
+export function Skills({ variant, experienceHref }: { variant: Variant; experienceHref: string }) {
   return (
     <section id="skills" aria-labelledby="skills-title" className="border-y border-line bg-surface">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-        <h2 id="skills-title" className="font-display text-4xl sm:text-5xl">
+        <h1 id="skills-title" className="font-display text-4xl sm:text-5xl">
           The honest inventory
-        </h2>
+        </h1>
         <p className="mt-4 max-w-2xl text-muted">
           I wasn&rsquo;t kidding about the wild range of tech stacks. Select a skill to see where I&rsquo;ve used it.{" "}
           <span className="inline-flex items-center gap-1.5 align-middle">
@@ -17,7 +18,7 @@ export function Skills({ variant }: { variant: Variant }) {
         <div className="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
           {variant.skills.map((group) => (
             <div key={group.name}>
-              <h3 className="font-mono text-xs uppercase tracking-[0.16em] text-muted">{group.name}</h3>
+              <h2 className="font-mono text-xs uppercase tracking-[0.16em] text-muted">{group.name}</h2>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {group.keywords.map((k) => {
                   const id = `skill-${slug(group.name)}-${slug(k.name)}`;
@@ -52,9 +53,9 @@ export function Skills({ variant }: { variant: Variant }) {
                             <ul className="mt-1.5 space-y-1">
                               {jobs.map((j) => (
                                 <li key={j}>
-                                  <a href={`#job-${slug(j)}`} className="text-accent underline-offset-4 hover:underline">
+                                  <Link href={`${experienceHref}#job-${slug(j)}`} transitionTypes={["page-back"]} className="text-accent underline-offset-4 hover:underline">
                                     {j}
-                                  </a>
+                                  </Link>
                                 </li>
                               ))}
                             </ul>
