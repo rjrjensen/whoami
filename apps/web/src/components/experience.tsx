@@ -4,9 +4,9 @@ export function Experience({ variant }: { variant: Variant }) {
   return (
     <section id="experience" aria-labelledby="experience-title" className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
       <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted">The route so far</p>
-      <h2 id="experience-title" className="mt-2 font-display text-4xl sm:text-5xl">
+      <h1 id="experience-title" className="mt-2 font-display text-4xl sm:text-5xl">
         Experience
-      </h2>
+      </h1>
 
       <ol className="relative mt-12">
         {/* The route: decorative line behind the stops. */}
@@ -25,9 +25,9 @@ export function Experience({ variant }: { variant: Variant }) {
             <article aria-labelledby={`job-${slug(job.name)}-title`} className="rounded-2xl border border-line bg-surface p-5 shadow-[0_1px_0_var(--line)] sm:p-7">
               <header className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
                 <div>
-                  <h3 id={`job-${slug(job.name)}-title`} className="text-xl font-semibold leading-snug">
+                  <h2 id={`job-${slug(job.name)}-title`} className="text-xl font-semibold leading-snug">
                     {job.position}
-                  </h3>
+                  </h2>
                   <p className="mt-0.5 text-accent">
                     {job.url ? (
                       <a href={job.url} className="underline-offset-4 hover:underline">
@@ -62,12 +62,12 @@ export function Experience({ variant }: { variant: Variant }) {
                 <ol className="mt-5 space-y-4 border-l-2 border-dashed border-line pl-4">
                   {job.roles.map((r) => (
                     <li key={r.position}>
-                      <h4 className="font-semibold">
+                      <h3 className="font-semibold">
                         {r.position}{" "}
                         <span className="font-mono text-sm font-normal text-muted">
                           {fmtMonth(r.startDate)} – {fmtMonth(r.endDate)}
                         </span>
-                      </h4>
+                      </h3>
                       <ul className="mt-1.5 space-y-1.5">
                         {r.highlights.map((h) => (
                           <li key={h} className="relative pl-5 leading-relaxed text-ink/90 before:absolute before:left-0 before:top-[0.7em] before:size-1.5 before:rounded-full before:bg-line">
@@ -82,7 +82,7 @@ export function Experience({ variant }: { variant: Variant }) {
 
               {job.technologies && (
                 <div className="mt-5">
-                  <h4 className="sr-only">Technologies</h4>
+                  <h3 className="sr-only">Technologies</h3>
                   <ul className="flex flex-wrap gap-1.5" aria-label="Technologies">
                     {job.technologies.map((t) => (
                       <li key={t} className="rounded-full bg-surface-2 px-2.5 py-1 font-mono text-xs text-muted">
