@@ -12,7 +12,7 @@ export function MobileMenu({ children }: { children: React.ReactNode }) {
   }, [pathname]);
 
   return (
-    <details ref={ref} className="relative md:hidden">
+    <details ref={ref} className="relative lg:hidden">
       <summary className="flex min-h-11 cursor-pointer list-none items-center rounded-md border border-line px-3 text-sm [&::-webkit-details-marker]:hidden">
         Menu
       </summary>

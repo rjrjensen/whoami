@@ -46,7 +46,7 @@ Analytics only runs on the deployed site. To try it locally, build with `NEXT_PU
 | `skill_popover_open` | a skill's "where I used it" popover opens | `skill`, `skill_group` |
 | `outbound_link_click` | a link to another site is clicked | `host`, `url` |
 | `contact_email_click` | the email link is clicked | |
-| `page_turn` | the next/previous arrow at the bottom of a page is clicked | `from_page`, `to_page`, `direction` (`forward`/`back`) |
+| `page_turn` | the next/previous arrow at the bottom of a page is clicked, or the ← / → key is pressed | `from_page`, `to_page`, `direction` (`forward`/`back`), `method` (`click`/`keyboard`) |
 | `scroll_depth` | each of 25/50/75/100% is reached, once per page | `percent` |
 | `$autocapture` | any click on a link, button, or other interactive element (PostHog built-in, clicks only) | element details |
 | `$dead_click`, `$rageclick` | a click that changed nothing, or repeated clicks in one spot (PostHog built-in) | element details |
@@ -56,6 +56,6 @@ Heatmaps are recorded too; view them from PostHog's toolbar on ryanjensen.dev.
 
 **Tracking links.** Add `?ref=<source>` to any link to the site, e.g. `https://ryanjensen.dev/?ref=linkedin` on a profile or `?ref=acme` for one company's recruiter. Every event from that visit carries `ref`. Use short lowercase names for platforms and companies, not people. PostHog's standard `utm_source`/`utm_campaign` parameters work as well.
 
-**Keep the hooks when changing the layout.** The custom events come from `data-track`, `data-variant`/`data-format`, `data-from`/`data-to`/`data-direction`, and `data-skill`/`data-skill-group` attributes, read by delegated listeners. Moved or redesigned elements keep reporting as long as they keep those attributes, and new pages are tracked automatically. In PostHog, define actions on those attributes rather than CSS classes or button text.
+**Keep the hooks when changing the layout.** The custom events come from `data-track`, `data-variant`/`data-format`, `data-from`/`data-to`/`data-direction`/`data-key-turn`, and `data-skill`/`data-skill-group` attributes, read by delegated listeners. Moved or redesigned elements keep reporting as long as they keep those attributes, and new pages are tracked automatically. In PostHog, define actions on those attributes rather than CSS classes or button text.
 
 Session replay needs `POSTHOG_MODE = "memory"` in the settings file; the default `"cookieless"` mode can't record (see the comment there).

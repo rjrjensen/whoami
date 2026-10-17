@@ -17,7 +17,7 @@ A hiring manager, recruiter, or future teammate who lands on the site can make a
 
 ## Sections and features
 
-The site reads like a storybook: each section is its own page (Home, Experience, Skills, Education, About me, Resume, Contact), in that order, for each resume version (`/experience`, `/manager/experience`, `/lead/experience`, …). The order lives in `apps/web/src/lib/pages.ts`. The header nav stays on every page, and each page ends with previous/next arrows. Moving forward turns the page; moving back turns it the other way (React `<ViewTransition>` plus CSS in `globals.css`; no animation with reduced motion or with the browser's back button).
+The site reads like a storybook: each section is its own page (Home, Experience, Skills & education, About me, Resume, Contact), in that order, for each resume version (`/experience`, `/manager/experience`, `/lead/experience`, …). The order lives in `apps/web/src/lib/pages.ts`. The header nav stays on every page, with a version switcher that keeps you on the same page in another version. Each page ends with previous/next arrows, and the ← / → keys turn pages too. Moving forward turns the page; moving back turns it the other way (React `<ViewTransition>` plus CSS in `globals.css`; no animation with reduced motion or with the browser's back button).
 
 1. **Hero:** name, headline, a one-sentence value statement, and the primary actions: *Check fit for your role*, *Download resume*, *Contact*.
 2. **At a glance:** location (West Des Moines, IA), open to on-site, hybrid, or remote, US citizen (no sponsorship required), target roles, years of experience. Comes from `preferences` in `resume.yaml`.

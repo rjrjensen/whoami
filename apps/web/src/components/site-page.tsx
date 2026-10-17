@@ -25,8 +25,12 @@ export function SitePage({ variant, page }: { variant: VariantId; page: PageId }
           <main id="main">
             {page === "home" && <Home variant={variant} v={v} />}
             {page === "experience" && <Experience variant={v} />}
-            {page === "skills" && <Skills variant={v} experienceHref={pageHref(variant, "experience")} />}
-            {page === "education" && <Education variant={v} />}
+            {page === "skills" && (
+              <>
+                <Skills variant={v} experienceHref={pageHref(variant, "experience")} />
+                <Education variant={v} />
+              </>
+            )}
             {page === "about" && <BeyondTheCode />}
             {page === "resume" && <Downloads current={variant} />}
             {page === "contact" && <Contact variant={v} />}
