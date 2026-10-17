@@ -21,8 +21,8 @@ export function SitePage({ variant, page }: { variant: VariantId; page: PageId }
     <>
       {page === "home" && <PersonJsonLd variant={v} />}
       <ViewTransition default="none">
-        <div className="bg-bg">
-          <main id="main">
+        <div className="flex flex-1 flex-col bg-bg">
+          <main id="main" className="flex-1">
             {page === "home" && <Home variant={variant} v={v} />}
             {page === "experience" && <Experience variant={v} />}
             {page === "skills" && (
@@ -37,7 +37,7 @@ export function SitePage({ variant, page }: { variant: VariantId; page: PageId }
           </main>
           <PageTurn variant={variant} page={page} />
           <footer className="border-t border-line">
-            <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-muted sm:flex-row sm:justify-between sm:px-6">
+            <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-sm text-muted sm:flex-row sm:justify-between sm:px-6">
               <p>
                 © {new Date(site.generatedAt).getFullYear()} {v.basics.name}. Last updated {site.generatedAt}.
               </p>

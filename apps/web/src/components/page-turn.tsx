@@ -23,7 +23,7 @@ export function PageTurn({ variant, page }: { variant: VariantId; page: PageId }
   });
 
   return (
-    <nav aria-label="Page turn" className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 pb-16 pt-4 sm:px-6">
+    <nav aria-label="Page turn" className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 pb-10 pt-4 sm:px-6">
       {prev ? (
         <Link
           href={pageHref(variant, prev.id)}
