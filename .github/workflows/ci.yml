@@ -26,6 +26,21 @@ jobs:
           npx -y wait-on http://localhost:3000
           npm run test:a11y -- http://localhost:3000
 
+  fit-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck -w @ryanjensen/fit-check
+      - run: npm test -w @ryanjensen/fit-check
+      - name: Bundle the Worker
+        working-directory: apps/fit-check
+        run: npx wrangler deploy --dry-run --outdir=dist
+
   infra:
     runs-on: ubuntu-latest
     defaults:

@@ -49,6 +49,10 @@ function trackClicks(posthog: PostHog) {
         });
         return;
       }
+      if (track === "fit_check_submit") {
+        posthog.capture("fit_check_submit");
+        return;
+      }
 
       if (!(el instanceof HTMLAnchorElement)) return;
       if (el.protocol === "mailto:") {
@@ -73,6 +77,12 @@ function trackSkillPopovers(posthog: PostHog) {
     },
     { capture: true },
   );
+}
+
+// The Fit Check component dispatches these; the pasted job description itself is never sent to analytics.
+function trackFitCheck(posthog: PostHog) {
+  document.addEventListener("fitcheck:result", (event) => posthog.capture("fit_check_result", (event as CustomEvent).detail));
+  document.addEventListener("fitcheck:error", (event) => posthog.capture("fit_check_error", (event as CustomEvent).detail));
 }
 
 function trackScrollDepth(posthog: PostHog) {
@@ -133,6 +143,7 @@ if (analyticsAllowed()) {
       tagReferral(posthog);
       trackClicks(posthog);
       trackSkillPopovers(posthog);
+      trackFitCheck(posthog);
       trackScrollDepth(posthog);
     })
     .catch(() => {

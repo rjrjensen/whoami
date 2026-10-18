@@ -15,3 +15,6 @@ infra/tfplan
 
 # Next.js (also in apps/web/.gitignore)
 .next/
+
+# Wrangler local state
+.wrangler/

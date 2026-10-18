@@ -138,6 +138,8 @@ Ryan's targets live in `private/job-search.yaml` (gitignored; moves to D1): targ
 
 ## Fit Check (job-description analysis)
 
+How v1 is built, and what it defers, is in [`fit-check.md`](fit-check.md).
+
 ### Visitor flow
 
 1. Paste a job description, or a URL to one.
@@ -203,7 +205,7 @@ Job description text
   - JSON-LD `Person` structured data.
   - Open Graph share cards generated per version.
   - Sitemap.
-- **Analytics:** PostHog with no cookies or browser storage, so no cookie banner. Events are listed in the README; Fit Check usage gets added in Phase 4.
+- **Analytics:** PostHog with no cookies or browser storage, so no cookie banner. Events are listed in the README, including Fit Check usage (never the pasted text).
 
 ## Stack
 
@@ -232,7 +234,7 @@ All three domains are registered and served through Cloudflare, managed by Terra
    - DOCX and PDF builds.
 2. **Site v1:** hero, timeline, skills with evidence, downloads, contact, accessibility/performance CI, domains.
 3. **Case studies:** write 3–5 with Ryan, with diagrams.
-4. **Fit Check v1:** extraction + matching + report, skill registry, guardrails.
+4. **Fit Check v1:** extraction + matching + report, skill registry, guardrails. *(built; see [`fit-check.md`](fit-check.md) for the design and what's deferred)*
 5. **Admin PWA:** push notifications, skill answers, digest.
 6. **Polish:** motion, OG images, analytics review.
 

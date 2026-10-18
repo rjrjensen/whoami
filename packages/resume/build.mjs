@@ -122,4 +122,43 @@ if (target === "site") {
   mkdirSync(contentDir, { recursive: true });
   writeFileSync(`${contentDir}/resume.json`, JSON.stringify(siteContent, null, 2) + "\n");
   console.log(`wrote ${contentDir}/resume.json`);
+  writeFileSync(`${root}apps/fit-check/src/record.json`, JSON.stringify(toFitCheckRecord(siteContent), null, 2) + "\n");
+  console.log(`wrote apps/fit-check/src/record.json`);
+}
+
+// What the Fit Check matches job descriptions against: everything in the Complete version, plus personal projects.
+function toFitCheckRecord({ preferences, about, variants: built }) {
+  const { basics, skills, work, education, certificates, evidence } = built.base;
+  const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+  return {
+    name: basics.name,
+    location: `${basics.location.city}, ${basics.location.region}`,
+    preferences,
+    skills: skills.flatMap((g) => g.keywords.map((k) => ({ name: k.name, group: g.name, proficient: !!k.proficient, usedAt: evidence[k.name] ?? [] }))),
+    evidence: [
+      {
+        id: "profile",
+        kind: "profile",
+        title: "Location, work style, and authorization",
+        dates: "",
+        detail: `Based in ${basics.location.city}, ${basics.location.region}. ${preferences.workArrangement}. ${preferences.workAuthorization}.`,
+      },
+      ...work.map((w) => ({
+        id: `job-${slug(w.name)}`,
+        kind: "job",
+        title: `${w.position}, ${w.name}`,
+        dates: range(w.startDate, w.endDate),
+        detail: [w.summary, ...w.highlights, ...(w.roles ?? []).flatMap((r) => [`${r.position} (${range(r.startDate, r.endDate)}):`, ...r.highlights])]
+          .filter(Boolean)
+          .join(" "),
+        technologies: w.technologies ?? [],
+      })),
+      ...education.map((e) => {
+        const { degree, where, years } = educationLine(e);
+        return { id: `edu-${slug(degree)}`, kind: "education", title: `${degree}, ${where}`, dates: years };
+      }),
+      ...certificates.map((c) => ({ id: `cert-${slug(c.name)}`, kind: "certificate", title: [c.name, c.issuer].filter(Boolean).join(", "), dates: c.date ?? "" })),
+      ...about.projects.map((p) => ({ id: `project-${slug(p.name)}`, kind: "project", title: `${p.name} (personal project)`, dates: "", detail: p.text })),
+    ],
+  };
 }

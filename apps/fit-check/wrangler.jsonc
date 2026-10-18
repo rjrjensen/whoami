@@ -1,0 +1,31 @@
+// Fit Check API. Setup steps are in docs/todo.md → Fit Check; the design is in docs/fit-check.md.
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "ryanjensen-fit-check",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "routes": [{ "pattern": "api.ryanjensen.dev", "custom_domain": true }],
+  "workers_dev": false,
+  "observability": { "enabled": true },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "fit-check",
+      // From `terraform output fit_check_d1_id` (infra/fit_check.tf).
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
+  // 5 checks per minute per IP.
+  "ratelimits": [{ "name": "LIMITER", "namespace_id": "1001", "simple": { "limit": 5, "period": 60 } }],
+  // Daily purge of job descriptions older than 12 months.
+  "triggers": { "crons": ["17 9 * * *"] },
+  "vars": {
+    "ALLOWED_ORIGINS": "https://ryanjensen.dev,https://www.ryanjensen.dev",
+    "MONTHLY_CAP": "300",
+    "SITE_URL": "https://ryanjensen.dev",
+    "NTFY_SERVER": "https://ntfy.sh"
+  }
+  // Secrets (wrangler secret put): ANTHROPIC_API_KEY, JEV_API_KEY, TURNSTILE_SECRET_KEY, IP_HASH_SALT, NTFY_TOPIC
+}

@@ -1,0 +1,8 @@
+# Copy to .dev.vars (gitignored) for `npm run dev -w @ryanjensen/fit-check`.
+ANTHROPIC_API_KEY=
+JEV_API_KEY=
+IP_HASH_SALT=local-dev-salt
+ALLOW_NO_TURNSTILE=1
+ALLOWED_ORIGINS=http://localhost:3000
+# Optional: push gap alerts to this ntfy topic while testing.
+NTFY_TOPIC=
