@@ -1,0 +1,5 @@
+# Copy to .dev.vars (gitignored) for `npm run dev -w @ryanjensen/admin`.
+# From the local GitHub OAuth app, whose callback is http://localhost:3101/auth/github/callback.
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+ORIGIN=http://localhost:3101

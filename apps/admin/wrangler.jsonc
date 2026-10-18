@@ -1,0 +1,30 @@
+// The admin app (SvelteKit). Setup steps are in docs/todo.md → Admin app; the design is in apps/admin/README.md.
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "ryanjensen-admin",
+  "main": ".svelte-kit/cloudflare/_worker.js",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": { "binding": "ASSETS", "directory": ".svelte-kit/cloudflare" },
+  "routes": [{ "pattern": "admin.ryanjensen.dev", "custom_domain": true }],
+  "workers_dev": false,
+  "observability": { "enabled": true },
+  // The same database as fit-check. Its schema lives in apps/fit-check/migrations.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "fit-check",
+      // From `terraform output fit_check_d1_id` (infra/fit_check.tf), same as apps/fit-check/wrangler.jsonc.
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "../fit-check/migrations"
+    }
+  ],
+  // "Add posting" calls fit-check's Admin entrypoint (Admin.checkFromAdmin). Not reachable from the internet.
+  "services": [{ "binding": "FIT_CHECK", "service": "ryanjensen-fit-check", "entrypoint": "Admin" }],
+  "vars": {
+    "ORIGIN": "https://admin.ryanjensen.dev",
+    // Ryan's numeric GitHub user ID (`gh api user --jq .id`). IDs never change; login names can.
+    "ADMIN_GITHUB_ID": "35267339"
+  }
+  // Secrets (wrangler secret put): GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET
+}
