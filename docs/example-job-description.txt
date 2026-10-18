@@ -1,0 +1,62 @@
+Sr. Software Engineer (Open to hiring at Lead Engineer)
+Des Moines, IA, USA
+Employees work in a hybrid mode
+Onsite T/W/Th. Remote M/F.
+Full-time
+Department: Technology
+Work Environment: Hybrid
+Pay Grade: 23
+Company Description
+Why Wellmark? 
+
+We are a mutual insurance company owned by our policy holders across Iowa and South Dakota, and we’ve built our reputation on over 80 years’ worth of trust. We are not motivated by profits. We are motivated by the well-being of our friends, family, and neighbors–our members. If you’re passionate about joining an organization working hard to put its members first, to provide best-in-class service, and one that is committed to sustainability and innovation, consider applying today! 
+
+Why Wellmark Technology? Wellmark is building innovative, modern solutions using cutting edge technology. We are driving organizational transformation and business strategy by empowering our technology team to innovate new and elegant solutions to enhance the customer experience. Together, we are leaning into the future, owning the outcome, and driving organizational change to transform how we work. 
+
+Learn more about our unique benefit offerings here. 
+
+Want to know more? You can learn about life at Wellmark here.
+
+Job Description
+Conducts high level systems analysis and implementation of high performing software solutions that are efficient and cost effective, and which support Wellmark’s business and Technology applications. Leads system development and guides the team in the design, development, code testing and debugging necessary to ensure successful completion - or resolution of issues while focusing on utilization of emerging technologies. Contributes to and drives adoption of best practices (development standards, automated testing, CI/CD pipelines, etc.) across various platforms. Leads and supports a diverse development resourcing model which includes Wellmark staff, global onshore/offshore staffing, crowdsourcing, etc. Builds relationships with Wellmark leaders and acts as consultant on business process improvements and technology enhancements or capabilities.
+
+Qualifications
+Required:
+
+Bachelor’s degree in Computer Science, MIS, or related field of study, and at least 2 years of software development experience (ex. Angular, NodeJS, TypeScript, C++, .NET, Java, SQL) OR 6 years of related and applicable experience.
+Strong analytical problem-solving skills. Accuracy and high attention to detail. Previous experience troubleshooting and developing creative technical solutions. Ability to provide innovative solutions to complex issues.
+Demonstrated experience in software development lifecycle methodologies.
+Big picture thinker with the ability to translate the value of the WaaS strategy to company strategy when making design and development decisions.
+Demonstrated, strong ability to gather information, perform necessary research needed for root cause analysis, problem definition and formulation, recommend solution implementation, verification, and ongoing optimization, using data to support recommendations and best practices.
+Demonstrated ability to build relationships to reach outcomes that gain the support and acceptance of all parties. Ability to communicate key information in a timely manner to the appropriate stakeholder audience with the ability to adjust communication style that will best suit the audience.
+Ability to communicate with and coach/mentor team members, while setting an example in maintaining a positive attitude, staying calm under pressure, being approachable, and respectful and taking responsibility for failures.
+Ability to thrive in fast-paced environment with changing priorities. Excellent organizational skills. Strong time management skills with the ability to set and meet established timeframes with little direction, while assuring data and information integrity.
+Eagerness to learn and stay current on industry trends and have a continuous learning mindset. 
+Ability to collaborate and work as a team to accomplish goals and/or solve problems. Ability to earn trust and respect from peers, leadership, and stakeholders. Ability to learn by actively listening and applying coaching feedback.
+Ability to lead, support and work within a diverse development team model including global staffing, crowd sourcing, etc.
+Preferred:
+
+Bachelor’s degree.
+Experience working within an Agile team environment.
+Ability or interest in mentoring/coaching others.
+Experience partnering with global staffing vendors to deliver projects.
+Additional Information
+Job Responsibilities 
+
+a. Provide high-level analysis and implementation of innovative, efficient, and cost-effective business solutions for multiple platforms, while utilizing information technology, business, and industry trends.
+
+b. Guide other engineers in the design, development, code testing, debugging and resolution of issues that utilize emerging technology and meet and exceed Wellmark's evolving business needs.
+
+c. Provide advanced support in the gathering of information, necessary research needed for root cause analysis, problem definition and formulation, solution implementation, verification, and ongoing optimization. Ensure analysis of defects to find root cause and guide others in the identification of potential improvement opportunities. 
+
+d. Mentor, guide and problem-solve with other technology areas in the development and implementation of solutions, including how to use new or enhanced software/applications.
+
+e. Use data and cost measures (AWS, infrastructure, labor, etc.) to influence timely decisions, build consensus, and take actions to successfully deliver project or production support objectives and support benefits realization. Identify known issues, impacts to project or production outcomes if not resolved, and escalate as necessary. 
+
+f. Build relationships with Wellmark leaders and acts as consultant on business status, issues, process improvements and technology enhancements or capabilities.
+
+g. Participate in project proposals, estimates and proof-of-concept activities as needed.
+
+h. Maintain awareness of industry’s best practices and standards and proactively participates in industry/knowledge reference groups relative to role.
+
+i. Other duties as assigned.

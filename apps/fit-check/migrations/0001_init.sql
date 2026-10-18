@@ -1,11 +1,11 @@
 -- Fit Check v1. See docs/fit-check.md.
 
--- Every check, including cache hits (cached = 1, which don't count toward the monthly cap and don't store the JD).
+-- Every check, including cache hits (cached = 1, which don't count toward the monthly cap).
 CREATE TABLE fit_checks (
   id TEXT PRIMARY KEY,
   created_at TEXT NOT NULL,
   jd_hash TEXT NOT NULL,
-  jd_text TEXT, -- nulled after 12 months by the daily cron
+  jd_text TEXT, -- exactly what the visitor pasted, for tuning; nulled after 12 months by the daily cron
   role_title TEXT,
   company TEXT,
   score INTEGER NOT NULL,
