@@ -35,6 +35,9 @@ export async function skillAnswers(db: D1Database, skills: string[]): Promise<Ma
   return new Map(results.map((r) => [r.skill_key, { status: r.status, evidenceId: r.evidence_id, note: r.note }]));
 }
 
+/** Who pasted it: a site visitor, or Ryan through the admin app's "Add posting" box. */
+export type Source = "visitor" | "ryan";
+
 export type SavedCheck = {
   report: FitReport;
   jdHash: string;
@@ -43,14 +46,15 @@ export type SavedCheck = {
   ipHash: string;
   extractor: string | null;
   usage: { input: number; output: number } | null;
+  source: Source;
 };
 
 export async function saveCheck(db: D1Database, c: SavedCheck) {
   const stmts = [
     db
       .prepare(
-        `INSERT INTO fit_checks (id, created_at, jd_hash, jd_text, role_title, company, score, report_json, extractor, matcher, input_tokens, output_tokens, cached, ip_hash)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO fit_checks (id, created_at, jd_hash, jd_text, role_title, company, score, report_json, extractor, matcher, input_tokens, output_tokens, cached, ip_hash, source)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       )
       .bind(
         c.report.id,
@@ -68,6 +72,7 @@ export async function saveCheck(db: D1Database, c: SavedCheck) {
         c.usage?.output ?? null,
         c.report.cached ? 1 : 0,
         c.ipHash,
+        c.source,
       ),
   ];
   if (!c.report.cached) stmts.push(...c.report.items.filter((i) => i.status === "unconfirmed").map((i) => queueQuestion(db, i, c.report.id)));
