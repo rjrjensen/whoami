@@ -5,7 +5,7 @@ CREATE TABLE fit_checks (
   id TEXT PRIMARY KEY,
   created_at TEXT NOT NULL,
   jd_hash TEXT NOT NULL,
-  jd_text TEXT, -- exactly what the visitor pasted, for tuning; nulled after 12 months by the daily cron
+  jd_text TEXT, -- exactly what the visitor pasted, for tuning; kept permanently
   role_title TEXT,
   company TEXT,
   score INTEGER NOT NULL,

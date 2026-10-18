@@ -18,7 +18,7 @@ Each job belongs to exactly one owner. No owner checks or overrides another owne
 | --- | --- | --- |
 | **Code** | Guardrails, splitting the text into lines, grouping lines under headings, applying the honesty rules, scoring, writing the report text, saving, notifying | Everything a visitor sees, computed |
 | **Jev** | **Every judgment:** what each line *is* (including whether it's a heading or an instruction aimed at an AI), the company's industry, the role type, and how Ryan's record covers each requirement | TypeSafe primitives only: `choice`, `score`, `noul` |
-| **Claude** | **Rewriting, never judging:** breaking a requirement line into separate requirements, naming each one, and copying out the title and company | Text, which code checks against the original posting |
+| **Claude** | **Rewriting, never judging:** breaking a requirement line into separate requirements, naming each one, and copying out the title and company. **Backup only:** when Jev is down, Claude answers Jev's questions in the same primitive shapes, and the check is saved with `matcher = 'claude-backup'`. It's switched on only after it passes evals ([below](#claude-as-jevs-backup)) | Text, which code checks against the original posting |
 | **Ryan** | Answers about skills the record doesn't show: has it but never listed it, learning it, or not pursuing it | Registry answers in D1 |
 
 What changes from v1:
@@ -166,19 +166,28 @@ This is one well-structured posting. Ryan's handful of test postings should incl
 
 **Industry match.** Code compares Jev's pick with the industries Ryan has worked in. The report says, for example, *"Industry: insurance. Ryan has worked in insurance at Wellabe."* For this, each job in `data/resume.yaml` needs an `industry`. Here's a proposal for Ryan to correct:
 
-| Job | Proposed industry |
+| Job | Industry |
 | --- | --- |
-| Source Allies | consulting & agencies (and the client's industry?) |
+| Source Allies | consulting & agencies, plus each client's industry (below) |
 | Patient Preferred Financial Services | healthcare, financial services |
 | Principal Financial Group | financial services, insurance |
 | Wellabe | insurance |
-| Far Reach | consulting & agencies |
+| Far Reach | consulting & agencies (an internal .NET upgrade project) |
 | Hy-Vee | retail & e-commerce |
 | Stine Seed | agriculture |
 | Brownells | retail & e-commerce |
 | UPS | logistics & shipping |
 
-> **Claude:** For consulting work, the client's industry probably matters more. Which industries were your Source Allies and Far Reach clients in?
+Source Allies clients (from Ryan, 2026-10-18). Client names are never written in the repo or shown publicly; only the admin app shows them:
+
+| Client | Industry | The work |
+| --- | --- | --- |
+| A roofing-materials manufacturer (US and Canada) | manufacturing | English/French internationalization; Vue, Java |
+| A digital-identity company | software & SaaS | Helped design their webinar platform; Figma |
+| A regional mutual insurer | insurance | Data pipelines; T-SQL, dbt |
+| A federally backed bank for banks | financial services | Redesigning the web application for all money intake, their first public API and its security, PingOne as identity provider with Active Directory and LDAP users migrated to it |
+
+The report names the client when it's the match: *"Industry: insurance. Ryan has worked in insurance at Wellabe and for an insurance client via Source Allies."*
 
 ### 4. Split requirements (Claude)
 
@@ -241,7 +250,7 @@ How code combines them:
 
 ### 7. Score (code)
 
-Must-haves weigh 3 and nice-to-haves 1.
+Must-haves weigh 3 and nice-to-haves 1. A soft-skill requirement counts **0.75** of a technical one. Personality traits ("positive attitude", "approachable") aren't scored at all; the report lists them under **What they're looking for**, with a colleague's quote next to any trait a testimonial backs.
 
 | Status | Credit |
 | --- | --- |
@@ -252,7 +261,7 @@ Must-haves weigh 3 and nice-to-haves 1.
 | Not on resume yet / Ready to learn | 0.1 |
 | Not a focus (Ryan isn't going to learn it) | 0.0 |
 
-Industry and work arrangement are shown but don't count toward the score *(open question 5)*.
+Industry and work arrangement are shown as highlights and don't count toward the score.
 
 ### 8. Save (code)
 
@@ -321,10 +330,15 @@ Agreed 2026-10-18: build the answer page, signed links, and live updates now, ah
 - **Every evening:** a summary at 23:00 UTC (6 pm Central in summer, 5 pm in winter): the checks that day, the best match, and the skills waiting for answers, with counts. Nothing is sent on a day with no checks. *(Done.)*
 - **Strong match:** an immediate push when a report scores 80 or higher. It includes any email the visitor left in the optional "Want Ryan to follow up? Leave your email" field, which appears below the report with a note that it's only used to reply, and any email written in the posting itself.
 - **20 postings:** a one-time push to start eval work. *(Done.)*
+- **Ignored instructions:** the visitor is never told. The evening summary counts the lines removed that day, and every removed line is saved.
+- **Backup used:** the evening summary counts checks that ran with Claude as Jev's backup.
 
 **Testimonial endorsements.** The vouch form ([`testimonial-form.md`](testimonial-form.md), question 6) already asks colleagues which skills they'd vouch for. Each endorsement becomes evidence that Jev can pick in step 5, shown as "vouched for by 2 colleagues".
 
-**Soft skills.** Postings ask for many traits, like "calm under pressure", "time management", and "stakeholder communication". Ryan's record will gain a soft-skills group so these map to something. Far-fetched ones go to Ryan as questions, like any other skill. This gets its own grilling session.
+**Soft skills.** Ryan's record gains a **Working style** group next to *Leadership*: analytical problem-solving, root cause analysis, attention to detail, stakeholder communication, relationship building, cross-functional collaboration, time management and prioritization, adapting to changing priorities, working under pressure, continuous learning, receiving and applying feedback, process improvement, advising business leaders, estimates and proposals, cost- and data-driven decisions, leading distributed or offshore teams.
+- Claude links each one to the jobs that show it, without a review step, and only where the role supports it. For example, the Associate .NET Developer role at Brownells gets no leadership or stakeholder links.
+- A Working style skill appears on the public Skills page only once it's linked to a job. Unlinked ones still count for matching.
+- Far-fetched ones go to Ryan as questions, like any other skill.
 
 ## Tuning
 
@@ -337,6 +351,15 @@ Tuning needs three things:
 
    He doesn't write a report. Reports are computed in code, so fixing these answers fixes the report.
 3. **A runner** that sends each posting through the pipeline and reports where the answers differ. It runs on Ryan's machine and **never writes to D1**, so test postings don't mix with real ones or count against the monthly cap.
+
+### Claude as Jev's backup
+
+A backup that answers differently from Jev isn't a backup, so it stays off until evals show it matches.
+
+- **Schema.** Jev always returns the shape it's given; Claude might not. Claude is called with structured outputs, which constrain its reply to a JSON schema built from the same questions: each `choice` is one of the option names, each `score` one of the levels, each `noul` a number. Code still validates every answer (ranges, every question answered). One invalid answer fails the check; code never guesses a missing answer.
+- **Agreement.** The eval runner sends every saved posting through Jev and through the backup, and compares them answer by answer.
+- **The bar** *(open question 24)*: at least 95% of line labels the same, every `instruction` line Jev removes also removed, and no report score more than 5 points from Jev's.
+- **Switch.** Until the bar is met, the backup is off (`JEV_BACKUP` unset) and Jev down means "try again in a few minutes". Every promptfoo run re-checks it, so a change to either model that breaks agreement shows up before it matters.
 
 ### Haiku vs. Sonnet
 
@@ -359,17 +382,35 @@ This is the first comparison:
 | **LangChain** | No | It's a framework for chaining model calls and building agents. This pipeline is a fixed sequence of three calls, so LangChain would add weight without helping with tuning. |
 | Langfuse / Braintrust | Not yet | Hosted dashboards for traces and evals. At 300 checks a month, D1 plus promptfoo is enough. |
 
+## Trends (proposal)
+
+Ryan wants an admin report of which skills postings ask for, and how that changes over time. Everything it needs is already saved; the new part is counting the same skill under one name.
+
+- **One name per skill.** Each skill has one agreed display name. Every variant seen in a posting is saved as an alias of it (`skills`, `skill_aliases`).
+  1. Code tidies the name (case, punctuation).
+  2. A known alias is a free lookup.
+  3. Only an unseen variant goes to Jev, which picks the known skill it is, or `new` (a `choice`; code narrows the options to under 255). The answer is saved as a new alias, so the next posting doesn't ask again.
+  4. In the admin app, Ryan can rename a skill or move an alias to another skill.
+- **Counting.** Each distinct posting counts once (`jd_hash`), in the month it was first pasted.
+- **The page** *(open question 19)*:
+  - the share of postings asking for each skill, by month, split into must and nice
+  - rising and falling skills compared with the previous 3 months
+  - whether Ryan has each one, so in-demand gaps stand out
+  - the industry mix over time
+  - filters for industry, role type, and seniority
+- **Where it lives:** the SvelteKit admin app (`apps/admin`, at `admin.ryanjensen.dev`), with GitHub sign-in limited to Ryan. Not on the Worker.
+
 ## Open questions
 
-1. **Jev down:** fail the check (proposed), or let Claude answer Jev's questions and mark the report "uncalibrated"?
+1. ~~Jev down~~ → Claude answers as a backup (decision log).
 2. ~~Step 4 model~~ → decided by the [Haiku vs. Sonnet test](#haiku-vs-sonnet).
-3. **Responsibilities:** do lines like "Guide other engineers in design, code testing, debugging…" count as requirements? Proposed: yes, as nice-to-haves.
-4. **Ignored instructions:** tell the visitor ("2 lines were ignored because they were instructions, not job details"), or say nothing?
-5. **Industry and work arrangement:** shown only (proposed), or part of the score?
+3. ~~Responsibilities~~ → nice-to-haves.
+4. ~~Ignored instructions~~ → say nothing; counted in the evening summary.
+5. ~~Industry and work arrangement~~ → highlights, not scored.
 6. ~~Planned learning~~ → *Learning*, then *Has it* once learned (decision log).
 7. ~~When to ask~~ → every skill short of *Has it*, one entry per skill with a count (decision log).
 8. ~~What "I have this" needs~~ → evidence where possible, unlinked allowed at first (decision log).
-9. **Retention:** the exact text is kept for 12 months, then deleted. Longer for tuning?
+9. ~~Retention~~ → kept permanently. D1 is permanent storage; a posting is a few KB, and the free plan allows 500 MB per database. *(Done: the purge is removed.)*
 10. ~~Wording for *new*~~ → *Ready to learn*, once Ryan says he doesn't have it (decision log).
 11. ~~Credit for *new*~~ → 0.1; *Not a focus* is 0.0 (decision log).
 12. ~~Requirements that can't be learned quickly~~ → plain facts, framed positively, with extra credit when related skills map closely (decision log).
@@ -377,6 +418,14 @@ This is the first comparison:
 14. ~~Credit for related experience~~ → 0.4 when related skills map closely, 0.1 otherwise.
 15. ~~Answering quickly~~ → build it now.
 16. ~~Strong-match contact~~ → an optional email field below the report, plus emails in the posting.
+17. ~~Trends: where it lives~~ → the SvelteKit admin app, being built now.
+18. ~~Trends: one name per skill~~ → one display name, every variant saved as an alias.
+19. **Trends: what the page shows.** The list above?
+20. **Trends: Ryan's own postings.** An admin "Add posting" box, so postings Ryan finds count too, without pushes?
+21. **Trends: small samples.** Hide rising/falling until a month has 10+ postings?
+22. ~~Client names~~ → obscured everywhere public, including this repo.
+23. **Backup reports:** re-run with Jev once it's back, or keep Claude's answers?
+24. **Backup bar:** 95% of labels the same, every removed instruction matched, scores within 5 points?
 
 ## Decision log
 
@@ -402,3 +451,15 @@ This is the first comparison:
 | 2026-10-18 | Before Ryan answers, a new skill shows as *Not on my resume yet* (0.1). Experience whose related skills map closely earns 0.4. |
 | 2026-10-18 | The answer page, signed answer links, and live report updates get built now, ahead of the admin app. |
 | 2026-10-18 | A report scoring 80+ pushes immediately, with the visitor's optional follow-up email and any email in the posting. |
+| 2026-10-18 | Soft skills live in a new **Working style** group, public only once linked to a job. Claude links them without review, only where the role supports it. |
+| 2026-10-18 | Soft-skill requirements count 0.75. Personality traits are listed, not scored, and backed by testimonials when available. |
+| 2026-10-18 | When Jev is down, Claude answers Jev's questions as a backup. The check is marked so it can be counted and compared. |
+| 2026-10-18 | Responsibilities count as nice-to-haves. |
+| 2026-10-18 | Ignored instructions aren't mentioned to the visitor; the evening summary counts them. |
+| 2026-10-18 | Industry and work arrangement are highlights, not scored. |
+| 2026-10-18 | Pasted text is kept permanently. |
+| 2026-10-18 | Consulting jobs carry each client's industry. |
+| 2026-10-18 | Claude's backup for Jev stays off until evals show it matches Jev's answers. Structured outputs plus code validation keep it in Jev's answer shapes. |
+| 2026-10-18 | Client names are obscured in the repo and on the public site. |
+| 2026-10-18 | The admin app is SvelteKit (`apps/admin`) with GitHub sign-in for Ryan only. The trends page lives there, not on the Worker. |
+| 2026-10-18 | Skills have one display name; every variant found in postings is saved as an alias, so Jev only sees unseen variants. |
