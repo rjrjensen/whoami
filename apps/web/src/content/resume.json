@@ -102,9 +102,6 @@
               "proficient": true
             },
             {
-              "name": "T-SQL"
-            },
-            {
               "name": "Kotlin",
               "proficient": true
             },
@@ -571,7 +568,6 @@
             "AWS Bedrock",
             "Azure",
             "SQL Server",
-            "T-SQL",
             "Databricks",
             "dbt",
             "PingOne",
@@ -751,9 +747,6 @@
           "Source Allies",
           "Patient Preferred Financial Services",
           "Far Reach Inc."
-        ],
-        "T-SQL": [
-          "Source Allies"
         ],
         "Kotlin": [
           "Hy-Vee, Inc."
@@ -945,23 +938,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 140394
+            "bytes": 140316
           },
           {
             "ext": "docx",
-            "bytes": 14602
+            "bytes": 14609
           },
           {
             "ext": "md",
-            "bytes": 8198
+            "bytes": 8184
           },
           {
             "ext": "json",
-            "bytes": 11701
+            "bytes": 11677
           },
           {
             "ext": "toml",
-            "bytes": 9598
+            "bytes": 9582
           }
         ]
       }
@@ -1017,9 +1010,6 @@
             {
               "name": "SQL",
               "proficient": true
-            },
-            {
-              "name": "T-SQL"
             },
             {
               "name": "Kotlin",
@@ -1274,7 +1264,6 @@
             "AWS Bedrock",
             "Azure",
             "SQL Server",
-            "T-SQL",
             "Databricks",
             "dbt",
             "PingOne",
@@ -1455,9 +1444,6 @@
           "Patient Preferred Financial Services",
           "Far Reach Inc."
         ],
-        "T-SQL": [
-          "Source Allies"
-        ],
         "Kotlin": [
           "Hy-Vee, Inc."
         ],
@@ -1585,23 +1571,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 136870
+            "bytes": 136776
           },
           {
             "ext": "docx",
-            "bytes": 14344
+            "bytes": 14347
           },
           {
             "ext": "md",
-            "bytes": 7944
+            "bytes": 7930
           },
           {
             "ext": "json",
-            "bytes": 10985
+            "bytes": 10961
           },
           {
             "ext": "toml",
-            "bytes": 9214
+            "bytes": 9198
           }
         ]
       }
@@ -1655,9 +1641,6 @@
             {
               "name": "SQL",
               "proficient": true
-            },
-            {
-              "name": "T-SQL"
             },
             {
               "name": "Kotlin",
@@ -2126,7 +2109,6 @@
             "AWS Bedrock",
             "Azure",
             "SQL Server",
-            "T-SQL",
             "Databricks",
             "dbt",
             "PingOne",
@@ -2267,9 +2249,6 @@
           "Source Allies",
           "Patient Preferred Financial Services",
           "Far Reach Inc."
-        ],
-        "T-SQL": [
-          "Source Allies"
         ],
         "Kotlin": [
           "Hy-Vee, Inc."
@@ -2461,23 +2440,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 120922
+            "bytes": 120833
           },
           {
             "ext": "docx",
-            "bytes": 14201
+            "bytes": 14206
           },
           {
             "ext": "md",
-            "bytes": 7348
+            "bytes": 7334
           },
           {
             "ext": "json",
-            "bytes": 10792
+            "bytes": 10768
           },
           {
             "ext": "toml",
-            "bytes": 8777
+            "bytes": 8761
           }
         ]
       }
