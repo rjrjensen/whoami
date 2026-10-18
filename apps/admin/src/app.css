@@ -1,0 +1,354 @@
+/* Design tokens, copied from apps/web/src/app/globals.css. Contrast pairs checked against WCAG 2.2 AA in both themes. */
+:root {
+  --bg: #f8f6f1;
+  --surface: #ffffff;
+  --surface-2: #f1eee6;
+  --ink: #1a1e23;
+  --muted: #555e69;
+  --line: #e2ddd1;
+  --accent: #0d5a61;
+  --accent-ink: #ffffff;
+  --accent-soft: #dcefee;
+  --signal: #a64b0a;
+  --focus: #1d4ed8;
+  --font-sans: "Geist Variable", system-ui, sans-serif;
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1113;
+    --surface: #141a1d;
+    --surface-2: #1b2327;
+    --ink: #e8ebee;
+    --muted: #a5afb9;
+    --line: #273238;
+    --accent: #63d2c8;
+    --accent-ink: #062a2d;
+    --accent-soft: #13383b;
+    --signal: #f4b35a;
+    --focus: #93c5fd;
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+}
+h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2.25rem;
+}
+h2 {
+  font-size: 1.25rem;
+}
+h3 {
+  font-size: 1.05rem;
+}
+p {
+  margin: 0 0 0.75rem;
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  z-index: 10;
+}
+.skip:focus {
+  top: 0.5rem;
+}
+
+/* Header and nav: one row of wrapping links, big enough to tap. */
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+  padding: max(0.5rem, env(safe-area-inset-top)) 1rem 0;
+}
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+.site-header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0.25rem 0 0.5rem;
+  max-width: 64rem;
+}
+.site-header nav a {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  min-height: 44px;
+  border-radius: 999px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.site-header nav a[aria-current="page"] {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+main {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 1.25rem 1rem max(3rem, env(safe-area-inset-bottom));
+}
+main:focus {
+  outline: none;
+}
+
+/* Surfaces */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.narrow {
+  max-width: 28rem;
+  margin: 2rem auto;
+}
+.muted {
+  color: var(--muted);
+}
+.stack > * + * {
+  margin-top: 0.75rem;
+}
+
+/* Controls */
+.button,
+button {
+  font: inherit;
+}
+.button,
+button:not(.link-button) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+button.secondary,
+.button.secondary {
+  background: transparent;
+  color: var(--accent);
+}
+.link-button {
+  background: none;
+  border: none;
+  color: var(--accent);
+  padding: 0.5rem;
+  min-height: 44px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+input[type="text"],
+input[type="search"],
+select,
+textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--muted);
+  border-radius: 8px;
+  padding: 0.6rem 0.7rem;
+  min-height: 44px;
+}
+textarea {
+  min-height: 12rem;
+  resize: vertical;
+}
+fieldset {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin: 0;
+}
+legend {
+  font-weight: 600;
+  padding: 0 0.25rem;
+}
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 400;
+  min-height: 44px;
+}
+.choice input {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--accent);
+}
+.hint {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+.error-text {
+  color: var(--signal);
+  font-weight: 600;
+}
+
+/* Status chips: always text, never color alone. */
+.chip {
+  display: inline-block;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+.chip.must {
+  border-color: var(--signal);
+  color: var(--signal);
+  font-weight: 600;
+}
+.chip.accent {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+/* Tables scroll inside themselves on small screens, never the page. */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.95rem;
+}
+caption {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  font-weight: 600;
+}
+th,
+td {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-top: 1px solid var(--line);
+  vertical-align: top;
+}
+th {
+  background: var(--surface-2);
+  font-weight: 600;
+}
+td.num,
+th.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  background: var(--surface-2);
+  border-radius: 8px;
+  padding: 0.75rem;
+  max-height: 30rem;
+  overflow: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
