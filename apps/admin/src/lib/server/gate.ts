@@ -3,13 +3,15 @@ import { redirect } from "@sveltejs/kit";
 import type { Handle } from "@sveltejs/kit/hooks";
 import { allowedId, isPublic, SESSION_COOKIE, validateSession } from "./auth";
 
-/** `bypass` is the local test-only sign-in skip; hooks.server.ts makes it false in every production build. */
+/**
+ * `env` is the Worker's bindings (from cloudflare:workers, passed in so tests can fake them).
+ * `bypass` is the local test-only sign-in skip; hooks.server.ts makes it false in every production build.
+ */
 export const gate =
-  (bypass: (url: URL) => boolean): Handle =>
+  (env: Env, bypass: (url: URL) => boolean): Handle =>
   async ({ event, resolve }) => {
-    const env = event.platform?.env;
-    if (!env) return new Response("Missing platform bindings", { status: 500 });
-    event.locals.admin = bypass(event.url)
+    // The bypass never applies to /auth/*, so the sign-in page can still be checked.
+    event.locals.admin = bypass(event.url) && !isPublic(event.url.pathname)
       ? { githubId: allowedId(env) }
       : await validateSession(env.DB, event.cookies.get(SESSION_COOKIE), allowedId(env));
 

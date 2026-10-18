@@ -12,7 +12,9 @@
     "typecheck": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --fail-on-warnings",
     "lint": "eslint .",
     "test": "vitest run",
-    "test:a11y": "node tests/a11y.mjs"
+    "test:a11y": "node tests/a11y.mjs",
+    "migrate:local": "npm run migrate:local -w @ryanjensen/fit-check",
+    "seed:local": "node scripts/fake-data.mjs .svelte-kit/fake-data.sql && wrangler d1 execute fit-check --local --persist-to ../fit-check/.wrangler/state --file .svelte-kit/fake-data.sql"
   },
   "imports": {
     "#lib": "./src/lib/index.js",

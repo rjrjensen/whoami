@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     sveltekit({
       compilerOptions: { runes: ({ filename }) => (filename.split(/[/\\]/).includes("node_modules") ? undefined : true) },
-      // Dev shares fit-check's local D1, so `npm run migrate:local -w @ryanjensen/fit-check` sets up both.
+      // Dev shares fit-check's local D1 (wrangler's default .wrangler/state/v3 there), so its migrate:local sets up both.
       adapter: adapter({ platformProxy: { persist: { path: "../fit-check/.wrangler/state/v3" } } }),
       csp: {
         mode: "auto",
