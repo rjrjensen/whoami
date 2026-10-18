@@ -8,7 +8,7 @@ Full-stack engineer with 8+ years designing, modernizing, and shipping scalable 
 
 ## Technical Skills <sub>(\* indicates proficiency)</sub>
 
-- **Languages:** C#\*, SQL\*, T-SQL, Kotlin\*, Java, JavaScript, TypeScript, Python, HTML, CSS / Sass / Less, Bash, PowerShell
+- **Languages:** C#\*, SQL\*, Kotlin\*, Java, JavaScript, TypeScript, Python, HTML, CSS / Sass / Less, Bash, PowerShell
 - **Backend Frameworks:** .NET (Core)\*, .NET Framework, Spring / Spring Boot, GraphQL, Ktor, Node.js, Express, Apollo GraphQL
 - **Frontend Frameworks:** Blazor\*, Angular\*, React / Next.js, Bootstrap\*, Tailwind, WPF, Vue.js, AngularJS, jQuery, RxJS, HTMX, Material UI
 - **DevOps / CI/CD:** Git\*, GitHub\*, GitHub Actions\*, Azure DevOps\*, Concourse CI\*, Terraform\*, Ansible, Linux (cron)
@@ -38,7 +38,7 @@ Consultant across 4+ client engagements in financial services, insurance, identi
 - Mentor and teach the company's apprentices.
 - Helped design a digital-identity company's webinar platform in Figma.
 
-**Technologies:** Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, T-SQL, Databricks, dbt, PingOne, Active Directory / LDAP, Figma
+**Technologies:** Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma
 
 ### Fractional CTO — Patient Preferred Financial Services
 
