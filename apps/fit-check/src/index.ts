@@ -101,7 +101,7 @@ export default {
     if (hit) {
       const report: FitReport = { ...hit, id, createdAt, cached: true };
       // Saved before responding, so the report's link works the moment it's shown.
-      await saveCheck(env.DB, { report, jdHash, jdText: jd, ipHash, extractor: null, usage: null });
+      await saveCheck(env.DB, { report, jdHash, jdText: body.jobDescription, ipHash, extractor: null, usage: null });
       return json({ report });
     }
 
@@ -114,7 +114,7 @@ export default {
         skillAnswers(env.DB, extraction.requirements.map((r) => r.skill)),
       ]);
       const report = buildReport(extraction, matches, answers, { id, createdAt, matcher });
-      await saveCheck(env.DB, { report, jdHash, jdText: jd, ipHash, extractor: model, usage });
+      await saveCheck(env.DB, { report, jdHash, jdText: body.jobDescription, ipHash, extractor: model, usage });
       if (env.NTFY_TOPIC) ctx.waitUntil(notifyGaps(report, { server: env.NTFY_SERVER, topic: env.NTFY_TOPIC, siteUrl: env.SITE_URL }).catch((err) => console.warn("ntfy failed:", err)));
       return json({ report });
     } catch (err) {

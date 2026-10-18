@@ -1,6 +1,6 @@
 # Fit Check v1: build plan
 
-How the Fit Check (Phase 4 of [`site-plan.md`](site-plan.md#fit-check-job-description-analysis)) is built. The site plan says *what* it does; this file says *how*, and which parts are deferred.
+How the Fit Check (Phase 4 of [`site-plan.md`](site-plan.md#fit-check-job-description-analysis)) is built. The site plan says *what* it does; this file says *how*, and which parts are deferred. The next version of the pipeline is being worked out in [`fit-check-flow.md`](fit-check-flow.md).
 
 ## What a visitor does
 
