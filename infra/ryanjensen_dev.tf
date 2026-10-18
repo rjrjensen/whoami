@@ -59,7 +59,7 @@ resource "cloudflare_dns_record" "site_google_dkim" {
   zone_id = cloudflare_zone.ryanjensen_dev.id
   name    = "google._domainkey.ryanjensen.dev"
   type    = "TXT"
-  content = var.ryanjensen_dev_google_dkim
+  content = join(" ", [for chunk in regexall(".{1,255}", var.ryanjensen_dev_google_dkim) : "\"${chunk}\""])
   ttl     = 1
   comment = "Google Workspace DKIM (managed by Terraform)"
 }
