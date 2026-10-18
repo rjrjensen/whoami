@@ -44,6 +44,7 @@ skills:
     keywords:
       - { name: "C#", proficient: true }
       - { name: SQL, proficient: true }
+      - { name: T-SQL }
       - { name: Kotlin, proficient: true }
       - { name: Java }
       - { name: JavaScript }
@@ -139,6 +140,10 @@ skills:
       - { name: CloudFront, variants: [base, lead] }
       - { name: Lambda, variants: [base, lead] }
       - { name: OpenNext, variants: [base, lead] }
+  - name: Identity
+    keywords:
+      - { name: PingOne }
+      - { name: Active Directory / LDAP }
   - name: Project Management
     keywords:
       - { name: Scrum, proficient: true }
@@ -165,17 +170,22 @@ work:
     highlights:
       - text: "Ranked #1 interviewer for 2025 and the first half of 2026, with 30+ interviews and ~10 hires still with the company."
         tags: [leadership, hiring]
-      - text: Technical delivery lead for a data engineering engagement (SQL Server, Databricks, dbt), including project management and coaching.
+      - text: Technical delivery lead for a regional mutual insurer's data engineering engagement (SQL Server, T-SQL, Databricks, dbt), including project management and coaching.
         tags: [leadership, delivery]
-      - text: Led English/French internationalization of a client's customer portal and outgoing email (Vue I18n, Thymeleaf, Spring Boot).
+      - text: Led English/French internationalization of a roofing-materials manufacturer's customer portal and outgoing email for the US and Canada (Vue I18n, Thymeleaf, Spring Boot).
         tags: [delivery]
       - text: Bootstrapped a generative AI initiative on AWS Bedrock.
         tags: [ai, initiative]
-      - text: Reworked the frontend of a high-traffic identity-management application.
-        tags: [frontend]
+      - text: >-
+          Redesigning a federally backed bank's high-traffic web application, which handles all of its money intake:
+          reworked the frontend, built its first public API and secured it, and moved identity to PingOne, migrating
+          Active Directory and LDAP users.
+        tags: [frontend, architecture, security]
+      - text: Helped design a digital-identity company's webinar platform in Figma.
+        tags: [design]
       - text: Mentor and teach the company's apprentices.
         tags: [leadership, mentoring]
-    technologies: [Vue.js, React, Java, Spring Boot, GraphQL, "C#", TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt]
+    technologies: [Vue.js, React, Java, Spring Boot, GraphQL, "C#", TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, T-SQL, Databricks, dbt, PingOne, Active Directory / LDAP, Figma]
 
   - name: Patient Preferred Financial Services
     url: https://patientpreferredservices.com
@@ -233,7 +243,7 @@ work:
     endDate: 2022-06
     summary: >-
       Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using
-      ASP.NET Boilerplate, PrimeNG, and Bootstrap.
+      ASP.NET Boilerplate, PrimeNG, and Bootstrap, and upgraded the company's internal .NET applications.
 
   - name: Hy-Vee, Inc.
     position: Software Engineer

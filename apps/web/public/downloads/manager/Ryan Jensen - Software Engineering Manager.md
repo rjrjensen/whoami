@@ -8,7 +8,7 @@ Engineering leader with 8+ years of full-stack software experience and nearly fo
 
 ## Technical Skills <sub>(\* indicates proficiency)</sub>
 
-- **Languages:** C#\*, SQL\*, Kotlin\*, Java, JavaScript, TypeScript, Python
+- **Languages:** C#\*, SQL\*, T-SQL, Kotlin\*, Java, JavaScript, TypeScript, Python
 - **Backend Frameworks:** .NET (Core)\*, .NET Framework, Spring / Spring Boot, GraphQL, Ktor, Node.js
 - **Frontend Frameworks:** Blazor\*, Angular\*, React / Next.js, Bootstrap\*, Tailwind, WPF, Vue.js
 - **DevOps / CI/CD:** Git\*, GitHub\*, GitHub Actions\*, Azure DevOps\*, Concourse CI\*, Terraform\*
@@ -16,6 +16,7 @@ Engineering leader with 8+ years of full-stack software experience and nearly fo
 - **Containerization:** Docker\*, Kubernetes, NuGet\*, npm
 - **Tooling:** JetBrains IDEs, Visual Studio / VS Code, SSMS / SSIS, dbt
 - **Cloud:** AWS\*, Azure\*, Google Cloud
+- **Identity:** PingOne, Active Directory / LDAP
 - **Project Management:** Scrum\*, Kanban, Agile, Jira\*, GitHub Projects
 - **Leadership:** Hiring & interviewing, Mentoring & coaching, Technical delivery leadership, Vendor management, Technology strategy & budgeting
 
@@ -28,13 +29,14 @@ _December 2024 – Present · Urbandale, IA_
 Consultant across 4+ client engagements in financial services, insurance, identity management, and enterprise web, spanning full-stack development, delivery leadership, coaching, and generative AI.
 
 - Ranked #1 interviewer for 2025 and the first half of 2026, with 30+ interviews and ~10 hires still with the company.
-- Technical delivery lead for a data engineering engagement (SQL Server, Databricks, dbt), including project management and coaching.
+- Technical delivery lead for a regional mutual insurer's data engineering engagement (SQL Server, T-SQL, Databricks, dbt), including project management and coaching.
 - Mentor and teach the company's apprentices.
 - Bootstrapped a generative AI initiative on AWS Bedrock.
-- Led English/French internationalization of a client's customer portal and outgoing email (Vue I18n, Thymeleaf, Spring Boot).
-- Reworked the frontend of a high-traffic identity-management application.
+- Led English/French internationalization of a roofing-materials manufacturer's customer portal and outgoing email for the US and Canada (Vue I18n, Thymeleaf, Spring Boot).
+- Redesigning a federally backed bank's high-traffic web application, which handles all of its money intake: reworked the frontend, built its first public API and secured it, and moved identity to PingOne, migrating Active Directory and LDAP users.
+- Helped design a digital-identity company's webinar platform in Figma.
 
-**Technologies:** Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt
+**Technologies:** Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, T-SQL, Databricks, dbt, PingOne, Active Directory / LDAP, Figma
 
 ### Fractional CTO — Patient Preferred Financial Services
 
@@ -75,7 +77,7 @@ Led small teams modernizing the company's software and unifying its tech stack.
 
 _March 2022 – June 2022 · Contract via Modis_
 
-Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap.
+Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap, and upgraded the company's internal .NET applications.
 
 ### Software Engineer — Hy-Vee, Inc.
 

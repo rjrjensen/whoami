@@ -359,6 +359,7 @@ A backup that answers differently from Jev isn't a backup, so it stays off until
 - **Schema.** Jev always returns the shape it's given; Claude might not. Claude is called with structured outputs, which constrain its reply to a JSON schema built from the same questions: each `choice` is one of the option names, each `score` one of the levels, each `noul` a number. Code still validates every answer (ranges, every question answered). One invalid answer fails the check; code never guesses a missing answer.
 - **Agreement.** The eval runner sends every saved posting through Jev and through the backup, and compares them answer by answer.
 - **The bar** *(open question 24)*: at least 95% of line labels the same, every `instruction` line Jev removes also removed, and no report score more than 5 points from Jev's.
+- **Re-run.** A report made with the backup is re-run through the regular pipeline once Jev is back (the next cron, then hourly until it works), so every report ends up with Jev's answers. The live report update shows the new version.
 - **Switch.** Until the bar is met, the backup is off (`JEV_BACKUP` unset) and Jev down means "try again in a few minutes". Every promptfoo run re-checks it, so a change to either model that breaks agreement shows up before it matters.
 
 ### Haiku vs. Sonnet
@@ -394,7 +395,7 @@ Ryan wants an admin report of which skills postings ask for, and how that change
 - **Counting.** Each distinct posting counts once (`jd_hash`), in the month it was first pasted.
 - **The page** *(open question 19)*:
   - the share of postings asking for each skill, by month, split into must and nice
-  - rising and falling skills compared with the previous 3 months
+  - rising and falling skills compared with the previous 3 months, shown from the start with the number of postings next to each, so small samples are visible
   - whether Ryan has each one, so in-demand gaps stand out
   - the industry mix over time
   - filters for industry, role type, and seniority
@@ -420,11 +421,11 @@ Ryan wants an admin report of which skills postings ask for, and how that change
 16. ~~Strong-match contact~~ → an optional email field below the report, plus emails in the posting.
 17. ~~Trends: where it lives~~ → the SvelteKit admin app, being built now.
 18. ~~Trends: one name per skill~~ → one display name, every variant saved as an alias.
-19. **Trends: what the page shows.** The list above?
-20. **Trends: Ryan's own postings.** An admin "Add posting" box, so postings Ryan finds count too, without pushes?
-21. **Trends: small samples.** Hide rising/falling until a month has 10+ postings?
+19. ~~Trends: what the page shows~~ → the list above.
+20. ~~Trends: Ryan's own postings~~ → an "Add posting" box, no pushes.
+21. ~~Trends: small samples~~ → shown right away, with posting counts.
 22. ~~Client names~~ → obscured everywhere public, including this repo.
-23. **Backup reports:** re-run with Jev once it's back, or keep Claude's answers?
+23. ~~Backup reports~~ → re-run through Jev once it's back.
 24. **Backup bar:** 95% of labels the same, every removed instruction matched, scores within 5 points?
 
 ## Decision log
@@ -463,3 +464,5 @@ Ryan wants an admin report of which skills postings ask for, and how that change
 | 2026-10-18 | Client names are obscured in the repo and on the public site. |
 | 2026-10-18 | The admin app is SvelteKit (`apps/admin`) with GitHub sign-in for Ryan only. The trends page lives there, not on the Worker. |
 | 2026-10-18 | Skills have one display name; every variant found in postings is saved as an alias, so Jev only sees unseen variants. |
+| 2026-10-18 | Trends show right away, with posting counts beside each number. Ryan's own postings count, without pushes. |
+| 2026-10-18 | Reports made with the backup are re-run through Jev once it's back, to keep reports consistent. |
