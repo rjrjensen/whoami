@@ -67,9 +67,11 @@ The skip can't be turned on in production. It needs all three of: a Vite dev ser
 
 ## Next steps
 
-Not built yet:
-- Web Push (ntfy keeps sending pushes for now)
-- The pull-request bridge that adds confirmed skills to `data/resume.yaml`
-- The job search tracker
-- Testimonials and contacts
-- Industry and seniority filters fill in once the Jev pipeline saves them in reports
+Not built yet, in Ryan's priority order (2026-10-18):
+1. Testimonials: review and approve "Vouch for Ryan" submissions
+2. The pull-request bridge that adds confirmed skills to `data/resume.yaml`
+3. Contacts: screened contact-form messages (people can email Ryan meanwhile)
+4. The job search tracker (Ryan uses Huntr meanwhile)
+5. Web Push (ntfy covers pushes)
+
+Industry and seniority filters fill in once the Jev pipeline saves them in reports.
