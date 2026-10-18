@@ -33,6 +33,8 @@ The site reads like a storybook: each section is its own page (Home, Experience,
 8. **Fit Check:** see below.
 9. **Contact:** see *Contact & trusted access* below.
 10. **Admin (private):** answer skill questions from Fit Check, review reports, edit skill confirmations, approve contacts and testimonials, and track the job search (see *Job search tracker*).
+    - Built (`apps/admin`, SvelteKit at `admin.ryanjensen.dev`, GitHub sign-in for Ryan only): the skill questions queue, reports with the exact pasted text, skill trends, one name per skill (rename and merge), and "Add posting" for Ryan's own finds (no pushes). See [`apps/admin/README.md`](../apps/admin/README.md).
+    - Not yet: Web Push, the `resume.yaml` pull-request bridge, the job search tracker, testimonials, and contacts.
 
 ## About me (personal page)
 
@@ -235,7 +237,7 @@ All three domains are registered and served through Cloudflare, managed by Terra
 2. **Site v1:** hero, timeline, skills with evidence, downloads, contact, accessibility/performance CI, domains.
 3. **Case studies:** write 3–5 with Ryan, with diagrams.
 4. **Fit Check v1:** extraction + matching + report, skill registry, guardrails. *(built; see [`fit-check.md`](fit-check.md) for the design and what's deferred)*
-5. **Admin PWA:** push notifications, skill answers, digest.
+5. **Admin PWA** *(started)*: skill answers, reports, trends, and "Add posting" are built. Still to come: Web Push (ntfy covers pushes for now), the `resume.yaml` PR bridge, the job search tracker, testimonials, and contacts.
 6. **Polish:** motion, OG images, analytics review.
 
 ## Testimonials
