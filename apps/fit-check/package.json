@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./report": "./src/report.ts"
+    "./report": "./src/report.ts",
+    "./record": "./src/record.ts"
   },
   "scripts": {
     "dev": "wrangler dev",
