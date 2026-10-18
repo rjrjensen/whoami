@@ -7,13 +7,12 @@ declare global {
       /** Set by hooks.server.ts when the request carries Ryan's session. */
       admin: { githubId: number } | null;
     }
-    interface Platform {
-      env: Env;
-      ctx: ExecutionContext;
-    }
   }
 
-  interface Env {
+  /** Bindings, read with `import { env } from "cloudflare:workers"` (adapter-cloudflare 8 has no event.platform). */
+  type Env = Cloudflare.Env;
+  namespace Cloudflare {
+    interface Env {
     DB: D1Database;
     /** fit-check's Admin entrypoint (apps/fit-check/src/index.ts). */
     FIT_CHECK: { checkFromAdmin(text: string): Promise<{ report: FitReport } | { error: string; message: string }> };
@@ -21,6 +20,7 @@ declare global {
     ADMIN_GITHUB_ID: string;
     GITHUB_CLIENT_ID: string;
     GITHUB_CLIENT_SECRET: string;
+    }
   }
 }
 

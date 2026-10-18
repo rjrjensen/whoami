@@ -1,4 +1,5 @@
 // Every route needs Ryan's session except /auth/* and static files (see lib/server/gate.ts).
+import { env } from "cloudflare:workers";
 import { dev } from "$app/env";
 import { gate } from "#lib/server/gate.ts";
 
@@ -11,4 +12,4 @@ import { gate } from "#lib/server/gate.ts";
 const bypass = (url: URL) =>
   import.meta.env.DEV && dev && typeof process !== "undefined" && process.env.ADMIN_AUTH_BYPASS === "1" && ["localhost", "127.0.0.1"].includes(url.hostname);
 
-export const handle = gate(bypass);
+export const handle = gate(env, bypass);

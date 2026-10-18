@@ -71,14 +71,13 @@ describe("gate", () => {
     const event = {
       url,
       request: new Request(url, { method, headers: { accept } }),
-      platform: { env },
       locals: { admin: null },
       cookies: { get: (name: string) => (name === SESSION_COOKIE ? token : undefined) },
     };
     const resolve = vi.fn(async () => new Response("page"));
     try {
       // @ts-expect-error a partial RequestEvent is enough for the gate
-      const res = await gate(() => bypass)({ event, resolve });
+      const res = await gate(env, () => bypass)({ event, resolve });
       return { status: res.status, resolved: resolve.mock.calls.length > 0, admin: event.locals.admin };
     } catch (thrown) {
       return { status: (thrown as { status: number }).status, location: (thrown as { location: string }).location, resolved: false };
