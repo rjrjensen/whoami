@@ -40,6 +40,27 @@ Tasks only Ryan can do (accounts, payments, approvals). Claude keeps this list c
 - [ ] Project settings → **Autocapture**: make sure **Enable autocapture for web** is on; if it's off there, PostHog skips click capture even though the site asks for it.
 - [ ] Put `?ref=` tracking links on your profiles (e.g. `https://ryanjensen.dev/?ref=linkedin`, `?ref=github`) and use `?ref=<company>` for links you send recruiters. See README → Analytics.
 
+## Fit Check (see `docs/fit-check.md`)
+
+Until these are done, the Fit Check box shows on the site but every check fails with "Something went wrong."
+
+- [ ] Get a Claude API key at console.anthropic.com (Settings → API keys) and add a few dollars of credit. Set a monthly spend limit there too (Settings → Limits).
+- [ ] Add **D1: Edit** and **Turnstile: Edit** (account-level) to the Cloudflare Terraform API token.
+- [ ] `terraform apply` in `infra/`: creates the D1 database, the Turnstile widget, and the site key on Vercel.
+- [ ] Paste `terraform output fit_check_d1_id` into `apps/fit-check/wrangler.jsonc` → `database_id`, and tell Claude (or commit it).
+- [ ] In `apps/fit-check/`:
+  - `npx wrangler login`
+  - `npm run migrate:remote`
+  - `npx wrangler secret put ANTHROPIC_API_KEY`
+  - `npx wrangler secret put JEV_API_KEY`
+  - `npx wrangler secret put IP_HASH_SALT` (any long random string, e.g. from `openssl rand -hex 32`)
+  - `terraform -chdir=../../infra output -raw fit_check_turnstile_secret | npx wrangler secret put TURNSTILE_SECRET_KEY`
+  - `npx wrangler secret put NTFY_TOPIC` (an unguessable name, e.g. `fitcheck-` plus `openssl rand -hex 12`)
+  - `npm run deploy` (this also creates `api.ryanjensen.dev`)
+- [ ] Install the ntfy app on your phone and subscribe to that same topic on ntfy.sh. Unconfirmed must-haves push there.
+- [ ] Redeploy the site on Vercel so it picks up `NEXT_PUBLIC_TURNSTILE_SITE_KEY`.
+- [ ] Try it with a real job description, then tell Claude how the report reads.
+
 ## Content
 
 - [ ] Review the homepage tagline and the numbers strip (drafts)

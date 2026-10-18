@@ -1,0 +1,768 @@
+{
+  "name": "Ryan Jensen",
+  "location": "West Des Moines, IA",
+  "preferences": {
+    "workArrangement": "Open to on-site, hybrid, or remote",
+    "workAuthorization": "US citizen; no sponsorship required"
+  },
+  "skills": [
+    {
+      "name": "C#",
+      "group": "Languages",
+      "proficient": true,
+      "usedAt": [
+        "Source Allies"
+      ]
+    },
+    {
+      "name": "SQL",
+      "group": "Languages",
+      "proficient": true,
+      "usedAt": [
+        "Source Allies",
+        "Patient Preferred Financial Services",
+        "Far Reach Inc."
+      ]
+    },
+    {
+      "name": "Kotlin",
+      "group": "Languages",
+      "proficient": true,
+      "usedAt": [
+        "Hy-Vee, Inc."
+      ]
+    },
+    {
+      "name": "Java",
+      "group": "Languages",
+      "proficient": false,
+      "usedAt": [
+        "Source Allies"
+      ]
+    },
+    {
+      "name": "JavaScript",
+      "group": "Languages",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "TypeScript",
+      "group": "Languages",
+      "proficient": false,
+      "usedAt": [
+        "Source Allies"
+      ]
+    },
+    {
+      "name": "Python",
+      "group": "Languages",
+      "proficient": false,
+      "usedAt": [
+        "Source Allies"
+      ]
+    },
+    {
+      "name": "HTML",
+      "group": "Languages",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "CSS / Sass / Less",
+      "group": "Languages",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Bash",
+      "group": "Languages",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "PowerShell",
+      "group": "Languages",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": ".NET (Core)",
+      "group": "Backend Frameworks",
+      "proficient": true,
+      "usedAt": [
+        "Patient Preferred Financial Services",
+        "Principal Financial Group",
+        "Far Reach Inc.",
+        "Hy-Vee, Inc.",
+        "Stine Seed, Inc.",
+        "Brownells, Inc."
+      ]
+    },
+    {
+      "name": ".NET Framework",
+      "group": "Backend Frameworks",
+      "proficient": false,
+      "usedAt": [
+        "Patient Preferred Financial Services",
+        "Brownells, Inc."
+      ]
+    },
+    {
+      "name": "Spring / Spring Boot",
+      "group": "Backend Frameworks",
+      "proficient": false,
+      "usedAt": [
+        "Source Allies",
+        "Hy-Vee, Inc."
+      ]
+    },
+    {
+      "name": "GraphQL",
+      "group": "Backend Frameworks",
+      "proficient": false,
+      "usedAt": [
+        "Source Allies",
+        "Hy-Vee, Inc."
+      ]
+    },
+    {
+      "name": "Ktor",
+      "group": "Backend Frameworks",
+      "proficient": false,
+      "usedAt": [
+        "Hy-Vee, Inc."
+      ]
+    },
+    {
+      "name": "Node.js",
+      "group": "Backend Frameworks",
+      "proficient": false,
+      "usedAt": [
+        "Source Allies"
+      ]
+    },
+    {
+      "name": "Express",
+      "group": "Backend Frameworks",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Apollo GraphQL",
+      "group": "Backend Frameworks",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Blazor",
+      "group": "Frontend Frameworks",
+      "proficient": true,
+      "usedAt": [
+        "Wellabe, Inc."
+      ]
+    },
+    {
+      "name": "Angular",
+      "group": "Frontend Frameworks",
+      "proficient": true,
+      "usedAt": [
+        "Far Reach Inc.",
+        "Stine Seed, Inc."
+      ]
+    },
+    {
+      "name": "React / Next.js",
+      "group": "Frontend Frameworks",
+      "proficient": false,
+      "usedAt": [
+        "Source Allies",
+        "Patient Preferred Financial Services",
+        "Hy-Vee, Inc."
+      ]
+    },
+    {
+      "name": "Bootstrap",
+      "group": "Frontend Frameworks",
+      "proficient": true,
+      "usedAt": [
+        "Far Reach Inc.",
+        "Brownells, Inc."
+      ]
+    },
+    {
+      "name": "Tailwind",
+      "group": "Frontend Frameworks",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "WPF",
+      "group": "Frontend Frameworks",
+      "proficient": false,
+      "usedAt": [
+        "Wellabe, Inc."
+      ]
+    },
+    {
+      "name": "Vue.js",
+      "group": "Frontend Frameworks",
+      "proficient": false,
+      "usedAt": [
+        "Source Allies"
+      ]
+    },
+    {
+      "name": "AngularJS",
+      "group": "Frontend Frameworks",
+      "proficient": false,
+      "usedAt": [
+        "Patient Preferred Financial Services"
+      ]
+    },
+    {
+      "name": "jQuery",
+      "group": "Frontend Frameworks",
+      "proficient": false,
+      "usedAt": [
+        "Brownells, Inc."
+      ]
+    },
+    {
+      "name": "RxJS",
+      "group": "Frontend Frameworks",
+      "proficient": false,
+      "usedAt": [
+        "Far Reach Inc."
+      ]
+    },
+    {
+      "name": "HTMX",
+      "group": "Frontend Frameworks",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Material UI",
+      "group": "Frontend Frameworks",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Git",
+      "group": "DevOps / CI/CD",
+      "proficient": true,
+      "usedAt": []
+    },
+    {
+      "name": "GitHub",
+      "group": "DevOps / CI/CD",
+      "proficient": true,
+      "usedAt": [
+        "Principal Financial Group",
+        "Hy-Vee, Inc."
+      ]
+    },
+    {
+      "name": "GitHub Actions",
+      "group": "DevOps / CI/CD",
+      "proficient": true,
+      "usedAt": [
+        "Principal Financial Group"
+      ]
+    },
+    {
+      "name": "Azure DevOps",
+      "group": "DevOps / CI/CD",
+      "proficient": true,
+      "usedAt": [
+        "Stine Seed, Inc."
+      ]
+    },
+    {
+      "name": "Concourse CI",
+      "group": "DevOps / CI/CD",
+      "proficient": true,
+      "usedAt": []
+    },
+    {
+      "name": "Terraform",
+      "group": "DevOps / CI/CD",
+      "proficient": true,
+      "usedAt": [
+        "Patient Preferred Financial Services"
+      ]
+    },
+    {
+      "name": "Ansible",
+      "group": "DevOps / CI/CD",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Linux (cron)",
+      "group": "DevOps / CI/CD",
+      "proficient": false,
+      "usedAt": [
+        "Patient Preferred Financial Services"
+      ]
+    },
+    {
+      "name": "Entity Framework Core",
+      "group": "ORM",
+      "proficient": true,
+      "usedAt": []
+    },
+    {
+      "name": "Spring Data JPA",
+      "group": "ORM",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Dapper",
+      "group": "ORM",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Exposed",
+      "group": "ORM",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Docker",
+      "group": "Containerization",
+      "proficient": true,
+      "usedAt": []
+    },
+    {
+      "name": "Kubernetes",
+      "group": "Containerization",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "NuGet",
+      "group": "Containerization",
+      "proficient": true,
+      "usedAt": []
+    },
+    {
+      "name": "npm",
+      "group": "Containerization",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "SQL Server",
+      "group": "Data",
+      "proficient": false,
+      "usedAt": [
+        "Source Allies",
+        "Patient Preferred Financial Services",
+        "Far Reach Inc."
+      ]
+    },
+    {
+      "name": "PostgreSQL",
+      "group": "Data",
+      "proficient": false,
+      "usedAt": [
+        "Patient Preferred Financial Services"
+      ]
+    },
+    {
+      "name": "MySQL",
+      "group": "Data",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "SQLite",
+      "group": "Data",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "MongoDB",
+      "group": "Data",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Redis",
+      "group": "Data",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Elasticsearch",
+      "group": "Data",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Gradle",
+      "group": "Build & Testing",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Maven",
+      "group": "Build & Testing",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Yarn",
+      "group": "Build & Testing",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Webpack",
+      "group": "Build & Testing",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Cypress",
+      "group": "Build & Testing",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Selenium",
+      "group": "Build & Testing",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Gherkin",
+      "group": "Build & Testing",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "JetBrains IDEs",
+      "group": "Tooling",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Visual Studio / VS Code",
+      "group": "Tooling",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "SSMS / SSIS",
+      "group": "Tooling",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "dbt",
+      "group": "Tooling",
+      "proficient": false,
+      "usedAt": [
+        "Source Allies"
+      ]
+    },
+    {
+      "name": "Eclipse",
+      "group": "Tooling",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Postman",
+      "group": "Tooling",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Figma",
+      "group": "Tooling",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "AWS",
+      "group": "Cloud",
+      "proficient": true,
+      "usedAt": [
+        "Source Allies",
+        "Patient Preferred Financial Services",
+        "Principal Financial Group"
+      ]
+    },
+    {
+      "name": "Azure",
+      "group": "Cloud",
+      "proficient": true,
+      "usedAt": [
+        "Source Allies",
+        "Far Reach Inc.",
+        "Stine Seed, Inc."
+      ]
+    },
+    {
+      "name": "Google Cloud",
+      "group": "Cloud",
+      "proficient": false,
+      "usedAt": [
+        "Hy-Vee, Inc."
+      ]
+    },
+    {
+      "name": "EC2",
+      "group": "Cloud",
+      "proficient": false,
+      "usedAt": [
+        "Patient Preferred Financial Services"
+      ]
+    },
+    {
+      "name": "S3",
+      "group": "Cloud",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "RDS",
+      "group": "Cloud",
+      "proficient": false,
+      "usedAt": [
+        "Patient Preferred Financial Services"
+      ]
+    },
+    {
+      "name": "CloudFront",
+      "group": "Cloud",
+      "proficient": false,
+      "usedAt": [
+        "Patient Preferred Financial Services"
+      ]
+    },
+    {
+      "name": "Lambda",
+      "group": "Cloud",
+      "proficient": false,
+      "usedAt": [
+        "Patient Preferred Financial Services",
+        "Principal Financial Group"
+      ]
+    },
+    {
+      "name": "OpenNext",
+      "group": "Cloud",
+      "proficient": false,
+      "usedAt": [
+        "Patient Preferred Financial Services"
+      ]
+    },
+    {
+      "name": "Scrum",
+      "group": "Project Management",
+      "proficient": true,
+      "usedAt": []
+    },
+    {
+      "name": "Kanban",
+      "group": "Project Management",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Agile",
+      "group": "Project Management",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Jira",
+      "group": "Project Management",
+      "proficient": true,
+      "usedAt": []
+    },
+    {
+      "name": "GitHub Projects",
+      "group": "Project Management",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Hiring & interviewing",
+      "group": "Leadership",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Mentoring & coaching",
+      "group": "Leadership",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Technical delivery leadership",
+      "group": "Leadership",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Vendor management",
+      "group": "Leadership",
+      "proficient": false,
+      "usedAt": []
+    },
+    {
+      "name": "Technology strategy & budgeting",
+      "group": "Leadership",
+      "proficient": false,
+      "usedAt": []
+    }
+  ],
+  "evidence": [
+    {
+      "id": "profile",
+      "kind": "profile",
+      "title": "Location, work style, and authorization",
+      "dates": "",
+      "detail": "Based in West Des Moines, IA. Open to on-site, hybrid, or remote. US citizen; no sponsorship required."
+    },
+    {
+      "id": "job-source-allies",
+      "kind": "job",
+      "title": "Software Consultant, Source Allies",
+      "dates": "December 2024 – Present",
+      "detail": "Consultant across 4+ client engagements in financial services, insurance, identity management, and enterprise web, spanning full-stack development, delivery leadership, coaching, and generative AI. Ranked #1 interviewer for 2025 and the first half of 2026, with 30+ interviews and ~10 hires still with the company. Technical delivery lead for a data engineering engagement (SQL Server, Databricks, dbt), including project management and coaching. Led English/French internationalization of a client's customer portal and outgoing email (Vue I18n, Thymeleaf, Spring Boot). Bootstrapped a generative AI initiative on AWS Bedrock. Reworked the frontend of a high-traffic identity-management application. Mentor and teach the company's apprentices.",
+      "technologies": [
+        "Vue.js",
+        "React",
+        "Java",
+        "Spring Boot",
+        "GraphQL",
+        "C#",
+        "TypeScript",
+        "Python",
+        "Node.js",
+        "AWS Bedrock",
+        "Azure",
+        "SQL Server",
+        "Databricks",
+        "dbt"
+      ]
+    },
+    {
+      "id": "job-patient-preferred-financial-services",
+      "kind": "job",
+      "title": "Fractional CTO, Patient Preferred Financial Services",
+      "dates": "November 2021 – Present",
+      "detail": "Took over a clinic payment and patient-management platform from a larger development team and run it solo, reporting to leadership. Own technology strategy, budget, vendor relationships (DataX, ACHeck, Web.com), and security and compliance. Cut monthly AWS costs ~91% (~$1,400 → ~$120) over three years while improving availability, stability, and speed. Modernized the platform from an AngularJS frontend, .NET Framework API, and SQL Server with SQL Jobs on Windows Server 2012 EC2 instances to SSR Next.js on AWS via OpenNext, modern .NET Minimal APIs on AWS Lambda, PostgreSQL on AWS RDS, and crontab on a nano Linux instance. Built resiliency and fallback plans into critical third-party integrations, including ACH payments.",
+      "technologies": [
+        ".NET Framework 4.5 → .NET 10",
+        "AngularJS → Next.js",
+        "SQL Server → PostgreSQL",
+        "EC2 → CloudFront + Lambda + OpenNext",
+        "SQL Jobs → Linux (crontab)",
+        "Terraform"
+      ]
+    },
+    {
+      "id": "job-principal-financial-group",
+      "kind": "job",
+      "title": "Contract Senior Software Engineer, Principal Financial Group",
+      "dates": "June 2024 – December 2024",
+      "detail": "Modernized legacy .NET applications and the pipelines that ship them. Cut build times in existing pipelines by 80%+, tightening developer feedback loops. Set up CI/CD in GitHub Actions and supported on-prem-to-AWS migrations using Lambda and SNS.",
+      "technologies": []
+    },
+    {
+      "id": "job-wellabe-inc",
+      "kind": "job",
+      "title": "Software Engineer 3, Wellabe, Inc.",
+      "dates": "July 2022 – June 2024",
+      "detail": "Led small teams modernizing the company's software and unifying its tech stack. Led the team that owned the company's main revenue-generating product, training and supporting every engineer on it. Mentored 7 junior and mid-level engineers and paired with each intern for their entire internship. Migrated WPF desktop apps to Blazor web apps and improved the performance of legacy software. Reengineered CI/CD to increase developer throughput and added test-coverage requirements. Improved business-critical daily batch programs and built a department wiki to centralize documentation.",
+      "technologies": []
+    },
+    {
+      "id": "job-far-reach-inc",
+      "kind": "job",
+      "title": "Contract Senior Software Developer, Far Reach Inc.",
+      "dates": "March 2022 – June 2022",
+      "detail": "Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap.",
+      "technologies": []
+    },
+    {
+      "id": "job-hy-vee-inc",
+      "kind": "job",
+      "title": "Software Engineer, Hy-Vee, Inc.",
+      "dates": "October 2019 – March 2022",
+      "detail": "Worked across legacy .NET and WinForms applications and greenfield React, Kotlin, Spring Boot, Ktor, and GraphQL services, federated with Apollo on Google Cloud. Helped build a Tax API on a task force, managing product tax values for 450+ grocery and convenience stores and publishing updates to every store over pub/sub. Seeded new stores with millions of tax records in batches, with a check after each batch that every item was accounted for. Led the move of widely used shared libraries from a file share to GitHub, with CI/CD, artifact storage, and automated tests. Cut CI/CD build times by 50%+.",
+      "technologies": []
+    },
+    {
+      "id": "job-stine-seed-inc",
+      "kind": "job",
+      "title": "Software Developer, Stine Seed, Inc.",
+      "dates": "April 2019 – October 2019",
+      "detail": "Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core), set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.",
+      "technologies": []
+    },
+    {
+      "id": "job-brownells-inc",
+      "kind": "job",
+      "title": "Associate .NET Developer, Brownells, Inc.",
+      "dates": "December 2017 – April 2019",
+      "detail": "Integrated a new third-party ERP with existing WMS and POS systems, building pub/sub message pathways and failover on IBM MQ, with a Razor Pages, jQuery, and Bootstrap frontend on .NET Framework APIs.",
+      "technologies": []
+    },
+    {
+      "id": "job-ups",
+      "kind": "job",
+      "title": "Package Handler → Local Sort Supervisor → Package Center Supervisor, UPS",
+      "dates": "March 2013 – December 2017",
+      "detail": "Promoted twice in two years. Supervised 30+ drivers and 40+ inside employees on safety, production, and attendance, and personally trained more than half of them. Package Center Supervisor (March 2015 – December 2017): Ran daytime delivery operations for every driver: kept routes on track, handled emergencies, and tracked fuel use, time-card accuracy, and the delivery-area map. Local Sort Supervisor (March 2014 – March 2015): Ran the evening sort of 30+ package cars into five outbound trailers, and handled training, certifications, terminations, and personnel management. Package Handler (March 2013 – March 2014): Loaded and unloaded trucks, then processed international shipments for air and freight; trained in hazardous-materials handling and classification.",
+      "technologies": []
+    },
+    {
+      "id": "edu-b-s-computer-science",
+      "kind": "education",
+      "title": "B.S. Computer Science, Trident University International",
+      "dates": "2017"
+    },
+    {
+      "id": "edu-computer-engineering-coursework",
+      "kind": "education",
+      "title": "Computer Engineering coursework, Iowa State University, Ames, IA",
+      "dates": "2013 – 2016"
+    },
+    {
+      "id": "edu-a-a-liberal-arts",
+      "kind": "education",
+      "title": "A.A. Liberal Arts, Marshalltown Community College, Marshalltown, IA",
+      "dates": "2011 – 2013"
+    },
+    {
+      "id": "cert-aws-certified-cloud-practitioner",
+      "kind": "certificate",
+      "title": "AWS Certified Cloud Practitioner, Amazon Web Services",
+      "dates": ""
+    },
+    {
+      "id": "cert-scrum-fundamentals-certified",
+      "kind": "certificate",
+      "title": "Scrum Fundamentals Certified, SCRUMstudy",
+      "dates": "2018"
+    },
+    {
+      "id": "project-marbles",
+      "kind": "project",
+      "title": "Marbles (personal project)",
+      "dates": "",
+      "detail": "A digital version of a board game invented by my mom's side of the family. It brings out the best (and worst) in everyone at family gatherings, and I'd wanted to put it on a screen for years. It's finally live and playable."
+    }
+  ]
+}

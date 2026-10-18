@@ -10,8 +10,9 @@ Source for [ryanjensen.dev](https://ryanjensen.dev), Ryan Jensen's resume site, 
 | `data/variants.yaml` | Resume versions: Complete, Engineering Manager, Lead Engineer |
 | `packages/resume` | Builds every version as PDF, Word, Markdown, JSON, and TOML |
 | `apps/web` | The site: Next.js on Vercel, statically rendered |
+| `apps/fit-check` | The Fit Check API: a Cloudflare Worker with D1 at `api.ryanjensen.dev` ([design](docs/fit-check.md)) |
 | `infra` | Terraform: Cloudflare DNS, redirects, email routing; Vercel project and domains |
-| `docs` | Site plan and the testimonial form spec |
+| `docs` | Site plan, the Fit Check design, and the testimonial form spec |
 
 ## Common tasks
 
@@ -22,12 +23,21 @@ npm run dev         # local site at http://localhost:3000
 npm run handouts    # resume files for handing out directly, in dist/ (gitignored)
 ```
 
-After editing `data/`, run `npm run downloads` and commit the regenerated files in `apps/web/public/downloads` and `apps/web/src/content`.
+To run Fit Check locally, copy `apps/fit-check/.dev.vars.example` to `.dev.vars` and fill in the keys, then:
+
+```sh
+npm run migrate:local -w @ryanjensen/fit-check
+npm run dev -w @ryanjensen/fit-check   # API at http://localhost:8787/fit-check
+NEXT_PUBLIC_FIT_CHECK_URL=http://localhost:8787/fit-check npm run dev
+```
+
+After editing `data/`, run `npm run downloads` and commit the regenerated files in `apps/web/public/downloads`, `apps/web/src/content`, and `apps/fit-check/src/record.json`.
 
 ## Quality checks
 
 CI runs on every push and pull request:
 - ESLint and a TypeScript check
+- Fit Check: a TypeScript check, unit tests, and a Worker bundle
 - A production build
 - An axe accessibility scan (WCAG 2.2 AA) of every page, in light and dark mode, at phone and desktop widths, which also fails if any page scrolls sideways
 - Terraform format and validation
@@ -47,6 +57,9 @@ Analytics only runs on the deployed site. To try it locally, build with `NEXT_PU
 | `outbound_link_click` | a link to another site is clicked | `host`, `url` |
 | `contact_email_click` | the email link is clicked | |
 | `page_turn` | the next/previous arrow at the bottom of a page is clicked, or the ← / → key is pressed | `from_page`, `to_page`, `direction` (`forward`/`back`), `method` (`click`/`keyboard`) |
+| `fit_check_submit` | the Fit Check button is clicked | |
+| `fit_check_result` | a Fit Check finishes, just before its report opens at `/fit-check` | `score`, `label`, `requirements`, `matcher` (`jev`/`claude`), `cached`, `recommended` (version) |
+| `fit_check_error` | a Fit Check fails | `error` (e.g. `rate_limited`, `not_a_job_description`, `resting`, `network`) |
 | `scroll_depth` | each of 25/50/75/100% is reached, once per page | `percent` |
 | `$autocapture` | any click on a link, button, or other interactive element (PostHog built-in, clicks only) | element details |
 | `$dead_click`, `$rageclick` | a click that changed nothing, or repeated clicks in one spot (PostHog built-in) | element details |
