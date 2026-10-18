@@ -152,7 +152,7 @@ What this means:
 - **Nesting was the weakest part.** Jev put "Qualifications" under "Job Description". The labels don't need nesting, so it's dropped. A path is just the headings above a line, in order.
 - **A 140-question request took 0.3 s**, so request size isn't a concern.
 
-This is one well-structured posting. Ryan's handful of test postings should include a messy one with no headings and one with inline "Requirements: …" text before we treat this as settled. The test script is `segment_experiment.py` in Claude's scratchpad; it will move into the eval set.
+This is one well-structured posting. Ryan's handful of test postings should include a messy one with no headings and one with inline "Requirements: …" text before we treat this as settled. The test scripts are in [`apps/fit-check/evals/segmentation/`](../apps/fit-check/evals/segmentation/): `lines.py` runs designs A and C, and `sections.py` runs B from a `lines.py` result. The first run's answers are saved in `results/2026-10-18.json`.
 
 ### 3. About the role (Jev, same request as step 2)
 
@@ -248,8 +248,9 @@ Must-haves weigh 3 and nice-to-haves 1.
 | Has it | 1.0 |
 | Related experience | 0.6 |
 | Learning | 0.25 |
-| New *(open question 11)* | 0 |
-| Not a focus | 0 |
+| Experience Ryan doesn't have in that exact skill, but has in related skills ("10 years of Rust" with years of C#, Kotlin, Java) | *open question 14* |
+| Not on resume yet / Ready to learn | 0.1 |
+| Not a focus (Ryan isn't going to learn it) | 0.0 |
 
 Industry and work arrangement are shown but don't count toward the score *(open question 5)*.
 
@@ -280,8 +281,11 @@ What the report says for each requirement:
 | Explicit | **Has it** | The record lists it, with evidence where there is some |
 | Mappable | **Related experience**: "from Vue.js at Hy-Vee" | A listed skill carries over |
 | Learning | **Learning** | Ryan said he's learning it |
-| New | *(wording: open question 10)*, e.g. **Ready to learn**: "Not on my resume yet; I'd have the basics before my start date" | Nothing close in the record |
-| Not a focus | **Not a focus** | Ryan said he's not pursuing it |
+| New, before Ryan answers | *open question 13*, e.g. **Not on my resume yet** | Nothing close in the record, and Ryan hasn't answered yet |
+| New, after Ryan says he doesn't have it | **Ready to learn**: "I'd have the basics before my start date" | Ryan confirmed he doesn't have it and nothing he has is close |
+| Not a focus | **Not a focus** | Ryan said he's not going to learn it |
+
+**Experience and credentials** ("10 years of Rust", a degree, a license) are stated as plain facts with positive framing, e.g. *"No Rust yet; 12 years across C#, Kotlin, and Java."* When Ryan's related skills map closely, so that only the syntax is new, the requirement earns more credit than a flat gap.
 
 The goal is between "only what's proven" and "always a match":
 - The report is honest: nothing shows as *Has it* unless it's true.
@@ -290,12 +294,33 @@ The goal is between "only what's proven" and "always a match":
 
 **Questions for Ryan.** When a requirement comes back as *mappable* or *new*, the skill goes on Ryan's list of questions:
 
-> **Angular** came up as a must-have (Wellmark, Sr. Software Engineer). Your record maps it from Vue.js.
-> [I have this] · [I'm learning it] · [Not for me]
+Each skill has one entry, however many postings ask for it, with a count of how many times it's been asked. Must-haves come first.
+
+> **Angular** came up as a must-have (Wellmark, Sr. Software Engineer). Asked 3 times. Your record maps it from Vue.js.
+> [I have this] · [Something close I haven't listed] · [I'm learning it] · [I don't have it] · [Not for me]
 
 - **I have this:** Ryan picks where he used it, which can be a job, a project, a testimonial, or "self-taught" with a note. It's then *Has it*. The admin app opens a PR adding it to `data/resume.yaml`. Linking evidence is encouraged but not required at first.
 - **I'm learning it:** *Learning*, until he marks it learned. Then it's *Has it*, and reports recompute (step 8).
-- **Not for me:** *Not a focus*.
+- **Something close I haven't listed:** Ryan names the skill or experience. It's added to the registry, and the requirement shows as *Related experience* with that skill.
+- **I don't have it:** *Ready to learn*.
+- **Not for me:** *Not a focus*, which earns no credit.
+
+### Answering quickly
+
+Ryan wants to answer while the visitor is still on the page. Today he can't: v1 only pushes, and an answer would mean writing a D1 row by hand. The proposal:
+1. **The immediate push gets buttons.** ntfy notifications can carry up to 3 action buttons that call a URL. For example: [I have this] · [I don't have it] · [More…].
+2. **Each button is a signed link** to the Worker, e.g. `POST api.ryanjensen.dev/answer/<token>`. The token names one question and one answer and is signed with a secret. A leaked link can only answer that one question.
+3. **"More…" opens a small answer page** served by the Worker. It has all five options, a field for naming a close skill, and a job picker for evidence. It works until the admin app replaces it.
+4. **The visitor's report updates live.** While a report is open, the page checks every 30 seconds for 15 minutes for a newer version. Recomputing is free (step 8). When Ryan answers, the report refreshes with a note: *"Updated: Ryan just confirmed Angular."*
+
+*(Open question 15.)*
+
+### Notifications
+
+- **Immediately:** a push for every check that has must-haves Ryan hasn't confirmed. *(Done; buttons come with "Answering quickly".)*
+- **Every evening:** a summary at 23:00 UTC (6 pm Central in summer, 5 pm in winter): the checks that day, the best match, and the skills waiting for answers, with counts. Nothing is sent on a day with no checks. *(Done.)*
+- **Strong match:** an immediate push when a report scores 80 or higher, with a way to contact the person *(open question 16)*.
+- **20 postings:** a one-time push to start eval work. *(Done.)*
 
 **Testimonial endorsements.** The vouch form ([`testimonial-form.md`](testimonial-form.md), question 6) already asks colleagues which skills they'd vouch for. Each endorsement becomes evidence that Jev can pick in step 5, shown as "vouched for by 2 colleagues".
 
@@ -342,12 +367,16 @@ This is the first comparison:
 4. **Ignored instructions:** tell the visitor ("2 lines were ignored because they were instructions, not job details"), or say nothing?
 5. **Industry and work arrangement:** shown only (proposed), or part of the score?
 6. ~~Planned learning~~ → *Learning*, then *Has it* once learned (decision log).
-7. **When to ask** *(round 2, Q1)*.
+7. ~~When to ask~~ → every skill short of *Has it*, one entry per skill with a count (decision log).
 8. ~~What "I have this" needs~~ → evidence where possible, unlinked allowed at first (decision log).
 9. **Retention:** the exact text is kept for 12 months, then deleted. Longer for tuning?
-10. **Wording for *new*** *(round 2, Q2)*.
-11. **Credit for *new*** *(round 2, Q3)*.
-12. **Requirements that can't be learned quickly**, like "10 years of Rust" or a nursing license *(round 2, Q4)*.
+10. ~~Wording for *new*~~ → *Ready to learn*, once Ryan says he doesn't have it (decision log).
+11. ~~Credit for *new*~~ → 0.1; *Not a focus* is 0.0 (decision log).
+12. ~~Requirements that can't be learned quickly~~ → plain facts, framed positively, with extra credit when related skills map closely (decision log).
+13. **Before Ryan answers:** what does a new skill show as? *(Round 3, Q1.)*
+14. **Credit for related experience** ("10 years of Rust" with years of C#, Kotlin, Java). *(Round 3, Q2.)*
+15. **Answering quickly:** build the buttons, the answer page, and live updates before the admin app? *(Round 3, Q3 and Q4.)*
+16. **Strong-match contact:** where does the email come from? *(Round 3, Q5.)*
 
 ## Decision log
 
@@ -366,3 +395,7 @@ This is the first comparison:
 | 2026-10-18 | Reports recompute for free when opened, and show the date checked and the date updated. |
 | 2026-10-18 | Ryan gets a push when 20 different postings have been checked, which starts eval work. |
 | 2026-10-18 | The eval runner works locally and never writes to D1. |
+| 2026-10-18 | Every skill short of *Has it* becomes a question, one entry per skill with a count of how often it's asked. |
+| 2026-10-18 | A new skill becomes *Ready to learn* (0.1) only after Ryan says he doesn't have it. He can also say he has it, or name something close he hasn't listed. *Not a focus* is 0.0. |
+| 2026-10-18 | Experience requirements are stated as facts, framed positively, and earn extra credit when related skills map closely. |
+| 2026-10-18 | Notifications: an immediate push for unconfirmed must-haves, plus an evening summary. |

@@ -103,3 +103,26 @@ export async function reachMilestone(db: D1Database, name: string): Promise<bool
   const { meta } = await db.prepare(`INSERT INTO milestones (name) VALUES (?) ON CONFLICT (name) DO NOTHING`).bind(name).run();
   return meta.changes > 0;
 }
+
+export type DaySummary = {
+  checks: number;
+  best: { id: string; score: number; role_title: string | null; company: string | null } | null;
+  questions: { skill: string; importance: "must" | "nice"; times_asked: number }[];
+};
+
+/** The last 24 hours: checks run, the best match, and skills asked about that Ryan hasn't answered. */
+export async function lastDay(db: D1Database): Promise<DaySummary> {
+  const [checks, best, questions] = await db.batch([
+    db.prepare(`SELECT COUNT(*) AS n FROM fit_checks WHERE cached = 0 AND created_at > datetime('now', '-1 day')`),
+    db.prepare(`SELECT id, score, role_title, company FROM fit_checks WHERE created_at > datetime('now', '-1 day') ORDER BY score DESC LIMIT 1`),
+    db.prepare(
+      `SELECT skill, importance, times_asked FROM skill_questions WHERE status = 'open' AND last_asked_at > datetime('now', '-1 day')
+       ORDER BY importance = 'must' DESC, times_asked DESC`,
+    ),
+  ]);
+  return {
+    checks: (checks.results[0] as { n: number }).n,
+    best: (best.results[0] as DaySummary["best"]) ?? null,
+    questions: questions.results as DaySummary["questions"],
+  };
+}
