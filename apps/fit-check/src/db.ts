@@ -91,3 +91,15 @@ const queueQuestion = (db: D1Database, item: ReportItem, fitCheckId: string) =>
 /** Daily: drop pasted job descriptions past the retention window. Reports and hashes stay. */
 export const purgeOldJobDescriptions = (db: D1Database) =>
   db.prepare(`UPDATE fit_checks SET jd_text = NULL WHERE jd_text IS NOT NULL AND created_at < datetime('now', ?)`).bind(`-${RETENTION_MONTHS} months`).run();
+
+/** Distinct postings checked so far (repeats of the same posting count once). */
+export async function distinctPostings(db: D1Database): Promise<number> {
+  const row = await db.prepare(`SELECT COUNT(DISTINCT jd_hash) AS n FROM fit_checks`).first<{ n: number }>();
+  return row?.n ?? 0;
+}
+
+/** Records a milestone; true only the first time, so its alert goes out once. */
+export async function reachMilestone(db: D1Database, name: string): Promise<boolean> {
+  const { meta } = await db.prepare(`INSERT INTO milestones (name) VALUES (?) ON CONFLICT (name) DO NOTHING`).bind(name).run();
+  return meta.changes > 0;
+}
