@@ -41,6 +41,29 @@ jobs:
         working-directory: apps/fit-check
         run: npx wrangler deploy --dry-run --outdir=dist
 
+  admin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run lint -w @ryanjensen/admin
+      - run: npm run typecheck -w @ryanjensen/admin
+      - run: npm test -w @ryanjensen/admin
+      - run: npm run build -w @ryanjensen/admin
+      - name: Accessibility and layout checks (local D1 with fake data, test-only sign-in skip)
+        working-directory: apps/admin
+        run: |
+          npx playwright install --with-deps chromium
+          npm run migrate:local
+          npm run seed:local
+          ADMIN_AUTH_BYPASS=1 npm run dev &
+          npx -y wait-on http://localhost:3101/auth/login
+          npm run test:a11y
+
   infra:
     runs-on: ubuntu-latest
     defaults:
