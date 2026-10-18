@@ -1,7 +1,9 @@
 // Fit Check API (Cloudflare Worker). Pipeline and guardrails are described in docs/fit-check.md.
 //   POST /fit-check { jobDescription, turnstileToken } → { report }
 //   GET  /fit-check/<id>                               → { report }   (a saved report, for its link)
-import { cachedReport, checksThisMonth, distinctPostings, getReport, lastDay, reachMilestone, saveCheck, skillAnswers } from "./db";
+// The admin app also calls Admin.checkFromAdmin() through a service binding (no public route).
+import { WorkerEntrypoint } from "cloudflare:workers";
+import { cachedReport, checksThisMonth, distinctPostings, getReport, lastDay, reachMilestone, saveCheck, skillAnswers, type Source } from "./db";
 import { ExtractionFailed, extractRequirements, NotAJobDescription } from "./extract";
 import { corsHeaders, normalizeJobDescription, sha256, verifyTurnstile } from "./guard";
 import { ClaudeMatcher, JevMatcher, matchWithFallback } from "./match";
@@ -97,35 +99,12 @@ export default {
       return fail("upstream");
     }
 
-    const [jdHash, ipHash] = await Promise.all([sha256(jd.toLowerCase()), sha256(`${env.IP_HASH_SALT}:${ip}`)]);
-    const id = crypto.randomUUID();
-    const createdAt = new Date().toISOString();
-
-    const hit = await cachedReport(env.DB, jdHash);
-    if (hit) {
-      const report: FitReport = { ...hit, id, createdAt, cached: true };
-      // Saved before responding, so the report's link works the moment it's shown.
-      await saveCheck(env.DB, { report, jdHash, jdText: body.jobDescription, ipHash, extractor: null, usage: null });
-      return json({ report });
-    }
-
-    if ((await checksThisMonth(env.DB)) >= Number(env.MONTHLY_CAP)) return fail("resting");
-
-    try {
-      const { extraction, model, usage } = await extractRequirements(env.ANTHROPIC_API_KEY, jd);
-      const [{ matches, matcher }, answers] = await Promise.all([
-        matchWithFallback(env.JEV_API_KEY ? new JevMatcher(env.JEV_API_KEY) : null, new ClaudeMatcher(env.ANTHROPIC_API_KEY), extraction.requirements, jd),
-        skillAnswers(env.DB, extraction.requirements.map((r) => r.skill)),
-      ]);
-      const report = buildReport(extraction, matches, answers, { id, createdAt, matcher });
-      await saveCheck(env.DB, { report, jdHash, jdText: body.jobDescription, ipHash, extractor: model, usage });
-      if (env.NTFY_TOPIC) ctx.waitUntil(notifyGaps(report, { server: env.NTFY_SERVER, topic: env.NTFY_TOPIC, siteUrl: env.SITE_URL }).catch((err) => console.warn("ntfy failed:", err)));
-      return json({ report });
-    } catch (err) {
-      if (err instanceof NotAJobDescription) return fail("not_a_job_description");
-      console.error(err instanceof ExtractionFailed ? `Extraction failed: ${err.message}` : err);
-      return fail("upstream");
-    }
+    const ipHash = await sha256(`${env.IP_HASH_SALT}:${ip}`);
+    const result = await runCheck(env, jd, body.jobDescription, { ipHash, source: "visitor" });
+    if ("error" in result) return fail(result.error);
+    if (result.fresh && env.NTFY_TOPIC)
+      ctx.waitUntil(notifyGaps(result.report, { server: env.NTFY_SERVER, topic: env.NTFY_TOPIC, siteUrl: env.SITE_URL }).catch((err) => console.warn("ntfy failed:", err)));
+    return json({ report: result.report });
   },
 
   async scheduled(controller, env) {
@@ -143,3 +122,50 @@ export default {
       );
   },
 } satisfies ExportedHandler<Env>;
+
+type CheckResult = { report: FitReport; fresh: boolean } | { error: ErrorCode };
+
+/** Everything after the request guardrails: cache, monthly cap, extract, match, save. `jd` is normalized; `jdText` is as pasted. */
+async function runCheck(env: Env, jd: string, jdText: string, { ipHash, source }: { ipHash: string; source: Source }): Promise<CheckResult> {
+  const jdHash = await sha256(jd.toLowerCase());
+  const id = crypto.randomUUID();
+  const createdAt = new Date().toISOString();
+
+  const hit = await cachedReport(env.DB, jdHash);
+  if (hit) {
+    const report: FitReport = { ...hit, id, createdAt, cached: true };
+    // Saved before responding, so the report's link works the moment it's shown.
+    await saveCheck(env.DB, { report, jdHash, jdText, ipHash, extractor: null, usage: null, source });
+    return { report, fresh: false };
+  }
+
+  if ((await checksThisMonth(env.DB)) >= Number(env.MONTHLY_CAP)) return { error: "resting" };
+
+  try {
+    const { extraction, model, usage } = await extractRequirements(env.ANTHROPIC_API_KEY, jd);
+    const [{ matches, matcher }, answers] = await Promise.all([
+      matchWithFallback(env.JEV_API_KEY ? new JevMatcher(env.JEV_API_KEY) : null, new ClaudeMatcher(env.ANTHROPIC_API_KEY), extraction.requirements, jd),
+      skillAnswers(env.DB, extraction.requirements.map((r) => r.skill)),
+    ]);
+    const report = buildReport(extraction, matches, answers, { id, createdAt, matcher });
+    await saveCheck(env.DB, { report, jdHash, jdText, ipHash, extractor: model, usage, source });
+    return { report, fresh: true };
+  } catch (err) {
+    if (err instanceof NotAJobDescription) return { error: "not_a_job_description" };
+    console.error(err instanceof ExtractionFailed ? `Extraction failed: ${err.message}` : err);
+    return { error: "upstream" };
+  }
+}
+
+/**
+ * RPC for the admin app's "Add posting" box, reachable only through its service binding: no Turnstile or rate limit.
+ * Same check as the public endpoint, saved with source = 'ryan' so it counts in trends and queues skill questions, but it never pushes.
+ */
+export class Admin extends WorkerEntrypoint<Env> {
+  async checkFromAdmin(text: string): Promise<{ report: FitReport } | { error: ErrorCode; message: string }> {
+    const jd = normalizeJobDescription(text);
+    const size: ErrorCode | null = jd.length < MIN_CHARS ? "too_short" : jd.length > MAX_CHARS ? "too_long" : null;
+    const result: CheckResult = size ? { error: size } : await runCheck(this.env, jd, text, { ipHash: "admin", source: "ryan" });
+    return "error" in result ? { error: result.error, message: MESSAGES[result.error] } : { report: result.report };
+  }
+}
