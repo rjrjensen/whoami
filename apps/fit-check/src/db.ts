@@ -2,7 +2,6 @@
 import { skillKey, type FitReport, type ReportItem, type SkillAnswer } from "./report";
 
 const CACHE_DAYS = 7;
-export const RETENTION_MONTHS = 12;
 
 export async function cachedReport(db: D1Database, jdHash: string): Promise<FitReport | null> {
   const row = await db
@@ -89,8 +88,6 @@ const queueQuestion = (db: D1Database, item: ReportItem, fitCheckId: string) =>
     .bind(skillKey(item.skill), item.skill, item.requirement, item.importance, fitCheckId);
 
 /** Daily: drop pasted job descriptions past the retention window. Reports and hashes stay. */
-export const purgeOldJobDescriptions = (db: D1Database) =>
-  db.prepare(`UPDATE fit_checks SET jd_text = NULL WHERE jd_text IS NOT NULL AND created_at < datetime('now', ?)`).bind(`-${RETENTION_MONTHS} months`).run();
 
 /** Distinct postings checked so far (repeats of the same posting count once). */
 export async function distinctPostings(db: D1Database): Promise<number> {

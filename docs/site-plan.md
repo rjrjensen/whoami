@@ -209,7 +209,7 @@ Job description text
 
 ## Stack
 
-Ryan wants Next.js on Vercel (marketable) and SvelteKit on Cloudflare (lightweight, data-bound components). Proposal, to discuss:
+Ryan wants Next.js on Vercel (marketable) and SvelteKit on Cloudflare (lightweight, data-bound components). Decided 2026-10-18: the admin app is SvelteKit in `apps/admin`, at `admin.ryanjensen.dev`, with GitHub sign-in for Ryan only.
 
 - **ryanjensen.dev — Next.js on Vercel:** the one public site, fully responsive. A separate "mobile site" would mean two UIs to keep in sync and split SEO. Phones get a better experience from one well-built responsive site.
 - **SvelteKit on Cloudflare** has its own real job: the **admin app**, as an installable PWA on Ryan's phone. It receives Web Push notifications, handles one-tap skill answers, shows reports, and runs on Workers + D1. That covers the push/SMS requirement without SMS costs or US carrier registration (SMS through Twilio stays optional).
