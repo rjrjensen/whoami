@@ -248,7 +248,7 @@ Must-haves weigh 3 and nice-to-haves 1.
 | Has it | 1.0 |
 | Related experience | 0.6 |
 | Learning | 0.25 |
-| Experience Ryan doesn't have in that exact skill, but has in related skills ("10 years of Rust" with years of C#, Kotlin, Java) | *open question 14* |
+| Experience Ryan doesn't have in that exact skill, but his related skills map closely ("10 years of Rust" with years of C#, Kotlin, Java) | 0.4 (0.1 if nothing related) |
 | Not on resume yet / Ready to learn | 0.1 |
 | Not a focus (Ryan isn't going to learn it) | 0.0 |
 
@@ -281,7 +281,7 @@ What the report says for each requirement:
 | Explicit | **Has it** | The record lists it, with evidence where there is some |
 | Mappable | **Related experience**: "from Vue.js at Hy-Vee" | A listed skill carries over |
 | Learning | **Learning** | Ryan said he's learning it |
-| New, before Ryan answers | *open question 13*, e.g. **Not on my resume yet** | Nothing close in the record, and Ryan hasn't answered yet |
+| New, before Ryan answers | **Not on my resume yet** (0.1) | Nothing close in the record, and Ryan hasn't answered yet |
 | New, after Ryan says he doesn't have it | **Ready to learn**: "I'd have the basics before my start date" | Ryan confirmed he doesn't have it and nothing he has is close |
 | Not a focus | **Not a focus** | Ryan said he's not going to learn it |
 
@@ -313,13 +313,13 @@ Ryan wants to answer while the visitor is still on the page. Today he can't: v1 
 3. **"More…" opens a small answer page** served by the Worker. It has all five options, a field for naming a close skill, and a job picker for evidence. It works until the admin app replaces it.
 4. **The visitor's report updates live.** While a report is open, the page checks every 30 seconds for 15 minutes for a newer version. Recomputing is free (step 8). When Ryan answers, the report refreshes with a note: *"Updated: Ryan just confirmed Angular."*
 
-*(Open question 15.)*
+Agreed 2026-10-18: build the answer page, signed links, and live updates now, ahead of the admin app.
 
 ### Notifications
 
 - **Immediately:** a push for every check that has must-haves Ryan hasn't confirmed. *(Done; buttons come with "Answering quickly".)*
 - **Every evening:** a summary at 23:00 UTC (6 pm Central in summer, 5 pm in winter): the checks that day, the best match, and the skills waiting for answers, with counts. Nothing is sent on a day with no checks. *(Done.)*
-- **Strong match:** an immediate push when a report scores 80 or higher, with a way to contact the person *(open question 16)*.
+- **Strong match:** an immediate push when a report scores 80 or higher. It includes any email the visitor left in the optional "Want Ryan to follow up? Leave your email" field, which appears below the report with a note that it's only used to reply, and any email written in the posting itself.
 - **20 postings:** a one-time push to start eval work. *(Done.)*
 
 **Testimonial endorsements.** The vouch form ([`testimonial-form.md`](testimonial-form.md), question 6) already asks colleagues which skills they'd vouch for. Each endorsement becomes evidence that Jev can pick in step 5, shown as "vouched for by 2 colleagues".
@@ -373,10 +373,10 @@ This is the first comparison:
 10. ~~Wording for *new*~~ → *Ready to learn*, once Ryan says he doesn't have it (decision log).
 11. ~~Credit for *new*~~ → 0.1; *Not a focus* is 0.0 (decision log).
 12. ~~Requirements that can't be learned quickly~~ → plain facts, framed positively, with extra credit when related skills map closely (decision log).
-13. **Before Ryan answers:** what does a new skill show as? *(Round 3, Q1.)*
-14. **Credit for related experience** ("10 years of Rust" with years of C#, Kotlin, Java). *(Round 3, Q2.)*
-15. **Answering quickly:** build the buttons, the answer page, and live updates before the admin app? *(Round 3, Q3 and Q4.)*
-16. **Strong-match contact:** where does the email come from? *(Round 3, Q5.)*
+13. ~~Before Ryan answers~~ → *Not on my resume yet* (0.1).
+14. ~~Credit for related experience~~ → 0.4 when related skills map closely, 0.1 otherwise.
+15. ~~Answering quickly~~ → build it now.
+16. ~~Strong-match contact~~ → an optional email field below the report, plus emails in the posting.
 
 ## Decision log
 
@@ -399,3 +399,6 @@ This is the first comparison:
 | 2026-10-18 | A new skill becomes *Ready to learn* (0.1) only after Ryan says he doesn't have it. He can also say he has it, or name something close he hasn't listed. *Not a focus* is 0.0. |
 | 2026-10-18 | Experience requirements are stated as facts, framed positively, and earn extra credit when related skills map closely. |
 | 2026-10-18 | Notifications: an immediate push for unconfirmed must-haves, plus an evening summary. |
+| 2026-10-18 | Before Ryan answers, a new skill shows as *Not on my resume yet* (0.1). Experience whose related skills map closely earns 0.4. |
+| 2026-10-18 | The answer page, signed answer links, and live report updates get built now, ahead of the admin app. |
+| 2026-10-18 | A report scoring 80+ pushes immediately, with the visitor's optional follow-up email and any email in the posting. |
