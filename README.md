@@ -11,6 +11,7 @@ Source for [ryanjensen.dev](https://ryanjensen.dev), Ryan Jensen's resume site, 
 | `packages/resume` | Builds every version as PDF, Word, Markdown, JSON, and TOML |
 | `apps/web` | The site: Next.js on Vercel, statically rendered |
 | `apps/fit-check` | The Fit Check API: a Cloudflare Worker with D1 at `api.ryanjensen.dev` ([design](docs/fit-check.md)) |
+| `apps/admin` | Ryan's private admin app: SvelteKit on Cloudflare at `admin.ryanjensen.dev` ([details](apps/admin/README.md)) |
 | `infra` | Terraform: Cloudflare DNS, redirects, email routing; Vercel project and domains |
 | `docs` | Site plan, the Fit Check design, and the testimonial form spec |
 
@@ -38,6 +39,7 @@ After editing `data/`, run `npm run downloads` and commit the regenerated files 
 CI runs on every push and pull request:
 - ESLint and a TypeScript check
 - Fit Check: a TypeScript check, unit tests, and a Worker bundle
+- Admin app: ESLint, svelte-check, unit tests, a build, and the same axe scan against a dev server with fake data
 - A production build
 - An axe accessibility scan (WCAG 2.2 AA) of every page, in light and dark mode, at phone and desktop widths, which also fails if any page scrolls sideways
 - Terraform format and validation

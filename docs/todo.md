@@ -61,6 +61,27 @@ Until these are done, the Fit Check box shows on the site but every check fails 
 - [ ] Redeploy the site on Vercel so it picks up `NEXT_PUBLIC_TURNSTILE_SITE_KEY`.
 - [ ] Try it with a real job description, then tell Claude how the report reads.
 
+## Admin app (see `apps/admin/README.md`)
+
+Do these after the Fit Check steps above (the admin app uses the same D1 database). In order:
+
+- [ ] Create two GitHub OAuth apps (GitHub → Settings → Developer settings → OAuth Apps → New OAuth App):
+  - **Local:** homepage `http://localhost:3101`, callback `http://localhost:3101/auth/github/callback`
+  - **Production:** homepage `https://admin.ryanjensen.dev`, callback `https://admin.ryanjensen.dev/auth/github/callback`
+  - For each, generate a client secret.
+- [ ] Local: copy `apps/admin/.dev.vars.example` to `apps/admin/.dev.vars` and fill in the **local** app's client ID and secret.
+- [ ] Check that `ADMIN_GITHUB_ID` in `apps/admin/wrangler.jsonc` is your GitHub user ID (`gh api user --jq .id`). Claude set it from that command.
+- [ ] Paste the same `database_id` you used for fit-check into `apps/admin/wrangler.jsonc`.
+- [ ] In `apps/fit-check/`:
+  - `npm run migrate:remote` (applies `0003_admin.sql`: sessions, skill answers, skill names, `source`)
+  - `npm run deploy` (the admin app's "Add posting" calls fit-check's new `Admin` entrypoint, so fit-check goes first)
+- [ ] In `apps/admin/`:
+  - `npx wrangler secret put GITHUB_CLIENT_ID` (the **production** app's)
+  - `npx wrangler secret put GITHUB_CLIENT_SECRET`
+  - `npm run deploy` (this also creates `admin.ryanjensen.dev` through `routes` with `custom_domain: true`)
+- [ ] Open `https://admin.ryanjensen.dev` on your phone, sign in, and add it to the home screen (Share → Add to Home Screen).
+- [ ] Try "Add posting" with a real posting and answer one skill question.
+
 ## Content
 
 - [ ] Review the homepage tagline and the numbers strip (drafts)
