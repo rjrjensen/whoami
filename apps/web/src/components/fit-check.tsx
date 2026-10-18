@@ -159,7 +159,7 @@ export function FitCheckForm({ variant, compact = false }: { variant: VariantId;
         </p>
       </div>
       <p id={ids.privacy} className="mt-3 text-sm text-muted">
-        What you paste is saved so I can read it, and deleted after 12 months. Please leave out anything confidential.
+        What you paste is saved so I can read it and improve Fit Check. Please leave out anything confidential.
       </p>
       <div role="status" aria-live="polite" className="mt-4">
         {state.phase === "checking" && <p className="text-muted">Reading the requirements and checking them against my record. This takes a few seconds.</p>}

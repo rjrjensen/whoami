@@ -66,7 +66,7 @@ The response goes out only after the save, so the report's link works immediatel
 | Prompt injection in the JD | The JD is wrapped and labeled untrusted in the prompt; Jev and Claude only return typed choices; scores and text are computed in code; related skills must come from Ryan's skill list; "demonstrated" needs evidence from the record whatever a model says |
 | Bots / cost abuse | Turnstile (verified server-side), a Workers rate limit of 5 per minute per IP, a 15,000-character cap, and a monthly cap (`MONTHLY_CAP`, default 300). Past the cap, the box says Fit Check is resting and points to email |
 | Repeat checks | The same JD (by hash) within 7 days reuses the saved report at no cost |
-| Privacy | A note next to the box says the JD is stored for Ryan's review; a daily cron deletes job descriptions older than 12 months (reports keep only the hash) |
+| Privacy | A note next to the box says the JD is stored for Ryan's review; job descriptions are kept permanently for tuning (decided 2026-10-18) |
 | Report links | Ids are random UUIDs; `GET /fit-check/<id>` returns the report only, never the pasted text, and shares the per-IP rate limit |
 | Secrets | `JEV_API_KEY`, `ANTHROPIC_API_KEY`, `TURNSTILE_SECRET_KEY`, `IP_HASH_SALT`, `NTFY_TOPIC` only in `wrangler secret` and the gitignored `.dev.vars` |
 
