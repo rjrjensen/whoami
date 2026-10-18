@@ -1,11 +1,11 @@
 // Fit Check API (Cloudflare Worker). Pipeline and guardrails are described in docs/fit-check.md.
 //   POST /fit-check { jobDescription, turnstileToken } → { report }
 //   GET  /fit-check/<id>                               → { report }   (a saved report, for its link)
-import { cachedReport, checksThisMonth, distinctPostings, getReport, purgeOldJobDescriptions, reachMilestone, saveCheck, skillAnswers } from "./db";
+import { cachedReport, checksThisMonth, distinctPostings, getReport, lastDay, purgeOldJobDescriptions, reachMilestone, saveCheck, skillAnswers } from "./db";
 import { ExtractionFailed, extractRequirements, NotAJobDescription } from "./extract";
 import { corsHeaders, normalizeJobDescription, sha256, verifyTurnstile } from "./guard";
 import { ClaudeMatcher, JevMatcher, matchWithFallback } from "./match";
-import { notify, notifyGaps } from "./notify";
+import { notify, notifyDay, notifyGaps } from "./notify";
 import { buildReport, type FitReport } from "./report";
 
 export interface Env {
@@ -29,6 +29,8 @@ const MIN_CHARS = 200;
 const MAX_CHARS = 15_000;
 /** Distinct postings needed before labeling them for evals is worthwhile. */
 const EVAL_POSTINGS = 20;
+/** Must match the evening trigger in wrangler.jsonc. */
+const DIGEST_CRON = "0 23 * * *";
 
 type ErrorCode = "invalid_request" | "too_short" | "too_long" | "turnstile_failed" | "rate_limited" | "not_a_job_description" | "not_found" | "resting" | "upstream";
 
@@ -126,7 +128,11 @@ export default {
     }
   },
 
-  async scheduled(_controller, env) {
+  async scheduled(controller, env) {
+    if (controller.cron === DIGEST_CRON) {
+      if (env.NTFY_TOPIC) await notifyDay(await lastDay(env.DB), { server: env.NTFY_SERVER, topic: env.NTFY_TOPIC, siteUrl: env.SITE_URL });
+      return;
+    }
     await purgeOldJobDescriptions(env.DB);
     // Once there are enough real postings to label, it's time to build evals (docs/fit-check-flow.md#tuning).
     if (env.NTFY_TOPIC && (await distinctPostings(env.DB)) >= EVAL_POSTINGS && (await reachMilestone(env.DB, `postings-${EVAL_POSTINGS}`)))
