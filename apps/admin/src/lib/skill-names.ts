@@ -41,6 +41,8 @@ export const ALIASES: Record<string, string> = {
   googlecloudplatform: "Google Cloud",
   mssql: "SQL Server",
   microsoftsqlserver: "SQL Server",
+  tsql: "SQL",
+  transactsql: "SQL",
   githubci: "GitHub Actions",
   vscode: "Visual Studio / VS Code",
 };

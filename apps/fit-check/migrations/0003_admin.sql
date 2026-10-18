@@ -47,7 +47,6 @@ CREATE INDEX skill_aliases_skill_id ON skill_aliases (skill_id);
 INSERT INTO skills (name) VALUES
   ('C#'),
   ('SQL'),
-  ('T-SQL'),
   ('Kotlin'),
   ('Java'),
   ('JavaScript'),
@@ -140,7 +139,7 @@ INSERT INTO skills (name) VALUES
 INSERT INTO skill_aliases (alias, skill_id, source) VALUES
   ('c#', (SELECT id FROM skills WHERE name = 'C#'), 'seed'),
   ('sql', (SELECT id FROM skills WHERE name = 'SQL'), 'seed'),
-  ('t-sql', (SELECT id FROM skills WHERE name = 'T-SQL'), 'seed'),
+  ('t-sql', (SELECT id FROM skills WHERE name = 'SQL'), 'seed'),
   ('kotlin', (SELECT id FROM skills WHERE name = 'Kotlin'), 'seed'),
   ('java', (SELECT id FROM skills WHERE name = 'Java'), 'seed'),
   ('javascript', (SELECT id FROM skills WHERE name = 'JavaScript'), 'seed'),
@@ -264,5 +263,7 @@ INSERT INTO skill_aliases (alias, skill_id, source) VALUES
   ('googlecloudplatform', (SELECT id FROM skills WHERE name = 'Google Cloud'), 'seed'),
   ('mssql', (SELECT id FROM skills WHERE name = 'SQL Server'), 'seed'),
   ('microsoftsqlserver', (SELECT id FROM skills WHERE name = 'SQL Server'), 'seed'),
+  ('tsql', (SELECT id FROM skills WHERE name = 'SQL'), 'seed'),
+  ('transactsql', (SELECT id FROM skills WHERE name = 'SQL'), 'seed'),
   ('githubci', (SELECT id FROM skills WHERE name = 'GitHub Actions'), 'seed'),
   ('vscode', (SELECT id FROM skills WHERE name = 'Visual Studio / VS Code'), 'seed');
