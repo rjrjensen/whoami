@@ -25,14 +25,6 @@
       ]
     },
     {
-      "name": "T-SQL",
-      "group": "Languages",
-      "proficient": false,
-      "usedAt": [
-        "Source Allies"
-      ]
-    },
-    {
       "name": "Kotlin",
       "group": "Languages",
       "proficient": true,
@@ -678,7 +670,6 @@
         "AWS Bedrock",
         "Azure",
         "SQL Server",
-        "T-SQL",
         "Databricks",
         "dbt",
         "PingOne",

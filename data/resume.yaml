@@ -44,7 +44,6 @@ skills:
     keywords:
       - { name: "C#", proficient: true }
       - { name: SQL, proficient: true }
-      - { name: T-SQL }
       - { name: Kotlin, proficient: true }
       - { name: Java }
       - { name: JavaScript }
@@ -185,7 +184,7 @@ work:
         tags: [design]
       - text: Mentor and teach the company's apprentices.
         tags: [leadership, mentoring]
-    technologies: [Vue.js, React, Java, Spring Boot, GraphQL, "C#", TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, T-SQL, Databricks, dbt, PingOne, Active Directory / LDAP, Figma]
+    technologies: [Vue.js, React, Java, Spring Boot, GraphQL, "C#", TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma]
 
   - name: Patient Preferred Financial Services
     url: https://patientpreferredservices.com
