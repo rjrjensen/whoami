@@ -13,7 +13,7 @@
       "binding": "DB",
       "database_name": "fit-check",
       // From `terraform output fit_check_d1_id` (infra/fit_check.tf).
-      "database_id": "00000000-0000-0000-0000-000000000000",
+      "database_id": "fe6513aa-ea76-4df6-9ff4-f5658af75f85",
       "migrations_dir": "migrations"
     }
   ],
