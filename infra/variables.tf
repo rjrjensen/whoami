@@ -1,3 +1,9 @@
+variable "cloudflare_api_token" {
+  description = "Cloudflare API token for Terraform. Set as TF_VAR_cloudflare_api_token in infra/.env."
+  type        = string
+  sensitive   = true
+}
+
 variable "cloudflare_account_id" {
   description = "Cloudflare account ID (dashboard → any domain → Overview → API section)."
   type        = string
