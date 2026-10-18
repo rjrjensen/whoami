@@ -1,0 +1,160 @@
+{
+  "report": {
+    "id": "0b8e6a52-6c1e-4d5e-9a57-0f3f2b8c9d11",
+    "createdAt": "2026-10-17T00:00:00.000Z",
+    "role": {
+      "title": "Senior Engineering Manager",
+      "company": "Acme",
+      "type": "engineering_manager"
+    },
+    "score": 68,
+    "label": "Good fit",
+    "explanation": "Ryan's record directly shows 2 of 4 must-haves, and 1 more through related experience. 1 hasn't been confirmed yet.",
+    "items": [
+      {
+        "requirement": "5+ years managing or supervising teams",
+        "importance": "must",
+        "skill": "People management",
+        "status": "demonstrated",
+        "inferred": false,
+        "reason": "",
+        "evidence": [
+          {
+            "id": "job-ups",
+            "kind": "job",
+            "title": "Supervisor, UPS",
+            "dates": "2013 \u2013 2017"
+          }
+        ]
+      },
+      {
+        "requirement": "Backend services in Kotlin",
+        "importance": "must",
+        "skill": "Kotlin",
+        "status": "demonstrated",
+        "inferred": false,
+        "reason": "",
+        "evidence": [
+          {
+            "id": "job-hy-vee-inc",
+            "kind": "job",
+            "title": "Software Engineer, Hy-Vee, Inc.",
+            "dates": "2021 \u2013 2022"
+          }
+        ]
+      },
+      {
+        "requirement": "Experience with Micronaut",
+        "importance": "must",
+        "skill": "Micronaut",
+        "status": "transferable",
+        "inferred": true,
+        "reason": "Inferred from Kotlin (Software Engineer, Hy-Vee, Inc.).",
+        "evidence": [
+          {
+            "id": "job-hy-vee-inc",
+            "kind": "job",
+            "title": "Software Engineer, Hy-Vee, Inc.",
+            "dates": "2021 \u2013 2022"
+          }
+        ]
+      },
+      {
+        "requirement": "Production Rust",
+        "importance": "must",
+        "skill": "Rust",
+        "status": "unconfirmed",
+        "inferred": false,
+        "reason": "Not in Ryan's record yet. It's been flagged for him to confirm.",
+        "evidence": []
+      },
+      {
+        "requirement": "Kubernetes operators",
+        "importance": "nice",
+        "skill": "Kubernetes",
+        "status": "learning",
+        "inferred": false,
+        "reason": "Ryan is learning this now.",
+        "evidence": []
+      },
+      {
+        "requirement": "Salesforce administration",
+        "importance": "nice",
+        "skill": "Salesforce",
+        "status": "not_focus",
+        "inferred": false,
+        "reason": "Ryan isn't pursuing this right now.",
+        "evidence": []
+      },
+      {
+        "requirement": "B.S. in Computer Science",
+        "importance": "nice",
+        "skill": "B.S. in Computer Science",
+        "status": "demonstrated",
+        "inferred": false,
+        "reason": "",
+        "evidence": [
+          {
+            "id": "edu-b-s-computer-science",
+            "kind": "education",
+            "title": "B.S. Computer Science, Trident University International",
+            "dates": "2017"
+          }
+        ]
+      }
+    ],
+    "strengths": [
+      {
+        "requirement": "5+ years managing or supervising teams",
+        "importance": "must",
+        "skill": "People management",
+        "status": "demonstrated",
+        "inferred": false,
+        "reason": "",
+        "evidence": [
+          {
+            "id": "job-ups",
+            "kind": "job",
+            "title": "Supervisor, UPS",
+            "dates": "2013 \u2013 2017"
+          }
+        ]
+      },
+      {
+        "requirement": "Backend services in Kotlin",
+        "importance": "must",
+        "skill": "Kotlin",
+        "status": "demonstrated",
+        "inferred": false,
+        "reason": "",
+        "evidence": [
+          {
+            "id": "job-hy-vee-inc",
+            "kind": "job",
+            "title": "Software Engineer, Hy-Vee, Inc.",
+            "dates": "2021 \u2013 2022"
+          }
+        ]
+      },
+      {
+        "requirement": "B.S. in Computer Science",
+        "importance": "nice",
+        "skill": "B.S. in Computer Science",
+        "status": "demonstrated",
+        "inferred": false,
+        "reason": "",
+        "evidence": [
+          {
+            "id": "edu-b-s-computer-science",
+            "kind": "education",
+            "title": "B.S. Computer Science, Trident University International",
+            "dates": "2017"
+          }
+        ]
+      }
+    ],
+    "recommendedVersion": "manager",
+    "matcher": "jev",
+    "cached": false
+  }
+}

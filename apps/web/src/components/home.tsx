@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { pageHref, turnType } from "@/lib/pages";
+import { FitCheckForm } from "./fit-check";
 import { site, VARIANTS, yearsOfSoftware, type Variant, type VariantId } from "@/lib/resume";
 
 export function Home({ variant, v }: { variant: VariantId; v: Variant }) {
@@ -47,10 +48,16 @@ export function Home({ variant, v }: { variant: VariantId; v: Variant }) {
         </p>
 
         <div className="hero-in hero-in-3 mt-8 flex flex-wrap gap-3">
+          <a
+            href="#fit-check"
+            className="inline-flex min-h-12 items-center rounded-full bg-accent px-6 font-medium text-accent-ink transition-transform hover:-translate-y-0.5"
+          >
+            Check fit for your role
+          </a>
           <Link
             href={pageHref(variant, "resume")}
             transitionTypes={[turnType("home", "resume")]}
-            className="inline-flex min-h-12 items-center rounded-full bg-accent px-6 font-medium text-accent-ink transition-transform hover:-translate-y-0.5"
+            className="inline-flex min-h-12 items-center rounded-full border border-line bg-surface px-6 font-medium transition-colors hover:bg-surface-2"
           >
             Download resume
           </Link>
@@ -92,6 +99,22 @@ export function Home({ variant, v }: { variant: VariantId; v: Variant }) {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* Fit Check: just the box here; the report opens at /fit-check. */}
+      <section id="fit-check" aria-labelledby="fit-check-title" className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <div className="grid gap-8 lg:grid-cols-[2fr_3fr] lg:gap-12">
+          <div>
+            <h2 id="fit-check-title" className="font-display text-4xl sm:text-5xl">
+              Do I fit your role?
+            </h2>
+            <p className="mt-4 text-muted">
+              Paste a job description for an honest, requirement-by-requirement read on how my experience lines up, with links to where
+              I&rsquo;ve done the work. Anything inferred is labeled as inferred.
+            </p>
+          </div>
+          <FitCheckForm variant={variant} compact />
         </div>
       </section>
     </>
