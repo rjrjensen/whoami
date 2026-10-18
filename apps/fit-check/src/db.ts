@@ -39,6 +39,7 @@ export async function skillAnswers(db: D1Database, skills: string[]): Promise<Ma
 export type SavedCheck = {
   report: FitReport;
   jdHash: string;
+  /** Exactly what the visitor pasted, before normalizing. */
   jdText: string;
   ipHash: string;
   extractor: string | null;
@@ -57,7 +58,7 @@ export async function saveCheck(db: D1Database, c: SavedCheck) {
         // SQLite's datetime() format, so comparisons against datetime('now', ...) work.
         c.report.createdAt.replace("T", " ").slice(0, 19),
         c.jdHash,
-        c.report.cached ? null : c.jdText,
+        c.jdText,
         c.report.role.title,
         c.report.role.company,
         c.report.score,

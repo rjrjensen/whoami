@@ -57,7 +57,7 @@ Until these are done, the Fit Check box shows on the site but every check fails 
   - `terraform -chdir=../../infra output -raw fit_check_turnstile_secret | npx wrangler secret put TURNSTILE_SECRET_KEY`
   - `npx wrangler secret put NTFY_TOPIC` (an unguessable name, e.g. `fitcheck-` plus `openssl rand -hex 12`)
   - `npm run deploy` (this also creates `api.ryanjensen.dev`)
-- [ ] Install the ntfy app on your phone and subscribe to that same topic on ntfy.sh. Unconfirmed must-haves push there.
+- [ ] Install **ntfy** from the App Store. Pick the one whose developer is Philipp Heckel; the others are unofficial. Subscribe to that same topic on the default server, ntfy.sh. Unconfirmed must-haves push there.
 - [ ] Redeploy the site on Vercel so it picks up `NEXT_PUBLIC_TURNSTILE_SITE_KEY`.
 - [ ] Try it with a real job description, then tell Claude how the report reads.
 
