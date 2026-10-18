@@ -308,7 +308,7 @@ Each skill has one entry, however many postings ask for it, with a count of how 
 ### Answering quickly
 
 Ryan wants to answer while the visitor is still on the page. Today he can't: v1 only pushes, and an answer would mean writing a D1 row by hand. The proposal:
-1. **The immediate push gets buttons.** ntfy notifications can carry up to 3 action buttons that call a URL. For example: [I have this] · [I don't have it] · [More…].
+1. **Tapping the push opens the answer page** (item 3), which works on any phone. ntfy can also add up to 3 action buttons that call a URL, e.g. [I have this] · [I don't have it] · [More…]. Its docs don't say whether the iPhone app shows them, so we test on Ryan's phone before relying on them.
 2. **Each button is a signed link** to the Worker, e.g. `POST api.ryanjensen.dev/answer/<token>`. The token names one question and one answer and is signed with a secret. A leaked link can only answer that one question.
 3. **"More…" opens a small answer page** served by the Worker. It has all five options, a field for naming a close skill, and a job picker for evidence. It works until the admin app replaces it.
 4. **The visitor's report updates live.** While a report is open, the page checks every 30 seconds for 15 minutes for a newer version. Recomputing is free (step 8). When Ryan answers, the report refreshes with a note: *"Updated: Ryan just confirmed Angular."*
