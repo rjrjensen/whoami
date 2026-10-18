@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16",
+  "generatedAt": "2026-10-18",
   "preferences": {
     "workArrangement": "Open to on-site, hybrid, or remote",
     "workAuthorization": "US citizen; no sponsorship required"
@@ -51,7 +51,7 @@
         "name": "Marbles",
         "url": "https://marbls.co",
         "linkLabel": "Play Marbles at marbls.co",
-        "source": "https://github.com/rjrjensen/Marbles",
+        "source": "https://github.com/rjrjensen/marbls",
         "text": "A digital version of a board game invented by my mom's side of the family. It brings out the best (and worst) in everyone at family gatherings, and I'd wanted to put it on a screen for years. It's finally live and playable."
       }
     ]
@@ -100,6 +100,9 @@
             {
               "name": "SQL",
               "proficient": true
+            },
+            {
+              "name": "T-SQL"
             },
             {
               "name": "Kotlin",
@@ -486,6 +489,17 @@
           ]
         },
         {
+          "name": "Identity",
+          "keywords": [
+            {
+              "name": "PingOne"
+            },
+            {
+              "name": "Active Directory / LDAP"
+            }
+          ]
+        },
+        {
           "name": "Project Management",
           "keywords": [
             {
@@ -537,10 +551,11 @@
           "summary": "Consultant across 4+ client engagements in financial services, insurance, identity management, and enterprise web, spanning full-stack development, delivery leadership, coaching, and generative AI.",
           "highlights": [
             "Ranked #1 interviewer for 2025 and the first half of 2026, with 30+ interviews and ~10 hires still with the company.",
-            "Technical delivery lead for a data engineering engagement (SQL Server, Databricks, dbt), including project management and coaching.",
-            "Led English/French internationalization of a client's customer portal and outgoing email (Vue I18n, Thymeleaf, Spring Boot).",
+            "Technical delivery lead for a regional mutual insurer's data engineering engagement (SQL Server, T-SQL, Databricks, dbt), including project management and coaching.",
+            "Led English/French internationalization of a roofing-materials manufacturer's customer portal and outgoing email for the US and Canada (Vue I18n, Thymeleaf, Spring Boot).",
             "Bootstrapped a generative AI initiative on AWS Bedrock.",
-            "Reworked the frontend of a high-traffic identity-management application.",
+            "Redesigning a federally backed bank's high-traffic web application, which handles all of its money intake: reworked the frontend, built its first public API and secured it, and moved identity to PingOne, migrating Active Directory and LDAP users.",
+            "Helped design a digital-identity company's webinar platform in Figma.",
             "Mentor and teach the company's apprentices."
           ],
           "technologies": [
@@ -556,8 +571,12 @@
             "AWS Bedrock",
             "Azure",
             "SQL Server",
+            "T-SQL",
             "Databricks",
-            "dbt"
+            "dbt",
+            "PingOne",
+            "Active Directory / LDAP",
+            "Figma"
           ]
         },
         {
@@ -615,7 +634,7 @@
           "note": "Contract via Modis",
           "startDate": "2022-03",
           "endDate": "2022-06",
-          "summary": "Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap.",
+          "summary": "Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap, and upgraded the company's internal .NET applications.",
           "highlights": []
         },
         {
@@ -732,6 +751,9 @@
           "Source Allies",
           "Patient Preferred Financial Services",
           "Far Reach Inc."
+        ],
+        "T-SQL": [
+          "Source Allies"
         ],
         "Kotlin": [
           "Hy-Vee, Inc."
@@ -867,7 +889,9 @@
         ],
         "Eclipse": [],
         "Postman": [],
-        "Figma": [],
+        "Figma": [
+          "Source Allies"
+        ],
         "AWS": [
           "Source Allies",
           "Patient Preferred Financial Services",
@@ -898,6 +922,12 @@
         "OpenNext": [
           "Patient Preferred Financial Services"
         ],
+        "PingOne": [
+          "Source Allies"
+        ],
+        "Active Directory / LDAP": [
+          "Source Allies"
+        ],
         "Scrum": [],
         "Kanban": [],
         "Agile": [],
@@ -915,23 +945,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 139090
+            "bytes": 140394
           },
           {
             "ext": "docx",
-            "bytes": 14369
+            "bytes": 14602
           },
           {
             "ext": "md",
-            "bytes": 7714
+            "bytes": 8198
           },
           {
             "ext": "json",
-            "bytes": 11127
+            "bytes": 11701
           },
           {
             "ext": "toml",
-            "bytes": 9078
+            "bytes": 9598
           }
         ]
       }
@@ -989,6 +1019,9 @@
               "proficient": true
             },
             {
+              "name": "T-SQL"
+            },
+            {
               "name": "Kotlin",
               "proficient": true
             },
@@ -1159,6 +1192,17 @@
           ]
         },
         {
+          "name": "Identity",
+          "keywords": [
+            {
+              "name": "PingOne"
+            },
+            {
+              "name": "Active Directory / LDAP"
+            }
+          ]
+        },
+        {
           "name": "Project Management",
           "keywords": [
             {
@@ -1210,11 +1254,12 @@
           "summary": "Consultant across 4+ client engagements in financial services, insurance, identity management, and enterprise web, spanning full-stack development, delivery leadership, coaching, and generative AI.",
           "highlights": [
             "Ranked #1 interviewer for 2025 and the first half of 2026, with 30+ interviews and ~10 hires still with the company.",
-            "Technical delivery lead for a data engineering engagement (SQL Server, Databricks, dbt), including project management and coaching.",
+            "Technical delivery lead for a regional mutual insurer's data engineering engagement (SQL Server, T-SQL, Databricks, dbt), including project management and coaching.",
             "Mentor and teach the company's apprentices.",
             "Bootstrapped a generative AI initiative on AWS Bedrock.",
-            "Led English/French internationalization of a client's customer portal and outgoing email (Vue I18n, Thymeleaf, Spring Boot).",
-            "Reworked the frontend of a high-traffic identity-management application."
+            "Led English/French internationalization of a roofing-materials manufacturer's customer portal and outgoing email for the US and Canada (Vue I18n, Thymeleaf, Spring Boot).",
+            "Redesigning a federally backed bank's high-traffic web application, which handles all of its money intake: reworked the frontend, built its first public API and secured it, and moved identity to PingOne, migrating Active Directory and LDAP users.",
+            "Helped design a digital-identity company's webinar platform in Figma."
           ],
           "technologies": [
             "Vue.js",
@@ -1229,8 +1274,12 @@
             "AWS Bedrock",
             "Azure",
             "SQL Server",
+            "T-SQL",
             "Databricks",
-            "dbt"
+            "dbt",
+            "PingOne",
+            "Active Directory / LDAP",
+            "Figma"
           ]
         },
         {
@@ -1288,7 +1337,7 @@
           "note": "Contract via Modis",
           "startDate": "2022-03",
           "endDate": "2022-06",
-          "summary": "Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap.",
+          "summary": "Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap, and upgraded the company's internal .NET applications.",
           "highlights": []
         },
         {
@@ -1406,6 +1455,9 @@
           "Patient Preferred Financial Services",
           "Far Reach Inc."
         ],
+        "T-SQL": [
+          "Source Allies"
+        ],
         "Kotlin": [
           "Hy-Vee, Inc."
         ],
@@ -1510,6 +1562,12 @@
         "Google Cloud": [
           "Hy-Vee, Inc."
         ],
+        "PingOne": [
+          "Source Allies"
+        ],
+        "Active Directory / LDAP": [
+          "Source Allies"
+        ],
         "Scrum": [],
         "Kanban": [],
         "Agile": [],
@@ -1527,23 +1585,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 135461
+            "bytes": 136870
           },
           {
             "ext": "docx",
-            "bytes": 14117
+            "bytes": 14344
           },
           {
             "ext": "md",
-            "bytes": 7460
+            "bytes": 7944
           },
           {
             "ext": "json",
-            "bytes": 10411
+            "bytes": 10985
           },
           {
             "ext": "toml",
-            "bytes": 8694
+            "bytes": 9214
           }
         ]
       }
@@ -1597,6 +1655,9 @@
             {
               "name": "SQL",
               "proficient": true
+            },
+            {
+              "name": "T-SQL"
             },
             {
               "name": "Kotlin",
@@ -1983,6 +2044,17 @@
           ]
         },
         {
+          "name": "Identity",
+          "keywords": [
+            {
+              "name": "PingOne"
+            },
+            {
+              "name": "Active Directory / LDAP"
+            }
+          ]
+        },
+        {
           "name": "Project Management",
           "keywords": [
             {
@@ -2033,12 +2105,13 @@
           "startDate": "2024-12",
           "summary": "Consultant across 4+ client engagements in financial services, insurance, identity management, and enterprise web, spanning full-stack development, delivery leadership, coaching, and generative AI.",
           "highlights": [
-            "Technical delivery lead for a data engineering engagement (SQL Server, Databricks, dbt), including project management and coaching.",
-            "Led English/French internationalization of a client's customer portal and outgoing email (Vue I18n, Thymeleaf, Spring Boot).",
+            "Redesigning a federally backed bank's high-traffic web application, which handles all of its money intake: reworked the frontend, built its first public API and secured it, and moved identity to PingOne, migrating Active Directory and LDAP users.",
+            "Technical delivery lead for a regional mutual insurer's data engineering engagement (SQL Server, T-SQL, Databricks, dbt), including project management and coaching.",
+            "Led English/French internationalization of a roofing-materials manufacturer's customer portal and outgoing email for the US and Canada (Vue I18n, Thymeleaf, Spring Boot).",
             "Bootstrapped a generative AI initiative on AWS Bedrock.",
             "Ranked #1 interviewer for 2025 and the first half of 2026, with 30+ interviews and ~10 hires still with the company.",
             "Mentor and teach the company's apprentices.",
-            "Reworked the frontend of a high-traffic identity-management application."
+            "Helped design a digital-identity company's webinar platform in Figma."
           ],
           "technologies": [
             "Vue.js",
@@ -2053,8 +2126,12 @@
             "AWS Bedrock",
             "Azure",
             "SQL Server",
+            "T-SQL",
             "Databricks",
-            "dbt"
+            "dbt",
+            "PingOne",
+            "Active Directory / LDAP",
+            "Figma"
           ]
         },
         {
@@ -2112,7 +2189,7 @@
           "note": "Contract via Modis",
           "startDate": "2022-03",
           "endDate": "2022-06",
-          "summary": "Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap.",
+          "summary": "Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap, and upgraded the company's internal .NET applications.",
           "highlights": []
         },
         {
@@ -2190,6 +2267,9 @@
           "Source Allies",
           "Patient Preferred Financial Services",
           "Far Reach Inc."
+        ],
+        "T-SQL": [
+          "Source Allies"
         ],
         "Kotlin": [
           "Hy-Vee, Inc."
@@ -2325,7 +2405,9 @@
         ],
         "Eclipse": [],
         "Postman": [],
-        "Figma": [],
+        "Figma": [
+          "Source Allies"
+        ],
         "AWS": [
           "Source Allies",
           "Patient Preferred Financial Services",
@@ -2356,6 +2438,12 @@
         "OpenNext": [
           "Patient Preferred Financial Services"
         ],
+        "PingOne": [
+          "Source Allies"
+        ],
+        "Active Directory / LDAP": [
+          "Source Allies"
+        ],
         "Scrum": [],
         "Kanban": [],
         "Agile": [],
@@ -2373,23 +2461,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 119535
+            "bytes": 120922
           },
           {
             "ext": "docx",
-            "bytes": 13964
+            "bytes": 14201
           },
           {
             "ext": "md",
-            "bytes": 6864
+            "bytes": 7348
           },
           {
             "ext": "json",
-            "bytes": 10218
+            "bytes": 10792
           },
           {
             "ext": "toml",
-            "bytes": 8257
+            "bytes": 8777
           }
         ]
       }
