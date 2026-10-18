@@ -38,7 +38,7 @@ State lives in a Cloudflare R2 bucket.
 Create `infra/.env`, which is gitignored and loaded automatically by mise when you `cd` into the repo:
 
 ```sh
-CLOUDFLARE_API_TOKEN=...
+TF_VAR_cloudflare_api_token=...  # not CLOUDFLARE_API_TOKEN, which wrangler would use instead of your login
 VERCEL_API_TOKEN=...
 AWS_ACCESS_KEY_ID=...          # R2 token's Access Key ID
 AWS_SECRET_ACCESS_KEY=...      # R2 token's Secret Access Key
