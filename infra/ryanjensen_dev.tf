@@ -20,7 +20,7 @@ resource "cloudflare_dns_record" "site_www" {
   comment = "Vercel (managed by Terraform)"
 }
 
-# Email: ryanjensen.dev is a Google Workspace alias domain, so contact@ryanjensen.dev (and any alias) lands in
+# Email: ryanjensen.dev is a Google Workspace alias domain, so hello@ryanjensen.dev (and any alias) lands in
 # ryan@rjrjensen.com's inbox and Gmail can reply from it. Add the domain in Workspace Admin first; it gives
 # the verification token and DKIM key that go in terraform.tfvars.
 
@@ -59,7 +59,7 @@ resource "cloudflare_dns_record" "site_google_dkim" {
   zone_id = cloudflare_zone.ryanjensen_dev.id
   name    = "google._domainkey.ryanjensen.dev"
   type    = "TXT"
-  content = var.ryanjensen_dev_google_dkim
+  content = join(" ", [for chunk in regexall(".{1,255}", var.ryanjensen_dev_google_dkim) : "\"${chunk}\""])
   ttl     = 1
   comment = "Google Workspace DKIM (managed by Terraform)"
 }
