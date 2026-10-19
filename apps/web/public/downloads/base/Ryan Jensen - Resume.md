@@ -2,7 +2,7 @@
 
 **Software Engineer & Technology Leader**
 
-ryan@rjrjensen.com · West Des Moines, IA · [ryanjensen.dev](https://ryanjensen.dev) · [github.com/rjrjensen](https://github.com/rjrjensen) · [linkedin.com/in/rjrjensen](https://www.linkedin.com/in/rjrjensen/)
+hello@ryanjensen.dev · West Des Moines, IA · [ryanjensen.dev](https://ryanjensen.dev) · [github.com/rjrjensen](https://github.com/rjrjensen) · [linkedin.com/in/rjrjensen](https://www.linkedin.com/in/rjrjensen/)
 
 I use software to innovate, automate, and improve development and user experiences. My skills lie heavily in scalable, full-stack web and native applications.
 

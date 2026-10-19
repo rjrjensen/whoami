@@ -2,7 +2,7 @@
 
 **Software Engineering Manager**
 
-ryan@rjrjensen.com · West Des Moines, IA · [ryanjensen.dev](https://ryanjensen.dev) · [github.com/rjrjensen](https://github.com/rjrjensen) · [linkedin.com/in/rjrjensen](https://www.linkedin.com/in/rjrjensen/)
+hello@ryanjensen.dev · West Des Moines, IA · [ryanjensen.dev](https://ryanjensen.dev) · [github.com/rjrjensen](https://github.com/rjrjensen) · [linkedin.com/in/rjrjensen](https://www.linkedin.com/in/rjrjensen/)
 
 Engineering leader with 8+ years of full-stack software experience and nearly four years supervising frontline teams before that. I hire, mentor, and grow engineers, own technology strategy and budgets, and lead delivery across .NET, JVM, and JavaScript stacks on AWS and Azure.
 
