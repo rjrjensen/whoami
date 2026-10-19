@@ -63,3 +63,14 @@ resource "cloudflare_dns_record" "site_google_dkim" {
   ttl     = 1
   comment = "Google Workspace DKIM (managed by Terraform)"
 }
+
+# Monitor-only DMARC: mail is never rejected, but reports about who sends as ryanjensen.dev go to hello@.
+# Tighten p= to quarantine, then reject, once the reports show only legitimate mail.
+resource "cloudflare_dns_record" "site_dmarc" {
+  zone_id = cloudflare_zone.ryanjensen_dev.id
+  name    = "_dmarc.ryanjensen.dev"
+  type    = "TXT"
+  content = "\"v=DMARC1; p=none; rua=mailto:hello@ryanjensen.dev\""
+  ttl     = 1
+  comment = "DMARC, monitor only (managed by Terraform)"
+}
