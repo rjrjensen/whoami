@@ -225,7 +225,7 @@ Ryan wants Next.js on Vercel (marketable) and SvelteKit on Cloudflare (lightweig
 
 All three domains are registered and served through Cloudflare, managed by Terraform in `infra/`.
 
-- **`ryanjensen.dev`:** the site, hosted on Vercel. It's also a Google Workspace alias domain, so mail to contact@ryanjensen.dev lands in Ryan's inbox.
+- **`ryanjensen.dev`:** the site, hosted on Vercel. It's also a Google Workspace alias domain, so mail to hello@ryanjensen.dev lands in Ryan's inbox.
 - **`rjrjensen.com`:** web traffic gets a 301 redirect to `ryanjensen.dev`. Google Workspace email (ryan@rjrjensen.com) is unchanged.
 - **`cleancodedesign.com`:** redirects to `ryanjensen.dev` for now (undecided long term). No mail, plus anti-spoofing records.
 

@@ -90,10 +90,10 @@ Do these **in order**. Step 1 protects your Google Workspace email on rjrjensen.
 
 ## Email at ryanjensen.dev (Google Workspace alias domain)
 
-This makes `contact@ryanjensen.dev` (or any address you like) arrive in your ryan@rjrjensen.com inbox, and lets Gmail reply *as* that address. It costs nothing extra and needs no new inbox.
+This makes `hello@ryanjensen.dev` (or any address you like) arrive in your ryan@rjrjensen.com inbox, and lets Gmail reply *as* that address. It costs nothing extra and needs no new inbox.
 
 1. In [Google Workspace Admin](https://admin.google.com): *Account → Domains → Manage domains → Add a domain*. Enter `ryanjensen.dev` and choose **User alias domain**.
 2. Google shows a TXT verification value (`google-site-verification=...`). Put it in `terraform.tfvars` as `ryanjensen_dev_google_verification`, run `terraform apply`, then click *Verify* in Admin. The zone must be Active in Cloudflare first.
 3. *Apps → Google Workspace → Gmail → Authenticate email*: select ryanjensen.dev and generate a DKIM key. Put the TXT value in `ryanjensen_dev_google_dkim`, `terraform apply`, then click *Start authentication*.
-4. *Directory → Users → you → Alternate email addresses*: add `contact@ryanjensen.dev`.
-5. In Gmail: *Settings → Accounts → Send mail as → Add another address*, so replies can come from contact@ryanjensen.dev.
+4. *Directory → Users → you → Alternate email addresses*: add `hello@ryanjensen.dev`.
+5. In Gmail: *Settings → Accounts → Send mail as → Add another address*, so replies can come from hello@ryanjensen.dev.

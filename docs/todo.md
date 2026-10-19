@@ -21,15 +21,15 @@ Tasks only Ryan can do (accounts, payments, approvals). Claude keeps this list c
   - email
   - the redirects
   - the live site
-- [ ] Transfer all three domains to Cloudflare Registrar (auth codes from Squarespace; pay for one year each)
+- [x] Transfer all three domains to Cloudflare Registrar (auth codes from Squarespace; pay for one year each)
 - [ ] After all three transfers finish: turn DNSSEC back on in Cloudflare, then close the Squarespace account
 
 ## Email
 
 - [x] **Add ryanjensen.dev as a Google Workspace alias domain.** Do this after the ryanjensen.dev zone is Active in Cloudflare. Steps are in `infra/README.md` → *Email at ryanjensen.dev*.
-- [ ] Confirm DKIM for ryanjensen.dev shows **Authenticating email** in Admin (*Apps → Google Workspace → Gmail → Authenticate email*). Can take up to 48 hours.
-- [ ] Add `contact@ryanjensen.dev` as an alternate email on your user, and add it in Gmail under *Send mail as*.
-  - Then tell Claude to switch the site's contact address to contact@ryanjensen.dev.
+- [x] Confirm DKIM for ryanjensen.dev shows **Authenticating email** in Admin (*Apps → Google Workspace → Gmail → Authenticate email*). Can take up to 48 hours.
+- [x] Add `hello@ryanjensen.dev` as an alternate email on your user, and add it in Gmail under *Send mail as*.
+  - Then tell Claude to switch the site's contact address to hello@ryanjensen.dev.
 
 ## Analytics (PostHog)
 
