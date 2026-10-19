@@ -28,7 +28,7 @@ Tasks only Ryan can do (accounts, payments, approvals). Claude keeps this list c
 
 - [x] **Add ryanjensen.dev as a Google Workspace alias domain.** Do this after the ryanjensen.dev zone is Active in Cloudflare. Steps are in `infra/README.md` → *Email at ryanjensen.dev*.
 - [x] Confirm DKIM for ryanjensen.dev shows **Authenticating email** in Admin (*Apps → Google Workspace → Gmail → Authenticate email*). Can take up to 48 hours.
-- [ ] Add `hello@ryanjensen.dev` as an alternate email on your user, and add it in Gmail under *Send mail as*.
+- [x] Add `hello@ryanjensen.dev` as an alternate email on your user, and add it in Gmail under *Send mail as*.
   - Then tell Claude to switch the site's contact address to hello@ryanjensen.dev.
 
 ## Analytics (PostHog)
