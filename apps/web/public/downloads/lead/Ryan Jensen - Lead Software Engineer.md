@@ -2,7 +2,7 @@
 
 **Lead Software Engineer**
 
-ryan@rjrjensen.com · West Des Moines, IA · [ryanjensen.dev](https://ryanjensen.dev) · [github.com/rjrjensen](https://github.com/rjrjensen) · [linkedin.com/in/rjrjensen](https://www.linkedin.com/in/rjrjensen/)
+hello@ryanjensen.dev · West Des Moines, IA · [ryanjensen.dev](https://ryanjensen.dev) · [github.com/rjrjensen](https://github.com/rjrjensen) · [linkedin.com/in/rjrjensen](https://www.linkedin.com/in/rjrjensen/)
 
 Full-stack engineer with 8+ years designing, modernizing, and shipping scalable systems across .NET, JVM, and JavaScript stacks. I lead technical delivery, architect cloud and serverless platforms, speed up CI/CD, and mentor the engineers around me.
 
