@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16",
+  "generatedAt": "2026-10-19",
   "preferences": {
     "workArrangement": "Open to on-site, hybrid, or remote",
     "workAuthorization": "US citizen; no sponsorship required"
@@ -51,7 +51,7 @@
         "name": "Marbles",
         "url": "https://marbls.co",
         "linkLabel": "Play Marbles at marbls.co",
-        "source": "https://github.com/rjrjensen/Marbles",
+        "source": "https://github.com/rjrjensen/marbls",
         "text": "A digital version of a board game invented by my mom's side of the family. It brings out the best (and worst) in everyone at family gatherings, and I'd wanted to put it on a screen for years. It's finally live and playable."
       }
     ]
@@ -67,7 +67,7 @@
       },
       "basics": {
         "name": "Ryan Jensen",
-        "email": "ryan@rjrjensen.com",
+        "email": "hello@ryanjensen.dev",
         "url": "https://ryanjensen.dev",
         "location": {
           "city": "West Des Moines",
@@ -915,23 +915,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 139090
+            "bytes": 139077
           },
           {
             "ext": "docx",
-            "bytes": 14369
+            "bytes": 14366
           },
           {
             "ext": "md",
-            "bytes": 7714
+            "bytes": 7716
           },
           {
             "ext": "json",
-            "bytes": 11127
+            "bytes": 11129
           },
           {
             "ext": "toml",
-            "bytes": 9078
+            "bytes": 9080
           }
         ]
       }
@@ -954,7 +954,7 @@
       },
       "basics": {
         "name": "Ryan Jensen",
-        "email": "ryan@rjrjensen.com",
+        "email": "hello@ryanjensen.dev",
         "url": "https://ryanjensen.dev",
         "location": {
           "city": "West Des Moines",
@@ -1527,23 +1527,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 135461
+            "bytes": 135444
           },
           {
             "ext": "docx",
-            "bytes": 14117
+            "bytes": 14110
           },
           {
             "ext": "md",
-            "bytes": 7460
+            "bytes": 7462
           },
           {
             "ext": "json",
-            "bytes": 10411
+            "bytes": 10413
           },
           {
             "ext": "toml",
-            "bytes": 8694
+            "bytes": 8696
           }
         ]
       }
@@ -1564,7 +1564,7 @@
       },
       "basics": {
         "name": "Ryan Jensen",
-        "email": "ryan@rjrjensen.com",
+        "email": "hello@ryanjensen.dev",
         "url": "https://ryanjensen.dev",
         "location": {
           "city": "West Des Moines",
@@ -2373,23 +2373,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 119535
+            "bytes": 119501
           },
           {
             "ext": "docx",
-            "bytes": 13964
+            "bytes": 13963
           },
           {
             "ext": "md",
-            "bytes": 6864
+            "bytes": 6866
           },
           {
             "ext": "json",
-            "bytes": 10218
+            "bytes": 10220
           },
           {
             "ext": "toml",
-            "bytes": 8257
+            "bytes": 8259
           }
         ]
       }
