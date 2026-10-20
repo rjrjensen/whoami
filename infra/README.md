@@ -25,6 +25,8 @@ State lives in a Cloudflare R2 bucket.
    - Zone · Zone · Edit (to create the zones)
    - Zone · DNS · Edit
    - Zone · Single Redirect · Edit
+   - Account · D1 · Edit (the Fit Check database)
+   - Account · Turnstile · Edit (the Fit Check widget; may be listed as "Turnstile Sites")
    - Account resources: your account. Zone resources: all zones in your account.
 
 ### 2. Vercel
@@ -35,7 +37,7 @@ State lives in a Cloudflare R2 bucket.
 
 ### 3. Local secrets
 
-Create `infra/.env`, which is gitignored and loaded automatically by mise when you `cd` into the repo:
+Copy `infra/.env.example` to `infra/.env`, which is gitignored and loaded automatically by mise when you `cd` into the repo, and fill it in:
 
 ```sh
 TF_VAR_cloudflare_api_token=...  # not CLOUDFLARE_API_TOKEN, which wrangler would use instead of your login

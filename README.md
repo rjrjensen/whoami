@@ -34,6 +34,22 @@ NEXT_PUBLIC_FIT_CHECK_URL=http://localhost:8787/fit-check npm run dev
 
 After editing `data/`, run `npm run downloads` and commit the regenerated files in `apps/web/public/downloads`, `apps/web/src/content`, and `apps/fit-check/src/record.json`.
 
+## Setup checks
+
+```sh
+npm run doctor            # dependencies, .dev.vars keys, Worker secrets, logins, the hook
+npm run doctor -- --local # the same without the Cloudflare checks
+npm run worktree:link     # in a new worktree: link the secret files from the main checkout
+```
+
+The doctor prints key names and set/unset only, never values. Each Worker's expected secrets come from the `// Secrets (wrangler secret put): …` comment in its `wrangler.jsonc`, so add new secrets there.
+
+## Private data
+
+Some things never go in this public repo: Ryan's phone number, his salary targets, the ntfy topic, and the names of Source Allies clients. They're listed one per line in `private/blocklist.txt`, which is gitignored (`#` starts a comment). Matching ignores case, and a phone number matches with any separators.
+
+`npm install` installs a pre-commit hook that rejects any commit adding one of those terms. It reports the file, the line, and which blocklist entry matched, but not the term itself. `npm run check:private` scans every tracked file the same way. CI can't run this check because the list isn't in the repo.
+
 ## Quality checks
 
 CI runs on every push and pull request:
