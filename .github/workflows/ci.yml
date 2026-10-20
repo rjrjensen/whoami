@@ -77,3 +77,30 @@ jobs:
       - run: terraform fmt -check -recursive
       - run: terraform init -backend=false -input=false
       - run: terraform validate
+
+  # Deploys both Workers after every check passes on main. Order matters: the schema first, then fit-check,
+  # then admin (its "Add posting" calls fit-check's Admin entrypoint). Worker secrets stay in Cloudflare.
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [web, fit-check, admin, infra]
+    runs-on: ubuntu-latest
+    environment: production
+    concurrency:
+      group: deploy-workers
+      cancel-in-progress: false
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Apply D1 migrations (wrangler answers its own prompt with yes in CI)
+        run: npm run migrate:remote -w @ryanjensen/fit-check
+      - name: Deploy fit-check
+        run: npm run deploy -w @ryanjensen/fit-check
+      - name: Deploy admin
+        run: npm run deploy -w @ryanjensen/admin

@@ -60,6 +60,12 @@ CI runs on every push and pull request:
 - An axe accessibility scan (WCAG 2.2 AA) of every page, in light and dark mode, at phone and desktop widths, which also fails if any page scrolls sideways
 - Terraform format and validation
 
+## Deploys
+
+- **Site:** Vercel deploys every push (previews for PRs, production for `main`).
+- **Workers:** after every check passes on `main`, the `deploy` job applies new D1 migrations, then deploys fit-check, then admin. It needs the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repo secrets (`docs/todo.md` → Automatic Worker deploys). Worker secrets live in Cloudflare and are set with `wrangler secret put`.
+- **Infrastructure:** Terraform in `infra/`, applied by hand.
+
 ## Analytics
 
 PostHog, set up in `apps/web/src/instrumentation-client.ts`; settings are in `apps/web/src/lib/analytics-config.ts`. No cookies or browser storage, so there's no consent banner. Visitors with Do Not Track or Global Privacy Control on aren't tracked at all. Events go through the same-origin `/rj-relay` rewrite so ad blockers don't drop them.

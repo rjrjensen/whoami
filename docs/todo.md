@@ -82,6 +82,18 @@ Do these after the Fit Check steps above (the admin app uses the same D1 databas
 - [ ] Open `https://admin.ryanjensen.dev` on your phone, sign in, and add it to the home screen (Share → Add to Home Screen).
 - [ ] Try "Add posting" with a real posting and answer one skill question.
 
+## Automatic Worker deploys
+
+After this, merging to `main` applies D1 migrations and deploys fit-check, then admin (the `deploy` job in `.github/workflows/ci.yml`). You'd only run `wrangler secret put` when a key changes.
+
+- [ ] Cloudflare → **My Profile → API Tokens → Create Token** → the **Edit Cloudflare Workers** template:
+  - Add **Account · D1 · Edit** if the template doesn't include it (for the migrations).
+  - Account resources: your account. Zone resources: `ryanjensen.dev` (for the custom domains).
+- [ ] GitHub → `rjrjensen/whoami` → **Settings → Secrets and variables → Actions → New repository secret**:
+  - `CLOUDFLARE_API_TOKEN`: the token from the step above
+  - `CLOUDFLARE_ACCOUNT_ID`: the same account ID as in `infra/terraform.tfvars`
+- [ ] Merge the PR, then watch the **deploy** job in the Actions tab. The deploys show up under **Environments → production**.
+
 ## Content
 
 - [ ] Review the homepage tagline and the numbers strip (drafts)
