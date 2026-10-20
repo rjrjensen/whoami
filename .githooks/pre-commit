@@ -1,0 +1,3 @@
+#!/bin/sh
+# Blocks commits that add a term from private/blocklist.txt. Installed by `npm install` (core.hooksPath).
+exec node scripts/check-private.mjs --staged

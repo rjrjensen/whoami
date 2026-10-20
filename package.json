@@ -5,7 +5,11 @@
     "handouts": "node packages/resume/build.mjs handouts",
     "downloads": "node packages/resume/build.mjs site",
     "dev": "npm run dev -w @ryanjensen/web",
-    "build": "npm run downloads && npm run build -w @ryanjensen/web"
+    "build": "npm run downloads && npm run build -w @ryanjensen/web",
+    "doctor": "node scripts/doctor.mjs",
+    "worktree:link": "node scripts/worktree-link.mjs",
+    "check:private": "node scripts/check-private.mjs --all",
+    "prepare": "git config core.hooksPath .githooks || true"
   },
   "type": "module",
   "private": true,
