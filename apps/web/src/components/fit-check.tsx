@@ -89,7 +89,7 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
 export function FitCheckForm({ variant, compact = false }: { variant: VariantId; compact?: boolean }) {
   const router = useRouter();
   const [text, setText] = useState("");
-  const [state, setState] = useState<{ phase: "idle" | "checking" } | { phase: "error"; message: string }>({ phase: "idle" });
+  const [state, setState] = useState<{ phase: "idle" | "checking" } | { phase: "error"; code: string; message: string }>({ phase: "idle" });
   const turnstileBox = useRef<HTMLDivElement>(null);
   const turnstile = useTurnstile(turnstileBox);
 
@@ -116,13 +116,14 @@ export function FitCheckForm({ variant, compact = false }: { variant: VariantId;
       router.push(`/fit-check?id=${report.id}&from=${variant}`);
     } catch (err) {
       const e = err instanceof FitCheckError ? err : new FitCheckError("network");
-      setState({ phase: "error", message: e.message });
+      setState({ phase: "error", code: e.code, message: e.message });
       document.dispatchEvent(new CustomEvent("fitcheck:error", { detail: { error: e.code } }));
     }
   };
 
   const tooShort = text.trim().length < MIN_CHARS;
-  const ids = { jd: `fit-check-jd${compact ? "" : "-full"}`, count: `fit-check-count${compact ? "" : "-full"}`, privacy: `fit-check-privacy${compact ? "" : "-full"}` };
+  const suffix = compact ? "" : "-full";
+  const ids = { jd: `fit-check-jd${suffix}`, count: `fit-check-count${suffix}`, privacy: `fit-check-privacy${suffix}`, nudgeTip: `fit-check-nudge-tip${suffix}` };
 
   return (
     <form onSubmit={submit} className="max-w-3xl">
@@ -153,6 +154,7 @@ export function FitCheckForm({ variant, compact = false }: { variant: VariantId;
         >
           {state.phase === "checking" ? "Checking…" : "Check fit"}
         </button>
+        {state.phase === "error" && state.code === "out_of_credits" && <NudgeButton tipId={ids.nudgeTip} />}
         <p id={ids.count} className="text-sm text-muted">
           {text.length.toLocaleString("en-US")} / {MAX_CHARS.toLocaleString("en-US")} characters
           {tooShort && ` (at least ${MIN_CHARS} needed)`}
@@ -166,6 +168,56 @@ export function FitCheckForm({ variant, compact = false }: { variant: VariantId;
         {state.phase === "error" && <p className="rounded-2xl border border-signal/50 bg-surface p-4">{state.message}</p>}
       </div>
     </form>
+  );
+}
+
+/**
+ * Shown only after a check fails with out_of_credits: pings Ryan's phone through the API (at most once an hour,
+ * however many visitors click). The tooltip shows on hover and keyboard focus, and Escape hides it.
+ */
+function NudgeButton({ tipId }: { tipId: string }) {
+  const [phase, setPhase] = useState<"ready" | "sending" | "sent" | "failed">("ready");
+  const [tipDismissed, setTipDismissed] = useState(false);
+
+  const send = async () => {
+    setPhase("sending");
+    try {
+      const res = await fetch(`${API_URL}/nudge`, { method: "POST" });
+      setPhase(res.ok ? "sent" : "failed");
+    } catch {
+      setPhase("failed");
+    }
+  };
+
+  return (
+    <span className="relative inline-flex flex-wrap items-center gap-x-3 gap-y-1">
+      <span className="group relative inline-flex" onMouseLeave={() => setTipDismissed(false)} onBlur={() => setTipDismissed(false)}>
+        <button
+          type="button"
+          data-track="fit_check_nudge"
+          onClick={send}
+          onKeyDown={(e) => e.key === "Escape" && setTipDismissed(true)}
+          disabled={phase === "sending" || phase === "sent"}
+          aria-describedby={tipId}
+          className="inline-flex min-h-12 items-center rounded-full border border-line bg-bg px-6 font-medium transition-colors enabled:hover:bg-surface-2 disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          {phase === "sent" ? "Nudged, thanks!" : phase === "sending" ? "Nudging…" : "Nudge"}
+        </button>
+        <span
+          id={tipId}
+          role="tooltip"
+          className={`absolute bottom-full right-0 z-10 mb-2 w-max max-w-56 rounded-xl border border-line bg-surface px-3 py-2 text-sm text-ink shadow-lg ${
+            tipDismissed || phase === "sent" ? "hidden" : "hidden group-hover:block group-focus-within:block"
+          }`}
+        >
+          Tell Ryan he needs more Claude credits!
+        </span>
+      </span>
+      <span role="status" aria-live="polite" className="text-sm">
+        {phase === "sent" && <span className="sr-only">Nudged, thanks! Ryan will get a heads-up.</span>}
+        {phase === "failed" && "That didn't go through. Email me instead?"}
+      </span>
+    </span>
   );
 }
 

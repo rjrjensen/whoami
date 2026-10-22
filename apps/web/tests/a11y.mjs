@@ -12,7 +12,7 @@ const fitReport = readFileSync(new URL("./fixtures/fit-report.json", import.meta
 const base = process.argv[2] ?? "http://localhost:3000";
 const FIT_CHECK_API = "https://api.ryanjensen.dev/fit-check";
 const sections = ["", "/experience", "/skills", "/about", "/resume", "/contact"];
-const pages = [...["", "/manager", "/lead"].flatMap((v) => sections.map((s) => v + s || "/")), "/fit-check", "fit-check flow"];
+const pages = [...["", "/manager", "/lead"].flatMap((v) => sections.map((s) => v + s || "/")), "/fit-check", "fit-check flow", "fit-check nudge"];
 const viewports = { phone: { width: 360, height: 780 }, desktop: { width: 1366, height: 900 } };
 let failures = 0;
 
@@ -29,6 +29,17 @@ for (const path of pages) {
         await page.click("#fit-check button[data-track=fit_check_submit]");
         await page.waitForURL(/\/fit-check\?id=[0-9a-f-]{36}&from=manager$/);
         await page.waitForSelector("#fit-report-title");
+      } else if (path === "fit-check nudge") {
+        // The check fails for lack of Claude credit; the Nudge button appears, and its tooltip shows on keyboard focus.
+        await page.route(`${FIT_CHECK_API}/nudge`, (route) => route.fulfill({ contentType: "application/json", body: '{"ok":true}' }));
+        await page.route(FIT_CHECK_API, (route) =>
+          route.fulfill({ status: 503, contentType: "application/json", body: '{"error":"out_of_credits","message":"Fit Check is out of Claude credits right now."}' }),
+        );
+        await page.goto(base + "/manager", { waitUntil: "networkidle" });
+        await page.fill("#fit-check-jd", "Requirements: ".repeat(20));
+        await page.click("#fit-check button[data-track=fit_check_submit]");
+        await page.focus("#fit-check button[data-track=fit_check_nudge]");
+        await page.waitForSelector("#fit-check-nudge-tip", { state: "visible" });
       } else await page.goto(base + path, { waitUntil: "networkidle" });
       const { violations } = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"]).analyze();
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);

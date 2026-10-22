@@ -59,6 +59,8 @@ The response goes out only after the save, so the report's link works immediatel
 
 **7. Notify (ntfy).** When a check finds unconfirmed must-haves, Ryan's phone gets a push through ntfy with the role, the score, and the skills, linking to the report. The topic name is a secret (`NTFY_TOPIC`), since anyone who knows an ntfy topic can read it. With no topic set, no push is sent.
 
+**Out of credits.** When the Anthropic account has no credit left, the API answers a 400 `invalid_request_error` saying "Your credit balance is too low". Extraction doesn't escalate to Opus for that (it bills the same account), and the check returns `out_of_credits` (503) instead of `upstream`. The box then shows a Nudge button; `POST /fit-check/nudge` pushes "out of Claude credits" to Ryan's phone. It shares the per-IP rate limit, pushes at most once an hour, and only within an hour of a real credit error (both times live in D1's `alert_times`), and it always answers `{ ok: true }` so a visitor can't tell whether a push went out.
+
 ## Guardrails
 
 | Risk | Defense |

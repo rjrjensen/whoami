@@ -53,6 +53,10 @@ function trackClicks(posthog: PostHog) {
         posthog.capture("fit_check_submit");
         return;
       }
+      if (track === "fit_check_nudge") {
+        posthog.capture("fit_check_nudge");
+        return;
+      }
 
       if (!(el instanceof HTMLAnchorElement)) return;
       if (el.protocol === "mailto:") {

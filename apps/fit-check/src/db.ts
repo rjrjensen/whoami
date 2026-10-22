@@ -106,6 +106,27 @@ export async function reachMilestone(db: D1Database, name: string): Promise<bool
   return meta.changes > 0;
 }
 
+/** Notes that Claude just refused for lack of credit, so a visitor's nudge can be trusted (see claimNudge). */
+export async function noteOutOfCredits(db: D1Database): Promise<void> {
+  await db.prepare(`INSERT INTO alert_times (name, at) VALUES ('out_of_credits', datetime('now')) ON CONFLICT (name) DO UPDATE SET at = excluded.at`).run();
+}
+
+/**
+ * Claims the "out of credits" push for a visitor's nudge: true at most once an hour however many visitors click, and
+ * only within an hour of a real credit error, so a stray POST can't send a false alarm. One statement, so two clicks
+ * at the same moment can't both win.
+ */
+export async function claimNudge(db: D1Database): Promise<boolean> {
+  const { meta } = await db
+    .prepare(
+      `INSERT INTO alert_times (name, at)
+       SELECT 'nudge', datetime('now') WHERE EXISTS (SELECT 1 FROM alert_times WHERE name = 'out_of_credits' AND at > datetime('now', '-1 hour'))
+       ON CONFLICT (name) DO UPDATE SET at = excluded.at WHERE alert_times.at <= datetime('now', '-1 hour')`,
+    )
+    .run();
+  return meta.changes > 0;
+}
+
 export type DaySummary = {
   checks: number;
   best: { id: string; score: number; role_title: string | null; company: string | null } | null;

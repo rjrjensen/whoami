@@ -41,6 +41,16 @@ Set ambiguous to true only when you genuinely can't tell what the role requires;
 export class NotAJobDescription extends Error {}
 export class ExtractionFailed extends Error {}
 
+/**
+ * True when Claude refused because the Anthropic account is out of credit. The API reports that as a 400
+ * invalid_request_error (not a 402), so only the message tells it apart from a bad request.
+ */
+export function isOutOfCredits(err: unknown): boolean {
+  if (!(err instanceof Anthropic.BadRequestError)) return false;
+  const body = err.error as { error?: { type?: string; message?: string } } | undefined;
+  return body?.error?.type === "invalid_request_error" && /credit balance is too low/i.test(body.error.message ?? "");
+}
+
 type Usage = { input: number; output: number };
 
 async function extractWith(client: Anthropic, model: string, jobDescription: string) {
@@ -67,6 +77,8 @@ export async function extractRequirements(apiKey: string, jobDescription: string
   const client = new Anthropic({ apiKey, maxRetries: 2, timeout: 60_000 });
   let model = EXTRACT_MODEL;
   let first = await extractWith(client, model, jobDescription).catch((err) => {
+    // Every model bills the same account, so escalating would fail the same way.
+    if (isOutOfCredits(err)) throw err;
     console.warn(`${EXTRACT_MODEL} extraction failed, escalating:`, err);
     return null;
   });
