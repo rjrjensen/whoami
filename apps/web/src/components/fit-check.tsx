@@ -3,7 +3,7 @@
 // (apps/fit-check). Analytics come from data-track on the button and the fitcheck:* events dispatched below;
 // the pasted text never goes to analytics.
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import type { FitReport, ReportEvidence, ReportItem, Status } from "@ryanjensen/fit-check/report";
 import { pageHref } from "@/lib/pages";
 import { downloadHref, site, slug, VARIANTS, type VariantId } from "@/lib/resume";
@@ -114,6 +114,8 @@ export function FitCheckForm({ variant, compact = false }: { variant: VariantId;
         }),
       );
       router.push(`/fit-check?id=${report.id}&from=${variant}`);
+      // On /fit-check itself the form stays mounted, so it has to leave "Checking…" on its own.
+      setState({ phase: "idle" });
     } catch (err) {
       const e = err instanceof FitCheckError ? err : new FitCheckError("network");
       setState({ phase: "error", code: e.code, message: e.message });
@@ -227,17 +229,19 @@ export function FitCheckReport() {
     phase: "loading",
   });
   const heading = useRef<HTMLHeadingElement>(null);
+  // From the hook, not location.search, so a check run from this page's own form loads its new report.
+  const params = useSearchParams();
+  const id = params.get("id") ?? "";
+  const from = params.get("from");
 
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const id = params.get("id") ?? "";
-    const from = params.get("from");
     const variant = VARIANTS.some((v) => v.id === from) ? (from as VariantId) : "base";
     if (!UUID.test(id)) {
       // Nothing to load: the page shows the form on its own. Deferred so it's not a synchronous update in the effect.
       queueMicrotask(() => setState({ phase: "none" }));
       return;
     }
+    queueMicrotask(() => setState({ phase: "loading" }));
     fetch(`${API_URL}/${id}`)
       .then(async (res) => {
         const body = await res.json().catch(() => ({}));
@@ -245,7 +249,7 @@ export function FitCheckReport() {
         setState({ phase: "done", report: body.report, variant });
       })
       .catch((err) => setState({ phase: "error", message: (err instanceof FitCheckError ? err : new FitCheckError("network")).message }));
-  }, []);
+  }, [id, from]);
 
   useEffect(() => {
     if (state.phase === "done") heading.current?.focus();
