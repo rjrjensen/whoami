@@ -33,7 +33,7 @@ for (const path of pages) {
         // The check fails for lack of Claude credit; the Nudge button appears, and its tooltip shows on keyboard focus.
         await page.route(`${FIT_CHECK_API}/nudge`, (route) => route.fulfill({ contentType: "application/json", body: '{"ok":true}' }));
         await page.route(FIT_CHECK_API, (route) =>
-          route.fulfill({ status: 503, contentType: "application/json", body: '{"error":"out_of_credits","message":"Fit Check is out of Claude credits right now."}' }),
+          route.fulfill({ status: 503, contentType: "application/json", body: '{"error":"out_of_credits","message":"Fit Check is out of Claude or Jev credits right now. Nudge me to add some, try again in a bit, and email me the description to get my attention on it."}' }),
         );
         await page.goto(base + "/manager", { waitUntil: "networkidle" });
         await page.fill("#fit-check-jd", "Requirements: ".repeat(20));

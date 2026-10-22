@@ -3,7 +3,8 @@ dist/
 .env*
 !.env.example
 .dev.vars
-private/
+# No trailing slash, so the symlink npm run worktree:link creates is ignored too.
+private
 .claude/worktrees/
 
 # Terraform

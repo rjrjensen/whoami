@@ -70,7 +70,7 @@ const MESSAGES: Record<ErrorCode, string> = {
   not_a_job_description: "That doesn't look like a job description. Paste the posting's text, including its requirements.",
   not_found: "I couldn't find that report. Run a new check below.",
   resting: "Fit Check has hit its limit for the month. Email me the job description and I'll reply myself.",
-  out_of_credits: "Fit Check is out of Claude credits right now. Try again later, or email me the job description.",
+  out_of_credits: "Fit Check is out of Claude or Jev credits right now. Nudge me to add some, try again in a bit, and email me the description to get my attention on it.",
   upstream: "Something went wrong on my end. Try again in a minute, or email me the job description.",
 };
 
