@@ -21,10 +21,10 @@ export async function notifyGaps(report: FitReport, opts: { server: string; topi
 }
 
 /** A plain heads-up, e.g. when enough postings are saved to start building evals. */
-export async function notify(opts: { server: string; topic: string }, title: string, body: string, click?: string) {
+export async function notify(opts: { server: string; topic: string }, title: string, body: string, click?: string, tags = "bar_chart") {
   const res = await fetch(`${opts.server}/${opts.topic}`, {
     method: "POST",
-    headers: { Title: title, Tags: "bar_chart", ...(click ? { Click: click } : {}) },
+    headers: { Title: title, Tags: tags, ...(click ? { Click: click } : {}) },
     body,
   });
   if (!res.ok) console.warn(`ntfy returned ${res.status}`);

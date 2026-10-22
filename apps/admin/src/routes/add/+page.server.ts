@@ -20,7 +20,7 @@ export const actions: Actions = {
       console.error("checkFromAdmin failed:", err);
       return fail(502, { text, message: "Couldn't reach Fit Check. Try again in a minute." });
     }
-    if ("error" in result) return fail(result.error === "upstream" ? 502 : 400, { text, message: result.message });
+    if ("error" in result) return fail(result.error === "upstream" ? 502 : result.error === "out_of_credits" ? 503 : 400, { text, message: result.message });
     redirect(303, `/reports/${result.report.id}`);
   },
 };

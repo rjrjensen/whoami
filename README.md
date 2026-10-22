@@ -83,7 +83,8 @@ Analytics only runs on the deployed site. To try it locally, build with `NEXT_PU
 | `page_turn` | the next/previous arrow at the bottom of a page is clicked, or the ← / → key is pressed | `from_page`, `to_page`, `direction` (`forward`/`back`), `method` (`click`/`keyboard`) |
 | `fit_check_submit` | the Fit Check button is clicked | |
 | `fit_check_result` | a Fit Check finishes, just before its report opens at `/fit-check` | `score`, `label`, `requirements`, `matcher` (`jev`/`claude`), `cached`, `recommended` (version) |
-| `fit_check_error` | a Fit Check fails | `error` (e.g. `rate_limited`, `not_a_job_description`, `resting`, `network`) |
+| `fit_check_error` | a Fit Check fails | `error` (e.g. `rate_limited`, `not_a_job_description`, `resting`, `out_of_credits`, `network`) |
+| `fit_check_nudge` | the Nudge button is clicked; it only appears after an `out_of_credits` error, and pings Ryan at most once an hour | |
 | `scroll_depth` | each of 25/50/75/100% is reached, once per page | `percent` |
 | `$autocapture` | any click on a link, button, or other interactive element (PostHog built-in, clicks only) | element details |
 | `$dead_click`, `$rageclick` | a click that changed nothing, or repeated clicks in one spot (PostHog built-in) | element details |

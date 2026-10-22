@@ -1,10 +1,23 @@
 // Fit Check API (Cloudflare Worker). Pipeline and guardrails are described in docs/fit-check.md.
 //   POST /fit-check { jobDescription, turnstileToken } → { report }
 //   GET  /fit-check/<id>                               → { report }   (a saved report, for its link)
+//   POST /fit-check/nudge                              → { ok: true } (after out_of_credits: tells Ryan by push)
 // The admin app also calls Admin.checkFromAdmin() through a service binding (no public route).
 import { WorkerEntrypoint } from "cloudflare:workers";
-import { cachedReport, checksThisMonth, distinctPostings, getReport, lastDay, reachMilestone, saveCheck, skillAnswers, type Source } from "./db";
-import { ExtractionFailed, extractRequirements, NotAJobDescription } from "./extract";
+import {
+  cachedReport,
+  checksThisMonth,
+  claimNudge,
+  distinctPostings,
+  getReport,
+  lastDay,
+  noteOutOfCredits,
+  reachMilestone,
+  saveCheck,
+  skillAnswers,
+  type Source,
+} from "./db";
+import { ExtractionFailed, extractRequirements, isOutOfCredits, NotAJobDescription } from "./extract";
 import { corsHeaders, normalizeJobDescription, sha256, verifyTurnstile } from "./guard";
 import { ClaudeMatcher, JevMatcher, matchWithFallback } from "./match";
 import { notify, notifyDay, notifyGaps } from "./notify";
@@ -33,8 +46,20 @@ const MAX_CHARS = 15_000;
 const EVAL_POSTINGS = 20;
 /** Must match the evening trigger in wrangler.jsonc. */
 const DIGEST_CRON = "0 23 * * *";
+/** Where Ryan buys more credit; the nudge push opens it. */
+const ANTHROPIC_BILLING_URL = "https://platform.claude.com/settings/billing";
 
-type ErrorCode = "invalid_request" | "too_short" | "too_long" | "turnstile_failed" | "rate_limited" | "not_a_job_description" | "not_found" | "resting" | "upstream";
+type ErrorCode =
+  | "invalid_request"
+  | "too_short"
+  | "too_long"
+  | "turnstile_failed"
+  | "rate_limited"
+  | "not_a_job_description"
+  | "not_found"
+  | "resting"
+  | "out_of_credits"
+  | "upstream";
 
 const MESSAGES: Record<ErrorCode, string> = {
   invalid_request: "That request didn't look right. Try again?",
@@ -45,6 +70,7 @@ const MESSAGES: Record<ErrorCode, string> = {
   not_a_job_description: "That doesn't look like a job description. Paste the posting's text, including its requirements.",
   not_found: "I couldn't find that report. Run a new check below.",
   resting: "Fit Check has hit its limit for the month. Email me the job description and I'll reply myself.",
+  out_of_credits: "Fit Check is out of Claude credits right now. Try again later, or email me the job description.",
   upstream: "Something went wrong on my end. Try again in a minute, or email me the job description.",
 };
 
@@ -57,6 +83,7 @@ const STATUS: Record<ErrorCode, number> = {
   not_a_job_description: 422,
   not_found: 404,
   resting: 503,
+  out_of_credits: 503,
   upstream: 502,
 };
 
@@ -68,13 +95,29 @@ export default {
 
     const { pathname } = new URL(request.url);
     const saved = pathname.match(/^\/fit-check\/([0-9a-f-]{36})$/);
-    if (pathname !== "/fit-check" && !saved) return new Response("Not found", { status: 404 });
+    const nudge = pathname === "/fit-check/nudge";
+    if (pathname !== "/fit-check" && !saved && !nudge) return new Response("Not found", { status: 404 });
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: cors });
     const allowed = saved ? "GET" : "POST";
     if (request.method !== allowed) return new Response("Method not allowed", { status: 405, headers: { ...cors, Allow: `${allowed}, OPTIONS` } });
 
     const ip = request.headers.get("CF-Connecting-IP") ?? "unknown";
     if (!(await env.LIMITER.limit({ key: ip })).success) return fail("rate_limited");
+
+    // Always answers ok, so a visitor can't tell whether the cooldown held the push back.
+    if (nudge) {
+      if (env.NTFY_TOPIC && (await claimNudge(env.DB)))
+        ctx.waitUntil(
+          notify(
+            { server: env.NTFY_SERVER, topic: env.NTFY_TOPIC },
+            "Fit Check: out of Claude credits",
+            "A visitor hit the credit error and nudged you. Checks fail until the Anthropic account has credit again.",
+            ANTHROPIC_BILLING_URL,
+            "warning",
+          ).catch((err) => console.warn("ntfy failed:", err)),
+        );
+      return json({ ok: true });
+    }
 
     if (saved) {
       const report = await getReport(env.DB, saved[1]);
@@ -152,6 +195,12 @@ async function runCheck(env: Env, jd: string, jdText: string, { ipHash, source }
     return { report, fresh: true };
   } catch (err) {
     if (err instanceof NotAJobDescription) return { error: "not_a_job_description" };
+    if (isOutOfCredits(err)) {
+      console.error("Anthropic credit balance is too low");
+      // Lets a visitor's nudge through (claimNudge). A failure here mustn't hide the real error.
+      await noteOutOfCredits(env.DB).catch((e) => console.warn("noteOutOfCredits failed:", e));
+      return { error: "out_of_credits" };
+    }
     console.error(err instanceof ExtractionFailed ? `Extraction failed: ${err.message}` : err);
     return { error: "upstream" };
   }
