@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import { FitCheckForm, FitCheckReport } from "@/components/fit-check";
 
 export const metadata: Metadata = {
@@ -19,7 +20,10 @@ export default function FitCheckPage() {
           </Link>
         </p>
         <div className="mt-8">
-          <FitCheckReport />
+          {/* The report reads the query string, which a statically rendered page only has in the browser. */}
+          <Suspense>
+            <FitCheckReport />
+          </Suspense>
         </div>
         <section aria-labelledby="fit-check-again" className="mt-16">
           <h2 id="fit-check-again" className="font-display text-3xl">

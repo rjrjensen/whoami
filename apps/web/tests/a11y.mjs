@@ -1,6 +1,6 @@
 // Accessibility + layout checks against a running site: axe (WCAG 2.2 AA) and no horizontal scroll,
 // for every page in light and dark mode at phone and desktop widths. The Fit Check API is stubbed with
-// tests/fixtures/fit-report.json: "fit-check flow" submits the box on Home and checks the report it opens.
+// tests/fixtures/fit-report.json: "fit-check flow" submits the box on Home, checks the report it opens, then runs a second check from that page.
 // Exits non-zero on any failure.
 // Usage: node tests/a11y.mjs [baseUrl]
 import { chromium } from "playwright";
@@ -8,6 +8,13 @@ import AxeBuilder from "@axe-core/playwright";
 import { readFileSync } from "node:fs";
 
 const fitReport = readFileSync(new URL("./fixtures/fit-report.json", import.meta.url), "utf8");
+const SECOND_ID = "1c9f7b63-7d2f-4e6f-8b68-1a4a3c9d0e22";
+const secondReport = (() => {
+  const body = JSON.parse(fitReport);
+  body.report.id = SECOND_ID;
+  body.report.role.title = "Lead Software Engineer";
+  return JSON.stringify(body);
+})();
 
 const base = process.argv[2] ?? "http://localhost:3000";
 const FIT_CHECK_API = "https://api.ryanjensen.dev/fit-check";
@@ -29,6 +36,14 @@ for (const path of pages) {
         await page.click("#fit-check button[data-track=fit_check_submit]");
         await page.waitForURL(/\/fit-check\?id=[0-9a-f-]{36}&from=manager$/);
         await page.waitForSelector("#fit-report-title");
+        // A second check from the report page's own form opens its report too, and the button resets.
+        await page.unroute(`${FIT_CHECK_API}**`);
+        await page.route(`${FIT_CHECK_API}**`, (route) => route.fulfill({ contentType: "application/json", body: secondReport }));
+        await page.fill("#fit-check-jd-full", "Requirements: ".repeat(20));
+        await page.click("section[aria-labelledby=fit-check-again] button[data-track=fit_check_submit]");
+        await page.waitForURL(new RegExp(`id=${SECOND_ID}`));
+        await page.waitForSelector("#fit-report-title:has-text('Lead Software Engineer')");
+        await page.waitForSelector("section[aria-labelledby=fit-check-again] button[data-track=fit_check_submit]:has-text('Check fit')");
       } else if (path === "fit-check nudge") {
         // The check fails for lack of Claude credit; the Nudge button appears, and its tooltip shows on keyboard focus.
         await page.route(`${FIT_CHECK_API}/nudge`, (route) => route.fulfill({ contentType: "application/json", body: '{"ok":true}' }));
