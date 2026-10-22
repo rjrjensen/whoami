@@ -53,13 +53,15 @@ export function isOutOfCredits(err: unknown): boolean {
 
 type Usage = { input: number; output: number };
 
-async function extractWith(client: Anthropic, model: string, jobDescription: string) {
+// Sonnet reads at low effort: pulling requirements out of a posting needs little reasoning, and thinking tokens bill as
+// output, the bulk of a check's cost. Opus only sees the postings Sonnet found hard, so it keeps medium.
+async function extractWith(client: Anthropic, model: string, effort: "low" | "medium", jobDescription: string) {
   const response = await client.beta.messages.parse({
     model,
     max_tokens: 8000,
     betas: ["server-side-fallback-2026-07-01"],
     fallbacks: "default",
-    output_config: { effort: "medium", format: betaZodOutputFormat(ExtractionSchema) },
+    output_config: { effort, format: betaZodOutputFormat(ExtractionSchema) },
     system: SYSTEM,
     messages: [
       {
@@ -76,7 +78,7 @@ async function extractWith(client: Anthropic, model: string, jobDescription: str
 export async function extractRequirements(apiKey: string, jobDescription: string): Promise<{ extraction: Extraction; model: string; usage: Usage }> {
   const client = new Anthropic({ apiKey, maxRetries: 2, timeout: 60_000 });
   let model = EXTRACT_MODEL;
-  let first = await extractWith(client, model, jobDescription).catch((err) => {
+  let first = await extractWith(client, model, "low", jobDescription).catch((err) => {
     // Every model bills the same account, so escalating would fail the same way.
     if (isOutOfCredits(err)) throw err;
     console.warn(`${EXTRACT_MODEL} extraction failed, escalating:`, err);
@@ -86,7 +88,7 @@ export async function extractRequirements(apiKey: string, jobDescription: string
 
   if (!first?.output || first.output.ambiguous) {
     model = ESCALATION_MODEL;
-    first = await extractWith(client, model, jobDescription);
+    first = await extractWith(client, model, "medium", jobDescription);
     usage.input += first.usage.input;
     usage.output += first.usage.output;
   }
