@@ -57,7 +57,7 @@ describe("POST /fit-check when Claude is out of credits", () => {
     vi.spyOn(console, "error").mockImplementation(() => {});
     const { res, text } = await check();
     expect(res.status).toBe(503);
-    expect(JSON.parse(text)).toMatchObject({ error: "out_of_credits", message: expect.stringContaining("out of Claude credits") });
+    expect(JSON.parse(text)).toMatchObject({ error: "out_of_credits", message: expect.stringContaining("out of Claude or Jev credits") });
     expect(sqlite.prepare(`SELECT name FROM alert_times`).all()).toEqual([{ name: "out_of_credits" }]);
   });
 
