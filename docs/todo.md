@@ -42,13 +42,12 @@ Tasks only Ryan can do (accounts, payments, approvals). Claude keeps this list c
 
 ## Fit Check (see `docs/fit-check.md`)
 
-Until these are done, the Fit Check box shows on the site but every check fails with "Something went wrong."
-
-- [ ] Get a Claude API key at console.anthropic.com (Settings → API keys) and add a few dollars of credit. Set a monthly spend limit there too (Settings → Limits).
-- [ ] Add **D1: Edit** and **Turnstile: Edit** (account-level) to the Cloudflare Terraform API token.
-- [ ] `terraform apply` in `infra/`: creates the D1 database, the Turnstile widget, and the site key on Vercel.
-- [ ] Paste `terraform output fit_check_d1_id` into `apps/fit-check/wrangler.jsonc` → `database_id`, and tell Claude (or commit it).
-- [ ] In `apps/fit-check/`:
+- [x] Get a Claude API key at console.anthropic.com (Settings → API keys) and add a few dollars of credit.
+- [ ] Set a monthly spend limit at platform.claude.com (Settings → Limits).
+- [x] Add **D1: Edit** and **Turnstile: Edit** (account-level) to the Cloudflare Terraform API token.
+- [x] `terraform apply` in `infra/`: creates the D1 database, the Turnstile widget, and the site key on Vercel.
+- [x] Paste `terraform output fit_check_d1_id` into `apps/fit-check/wrangler.jsonc` → `database_id`, and tell Claude (or commit it).
+- [x] In `apps/fit-check/`:
   - `npx wrangler login`
   - `npm run migrate:remote`
   - `npx wrangler secret put ANTHROPIC_API_KEY`
@@ -58,24 +57,24 @@ Until these are done, the Fit Check box shows on the site but every check fails 
   - `npx wrangler secret put NTFY_TOPIC` (an unguessable name, e.g. `fitcheck-` plus `openssl rand -hex 12`)
   - `npm run deploy` (this also creates `api.ryanjensen.dev`)
 - [ ] Install **ntfy** from the App Store. Pick the one whose developer is Philipp Heckel; the others are unofficial. Subscribe to that same topic on the default server, ntfy.sh. Unconfirmed must-haves push there.
-- [ ] Redeploy the site on Vercel so it picks up `NEXT_PUBLIC_TURNSTILE_SITE_KEY`.
-- [ ] Try it with a real job description, then tell Claude how the report reads.
+- [x] Redeploy the site on Vercel so it picks up `NEXT_PUBLIC_TURNSTILE_SITE_KEY`.
+- [x] Try it with a real job description, then tell Claude how the report reads.
 
 ## Admin app (see `apps/admin/README.md`)
 
 Do these after the Fit Check steps above (the admin app uses the same D1 database). In order:
 
-- [ ] Create two GitHub OAuth apps (GitHub → Settings → Developer settings → OAuth Apps → New OAuth App):
+- [x] Create two GitHub OAuth apps (GitHub → Settings → Developer settings → OAuth Apps → New OAuth App):
   - **Local:** homepage `http://localhost:3101`, callback `http://localhost:3101/auth/github/callback`
   - **Production:** homepage `https://admin.ryanjensen.dev`, callback `https://admin.ryanjensen.dev/auth/github/callback`
   - For each, generate a client secret.
-- [ ] Local: copy `apps/admin/.dev.vars.example` to `apps/admin/.dev.vars` and fill in the **local** app's client ID and secret.
+- [x] Local: copy `apps/admin/.dev.vars.example` to `apps/admin/.dev.vars` and fill in the **local** app's client ID and secret.
 - [ ] Check that `ADMIN_GITHUB_ID` in `apps/admin/wrangler.jsonc` is your GitHub user ID (`gh api user --jq .id`). Claude set it from that command.
-- [ ] Paste the same `database_id` you used for fit-check into `apps/admin/wrangler.jsonc`.
-- [ ] In `apps/fit-check/`:
+- [x] Paste the same `database_id` you used for fit-check into `apps/admin/wrangler.jsonc`.
+- [x] In `apps/fit-check/`:
   - `npm run migrate:remote` (applies `0003_admin.sql`: sessions, skill answers, skill names, `source`)
   - `npm run deploy` (the admin app's "Add posting" calls fit-check's new `Admin` entrypoint, so fit-check goes first)
-- [ ] In `apps/admin/`:
+- [x] In `apps/admin/`:
   - `npx wrangler secret put GITHUB_CLIENT_ID` (the **production** app's)
   - `npx wrangler secret put GITHUB_CLIENT_SECRET`
   - `npm run deploy` (this also creates `admin.ryanjensen.dev` through `routes` with `custom_domain: true`)
@@ -84,15 +83,15 @@ Do these after the Fit Check steps above (the admin app uses the same D1 databas
 
 ## Automatic Worker deploys
 
-After this, merging to `main` applies D1 migrations and deploys fit-check, then admin (the `deploy` job in `.github/workflows/ci.yml`). You'd only run `wrangler secret put` when a key changes.
+Done: merging to `main` applies D1 migrations and deploys fit-check, then admin (the `deploy` job in `.github/workflows/ci.yml`). You'd only run `wrangler secret put` when a key changes.
 
-- [ ] Cloudflare → **My Profile → API Tokens → Create Token** → the **Edit Cloudflare Workers** template:
+- [x] Cloudflare → **My Profile → API Tokens → Create Token** → the **Edit Cloudflare Workers** template:
   - Add **Account · D1 · Edit** if the template doesn't include it (for the migrations).
   - Account resources: your account. Zone resources: `ryanjensen.dev` (for the custom domains).
-- [ ] GitHub → `rjrjensen/whoami` → **Settings → Secrets and variables → Actions → New repository secret**:
+- [x] GitHub → `rjrjensen/whoami` → **Settings → Secrets and variables → Actions → New repository secret**:
   - `CLOUDFLARE_API_TOKEN`: the token from the step above
   - `CLOUDFLARE_ACCOUNT_ID`: the same account ID as in `infra/terraform.tfvars`
-- [ ] Merge the PR, then watch the **deploy** job in the Actions tab. The deploys show up under **Environments → production**.
+- [x] Merge the PR, then watch the **deploy** job in the Actions tab. The deploys show up under **Environments → production**.
 
 ## Content
 

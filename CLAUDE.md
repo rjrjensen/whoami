@@ -6,7 +6,8 @@ Ryan's resume site (ryanjensen.dev), the Fit Check API, and his private admin ap
 
 - **Private data stays out of the repo and out of public pages:** Ryan's phone number, his salary targets, the ntfy topic, and the names of Source Allies clients. Describe a client instead ("a regional mutual insurer"). The pre-commit hook blocks the terms listed in `private/blocklist.txt`; when Ryan names a new private term, add it there.
 - **Secrets:** show key names and set/unset status only, never values.
-- **Ryan runs every command that changes infrastructure or handles a secret value:** `terraform apply`/`import`, `wrangler deploy`, `wrangler secret put`, migrations with `--remote`. Claude may run read-only status checks itself (`terraform plan`, `wrangler whoami`, `wrangler secret list`, `wrangler deployments list`, `npm run doctor`).
+- **Merging to `main` deploys.** Vercel builds the site, and CI's `deploy` job applies D1 migrations and deploys fit-check, then admin. Nobody runs `wrangler deploy` or `--remote` migrations by hand unless that job is broken.
+- **Ryan runs every command that changes infrastructure or handles a secret value:** `terraform apply`/`import`, `wrangler secret put`, `gh secret set`, and any hand-run deploy or `--remote` migration. Claude may run read-only status checks itself (`terraform plan`, `wrangler whoami`, `wrangler secret list`, `wrangler deployments list`, `gh run view`, `npm run doctor`).
 - **Facts about Ryan's career come from Ryan.** Ask before adding a metric, date, or detail to `data/resume.yaml`.
 - **Generated files** (`apps/web/public/downloads`, `apps/web/src/content`, `apps/fit-check/src/record.json`) come from `data/`. Edit `data/`, then run `npm run downloads`.
 
