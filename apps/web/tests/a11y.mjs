@@ -19,7 +19,7 @@ const secondReport = (() => {
 const base = process.argv[2] ?? "http://localhost:3000";
 const FIT_CHECK_API = "https://api.ryanjensen.dev/fit-check";
 const sections = ["", "/experience", "/skills", "/about", "/resume", "/contact"];
-const pages = [...["", "/manager", "/lead"].flatMap((v) => sections.map((s) => v + s || "/")), "/fit-check", "fit-check flow", "fit-check nudge"];
+const pages = [...["", "/manager", "/lead"].flatMap((v) => sections.map((s) => v + s || "/")), "/fit-check", "/orange", "fit-check flow", "fit-check nudge"];
 const viewports = { phone: { width: 360, height: 780 }, desktop: { width: 1366, height: 900 } };
 let failures = 0;
 

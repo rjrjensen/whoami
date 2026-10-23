@@ -1,0 +1,39 @@
+/* Palette preview for /orange: https://coolors.co/palette/003049-d62828-f77f00-fcbf49-eae2b7
+   Keyed on :has() so the tokens only change while the preview is on screen, and turn back after navigating away.
+   Contrast pairs checked against WCAG 2.2 AA in both themes. */
+:root:has([data-palette="orange"]) {
+  --bg: #eae2b7;
+  --surface: #f6f1dc;
+  --surface-2: #e0d6a4;
+  --ink: #003049;
+  --muted: #3d5868;
+  --line: #cfc28a;
+  --accent: #f77f00;
+  --accent-ink: #003049;
+  --accent-soft: #fde2a4;
+  --accent-text: #9c4500; /* #f77f00 is too light for text on cream */
+  --signal: #b01e1e; /* the palette's #d62828, darkened for small text */
+  --focus: #003049;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:has([data-palette="orange"]) {
+    --bg: #003049;
+    --surface: #053654;
+    --surface-2: #0a4262;
+    --ink: #eae2b7;
+    --muted: #b9c0a8;
+    --line: #22597a;
+    --accent: #f77f00;
+    --accent-ink: #003049;
+    --accent-soft: #3d2b10;
+    --accent-text: #f77f00;
+    --signal: #fcbf49;
+    --focus: #fcbf49;
+  }
+}
+
+/* Orange text (links, the impact numbers) uses the darker shade where it needs one. */
+:root:has([data-palette="orange"]) .text-accent {
+  color: var(--accent-text);
+}
