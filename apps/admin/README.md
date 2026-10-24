@@ -20,8 +20,9 @@ phone ── admin.ryanjensen.dev (this Worker) ──┬── D1 "fit-check" (
 ```
 
 - **Data.** It binds the same D1 database as `apps/fit-check`. The schema lives in one place, `apps/fit-check/migrations/` (0003 adds this app's tables).
-- **Answers.** An answer is saved in full in `skill_responses`. Answers the Worker already understands (have, learning, not pursuing) are also written to `skill_answers`, which the Worker reads, so new reports use them. "Something close" and "I don't have it" wait in `skill_responses` until the Worker learns them. Adding confirmed skills to `data/resume.yaml` by pull request isn't built yet; those answers show a "will be added to resume.yaml" TODO.
+- **Answers.** An answer is saved in full in `skill_responses`. Answers the Worker already understands (have, learning, not pursuing) are also written to `skill_answers`, which the Worker reads, so new reports use them. "Something close" and "I don't have it" wait in `skill_responses` until the Worker learns them. "I have this" and "Something close" also queue the skill for `data/resume.yaml` (`resume_status = 'todo'`).
 - **Skill names.** `src/lib/skill-names.ts` and `src/lib/server/skills.ts` (`resolveSkills`) are the one place names are matched: tidy the name, look it up in `skill_aliases`, and only match an unseen variant (in code today, Jev later). The match is saved as a new alias, so each variant is matched once. Seeded from `resume.yaml`'s skills and a short alias map.
+- **Resume additions** (`/resume`, `src/lib/server/resume-pr.ts`). Ryan picks which queued answers to send, the name each reads as, and its skills group, and the app opens one pull request through the GitHub API (`GITHUB_REPO_TOKEN`). `src/lib/resume-edit.ts` inserts lines into `resume.yaml` without restyling the rest of it: the skill goes into the group's `keywords`, and with a job as evidence, into that job's `technologies` too. A Worker can't run LibreOffice, so `.github/workflows/resume-answers.yml` regenerates the downloads on `resume-answers/*` branches. The page checks each open PR on load: merged marks its answers done, closed unmerged puts them back in the queue. Notes stay out of the PR, since the repo is public.
 - **Add posting** calls fit-check through a service binding to its `Admin` entrypoint. It has no public URL, so it needs no Turnstile.
 
 ## Sign-in
@@ -69,9 +70,8 @@ The skip can't be turned on in production. It needs all three of: a Vite dev ser
 
 Not built yet, in Ryan's priority order (2026-10-18):
 1. Testimonials: review and approve "Vouch for Ryan" submissions
-2. The pull-request bridge that adds confirmed skills to `data/resume.yaml`
-3. Contacts: screened contact-form messages (people can email Ryan meanwhile)
-4. The job search tracker (Ryan uses Huntr meanwhile)
-5. Web Push (ntfy covers pushes)
+2. Contacts: screened contact-form messages (people can email Ryan meanwhile)
+3. The job search tracker (Ryan uses Huntr meanwhile)
+4. Web Push (ntfy covers pushes)
 
 Industry and seniority filters fill in once the Jev pipeline saves them in reports.

@@ -26,5 +26,6 @@
     // Ryan's numeric GitHub user ID (`gh api user --jq .id`). IDs never change; login names can.
     "ADMIN_GITHUB_ID": "35267339"
   }
-  // Secrets (wrangler secret put): GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET
+  // GITHUB_REPO_TOKEN: the resume.yaml bridge (docs/todo.md → Admin app).
+  // Secrets (wrangler secret put): GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, GITHUB_REPO_TOKEN
 }

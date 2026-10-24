@@ -12,6 +12,7 @@
     { href: "/reports", label: "Reports" },
     { href: "/trends", label: "Trends" },
     { href: "/skills", label: "Skills" },
+    { href: "/resume", label: "Resume" },
     { href: "/add", label: "Add posting" },
   ];
   const current = (href: string) => (href === "/" ? page.url.pathname === "/" : page.url.pathname.startsWith(href));
