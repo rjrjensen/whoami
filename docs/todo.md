@@ -80,6 +80,10 @@ Do these after the Fit Check steps above (the admin app uses the same D1 databas
   - `npm run deploy` (this also creates `admin.ryanjensen.dev` through `routes` with `custom_domain: true`)
 - [ ] Open `https://admin.ryanjensen.dev` on your phone, sign in, and add it to the home screen (Share → Add to Home Screen).
 - [ ] Try "Add posting" with a real posting and answer one skill question.
+- [ ] **Resume additions** (the Resume page sends confirmed skills to `data/resume.yaml` as a pull request):
+  - GitHub → Settings → Developer settings → **Fine-grained tokens** → Generate new token. Name it `admin resume.yaml bridge`, resource owner `rjrjensen`, **Only select repositories** → `whoami`. Permissions: **Contents: Read and write** and **Pull requests: Read and write**. Pick an expiration and put a reminder on your calendar to renew it.
+  - In `apps/admin/`: `npx wrangler secret put GITHUB_REPO_TOKEN` and paste the token.
+  - Merge this PR (the deploy applies `0005_resume_pr.sql`), open the Resume page, give each queued skill a group, and send them.
 
 ## Automatic Worker deploys
 

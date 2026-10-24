@@ -9,7 +9,7 @@ import AxeBuilder from "@axe-core/playwright";
 
 const base = process.argv[2] ?? "http://localhost:3101";
 const FAKE_REPORT = "/reports/00000000-0000-4000-8000-000000000000";
-const pages = ["/", "/reports", FAKE_REPORT, "/trends", "/skills", "/add", "/auth/login", "add posting error", "answer form open"];
+const pages = ["/", "/reports", FAKE_REPORT, "/trends", "/skills", "/resume", "/add", "/auth/login", "add posting error", "answer form open"];
 const viewports = { phone: { width: 360, height: 780 }, desktop: { width: 1366, height: 900 } };
 let failures = 0;
 

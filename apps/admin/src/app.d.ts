@@ -20,6 +20,8 @@ declare global {
     ADMIN_GITHUB_ID: string;
     GITHUB_CLIENT_ID: string;
     GITHUB_CLIENT_SECRET: string;
+    /** Fine-grained token for rjrjensen/whoami (contents and pull requests: write), for the resume.yaml bridge. Optional. */
+    GITHUB_REPO_TOKEN?: string;
     }
   }
 }
