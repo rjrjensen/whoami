@@ -58,6 +58,19 @@ for (let i = 0; i < 36; i++) {
     );
 }
 
+// Answers for the Resume page: two ready to send and one in a (made-up) pull request.
+const ANSWERS = [
+  ["rust", "Rust", "have", "job", "job-hy-vee-inc", null, null],
+  ["golang", "Golang", "close", null, null, "Go", null],
+  ["terraform", "Terraform", "have", "self_taught", null, null, "Fake note: learned it on this repo."],
+];
+for (const [key, skill, answer, kind, evidence, closeTo, note] of ANSWERS)
+  rows.push(
+    `INSERT INTO skill_responses (skill_key, skill, answer, evidence_kind, evidence_id, close_to, note, resume_status, resume_pr) VALUES (${[
+      key, skill, answer, kind, evidence, closeTo, note, "todo", key === "terraform" ? 1 : null,
+    ].map(q).join(", ")}) ON CONFLICT (skill_key) DO NOTHING;`,
+  );
+
 const out = process.argv[2] ?? "fake-data.sql";
 writeFileSync(out, `DELETE FROM fit_checks WHERE ip_hash = 'fake';\n${rows.join("\n")}\n`);
 console.log(`Wrote ${rows.length} statements to ${out}`);

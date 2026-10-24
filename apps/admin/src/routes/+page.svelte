@@ -168,7 +168,9 @@
               <h3 style="margin: 0">{r.skill}</h3>
               <span class="chip accent">{LABELS[r.answer as Answer] ?? r.answer}</span>
               {#if r.resume_status === "todo"}
-                <span class="chip">TODO: will be added to resume.yaml (not built yet)</span>
+                <a class="chip" href="/resume">{r.resume_pr ? `In pull request #${r.resume_pr}` : "Ready to add to the resume"}</a>
+              {:else if r.resume_status === "done"}
+                <span class="chip">On the resume</span>
               {/if}
             </div>
             <p class="muted">

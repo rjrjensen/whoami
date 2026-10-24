@@ -3,3 +3,5 @@
 GITHUB_CLIENT_ID=
 GITHUB_CLIENT_SECRET=
 ORIGIN=http://localhost:3101
+# Optional: a GitHub token so the Resume page can open real pull requests locally (it opens them on the real repo).
+# GITHUB_REPO_TOKEN=

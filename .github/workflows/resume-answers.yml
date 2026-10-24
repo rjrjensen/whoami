@@ -1,0 +1,37 @@
+name: Resume answers
+
+# The admin app's resume.yaml bridge (apps/admin/src/lib/server/resume-pr.ts) opens PRs that change only data/resume.yaml,
+# because a Worker can't run LibreOffice. This rebuilds what's generated from it (downloads, site content, the Fit Check
+# record) and commits it to the same branch. Pushes made with GITHUB_TOKEN don't start CI again; Vercel still rebuilds the preview.
+on:
+  pull_request:
+    paths: [data/**]
+
+jobs:
+  regenerate:
+    if: startsWith(github.head_ref, 'resume-answers/') && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: resume-answers-${{ github.head_ref }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - name: LibreOffice for the PDFs
+        run: sudo apt-get update -q && sudo apt-get install -yq --no-install-recommends libreoffice-writer fonts-liberation
+      - run: npm ci
+      - run: npm run downloads
+      - name: Commit the generated files
+        run: |
+          git add apps/web/public/downloads apps/web/src/content apps/fit-check/src/record.json
+          if git diff --cached --quiet; then echo "Nothing to regenerate."; exit 0; fi
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -q -m "Regenerate downloads from data/resume.yaml"
+          git push

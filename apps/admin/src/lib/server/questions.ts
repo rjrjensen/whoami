@@ -43,6 +43,8 @@ export type SkillResponse = {
   close_to: string | null;
   note: string | null;
   resume_status: "todo" | "not_needed" | "done";
+  /** The resume.yaml pull request this answer is in (resume-pr.ts). */
+  resume_pr: number | null;
   answered_at: string;
 };
 
