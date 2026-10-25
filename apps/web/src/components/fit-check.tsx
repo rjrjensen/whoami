@@ -5,6 +5,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import type { FitReport, ReportEvidence, ReportItem, Status } from "@ryanjensen/fit-check/report";
+import "@ryanjensen/checking-orb";
 import { pageHref } from "@/lib/pages";
 import { downloadHref, site, slug, VARIANTS, type VariantId } from "@/lib/resume";
 
@@ -132,20 +133,23 @@ export function FitCheckForm({ variant, compact = false }: { variant: VariantId;
       <label htmlFor={ids.jd} className="font-medium">
         Job description
       </label>
-      <textarea
-        id={ids.jd}
-        name="jobDescription"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        onFocus={() => turnstile.load()?.catch(() => {})}
-        required
-        minLength={MIN_CHARS}
-        maxLength={MAX_CHARS}
-        rows={compact ? 4 : 10}
-        aria-describedby={`${ids.count} ${ids.privacy}`}
-        placeholder="Paste the full posting, including the requirements and qualifications."
-        className="mt-2 block w-full resize-y rounded-2xl border border-line bg-surface p-4 text-base leading-relaxed placeholder:text-muted focus:border-accent"
-      />
+      <div className="relative mt-2 rounded-2xl">
+        <textarea
+          id={ids.jd}
+          name="jobDescription"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          onFocus={() => turnstile.load()?.catch(() => {})}
+          required
+          minLength={MIN_CHARS}
+          maxLength={MAX_CHARS}
+          rows={compact ? 4 : 10}
+          aria-describedby={`${ids.count} ${ids.privacy}`}
+          placeholder="Paste the full posting, including the requirements and qualifications."
+          className="block w-full resize-y rounded-2xl border border-line bg-surface p-4 text-base leading-relaxed placeholder:text-muted focus:border-accent"
+        />
+        {state.phase === "checking" && <checking-orb />}
+      </div>
       <div ref={turnstileBox} className="mt-3 empty:hidden" />
       <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
         <button

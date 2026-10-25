@@ -1,0 +1,12 @@
+{
+  "name": "@ryanjensen/checking-orb",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "dependencies": {
+    "thinking-orbs": "^0.3.2"
+  }
+}

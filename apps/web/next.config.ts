@@ -2,7 +2,8 @@ import type { NextConfig } from "next";
 import { POSTHOG_HOSTS, POSTHOG_PROXY_PATH } from "./src/lib/analytics-config";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Workspace packages ship TypeScript source.
+  transpilePackages: ["@ryanjensen/checking-orb"],
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
