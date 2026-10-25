@@ -1,5 +1,6 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
+  import "@ryanjensen/checking-orb";
   import type { PageProps } from "./$types";
 
   let { form }: PageProps = $props();
@@ -25,11 +26,25 @@
 >
   <div>
     <label for="posting">Job description</label>
-    <textarea id="posting" name="posting" required aria-describedby="posting-hint{form?.message ? ' posting-error' : ''}" aria-invalid={form?.message ? "true" : undefined}
-      >{form?.text ?? ""}</textarea
-    >
+    <div class="posting-box">
+      <textarea id="posting" name="posting" required aria-describedby="posting-hint{form?.message ? ' posting-error' : ''}" aria-invalid={form?.message ? "true" : undefined}
+        >{form?.text ?? ""}</textarea
+      >
+      {#if busy}<checking-orb></checking-orb>{/if}
+    </div>
     <p id="posting-hint" class="hint">Paste the whole posting, including its requirements.</p>
     {#if form?.message}<p id="posting-error" class="error-text" role="alert">{form.message}</p>{/if}
   </div>
   <button type="submit" disabled={busy}>{busy ? "Checking…" : "Run Fit Check"}</button>
 </form>
+
+<style>
+  /* The positioned box <checking-orb> covers while a check runs. */
+  .posting-box {
+    position: relative;
+    border-radius: 8px;
+  }
+  .posting-box textarea {
+    display: block;
+  }
+</style>
