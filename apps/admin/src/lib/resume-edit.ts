@@ -8,8 +8,8 @@ export type Addition = {
   skill: string;
   /** A group under `skills:`, e.g. "Languages". */
   group: string;
-  /** A record evidence id like "job-hy-vee-inc": the skill is also added to that job's `technologies`. */
-  evidenceId: string | null;
+  /** Record ids of jobs, like "job-hy-vee-inc": the skill is also added to each one's `technologies`. */
+  jobIds: string[];
 };
 
 export type Outcome = { skill: string; changes: string[] };
@@ -38,7 +38,7 @@ export function skillGroups(yamlText: string): string[] {
 }
 
 /**
- * Applies each addition in turn: the skill goes into its group's `keywords` unless any group already lists it, and into the
+ * Applies each addition in turn: the skill goes into its group's `keywords` unless any group already lists it, and into each
  * evidence job's `technologies` unless that list already names it. Throws on an unknown group or job, so nothing half-applies.
  */
 export function applyAdditions(yamlText: string, additions: Addition[]): { yaml: string; outcomes: Outcome[] } {
@@ -67,10 +67,10 @@ export function applyAdditions(yamlText: string, additions: Addition[]): { yaml:
       return appendBlockItem(text, keywords(target), `{ name: ${scalar(name)} }`);
     });
 
-    if (a.evidenceId?.startsWith("job-")) {
+    for (const jobId of a.jobIds) {
       step((doc) => {
-        const job = (doc.get("work") as YAMLSeq<YAMLMap>).items.find((w) => `job-${slug(String(w.get("name")))}` === a.evidenceId);
-        if (!job) throw new Error(`There's no job "${a.evidenceId}" in resume.yaml.`);
+        const job = (doc.get("work") as YAMLSeq<YAMLMap>).items.find((w) => `job-${slug(String(w.get("name")))}` === jobId);
+        if (!job) throw new Error(`There's no job "${jobId}" in resume.yaml.`);
         const where = `${job.get("name")}'s technologies`;
         const tech = job.get("technologies", true);
         if (isSeq(tech) && tech.items.some((t) => isScalar(t) && same(t.value, name))) {

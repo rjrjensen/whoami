@@ -16,10 +16,10 @@ work:
     technologies: [Vue.js]
 `;
 
-async function answer(db: D1Database, key: string, skill: string, answer: string, more: Record<string, string | null> = {}) {
+async function answer(db: D1Database, key: string, skill: string, answer: string, more: { evidence?: string[]; close_to?: string; note?: string; status?: string } = {}) {
   await db
-    .prepare(`INSERT INTO skill_responses (skill_key, skill, answer, evidence_kind, evidence_id, close_to, note, resume_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`)
-    .bind(key, skill, answer, more.evidence_kind ?? null, more.evidence_id ?? null, more.close_to ?? null, more.note ?? null, more.status ?? "todo")
+    .prepare(`INSERT INTO skill_responses (skill_key, skill, answer, evidence_ids, close_to, note, resume_status) VALUES (?, ?, ?, ?, ?, ?, ?)`)
+    .bind(key, skill, answer, JSON.stringify(more.evidence ?? []), more.close_to ?? null, more.note ?? null, more.status ?? "todo")
     .run();
 }
 
@@ -37,7 +37,7 @@ function fakeGitHub(text = YAML) {
 describe("openResumePr", () => {
   it("opens one PR for the batch, with job evidence going into technologies, and marks the answers", async () => {
     const db = testDb();
-    await answer(db, "go", "Go", "have", { evidence_kind: "job", evidence_id: "job-hy-vee-inc" });
+    await answer(db, "go", "Go", "have", { evidence: ["job-hy-vee-inc", "self_taught"] });
     await answer(db, "gcp", "GCP", "close", { close_to: "Google Cloud" });
     const { gh, opened } = fakeGitHub();
 

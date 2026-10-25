@@ -16,10 +16,13 @@ export const ANSWER_LABELS: Record<Answer, string> = {
 /** The v1 Worker's registry statuses (skill_answers.status). "close" and "dont_have" have none yet. */
 const REGISTRY: Partial<Record<Answer, "have" | "learning" | "not_pursuing">> = { have: "have", learning: "learning", not_pursuing: "not_pursuing" };
 
-export type EvidenceKind = "job" | "project" | "education" | "certificate" | "testimonial" | "self_taught";
 export const EVIDENCE_KINDS = ["job", "project", "education", "certificate"] as const;
 export const EVIDENCE = RECORD.evidence.filter((e) => (EVIDENCE_KINDS as readonly string[]).includes(e.kind));
 const evidenceById = new Map(EVIDENCE.map((e) => [e.id, e]));
+/** Evidence that isn't a record id. Both need a note. */
+export const OTHER_EVIDENCE: string[] = ["testimonial", "self_taught"];
+/** A readable name for an evidence id. */
+export const evidenceTitle = (id: string) => (id === "self_taught" ? "Self-taught" : id === "testimonial" ? "A testimonial" : (evidenceById.get(id)?.title ?? id));
 
 export const MAX_NOTE = 500;
 export const MAX_CLOSE = 120;
@@ -38,8 +41,8 @@ export type SkillResponse = {
   skill_key: string;
   skill: string;
   answer: Answer;
-  evidence_kind: EvidenceKind | null;
-  evidence_id: string | null;
+  /** Record ids from record.json, plus "testimonial" and "self_taught". */
+  evidence_ids: string[];
   close_to: string | null;
   note: string | null;
   resume_status: "todo" | "not_needed" | "done";
@@ -59,16 +62,22 @@ export async function openQuestions(db: D1Database): Promise<Question[]> {
   return results;
 }
 
+/** The columns of skill_responses that callers read; evidence_ids is parsed from its JSON. */
+export const RESPONSE_COLUMNS = `skill_key, skill, answer, evidence_ids, close_to, note, resume_status, resume_pr, answered_at`;
+export const toResponse = <T extends { evidence_ids: string }>(row: T) => ({ ...row, evidence_ids: JSON.parse(row.evidence_ids) as string[] });
+
 export async function answered(db: D1Database): Promise<SkillResponse[]> {
-  const { results } = await db.prepare(`SELECT * FROM skill_responses ORDER BY answered_at DESC, skill`).all<SkillResponse>();
-  return results;
+  const { results } = await db
+    .prepare(`SELECT ${RESPONSE_COLUMNS} FROM skill_responses ORDER BY answered_at DESC, skill`)
+    .all<Omit<SkillResponse, "evidence_ids"> & { evidence_ids: string }>();
+  return results.map(toResponse);
 }
 
 export type AnswerInput = {
   skillKey: string;
   answer: Answer;
-  evidenceKind: EvidenceKind | null;
-  evidenceId: string | null;
+  /** Where Ryan used it, in the order picked: record ids, "testimonial", "self_taught". */
+  evidenceIds: string[];
   closeTo: string | null;
   note: string | null;
 };
@@ -81,33 +90,27 @@ const text = (form: FormData, name: string, max: number) => {
 };
 
 /**
- * Reads and checks one answer form. The evidence <select> sends a record id, "testimonial", "self_taught", or "".
+ * Reads and checks one answer form. Each checked evidence box sends `evidence`: a record id, "testimonial", or "self_taught".
  */
 export function parseAnswer(form: FormData): { ok: true; value: AnswerInput } | { ok: false; errors: AnswerErrors } {
   const errors: AnswerErrors = {};
   const skillKey = String(form.get("skill_key") ?? "");
   const answer = String(form.get("answer") ?? "") as Answer;
   const note = text(form, "note", MAX_NOTE);
-  const evidence = answer === "have" ? String(form.get("evidence") ?? "") : "";
+  const evidence = answer === "have" ? [...new Set(form.getAll("evidence").map(String).filter(Boolean))] : [];
   const closeTo = answer === "close" ? text(form, "close_to", MAX_CLOSE) : null;
 
   if (!skillKey) errors.form = "That question is missing. Reload and try again.";
   if (!ANSWERS.includes(answer)) errors.answer = "Pick one of the five answers.";
 
-  let evidenceKind: EvidenceKind | null = null;
-  let evidenceId: string | null = null;
-  if (evidence === "testimonial" || evidence === "self_taught") evidenceKind = evidence;
-  else if (evidence) {
-    const item = evidenceById.get(evidence);
-    if (item) [evidenceKind, evidenceId] = [item.kind as EvidenceKind, item.id];
-    else errors.evidence = "That evidence isn't in the record. Pick another.";
-  }
-  if (evidenceKind === "self_taught" && !note) errors.note = "Self-taught needs a note saying how you learned it.";
-  if (evidenceKind === "testimonial" && !note) errors.note = "Say which testimonial in the note.";
+  const evidenceIds = evidence.filter((id) => OTHER_EVIDENCE.includes(id) || evidenceById.has(id));
+  if (evidenceIds.length < evidence.length) errors.evidence = "Some of that evidence isn't in the record. Reload and pick again.";
+  if (evidenceIds.includes("self_taught") && !note) errors.note = "Self-taught needs a note saying how you learned it.";
+  if (evidenceIds.includes("testimonial") && !note) errors.note = "Say which testimonial in the note.";
   if (answer === "close" && !closeTo) errors.closeTo = "Name the skill or experience you have instead.";
 
   if (Object.keys(errors).length) return { ok: false, errors };
-  return { ok: true, value: { skillKey, answer, evidenceKind, evidenceId, closeTo, note } };
+  return { ok: true, value: { skillKey, answer, evidenceIds, closeTo, note } };
 }
 
 /** Saves an answer in one batch: the full response, the Worker's registry row, and closes the question. */
@@ -125,21 +128,21 @@ export async function saveAnswer(db: D1Database, a: AnswerInput): Promise<boolea
   await db.batch([
     db
       .prepare(
-        `INSERT INTO skill_responses (skill_key, skill, answer, evidence_kind, evidence_id, close_to, note, resume_status, answered_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
+        `INSERT INTO skill_responses (skill_key, skill, answer, evidence_ids, close_to, note, resume_status, answered_at)
+         VALUES (?, ?, ?, ?, ?, ?, ?, datetime('now'))
          ON CONFLICT (skill_key) DO UPDATE SET
-           skill = excluded.skill, answer = excluded.answer, evidence_kind = excluded.evidence_kind, evidence_id = excluded.evidence_id,
+           skill = excluded.skill, answer = excluded.answer, evidence_ids = excluded.evidence_ids,
            close_to = excluded.close_to, note = excluded.note, resume_status = excluded.resume_status, answered_at = excluded.answered_at`,
       )
-      .bind(a.skillKey, row.skill, a.answer, a.evidenceKind, a.evidenceId, a.closeTo, a.note, a.answer === "have" || a.answer === "close" ? "todo" : "not_needed"),
+      .bind(a.skillKey, row.skill, a.answer, JSON.stringify(a.evidenceIds), a.closeTo, a.note, a.answer === "have" || a.answer === "close" ? "todo" : "not_needed"),
     status
       ? db
           .prepare(
-            `INSERT INTO skill_answers (skill_key, skill, status, evidence_id, note, updated_at) VALUES (?, ?, ?, ?, ?, datetime('now'))
+            `INSERT INTO skill_answers (skill_key, skill, status, evidence_ids, note, updated_at) VALUES (?, ?, ?, ?, ?, datetime('now'))
              ON CONFLICT (skill_key) DO UPDATE SET
-               skill = excluded.skill, status = excluded.status, evidence_id = excluded.evidence_id, note = excluded.note, updated_at = excluded.updated_at`,
+               skill = excluded.skill, status = excluded.status, evidence_ids = excluded.evidence_ids, note = excluded.note, updated_at = excluded.updated_at`,
           )
-          .bind(a.skillKey, row.skill, status, status === "have" ? a.evidenceId : null, a.note)
+          .bind(a.skillKey, row.skill, status, JSON.stringify(status === "have" ? a.evidenceIds.filter((id) => evidenceById.has(id)) : []), a.note)
       : db.prepare(`DELETE FROM skill_answers WHERE skill_key = ?`).bind(a.skillKey),
     db.prepare(`UPDATE skill_questions SET status = 'answered' WHERE skill_key = ?`).bind(a.skillKey),
   ]);

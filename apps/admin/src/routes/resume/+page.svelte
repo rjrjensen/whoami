@@ -14,7 +14,7 @@
 <h1>Resume additions</h1>
 <p class="muted">
   Skills you confirmed, waiting to go into <code>data/resume.yaml</code>. Check the ones to send, give each a group, and send them as one pull request; they go live when you merge it.
-  Answers with a job as evidence also go into that job's technologies.
+  Each job you named as evidence also gets the skill in its technologies.
 </p>
 
 <div aria-live="polite" role="status">
@@ -50,7 +50,7 @@
             <span class="chip accent">{why(r)}</span>
           </div>
           <p class="muted">
-            Answered {r.answered_at.slice(0, 10)}. {r.evidence ? `Evidence: ${r.evidence.replace(/\.$/, "")}.` : "No evidence linked."}
+            Answered {r.answered_at.slice(0, 10)}. {r.evidence.length ? `Evidence: ${r.evidence.map((e) => e.replace(/\.$/, "")).join("; ")}.` : "No evidence linked."}
             {#if r.note}Note: {r.note}{/if}
           </p>
           <div>

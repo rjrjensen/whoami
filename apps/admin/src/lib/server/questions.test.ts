@@ -2,9 +2,9 @@ import { describe, expect, it } from "vitest";
 import { testDb } from "../../test/d1";
 import { answered, openQuestions, parseAnswer, saveAnswer, type AnswerInput } from "./questions";
 
-const form = (fields: Record<string, string>) => {
+const form = (fields: Record<string, string | string[]>) => {
   const f = new FormData();
-  for (const [k, v] of Object.entries(fields)) f.set(k, v);
+  for (const [k, v] of Object.entries(fields)) for (const one of [v].flat()) f.append(k, one);
   return f;
 };
 
@@ -19,8 +19,8 @@ async function seeded() {
   return db;
 }
 
-const input = (over: Partial<AnswerInput>): AnswerInput => ({ skillKey: "kafka", answer: "have", evidenceKind: null, evidenceId: null, closeTo: null, note: null, ...over });
-const registry = (db: D1Database, key: string) => db.prepare(`SELECT status, evidence_id, note FROM skill_answers WHERE skill_key = ?`).bind(key).first();
+const input = (over: Partial<AnswerInput>): AnswerInput => ({ skillKey: "kafka", answer: "have", evidenceIds: [], closeTo: null, note: null, ...over });
+const registry = (db: D1Database, key: string) => db.prepare(`SELECT status, evidence_ids, note FROM skill_answers WHERE skill_key = ?`).bind(key).first();
 
 describe("openQuestions", () => {
   it("puts must-haves first, then the most asked, then the most recent", async () => {
@@ -29,9 +29,10 @@ describe("openQuestions", () => {
 });
 
 describe("parseAnswer", () => {
-  it("accepts a record id as evidence and derives its kind", () => {
-    const r = parseAnswer(form({ skill_key: "kafka", answer: "have", evidence: "job-ups" }));
-    expect(r).toMatchObject({ ok: true, value: { evidenceKind: "job", evidenceId: "job-ups" } });
+  it("accepts several pieces of evidence in the order picked, once each", () => {
+    const r = parseAnswer(form({ skill_key: "kafka", answer: "have", evidence: ["job-ups", "job-hy-vee-inc", "job-ups", "testimonial"], note: "From a peer." }));
+    expect(r).toMatchObject({ ok: true, value: { evidenceIds: ["job-ups", "job-hy-vee-inc", "testimonial"] } });
+    expect(parseAnswer(form({ skill_key: "kafka", answer: "have" }))).toMatchObject({ ok: true, value: { evidenceIds: [] } });
   });
 
   it("rejects unknown answers and evidence", () => {
@@ -46,7 +47,7 @@ describe("parseAnswer", () => {
 
   it("ignores evidence unless the answer is have, and caps text", () => {
     const r = parseAnswer(form({ skill_key: "kafka", answer: "learning", evidence: "job-ups", note: "x".repeat(900) }));
-    expect(r.ok && r.value.evidenceId).toBe(null);
+    expect(r.ok && r.value.evidenceIds).toEqual([]);
     expect(r.ok && r.value.note?.length).toBe(500);
   });
 });
@@ -54,8 +55,10 @@ describe("parseAnswer", () => {
 describe("saveAnswer", () => {
   it("writes the registry row the Worker reads and closes the question", async () => {
     const db = await seeded();
-    expect(await saveAnswer(db, input({ evidenceKind: "job", evidenceId: "job-ups", note: "Ran it at a past job." }))).toBe(true);
-    expect(await registry(db, "kafka")).toEqual({ status: "have", evidence_id: "job-ups", note: "Ran it at a past job." });
+    expect(await saveAnswer(db, input({ evidenceIds: ["job-ups", "job-hy-vee-inc", "self_taught"], note: "Ran it at past jobs." }))).toBe(true);
+    // The Worker gets record ids only; the full list stays in skill_responses.
+    expect(await registry(db, "kafka")).toEqual({ status: "have", evidence_ids: '["job-ups","job-hy-vee-inc"]', note: "Ran it at past jobs." });
+    expect((await answered(db))[0].evidence_ids).toEqual(["job-ups", "job-hy-vee-inc", "self_taught"]);
     expect(await db.prepare(`SELECT status FROM skill_questions WHERE skill_key = 'kafka'`).first("status")).toBe("answered");
     expect((await openQuestions(db)).map((q) => q.skill)).not.toContain("Kafka");
     expect((await answered(db))[0]).toMatchObject({ skill: "Kafka", answer: "have", resume_status: "todo" });
@@ -65,8 +68,8 @@ describe("saveAnswer", () => {
     const db = await seeded();
     await saveAnswer(db, input({ skillKey: "rust", answer: "learning" }));
     await saveAnswer(db, input({ skillKey: "go", answer: "not_pursuing", note: "Not a focus." }));
-    expect(await registry(db, "rust")).toEqual({ status: "learning", evidence_id: null, note: null });
-    expect(await registry(db, "go")).toEqual({ status: "not_pursuing", evidence_id: null, note: "Not a focus." });
+    expect(await registry(db, "rust")).toEqual({ status: "learning", evidence_ids: "[]", note: null });
+    expect(await registry(db, "go")).toEqual({ status: "not_pursuing", evidence_ids: "[]", note: "Not a focus." });
     expect((await answered(db)).find((r) => r.skill_key === "rust")?.resume_status).toBe("not_needed");
   });
 

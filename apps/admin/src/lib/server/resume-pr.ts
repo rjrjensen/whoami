@@ -2,21 +2,21 @@
 // data/resume.yaml by one pull request per batch. Merging it rebuilds the site; the PR is Ryan's review step.
 // GitHub calls use GITHUB_REPO_TOKEN, a fine-grained token limited to rjrjensen/whoami (contents and pull requests: write).
 import { applyAdditions, type Addition, type Outcome } from "#lib/resume-edit.ts";
-import type { EvidenceKind, SkillResponse } from "./questions";
+import { RESPONSE_COLUMNS, toResponse, type SkillResponse } from "./questions";
 
 export const REPO = "rjrjensen/whoami";
 export const PATH = "data/resume.yaml";
 /** CI regenerates the downloads on branches with this prefix (.github/workflows/resume-answers.yml). */
 export const BRANCH_PREFIX = "resume-answers/";
 
-export type Pending = SkillResponse & { resume_pr: number | null };
+export type Pending = SkillResponse;
 
 /** Answers waiting for resume.yaml: not yet in a PR first, then by PR, oldest first. */
 export async function pending(db: D1Database): Promise<Pending[]> {
   const { results } = await db
-    .prepare(`SELECT * FROM skill_responses WHERE resume_status = 'todo' ORDER BY resume_pr IS NOT NULL, resume_pr, answered_at, skill`)
-    .all<Pending>();
-  return results;
+    .prepare(`SELECT ${RESPONSE_COLUMNS} FROM skill_responses WHERE resume_status = 'todo' ORDER BY resume_pr IS NOT NULL, resume_pr, answered_at, skill`)
+    .all<Omit<Pending, "evidence_ids"> & { evidence_ids: string }>();
+  return results.map(toResponse);
 }
 
 /** What goes on the resume for an answer: the skill itself, or for "close" the skill Ryan has instead. */
@@ -48,7 +48,7 @@ export async function openResumePr(db: D1Database, gh: GitHub, chosen: Chosen[],
   const additions: Addition[] = picked.map((p) => ({
     skill: p.name,
     group: p.group,
-    evidenceId: p.row!.answer === "have" && p.row!.evidence_kind === "job" ? p.row!.evidence_id : null,
+    jobIds: p.row!.answer === "have" ? p.row!.evidence_ids.filter((id) => id.startsWith("job-")) : [],
   }));
   let edited: ReturnType<typeof applyAdditions>;
   try {
@@ -98,21 +98,12 @@ export async function markNotNeeded(db: D1Database, skillKeys: string[]) {
   );
 }
 
-const EVIDENCE_WORDS: Record<EvidenceKind, string> = {
-  job: "job",
-  project: "project",
-  education: "education",
-  certificate: "certificate",
-  testimonial: "testimonial",
-  self_taught: "self-taught",
-};
-
 function prBody(items: { row: Pending; outcome: Outcome }[]) {
   const lines = items.map(({ row, outcome }) => {
     const why =
       row.answer === "close"
         ? `"Something close" to ${row.skill}`
-        : `"I have this"${row.evidence_kind ? `, ${EVIDENCE_WORDS[row.evidence_kind]}${row.evidence_id ? ` \`${row.evidence_id}\`` : ""}` : ""}`;
+        : `"I have this"${row.evidence_ids.length ? ` (${row.evidence_ids.map((id) => `\`${id}\``).join(", ")})` : ""}`;
     // No notes: the repo is public, notes are free text that can name a client, and API commits skip the private-data hook.
     return `- **${outcome.skill}**: ${outcome.changes.join("; ")}. From ${why}, answered ${row.answered_at.slice(0, 10)}.`;
   });

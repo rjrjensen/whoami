@@ -56,9 +56,14 @@ describe("judge", () => {
 
   it("lets Ryan's answers override the matcher", () => {
     const gap = match({ coverage: "gap" });
-    expect(judge(req(), gap, { status: "have", evidenceId: "job-ups", note: null }).status).toBe("demonstrated");
-    expect(judge(req(), match(), { status: "learning", evidenceId: null, note: null }).status).toBe("learning");
-    expect(judge(req(), match(), { status: "not_pursuing", evidenceId: null, note: "Not for me." }).reason).toBe("Not for me.");
+    expect(judge(req(), gap, { status: "have", evidenceIds: ["job-ups"], note: null }).status).toBe("demonstrated");
+    expect(judge(req(), match(), { status: "learning", evidenceIds: [], note: null }).status).toBe("learning");
+    expect(judge(req(), match(), { status: "not_pursuing", evidenceIds: [], note: "Not for me." }).reason).toBe("Not for me.");
+  });
+
+  it("shows every place Ryan confirmed, skipping ids that aren't in the record", () => {
+    const item = judge(req(), match({ coverage: "gap" }), { status: "have", evidenceIds: ["job-ups", "job-hy-vee-inc", "self_taught"], note: null });
+    expect(item.evidence.map((e) => e.id)).toEqual(["job-ups", "job-hy-vee-inc"]);
   });
 });
 

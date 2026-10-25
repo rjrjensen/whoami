@@ -31,7 +31,7 @@ export type Extraction = {
  */
 export type Match = { importance: Importance | null; coverage: Coverage; confidence: number | null; evidenceId: string | null; evidenceProbability: number | null };
 
-export type SkillAnswer = { status: "have" | "learning" | "not_pursuing"; evidenceId: string | null; note: string | null };
+export type SkillAnswer = { status: "have" | "learning" | "not_pursuing"; evidenceIds: string[]; note: string | null };
 
 export type ReportEvidence = { id: string; kind: EvidenceItem["kind"]; title: string; dates: string };
 
@@ -80,9 +80,9 @@ export function judge(req: Requirement, match: Match, answer: SkillAnswer | unde
   const base = { requirement: req.text, importance: match.importance ?? req.importance, skill: req.skill };
 
   if (answer) {
-    const confirmed = answer.evidenceId ? evidenceById.get(answer.evidenceId) : undefined;
+    const confirmed = answer.evidenceIds.map((id) => evidenceById.get(id)).filter((e): e is EvidenceItem => !!e);
     if (answer.status === "have")
-      return { ...base, status: "demonstrated", inferred: false, reason: answer.note ?? "Confirmed by Ryan.", evidence: (confirmed ? [confirmed] : evidence).map(toEvidence) };
+      return { ...base, status: "demonstrated", inferred: false, reason: answer.note ?? "Confirmed by Ryan.", evidence: (confirmed.length ? confirmed : evidence).map(toEvidence) };
     if (answer.status === "learning")
       return { ...base, status: "learning", inferred: false, reason: answer.note ?? "Ryan is learning this now.", evidence: [] };
     return { ...base, status: "not_focus", inferred: false, reason: answer.note ?? "Ryan isn't pursuing this right now.", evidence: [] };
