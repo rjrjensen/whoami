@@ -119,6 +119,8 @@ skills:
       - { name: Cypress }
       - { name: Selenium }
       - { name: Gherkin }
+      - { name: Production software engineering }
+      - { name: LLM evaluation }
   - name: Tooling
     keywords:
       - { name: JetBrains IDEs }
@@ -128,6 +130,7 @@ skills:
       - { name: Eclipse, variants: [base, lead] }
       - { name: Postman, variants: [base, lead] }
       - { name: Figma, variants: [base, lead] }
+      - { name: Payment scheduling and processing }
   - name: Cloud
     keywords:
       - { name: AWS, proficient: true }
@@ -150,6 +153,8 @@ skills:
       - { name: Agile }
       - { name: Jira, proficient: true }
       - { name: GitHub Projects }
+      - { name: Estimation and proofs of concept }
+      - { name: Vendor partnership }
   - name: Leadership
     keywords:
       - { name: Hiring & interviewing }
@@ -157,6 +162,8 @@ skills:
       - { name: Technical delivery leadership }
       - { name: Vendor management }
       - { name: Technology strategy & budgeting }
+      - { name: Written communication }
+      - { name: Time management in changing priorities }
 
 work:
   - name: Source Allies
@@ -184,7 +191,7 @@ work:
         tags: [design]
       - text: Mentor and teach the company's apprentices.
         tags: [leadership, mentoring]
-    technologies: [Vue.js, React, Java, Spring Boot, GraphQL, "C#", TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma]
+    technologies: [Vue.js, React, Java, Spring Boot, GraphQL, "C#", TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma, LLM evaluation, Written communication, Time management in changing priorities, Estimation and proofs of concept, Agile]
 
   - name: Patient Preferred Financial Services
     url: https://patientpreferredservices.com
@@ -204,7 +211,7 @@ work:
         tags: [architecture]
       - text: Built resiliency and fallback plans into critical third-party integrations, including ACH payments.
         tags: [architecture, vendors]
-    technologies: [".NET Framework 4.5 → .NET 10", AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform]
+    technologies: [".NET Framework 4.5 → .NET 10", AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform, Production software engineering, Vendor partnership]
 
   - name: Principal Financial Group
     position: Contract Senior Software Engineer
