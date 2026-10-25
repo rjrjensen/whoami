@@ -32,7 +32,7 @@ const tech = (yaml: string, job: string) => parse(yaml).work.find((w: { name: st
 
 describe("applyAdditions", () => {
   it("adds a keyword line and a technology without touching anything else", () => {
-    const { yaml, outcomes } = applyAdditions(SMALL, [{ skill: " Go ", group: "Languages", evidenceId: "job-hy-vee-inc" }]);
+    const { yaml, outcomes } = applyAdditions(SMALL, [{ skill: " Go ", group: "Languages", jobIds: ["job-hy-vee-inc"] }]);
     expect(yaml).toBe(
       SMALL.replace(`variants: [base, lead] }\n`, `variants: [base, lead] }\n      - { name: Go }\n`).replace(`"C#"]`, `"C#", Go]`),
     );
@@ -40,7 +40,7 @@ describe("applyAdditions", () => {
   });
 
   it("adds a technologies list to a job that has none", () => {
-    const { yaml } = applyAdditions(SMALL, [{ skill: "Kanban", group: "Cloud", evidenceId: "job-ups" }]);
+    const { yaml } = applyAdditions(SMALL, [{ skill: "Kanban", group: "Cloud", jobIds: ["job-ups"] }]);
     expect(tech(yaml, "UPS")).toEqual(["Kanban"]);
     expect(yaml).toContain("      - Sorted packages.\n    technologies: [Kanban]\n");
     expect(keywords(yaml, "Cloud")).toEqual(["AWS", "Kanban"]);
@@ -48,23 +48,30 @@ describe("applyAdditions", () => {
 
   it("skips what's already there, in any case and group, and applies several in order", () => {
     const { yaml, outcomes } = applyAdditions(SMALL, [
-      { skill: "c#", group: "Cloud", evidenceId: "job-hy-vee-inc" },
-      { skill: "GCP", group: "Cloud", evidenceId: null },
-      { skill: "Azure", group: "cloud", evidenceId: null },
+      { skill: "c#", group: "Cloud", jobIds: ["job-hy-vee-inc"] },
+      { skill: "GCP", group: "Cloud", jobIds: [] },
+      { skill: "Azure", group: "cloud", jobIds: [] },
     ]);
     expect(outcomes[0].changes).toEqual(["already under Languages", "already in Hy-Vee, Inc.'s technologies"]);
     expect(keywords(yaml, "Cloud")).toEqual(["AWS", "GCP", "Azure"]);
   });
 
+  it("adds the skill to every job given", () => {
+    const { yaml, outcomes } = applyAdditions(SMALL, [{ skill: "Go", group: "Cloud", jobIds: ["job-hy-vee-inc", "job-ups"] }]);
+    expect(tech(yaml, "Hy-Vee, Inc.")).toContain("Go");
+    expect(tech(yaml, "UPS")).toEqual(["Go"]);
+    expect(outcomes[0].changes).toEqual(["added to Cloud", "added to Hy-Vee, Inc.'s technologies", "added to UPS's technologies"]);
+  });
+
   it("refuses an unknown group or job", () => {
-    expect(() => applyAdditions(SMALL, [{ skill: "Go", group: "Nope", evidenceId: null }])).toThrow(/no "Nope" group/);
-    expect(() => applyAdditions(SMALL, [{ skill: "Go", group: "Cloud", evidenceId: "job-nope" }])).toThrow(/no job/);
+    expect(() => applyAdditions(SMALL, [{ skill: "Go", group: "Nope", jobIds: [] }])).toThrow(/no "Nope" group/);
+    expect(() => applyAdditions(SMALL, [{ skill: "Go", group: "Cloud", jobIds: ["job-nope"] }])).toThrow(/no job/);
   });
 
   it("edits the real resume.yaml by adding lines only", () => {
     const groups = skillGroups(RESUME);
     expect(groups).toContain("Languages");
-    const { yaml } = applyAdditions(RESUME, [{ skill: "Rust", group: groups[0], evidenceId: "job-ups" }]);
+    const { yaml } = applyAdditions(RESUME, [{ skill: "Rust", group: groups[0], jobIds: ["job-ups"] }]);
     expect(keywords(yaml, groups[0])).toContain("Rust");
     expect(tech(yaml, "UPS")).toContain("Rust");
     const before = RESUME.split("\n");

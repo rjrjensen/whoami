@@ -29,10 +29,10 @@ export async function skillAnswers(db: D1Database, skills: string[]): Promise<Ma
   const keys = [...new Set(skills.map(skillKey))];
   if (!keys.length) return new Map();
   const { results } = await db
-    .prepare(`SELECT skill_key, status, evidence_id, note FROM skill_answers WHERE skill_key IN (${keys.map(() => "?").join(",")})`)
+    .prepare(`SELECT skill_key, status, evidence_ids, note FROM skill_answers WHERE skill_key IN (${keys.map(() => "?").join(",")})`)
     .bind(...keys)
-    .all<{ skill_key: string; status: SkillAnswer["status"]; evidence_id: string | null; note: string | null }>();
-  return new Map(results.map((r) => [r.skill_key, { status: r.status, evidenceId: r.evidence_id, note: r.note }]));
+    .all<{ skill_key: string; status: SkillAnswer["status"]; evidence_ids: string; note: string | null }>();
+  return new Map(results.map((r) => [r.skill_key, { status: r.status, evidenceIds: JSON.parse(r.evidence_ids) as string[], note: r.note }]));
 }
 
 /** Who pasted it: a site visitor, or Ryan through the admin app's "Add posting" box. */

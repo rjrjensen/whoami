@@ -17,7 +17,8 @@ export const actions: Actions = {
     requireAdmin(event);
     const form = await event.request.formData();
     const skillKey = String(form.get("skill_key") ?? "");
-    const values = Object.fromEntries([...form].map(([k, v]) => [k, String(v)]));
+    const field = (name: string) => String(form.get(name) ?? "");
+    const values = { answer: field("answer"), close_to: field("close_to"), note: field("note"), evidence: form.getAll("evidence").map(String) };
     const parsed = parseAnswer(form);
     if (!parsed.ok) return fail(400, { skillKey, errors: parsed.errors, values });
     if (!(await saveAnswer(env.DB, parsed.value))) {

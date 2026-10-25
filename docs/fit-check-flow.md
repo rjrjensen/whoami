@@ -308,7 +308,7 @@ Each skill has one entry, however many postings ask for it, with a count of how 
 > **Angular** came up as a must-have (Wellmark, Sr. Software Engineer). Asked 3 times. Your record maps it from Vue.js.
 > [I have this] · [Something close I haven't listed] · [I'm learning it] · [I don't have it] · [Not for me]
 
-- **I have this:** Ryan picks where he used it, which can be a job, a project, a testimonial, or "self-taught" with a note. It's then *Has it*. The admin app opens a PR adding it to `data/resume.yaml`. Linking evidence is encouraged but not required at first.
+- **I have this:** Ryan picks every place he used it: jobs, projects, education, certificates, a testimonial, or "self-taught" with a note. It's then *Has it*. The admin app opens a PR adding it to `data/resume.yaml`. Linking evidence is encouraged but not required at first.
 - **I'm learning it:** *Learning*, until he marks it learned. Then it's *Has it*, and reports recompute (step 8).
 - **Something close I haven't listed:** Ryan names the skill or experience. It's added to the registry, and the requirement shows as *Related experience* with that skill.
 - **I don't have it:** *Ready to learn*.

@@ -3,13 +3,12 @@ import { env } from "cloudflare:workers";
 import { fail } from "@sveltejs/kit";
 import { RECORD } from "@ryanjensen/fit-check/record";
 import { requireAdmin } from "#lib/server/auth.ts";
-import { EVIDENCE } from "#lib/server/questions.ts";
+import { evidenceTitle } from "#lib/server/questions.ts";
 import { githubRepo, markNotNeeded, openResumePr, pending, resumeName, syncPrs, type Chosen } from "#lib/server/resume-pr.ts";
 import type { Actions, PageServerLoad } from "./$types";
 
 /** The groups under `skills:` as of this build. The PR re-checks them against main's resume.yaml. */
 const GROUPS = [...new Set(RECORD.skills.map((s) => s.group))];
-const evidenceTitle = new Map(EVIDENCE.map((e) => [e.id, e.title]));
 
 const gh = () => (env.GITHUB_REPO_TOKEN ? githubRepo(env.GITHUB_REPO_TOKEN) : null);
 
@@ -33,7 +32,7 @@ export const load: PageServerLoad = async (event) => {
     rows: rows.map((r) => ({
       ...r,
       name: resumeName(r),
-      evidence: r.evidence_id ? (evidenceTitle.get(r.evidence_id) ?? r.evidence_id) : r.evidence_kind === "self_taught" ? "Self-taught" : r.evidence_kind === "testimonial" ? "A testimonial" : null,
+      evidence: r.evidence_ids.map(evidenceTitle),
     })),
   };
 };

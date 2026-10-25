@@ -29,8 +29,14 @@
   const evidenceTitle = $derived(new Map(data.evidence.map((e) => [e.id, e.title])));
   const errorsFor = (key: string) => (form && "errors" in form && form.skillKey === key ? form.errors : undefined);
   const valuesFor = (key: string) => (form && "values" in form && form.skillKey === key ? form.values : undefined);
-  const evidenceLabel = (kind: string | null, id: string | null) =>
-    id ? (evidenceTitle.get(id) ?? id) : kind === "self_taught" ? "Self-taught" : kind === "testimonial" ? "A testimonial" : "No evidence linked";
+  const OTHER = [
+    { id: "testimonial", label: "A testimonial (say which in the note)" },
+    { id: "self_taught", label: "Self-taught (say how in the note)" },
+  ];
+  const evidenceLabel = (ids: string[]) =>
+    ids.length
+      ? ids.map((id) => (id === "self_taught" ? "Self-taught" : id === "testimonial" ? "A testimonial" : (evidenceTitle.get(id) ?? id)).replace(/\.$/, "")).join("; ")
+      : "No evidence linked";
   const day = (sqlTime: string) => sqlTime.slice(0, 10);
 </script>
 
@@ -45,12 +51,12 @@
   {/if}
 </div>
 
-{#snippet answerForm(prefix: string, skillKey: string, skill: string, current?: { answer: string; evidence_kind: string | null; evidence_id: string | null; close_to: string | null; note: string | null })}
+{#snippet answerForm(prefix: string, skillKey: string, skill: string, current?: { answer: string; evidence_ids: string[]; close_to: string | null; note: string | null })}
   {@const errors = errorsFor(skillKey)}
   {@const values = valuesFor(skillKey)}
   {@const initial = values?.answer ?? current?.answer ?? ""}
   {@const choice = picked[prefix] ?? initial}
-  {@const evidenceValue = values?.evidence ?? current?.evidence_id ?? (current?.evidence_kind === "self_taught" || current?.evidence_kind === "testimonial" ? current.evidence_kind : "")}
+  {@const evidenceChecked = new Set(values?.evidence ?? current?.evidence_ids ?? [])}
   <form method="POST" action="?/answer" use:enhance class="stack">
     <input type="hidden" name="skill_key" value={skillKey} />
     {#if errors?.form}<p class="error-text" role="alert">{errors.form}</p>{/if}
@@ -66,32 +72,32 @@
     </fieldset>
 
     {#if !js || choice === "have"}
-      <div>
-        <label for="{prefix}-evidence">Where you used it <span class="hint">(for "I have this"; optional for now)</span></label>
-        <select
-          id="{prefix}-evidence"
-          name="evidence"
-          aria-invalid={errors?.evidence ? "true" : undefined}
-          aria-describedby={errors?.evidence ? `${prefix}-evidence-error` : undefined}
-        >
-          <option value="" selected={evidenceValue === ""}>None yet</option>
-          {#each KINDS as group (group.kind)}
-            {@const items = data.evidence.filter((e) => e.kind === group.kind)}
-            {#if items.length}
-              <optgroup label={group.label}>
-                {#each items as e (e.id)}
-                  <option value={e.id} selected={evidenceValue === e.id}>{e.title}{e.dates ? ` (${e.dates})` : ""}</option>
-                {/each}
-              </optgroup>
-            {/if}
-          {/each}
-          <optgroup label="Other">
-            <option value="testimonial" selected={evidenceValue === "testimonial"}>A testimonial (say which in the note)</option>
-            <option value="self_taught" selected={evidenceValue === "self_taught"}>Self-taught (say how in the note)</option>
-          </optgroup>
-        </select>
+      <fieldset
+        class="evidence"
+        aria-describedby={errors?.evidence ? `${prefix}-evidence-error` : undefined}
+      >
+        <legend>Where you used it <span class="hint">(for "I have this"; pick all that apply, optional for now)</span></legend>
+        {#each KINDS as group (group.kind)}
+          {@const items = data.evidence.filter((e) => e.kind === group.kind)}
+          {#if items.length}
+            <p class="evidence-group" aria-hidden="true">{group.label}</p>
+            {#each items as e (e.id)}
+              <label class="choice">
+                <input type="checkbox" name="evidence" value={e.id} checked={evidenceChecked.has(e.id)} />
+                <span>{e.title}{e.dates ? ` (${e.dates})` : ""}<span class="visually-hidden">, {group.label.toLowerCase()}</span></span>
+              </label>
+            {/each}
+          {/if}
+        {/each}
+        <p class="evidence-group" aria-hidden="true">Other</p>
+        {#each OTHER as o (o.id)}
+          <label class="choice">
+            <input type="checkbox" name="evidence" value={o.id} checked={evidenceChecked.has(o.id)} />
+            {o.label}
+          </label>
+        {/each}
         {#if errors?.evidence}<p id="{prefix}-evidence-error" class="error-text" role="alert">{errors.evidence}</p>{/if}
-      </div>
+      </fieldset>
     {/if}
 
     {#if !js || choice === "close"}
@@ -175,7 +181,7 @@
             </div>
             <p class="muted">
               Answered {day(r.answered_at)}.
-              {#if r.answer === "have"}{evidenceLabel(r.evidence_kind, r.evidence_id)}.{/if}
+              {#if r.answer === "have"}{evidenceLabel(r.evidence_ids)}.{/if}
               {#if r.close_to}Instead: {r.close_to}.{/if}
               {#if r.note}Note: {r.note}{/if}
             </p>
@@ -191,6 +197,15 @@
 </section>
 
 <style>
+  .evidence-group {
+    margin: 0.75rem 0 0.25rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .evidence .choice input {
+    flex-shrink: 0;
+  }
   summary {
     cursor: pointer;
     min-height: 44px;
