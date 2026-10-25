@@ -30,7 +30,7 @@
       "position": "Software Consultant",
       "location": "Urbandale, IA",
       "startDate": "2024-12",
-      "summary": "Consultant across 4+ client engagements in financial services, insurance, identity management, and enterprise web, spanning full-stack development, delivery leadership, coaching, and generative AI.\n\nTechnologies: Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma",
+      "summary": "Consultant across 4+ client engagements in financial services, insurance, identity management, and enterprise web, spanning full-stack development, delivery leadership, coaching, and generative AI.\n\nTechnologies: Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma, LLM evaluation, Written communication, Time management in changing priorities, Estimation and proofs of concept, Agile",
       "highlights": [
         "Ranked #1 interviewer for 2025 and the first half of 2026, with 30+ interviews and ~10 hires still with the company.",
         "Technical delivery lead for a regional mutual insurer's data engineering engagement (SQL Server, T-SQL, Databricks, dbt), including project management and coaching.",
@@ -47,7 +47,7 @@
       "position": "Fractional CTO",
       "location": "Remote",
       "startDate": "2021-11",
-      "summary": "Took over a clinic payment and patient-management platform from a larger development team and run it solo, reporting to leadership. Own technology strategy, budget, vendor relationships (DataX, ACHeck, Web.com), and security and compliance.\n\nTechnologies: .NET Framework 4.5 → .NET 10, AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform",
+      "summary": "Took over a clinic payment and patient-management platform from a larger development team and run it solo, reporting to leadership. Own technology strategy, budget, vendor relationships (DataX, ACHeck, Web.com), and security and compliance.\n\nTechnologies: .NET Framework 4.5 → .NET 10, AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform, Production software engineering, Vendor partnership",
       "highlights": [
         "Built resiliency and fallback plans into critical third-party integrations, including ACH payments.",
         "Cut monthly AWS costs ~91% (~$1,400 → ~$120) over three years while improving availability, stability, and speed.",
@@ -240,7 +240,8 @@
         "JetBrains IDEs",
         "Visual Studio / VS Code",
         "SSMS / SSIS",
-        "dbt"
+        "dbt",
+        "Payment scheduling and processing"
       ]
     },
     {
@@ -265,7 +266,9 @@
         "Kanban",
         "Agile",
         "Jira",
-        "GitHub Projects"
+        "GitHub Projects",
+        "Estimation and proofs of concept",
+        "Vendor partnership"
       ]
     },
     {
@@ -275,7 +278,9 @@
         "Mentoring & coaching",
         "Technical delivery leadership",
         "Vendor management",
-        "Technology strategy & budgeting"
+        "Technology strategy & budgeting",
+        "Written communication",
+        "Time management in changing priorities"
       ]
     }
   ]

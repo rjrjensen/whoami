@@ -15,12 +15,12 @@ Full-stack engineer with 8+ years designing, modernizing, and shipping scalable 
 - **ORM:** Entity Framework Core\*, Spring Data JPA, Dapper, Exposed
 - **Containerization:** Docker\*, Kubernetes, NuGet\*, npm
 - **Data:** SQL Server, PostgreSQL, MySQL, SQLite, MongoDB, Redis, Elasticsearch
-- **Build & Testing:** Gradle, Maven, Yarn, Webpack, Cypress, Selenium, Gherkin
-- **Tooling:** JetBrains IDEs, Visual Studio / VS Code, SSMS / SSIS, dbt, Eclipse, Postman, Figma
+- **Build & Testing:** Gradle, Maven, Yarn, Webpack, Cypress, Selenium, Gherkin, Production software engineering, LLM evaluation
+- **Tooling:** JetBrains IDEs, Visual Studio / VS Code, SSMS / SSIS, dbt, Eclipse, Postman, Figma, Payment scheduling and processing
 - **Cloud:** AWS\*, Azure\*, Google Cloud, EC2, S3, RDS, CloudFront, Lambda, OpenNext
 - **Identity:** PingOne, Active Directory / LDAP
-- **Project Management:** Scrum\*, Kanban, Agile, Jira\*, GitHub Projects
-- **Leadership:** Hiring & interviewing, Mentoring & coaching, Technical delivery leadership, Vendor management, Technology strategy & budgeting
+- **Project Management:** Scrum\*, Kanban, Agile, Jira\*, GitHub Projects, Estimation and proofs of concept, Vendor partnership
+- **Leadership:** Hiring & interviewing, Mentoring & coaching, Technical delivery leadership, Vendor management, Technology strategy & budgeting, Written communication, Time management in changing priorities
 
 ## Experience
 
@@ -38,7 +38,7 @@ Consultant across 4+ client engagements in financial services, insurance, identi
 - Mentor and teach the company's apprentices.
 - Helped design a digital-identity company's webinar platform in Figma.
 
-**Technologies:** Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma
+**Technologies:** Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma, LLM evaluation, Written communication, Time management in changing priorities, Estimation and proofs of concept, Agile
 
 ### Fractional CTO — Patient Preferred Financial Services
 
@@ -50,7 +50,7 @@ Took over a clinic payment and patient-management platform from a larger develop
 - Modernized the platform from an AngularJS frontend, .NET Framework API, and SQL Server with SQL Jobs on Windows Server 2012 EC2 instances to SSR Next.js on AWS via OpenNext, modern .NET Minimal APIs on AWS Lambda, PostgreSQL on AWS RDS, and crontab on a nano Linux instance.
 - Built resiliency and fallback plans into critical third-party integrations, including ACH payments.
 
-**Technologies:** .NET Framework 4.5 → .NET 10, AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform
+**Technologies:** .NET Framework 4.5 → .NET 10, AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform, Production software engineering, Vendor partnership
 
 **Note:** Currently part-time, supporting new feature requests and regular software updates.
 

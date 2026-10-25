@@ -446,6 +446,22 @@
       "usedAt": []
     },
     {
+      "name": "Production software engineering",
+      "group": "Build & Testing",
+      "proficient": false,
+      "usedAt": [
+        "Patient Preferred Financial Services"
+      ]
+    },
+    {
+      "name": "LLM evaluation",
+      "group": "Build & Testing",
+      "proficient": false,
+      "usedAt": [
+        "Source Allies"
+      ]
+    },
+    {
       "name": "JetBrains IDEs",
       "group": "Tooling",
       "proficient": false,
@@ -490,6 +506,12 @@
       "usedAt": [
         "Source Allies"
       ]
+    },
+    {
+      "name": "Payment scheduling and processing",
+      "group": "Tooling",
+      "proficient": false,
+      "usedAt": []
     },
     {
       "name": "AWS",
@@ -598,7 +620,9 @@
       "name": "Agile",
       "group": "Project Management",
       "proficient": false,
-      "usedAt": []
+      "usedAt": [
+        "Source Allies"
+      ]
     },
     {
       "name": "Jira",
@@ -611,6 +635,22 @@
       "group": "Project Management",
       "proficient": false,
       "usedAt": []
+    },
+    {
+      "name": "Estimation and proofs of concept",
+      "group": "Project Management",
+      "proficient": false,
+      "usedAt": [
+        "Source Allies"
+      ]
+    },
+    {
+      "name": "Vendor partnership",
+      "group": "Project Management",
+      "proficient": false,
+      "usedAt": [
+        "Patient Preferred Financial Services"
+      ]
     },
     {
       "name": "Hiring & interviewing",
@@ -641,6 +681,22 @@
       "group": "Leadership",
       "proficient": false,
       "usedAt": []
+    },
+    {
+      "name": "Written communication",
+      "group": "Leadership",
+      "proficient": false,
+      "usedAt": [
+        "Source Allies"
+      ]
+    },
+    {
+      "name": "Time management in changing priorities",
+      "group": "Leadership",
+      "proficient": false,
+      "usedAt": [
+        "Source Allies"
+      ]
     }
   ],
   "evidence": [
@@ -674,7 +730,12 @@
         "dbt",
         "PingOne",
         "Active Directory / LDAP",
-        "Figma"
+        "Figma",
+        "LLM evaluation",
+        "Written communication",
+        "Time management in changing priorities",
+        "Estimation and proofs of concept",
+        "Agile"
       ]
     },
     {
@@ -689,7 +750,9 @@
         "SQL Server → PostgreSQL",
         "EC2 → CloudFront + Lambda + OpenNext",
         "SQL Jobs → Linux (crontab)",
-        "Terraform"
+        "Terraform",
+        "Production software engineering",
+        "Vendor partnership"
       ]
     },
     {
