@@ -14,11 +14,11 @@ Engineering leader with 8+ years of full-stack software experience and nearly fo
 - **DevOps / CI/CD:** Git\*, GitHub\*, GitHub Actions\*, Azure DevOps\*, Concourse CI\*, Terraform\*
 - **ORM:** Entity Framework Core\*, Spring Data JPA, Dapper, Exposed
 - **Containerization:** Docker\*, Kubernetes, NuGet\*, npm
-- **Tooling:** JetBrains IDEs, Visual Studio / VS Code, SSMS / SSIS, dbt
+- **Tooling:** JetBrains IDEs, Visual Studio / VS Code, SSMS / SSIS, dbt, Payment scheduling and processing
 - **Cloud:** AWS\*, Azure\*, Google Cloud
 - **Identity:** PingOne, Active Directory / LDAP
-- **Project Management:** Scrum\*, Kanban, Agile, Jira\*, GitHub Projects
-- **Leadership:** Hiring & interviewing, Mentoring & coaching, Technical delivery leadership, Vendor management, Technology strategy & budgeting
+- **Project Management:** Scrum\*, Kanban, Agile, Jira\*, GitHub Projects, Estimation and proofs of concept, Vendor partnership
+- **Leadership:** Hiring & interviewing, Mentoring & coaching, Technical delivery leadership, Vendor management, Technology strategy & budgeting, Written communication, Time management in changing priorities
 
 ## Experience
 
@@ -36,7 +36,7 @@ Consultant across 4+ client engagements in financial services, insurance, identi
 - Redesigning a federally backed bank's high-traffic web application, which handles all of its money intake: reworked the frontend, built its first public API and secured it, and moved identity to PingOne, migrating Active Directory and LDAP users.
 - Helped design a digital-identity company's webinar platform in Figma.
 
-**Technologies:** Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma
+**Technologies:** Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma, LLM evaluation, Written communication, Time management in changing priorities, Estimation and proofs of concept, Agile
 
 ### Fractional CTO — Patient Preferred Financial Services
 
@@ -48,7 +48,7 @@ Took over a clinic payment and patient-management platform from a larger develop
 - Cut monthly AWS costs ~91% (~$1,400 → ~$120) over three years while improving availability, stability, and speed.
 - Modernized the platform from an AngularJS frontend, .NET Framework API, and SQL Server with SQL Jobs on Windows Server 2012 EC2 instances to SSR Next.js on AWS via OpenNext, modern .NET Minimal APIs on AWS Lambda, PostgreSQL on AWS RDS, and crontab on a nano Linux instance.
 
-**Technologies:** .NET Framework 4.5 → .NET 10, AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform
+**Technologies:** .NET Framework 4.5 → .NET 10, AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform, Production software engineering, Vendor partnership
 
 **Note:** Currently part-time, supporting new feature requests and regular software updates.
 

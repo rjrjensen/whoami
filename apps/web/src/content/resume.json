@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19",
+  "generatedAt": "2026-10-25",
   "preferences": {
     "workArrangement": "Open to on-site, hybrid, or remote",
     "workAuthorization": "US citizen; no sponsorship required"
@@ -386,6 +386,12 @@
             },
             {
               "name": "Gherkin"
+            },
+            {
+              "name": "Production software engineering"
+            },
+            {
+              "name": "LLM evaluation"
             }
           ]
         },
@@ -424,6 +430,9 @@
                 "base",
                 "lead"
               ]
+            },
+            {
+              "name": "Payment scheduling and processing"
             }
           ]
         },
@@ -515,6 +524,12 @@
             },
             {
               "name": "GitHub Projects"
+            },
+            {
+              "name": "Estimation and proofs of concept"
+            },
+            {
+              "name": "Vendor partnership"
             }
           ]
         },
@@ -535,6 +550,12 @@
             },
             {
               "name": "Technology strategy & budgeting"
+            },
+            {
+              "name": "Written communication"
+            },
+            {
+              "name": "Time management in changing priorities"
             }
           ]
         }
@@ -572,7 +593,12 @@
             "dbt",
             "PingOne",
             "Active Directory / LDAP",
-            "Figma"
+            "Figma",
+            "LLM evaluation",
+            "Written communication",
+            "Time management in changing priorities",
+            "Estimation and proofs of concept",
+            "Agile"
           ]
         },
         {
@@ -594,7 +620,9 @@
             "SQL Server → PostgreSQL",
             "EC2 → CloudFront + Lambda + OpenNext",
             "SQL Jobs → Linux (crontab)",
-            "Terraform"
+            "Terraform",
+            "Production software engineering",
+            "Vendor partnership"
           ]
         },
         {
@@ -874,6 +902,12 @@
         "Cypress": [],
         "Selenium": [],
         "Gherkin": [],
+        "Production software engineering": [
+          "Patient Preferred Financial Services"
+        ],
+        "LLM evaluation": [
+          "Source Allies"
+        ],
         "JetBrains IDEs": [],
         "Visual Studio / VS Code": [],
         "SSMS / SSIS": [],
@@ -885,6 +919,7 @@
         "Figma": [
           "Source Allies"
         ],
+        "Payment scheduling and processing": [],
         "AWS": [
           "Source Allies",
           "Patient Preferred Financial Services",
@@ -923,14 +958,28 @@
         ],
         "Scrum": [],
         "Kanban": [],
-        "Agile": [],
+        "Agile": [
+          "Source Allies"
+        ],
         "Jira": [],
         "GitHub Projects": [],
+        "Estimation and proofs of concept": [
+          "Source Allies"
+        ],
+        "Vendor partnership": [
+          "Patient Preferred Financial Services"
+        ],
         "Hiring & interviewing": [],
         "Mentoring & coaching": [],
         "Technical delivery leadership": [],
         "Vendor management": [],
-        "Technology strategy & budgeting": []
+        "Technology strategy & budgeting": [],
+        "Written communication": [
+          "Source Allies"
+        ],
+        "Time management in changing priorities": [
+          "Source Allies"
+        ]
       },
       "downloads": {
         "label": "Complete",
@@ -938,23 +987,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 140299
+            "bytes": 89561
           },
           {
             "ext": "docx",
-            "bytes": 14598
+            "bytes": 14734
           },
           {
             "ext": "md",
-            "bytes": 8186
+            "bytes": 8560
           },
           {
             "ext": "json",
-            "bytes": 11679
+            "bytes": 12123
           },
           {
             "ext": "toml",
-            "bytes": 9584
+            "bytes": 9972
           }
         ]
       }
@@ -1162,6 +1211,9 @@
             },
             {
               "name": "dbt"
+            },
+            {
+              "name": "Payment scheduling and processing"
             }
           ]
         },
@@ -1211,6 +1263,12 @@
             },
             {
               "name": "GitHub Projects"
+            },
+            {
+              "name": "Estimation and proofs of concept"
+            },
+            {
+              "name": "Vendor partnership"
             }
           ]
         },
@@ -1231,6 +1289,12 @@
             },
             {
               "name": "Technology strategy & budgeting"
+            },
+            {
+              "name": "Written communication"
+            },
+            {
+              "name": "Time management in changing priorities"
             }
           ]
         }
@@ -1268,7 +1332,12 @@
             "dbt",
             "PingOne",
             "Active Directory / LDAP",
-            "Figma"
+            "Figma",
+            "LLM evaluation",
+            "Written communication",
+            "Time management in changing priorities",
+            "Estimation and proofs of concept",
+            "Agile"
           ]
         },
         {
@@ -1290,7 +1359,9 @@
             "SQL Server → PostgreSQL",
             "EC2 → CloudFront + Lambda + OpenNext",
             "SQL Jobs → Linux (crontab)",
-            "Terraform"
+            "Terraform",
+            "Production software engineering",
+            "Vendor partnership"
           ]
         },
         {
@@ -1535,6 +1606,7 @@
         "dbt": [
           "Source Allies"
         ],
+        "Payment scheduling and processing": [],
         "AWS": [
           "Source Allies",
           "Patient Preferred Financial Services",
@@ -1556,14 +1628,28 @@
         ],
         "Scrum": [],
         "Kanban": [],
-        "Agile": [],
+        "Agile": [
+          "Source Allies"
+        ],
         "Jira": [],
         "GitHub Projects": [],
+        "Estimation and proofs of concept": [
+          "Source Allies"
+        ],
+        "Vendor partnership": [
+          "Patient Preferred Financial Services"
+        ],
         "Hiring & interviewing": [],
         "Mentoring & coaching": [],
         "Technical delivery leadership": [],
         "Vendor management": [],
-        "Technology strategy & budgeting": []
+        "Technology strategy & budgeting": [],
+        "Written communication": [
+          "Source Allies"
+        ],
+        "Time management in changing priorities": [
+          "Source Allies"
+        ]
       },
       "downloads": {
         "label": "Engineering Manager",
@@ -1571,23 +1657,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 136784
+            "bytes": 87213
           },
           {
             "ext": "docx",
-            "bytes": 14340
+            "bytes": 14467
           },
           {
             "ext": "md",
-            "bytes": 7932
+            "bytes": 8257
           },
           {
             "ext": "json",
-            "bytes": 10963
+            "bytes": 11338
           },
           {
             "ext": "toml",
-            "bytes": 9200
+            "bytes": 9535
           }
         ]
       }
@@ -1927,6 +2013,12 @@
             },
             {
               "name": "Gherkin"
+            },
+            {
+              "name": "Production software engineering"
+            },
+            {
+              "name": "LLM evaluation"
             }
           ]
         },
@@ -1965,6 +2057,9 @@
                 "base",
                 "lead"
               ]
+            },
+            {
+              "name": "Payment scheduling and processing"
             }
           ]
         },
@@ -2056,6 +2151,12 @@
             },
             {
               "name": "GitHub Projects"
+            },
+            {
+              "name": "Estimation and proofs of concept"
+            },
+            {
+              "name": "Vendor partnership"
             }
           ]
         },
@@ -2076,6 +2177,12 @@
             },
             {
               "name": "Technology strategy & budgeting"
+            },
+            {
+              "name": "Written communication"
+            },
+            {
+              "name": "Time management in changing priorities"
             }
           ]
         }
@@ -2113,7 +2220,12 @@
             "dbt",
             "PingOne",
             "Active Directory / LDAP",
-            "Figma"
+            "Figma",
+            "LLM evaluation",
+            "Written communication",
+            "Time management in changing priorities",
+            "Estimation and proofs of concept",
+            "Agile"
           ]
         },
         {
@@ -2135,7 +2247,9 @@
             "SQL Server → PostgreSQL",
             "EC2 → CloudFront + Lambda + OpenNext",
             "SQL Jobs → Linux (crontab)",
-            "Terraform"
+            "Terraform",
+            "Production software engineering",
+            "Vendor partnership"
           ]
         },
         {
@@ -2376,6 +2490,12 @@
         "Cypress": [],
         "Selenium": [],
         "Gherkin": [],
+        "Production software engineering": [
+          "Patient Preferred Financial Services"
+        ],
+        "LLM evaluation": [
+          "Source Allies"
+        ],
         "JetBrains IDEs": [],
         "Visual Studio / VS Code": [],
         "SSMS / SSIS": [],
@@ -2387,6 +2507,7 @@
         "Figma": [
           "Source Allies"
         ],
+        "Payment scheduling and processing": [],
         "AWS": [
           "Source Allies",
           "Patient Preferred Financial Services",
@@ -2425,14 +2546,28 @@
         ],
         "Scrum": [],
         "Kanban": [],
-        "Agile": [],
+        "Agile": [
+          "Source Allies"
+        ],
         "Jira": [],
         "GitHub Projects": [],
+        "Estimation and proofs of concept": [
+          "Source Allies"
+        ],
+        "Vendor partnership": [
+          "Patient Preferred Financial Services"
+        ],
         "Hiring & interviewing": [],
         "Mentoring & coaching": [],
         "Technical delivery leadership": [],
         "Vendor management": [],
-        "Technology strategy & budgeting": []
+        "Technology strategy & budgeting": [],
+        "Written communication": [
+          "Source Allies"
+        ],
+        "Time management in changing priorities": [
+          "Source Allies"
+        ]
       },
       "downloads": {
         "label": "Lead Software Engineer",
@@ -2440,23 +2575,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 120821
+            "bytes": 76067
           },
           {
             "ext": "docx",
-            "bytes": 14203
+            "bytes": 14334
           },
           {
             "ext": "md",
-            "bytes": 7336
+            "bytes": 7710
           },
           {
             "ext": "json",
-            "bytes": 10770
+            "bytes": 11214
           },
           {
             "ext": "toml",
-            "bytes": 8763
+            "bytes": 9151
           }
         ]
       }

@@ -27,7 +27,7 @@ name = "Source Allies"
 position = "Software Consultant"
 location = "Urbandale, IA"
 startDate = "2024-12"
-summary = "Consultant across 4+ client engagements in financial services, insurance, identity management, and enterprise web, spanning full-stack development, delivery leadership, coaching, and generative AI.\n\nTechnologies: Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma"
+summary = "Consultant across 4+ client engagements in financial services, insurance, identity management, and enterprise web, spanning full-stack development, delivery leadership, coaching, and generative AI.\n\nTechnologies: Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma, LLM evaluation, Written communication, Time management in changing priorities, Estimation and proofs of concept, Agile"
 highlights = [ "Redesigning a federally backed bank's high-traffic web application, which handles all of its money intake: reworked the frontend, built its first public API and secured it, and moved identity to PingOne, migrating Active Directory and LDAP users.", "Technical delivery lead for a regional mutual insurer's data engineering engagement (SQL Server, T-SQL, Databricks, dbt), including project management and coaching.", "Led English/French internationalization of a roofing-materials manufacturer's customer portal and outgoing email for the US and Canada (Vue I18n, Thymeleaf, Spring Boot).", "Bootstrapped a generative AI initiative on AWS Bedrock.", "Ranked #1 interviewer for 2025 and the first half of 2026, with 30+ interviews and ~10 hires still with the company.", "Mentor and teach the company's apprentices.", "Helped design a digital-identity company's webinar platform in Figma." ]
 
 [[work]]
@@ -36,7 +36,7 @@ url = "https://patientpreferredservices.com"
 position = "Fractional CTO"
 location = "Remote"
 startDate = "2021-11"
-summary = "Took over a clinic payment and patient-management platform from a larger development team and run it solo, reporting to leadership. Own technology strategy, budget, vendor relationships (DataX, ACHeck, Web.com), and security and compliance.\n\nTechnologies: .NET Framework 4.5 → .NET 10, AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform"
+summary = "Took over a clinic payment and patient-management platform from a larger development team and run it solo, reporting to leadership. Own technology strategy, budget, vendor relationships (DataX, ACHeck, Web.com), and security and compliance.\n\nTechnologies: .NET Framework 4.5 → .NET 10, AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform, Production software engineering, Vendor partnership"
 highlights = [ "Cut monthly AWS costs ~91% (~$1,400 → ~$120) over three years while improving availability, stability, and speed.", "Modernized the platform from an AngularJS frontend, .NET Framework API, and SQL Server with SQL Jobs on Windows Server 2012 EC2 instances to SSR Next.js on AWS via OpenNext, modern .NET Minimal APIs on AWS Lambda, PostgreSQL on AWS RDS, and crontab on a nano Linux instance.", "Built resiliency and fallback plans into critical third-party integrations, including ACH payments." ]
 
 [[work]]
@@ -152,11 +152,11 @@ keywords = [ "SQL Server", "PostgreSQL", "MySQL", "SQLite", "MongoDB", "Redis", 
 
 [[skills]]
 name = "Build & Testing"
-keywords = [ "Gradle", "Maven", "Yarn", "Webpack", "Cypress", "Selenium", "Gherkin" ]
+keywords = [ "Gradle", "Maven", "Yarn", "Webpack", "Cypress", "Selenium", "Gherkin", "Production software engineering", "LLM evaluation" ]
 
 [[skills]]
 name = "Tooling"
-keywords = [ "JetBrains IDEs", "Visual Studio / VS Code", "SSMS / SSIS", "dbt", "Eclipse", "Postman", "Figma" ]
+keywords = [ "JetBrains IDEs", "Visual Studio / VS Code", "SSMS / SSIS", "dbt", "Eclipse", "Postman", "Figma", "Payment scheduling and processing" ]
 
 [[skills]]
 name = "Cloud"
@@ -168,9 +168,9 @@ keywords = [ "PingOne", "Active Directory / LDAP" ]
 
 [[skills]]
 name = "Project Management"
-keywords = [ "Scrum", "Kanban", "Agile", "Jira", "GitHub Projects" ]
+keywords = [ "Scrum", "Kanban", "Agile", "Jira", "GitHub Projects", "Estimation and proofs of concept", "Vendor partnership" ]
 
 [[skills]]
 name = "Leadership"
-keywords = [ "Hiring & interviewing", "Mentoring & coaching", "Technical delivery leadership", "Vendor management", "Technology strategy & budgeting" ]
+keywords = [ "Hiring & interviewing", "Mentoring & coaching", "Technical delivery leadership", "Vendor management", "Technology strategy & budgeting", "Written communication", "Time management in changing priorities" ]
 
