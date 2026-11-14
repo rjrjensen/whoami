@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25",
+  "generatedAt": "2026-11-14",
   "preferences": {
     "workArrangement": "Open to on-site, hybrid, or remote",
     "workAuthorization": "US citizen; no sponsorship required"
@@ -356,6 +356,9 @@
             },
             {
               "name": "Elasticsearch"
+            },
+            {
+              "name": "Manual data entry"
             }
           ]
         },
@@ -392,6 +395,9 @@
             },
             {
               "name": "LLM evaluation"
+            },
+            {
+              "name": "Enterprise architecture"
             }
           ]
         },
@@ -433,6 +439,9 @@
             },
             {
               "name": "Payment scheduling and processing"
+            },
+            {
+              "name": "BizTalk migration"
             }
           ]
         },
@@ -556,6 +565,12 @@
             },
             {
               "name": "Time management in changing priorities"
+            },
+            {
+              "name": "Working without source control"
+            },
+            {
+              "name": "Manual process documentation"
             }
           ]
         }
@@ -598,7 +613,9 @@
             "Written communication",
             "Time management in changing priorities",
             "Estimation and proofs of concept",
-            "Agile"
+            "Agile",
+            "Enterprise architecture",
+            "Manual process documentation"
           ]
         },
         {
@@ -622,7 +639,10 @@
             "SQL Jobs → Linux (crontab)",
             "Terraform",
             "Production software engineering",
-            "Vendor partnership"
+            "Vendor partnership",
+            "Enterprise architecture",
+            "Working without source control",
+            "Manual process documentation"
           ]
         },
         {
@@ -635,6 +655,10 @@
           "highlights": [
             "Cut build times in existing pipelines by 80%+, tightening developer feedback loops.",
             "Set up CI/CD in GitHub Actions and supported on-prem-to-AWS migrations using Lambda and SNS."
+          ],
+          "technologies": [
+            "Enterprise architecture",
+            "Manual process documentation"
           ]
         },
         {
@@ -650,6 +674,10 @@
             "Migrated WPF desktop apps to Blazor web apps and improved the performance of legacy software.",
             "Reengineered CI/CD to increase developer throughput and added test-coverage requirements.",
             "Improved business-critical daily batch programs and built a department wiki to centralize documentation."
+          ],
+          "technologies": [
+            "Enterprise architecture",
+            "Manual process documentation"
           ]
         },
         {
@@ -659,6 +687,9 @@
           "startDate": "2022-03",
           "endDate": "2022-06",
           "summary": "Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap, and upgraded the company's internal .NET applications.",
+          "technologies": [
+            "Enterprise architecture"
+          ],
           "highlights": []
         },
         {
@@ -672,6 +703,10 @@
             "Seeded new stores with millions of tax records in batches, with a check after each batch that every item was accounted for.",
             "Led the move of widely used shared libraries from a file share to GitHub, with CI/CD, artifact storage, and automated tests.",
             "Cut CI/CD build times by 50%+."
+          ],
+          "technologies": [
+            "Enterprise architecture",
+            "Manual process documentation"
           ]
         },
         {
@@ -681,6 +716,9 @@
           "startDate": "2019-04",
           "endDate": "2019-10",
           "summary": "Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core), set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.",
+          "technologies": [
+            "Enterprise architecture"
+          ],
           "highlights": []
         },
         {
@@ -690,6 +728,10 @@
           "startDate": "2017-12",
           "endDate": "2019-04",
           "summary": "Integrated a new third-party ERP with existing WMS and POS systems, building pub/sub message pathways and failover on IBM MQ, with a Razor Pages, jQuery, and Bootstrap frontend on .NET Framework APIs.",
+          "technologies": [
+            "BizTalk migration",
+            "Manual process documentation"
+          ],
           "highlights": []
         },
         {
@@ -728,6 +770,9 @@
                 "Loaded and unloaded trucks, then processed international shipments for air and freight; trained in hazardous-materials handling and classification."
               ]
             }
+          ],
+          "technologies": [
+            "Manual data entry"
           ],
           "highlights": []
         }
@@ -895,6 +940,9 @@
         "MongoDB": [],
         "Redis": [],
         "Elasticsearch": [],
+        "Manual data entry": [
+          "UPS"
+        ],
         "Gradle": [],
         "Maven": [],
         "Yarn": [],
@@ -908,6 +956,15 @@
         "LLM evaluation": [
           "Source Allies"
         ],
+        "Enterprise architecture": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc."
+        ],
         "JetBrains IDEs": [],
         "Visual Studio / VS Code": [],
         "SSMS / SSIS": [],
@@ -920,6 +977,9 @@
           "Source Allies"
         ],
         "Payment scheduling and processing": [],
+        "BizTalk migration": [
+          "Brownells, Inc."
+        ],
         "AWS": [
           "Source Allies",
           "Patient Preferred Financial Services",
@@ -979,6 +1039,17 @@
         ],
         "Time management in changing priorities": [
           "Source Allies"
+        ],
+        "Working without source control": [
+          "Patient Preferred Financial Services"
+        ],
+        "Manual process documentation": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Hy-Vee, Inc.",
+          "Brownells, Inc."
         ]
       },
       "downloads": {
@@ -987,23 +1058,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 89561
+            "bytes": 100007
           },
           {
             "ext": "docx",
-            "bytes": 14736
+            "bytes": 14869
           },
           {
             "ext": "md",
-            "bytes": 8560
+            "bytes": 9236
           },
           {
             "ext": "json",
-            "bytes": 12123
+            "bytes": 12835
           },
           {
             "ext": "toml",
-            "bytes": 9972
+            "bytes": 10644
           }
         ]
       }
@@ -1214,6 +1285,9 @@
             },
             {
               "name": "Payment scheduling and processing"
+            },
+            {
+              "name": "BizTalk migration"
             }
           ]
         },
@@ -1295,6 +1369,12 @@
             },
             {
               "name": "Time management in changing priorities"
+            },
+            {
+              "name": "Working without source control"
+            },
+            {
+              "name": "Manual process documentation"
             }
           ]
         }
@@ -1337,7 +1417,9 @@
             "Written communication",
             "Time management in changing priorities",
             "Estimation and proofs of concept",
-            "Agile"
+            "Agile",
+            "Enterprise architecture",
+            "Manual process documentation"
           ]
         },
         {
@@ -1361,7 +1443,10 @@
             "SQL Jobs → Linux (crontab)",
             "Terraform",
             "Production software engineering",
-            "Vendor partnership"
+            "Vendor partnership",
+            "Enterprise architecture",
+            "Working without source control",
+            "Manual process documentation"
           ]
         },
         {
@@ -1374,6 +1459,10 @@
           "highlights": [
             "Cut build times in existing pipelines by 80%+, tightening developer feedback loops.",
             "Set up CI/CD in GitHub Actions and supported on-prem-to-AWS migrations using Lambda and SNS."
+          ],
+          "technologies": [
+            "Enterprise architecture",
+            "Manual process documentation"
           ]
         },
         {
@@ -1389,6 +1478,10 @@
             "Migrated WPF desktop apps to Blazor web apps and improved the performance of legacy software.",
             "Reengineered CI/CD to increase developer throughput and added test-coverage requirements.",
             "Improved business-critical daily batch programs and built a department wiki to centralize documentation."
+          ],
+          "technologies": [
+            "Enterprise architecture",
+            "Manual process documentation"
           ]
         },
         {
@@ -1398,6 +1491,9 @@
           "startDate": "2022-03",
           "endDate": "2022-06",
           "summary": "Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap, and upgraded the company's internal .NET applications.",
+          "technologies": [
+            "Enterprise architecture"
+          ],
           "highlights": []
         },
         {
@@ -1411,6 +1507,10 @@
             "Helped build a Tax API on a task force, managing product tax values for 450+ grocery and convenience stores and publishing updates to every store over pub/sub.",
             "Seeded new stores with millions of tax records in batches, with a check after each batch that every item was accounted for.",
             "Cut CI/CD build times by 50%+."
+          ],
+          "technologies": [
+            "Enterprise architecture",
+            "Manual process documentation"
           ]
         },
         {
@@ -1420,6 +1520,9 @@
           "startDate": "2019-04",
           "endDate": "2019-10",
           "summary": "Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core), set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.",
+          "technologies": [
+            "Enterprise architecture"
+          ],
           "highlights": []
         },
         {
@@ -1429,6 +1532,10 @@
           "startDate": "2017-12",
           "endDate": "2019-04",
           "summary": "Integrated a new third-party ERP with existing WMS and POS systems, building pub/sub message pathways and failover on IBM MQ, with a Razor Pages, jQuery, and Bootstrap frontend on .NET Framework APIs.",
+          "technologies": [
+            "BizTalk migration",
+            "Manual process documentation"
+          ],
           "highlights": []
         },
         {
@@ -1467,6 +1574,9 @@
                 "Loaded and unloaded trucks, then processed international shipments for air and freight; trained in hazardous-materials handling and classification."
               ]
             }
+          ],
+          "technologies": [
+            "Manual data entry"
           ],
           "highlights": []
         }
@@ -1607,6 +1717,9 @@
           "Source Allies"
         ],
         "Payment scheduling and processing": [],
+        "BizTalk migration": [
+          "Brownells, Inc."
+        ],
         "AWS": [
           "Source Allies",
           "Patient Preferred Financial Services",
@@ -1649,6 +1762,17 @@
         ],
         "Time management in changing priorities": [
           "Source Allies"
+        ],
+        "Working without source control": [
+          "Patient Preferred Financial Services"
+        ],
+        "Manual process documentation": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Hy-Vee, Inc.",
+          "Brownells, Inc."
         ]
       },
       "downloads": {
@@ -1657,23 +1781,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 87213
+            "bytes": 97339
           },
           {
             "ext": "docx",
-            "bytes": 14466
+            "bytes": 14597
           },
           {
             "ext": "md",
-            "bytes": 8257
+            "bytes": 8889
           },
           {
             "ext": "json",
-            "bytes": 11338
+            "bytes": 11986
           },
           {
             "ext": "toml",
-            "bytes": 9535
+            "bytes": 10159
           }
         ]
       }
@@ -1983,6 +2107,9 @@
             },
             {
               "name": "Elasticsearch"
+            },
+            {
+              "name": "Manual data entry"
             }
           ]
         },
@@ -2019,6 +2146,9 @@
             },
             {
               "name": "LLM evaluation"
+            },
+            {
+              "name": "Enterprise architecture"
             }
           ]
         },
@@ -2060,6 +2190,9 @@
             },
             {
               "name": "Payment scheduling and processing"
+            },
+            {
+              "name": "BizTalk migration"
             }
           ]
         },
@@ -2183,6 +2316,12 @@
             },
             {
               "name": "Time management in changing priorities"
+            },
+            {
+              "name": "Working without source control"
+            },
+            {
+              "name": "Manual process documentation"
             }
           ]
         }
@@ -2225,7 +2364,9 @@
             "Written communication",
             "Time management in changing priorities",
             "Estimation and proofs of concept",
-            "Agile"
+            "Agile",
+            "Enterprise architecture",
+            "Manual process documentation"
           ]
         },
         {
@@ -2249,7 +2390,10 @@
             "SQL Jobs → Linux (crontab)",
             "Terraform",
             "Production software engineering",
-            "Vendor partnership"
+            "Vendor partnership",
+            "Enterprise architecture",
+            "Working without source control",
+            "Manual process documentation"
           ]
         },
         {
@@ -2262,6 +2406,10 @@
           "highlights": [
             "Set up CI/CD in GitHub Actions and supported on-prem-to-AWS migrations using Lambda and SNS.",
             "Cut build times in existing pipelines by 80%+, tightening developer feedback loops."
+          ],
+          "technologies": [
+            "Enterprise architecture",
+            "Manual process documentation"
           ]
         },
         {
@@ -2277,6 +2425,10 @@
             "Led the team that owned the company's main revenue-generating product, training and supporting every engineer on it.",
             "Mentored 7 junior and mid-level engineers and paired with each intern for their entire internship.",
             "Improved business-critical daily batch programs and built a department wiki to centralize documentation."
+          ],
+          "technologies": [
+            "Enterprise architecture",
+            "Manual process documentation"
           ]
         },
         {
@@ -2286,6 +2438,9 @@
           "startDate": "2022-03",
           "endDate": "2022-06",
           "summary": "Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap, and upgraded the company's internal .NET applications.",
+          "technologies": [
+            "Enterprise architecture"
+          ],
           "highlights": []
         },
         {
@@ -2299,6 +2454,10 @@
             "Seeded new stores with millions of tax records in batches, with a check after each batch that every item was accounted for.",
             "Led the move of widely used shared libraries from a file share to GitHub, with CI/CD, artifact storage, and automated tests.",
             "Cut CI/CD build times by 50%+."
+          ],
+          "technologies": [
+            "Enterprise architecture",
+            "Manual process documentation"
           ]
         },
         {
@@ -2308,6 +2467,9 @@
           "startDate": "2019-04",
           "endDate": "2019-10",
           "summary": "Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core), set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.",
+          "technologies": [
+            "Enterprise architecture"
+          ],
           "highlights": []
         },
         {
@@ -2317,6 +2479,10 @@
           "startDate": "2017-12",
           "endDate": "2019-04",
           "summary": "Integrated a new third-party ERP with existing WMS and POS systems, building pub/sub message pathways and failover on IBM MQ, with a Razor Pages, jQuery, and Bootstrap frontend on .NET Framework APIs.",
+          "technologies": [
+            "BizTalk migration",
+            "Manual process documentation"
+          ],
           "highlights": []
         }
       ],
@@ -2483,6 +2649,7 @@
         "MongoDB": [],
         "Redis": [],
         "Elasticsearch": [],
+        "Manual data entry": [],
         "Gradle": [],
         "Maven": [],
         "Yarn": [],
@@ -2496,6 +2663,15 @@
         "LLM evaluation": [
           "Source Allies"
         ],
+        "Enterprise architecture": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc."
+        ],
         "JetBrains IDEs": [],
         "Visual Studio / VS Code": [],
         "SSMS / SSIS": [],
@@ -2508,6 +2684,9 @@
           "Source Allies"
         ],
         "Payment scheduling and processing": [],
+        "BizTalk migration": [
+          "Brownells, Inc."
+        ],
         "AWS": [
           "Source Allies",
           "Patient Preferred Financial Services",
@@ -2567,6 +2746,17 @@
         ],
         "Time management in changing priorities": [
           "Source Allies"
+        ],
+        "Working without source control": [
+          "Patient Preferred Financial Services"
+        ],
+        "Manual process documentation": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Hy-Vee, Inc.",
+          "Brownells, Inc."
         ]
       },
       "downloads": {
@@ -2575,23 +2765,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 76067
+            "bytes": 85548
           },
           {
             "ext": "docx",
-            "bytes": 14336
+            "bytes": 14464
           },
           {
             "ext": "md",
-            "bytes": 7710
+            "bytes": 8349
           },
           {
             "ext": "json",
-            "bytes": 11214
+            "bytes": 11891
           },
           {
             "ext": "toml",
-            "bytes": 9151
+            "bytes": 9788
           }
         ]
       }

@@ -5,23 +5,23 @@
     "formats": [
       {
         "ext": "pdf",
-        "bytes": 89561
+        "bytes": 100007
       },
       {
         "ext": "docx",
-        "bytes": 14736
+        "bytes": 14869
       },
       {
         "ext": "md",
-        "bytes": 8560
+        "bytes": 9236
       },
       {
         "ext": "json",
-        "bytes": 12123
+        "bytes": 12835
       },
       {
         "ext": "toml",
-        "bytes": 9972
+        "bytes": 10644
       }
     ]
   },
@@ -31,23 +31,23 @@
     "formats": [
       {
         "ext": "pdf",
-        "bytes": 87213
+        "bytes": 97339
       },
       {
         "ext": "docx",
-        "bytes": 14466
+        "bytes": 14597
       },
       {
         "ext": "md",
-        "bytes": 8257
+        "bytes": 8889
       },
       {
         "ext": "json",
-        "bytes": 11338
+        "bytes": 11986
       },
       {
         "ext": "toml",
-        "bytes": 9535
+        "bytes": 10159
       }
     ]
   },
@@ -57,23 +57,23 @@
     "formats": [
       {
         "ext": "pdf",
-        "bytes": 76067
+        "bytes": 85548
       },
       {
         "ext": "docx",
-        "bytes": 14336
+        "bytes": 14464
       },
       {
         "ext": "md",
-        "bytes": 7710
+        "bytes": 8349
       },
       {
         "ext": "json",
-        "bytes": 11214
+        "bytes": 11891
       },
       {
         "ext": "toml",
-        "bytes": 9151
+        "bytes": 9788
       }
     ]
   }

@@ -14,13 +14,13 @@ Full-stack engineer with 8+ years designing, modernizing, and shipping scalable 
 - **DevOps / CI/CD:** Git\*, GitHub\*, GitHub Actions\*, Azure DevOps\*, Concourse CI\*, Terraform\*, Ansible, Linux (cron)
 - **ORM:** Entity Framework Core\*, Spring Data JPA, Dapper, Exposed
 - **Containerization:** Docker\*, Kubernetes, NuGet\*, npm
-- **Data:** SQL Server, PostgreSQL, MySQL, SQLite, MongoDB, Redis, Elasticsearch
-- **Build & Testing:** Gradle, Maven, Yarn, Webpack, Cypress, Selenium, Gherkin, Production software engineering, LLM evaluation
-- **Tooling:** JetBrains IDEs, Visual Studio / VS Code, SSMS / SSIS, dbt, Eclipse, Postman, Figma, Payment scheduling and processing
+- **Data:** SQL Server, PostgreSQL, MySQL, SQLite, MongoDB, Redis, Elasticsearch, Manual data entry
+- **Build & Testing:** Gradle, Maven, Yarn, Webpack, Cypress, Selenium, Gherkin, Production software engineering, LLM evaluation, Enterprise architecture
+- **Tooling:** JetBrains IDEs, Visual Studio / VS Code, SSMS / SSIS, dbt, Eclipse, Postman, Figma, Payment scheduling and processing, BizTalk migration
 - **Cloud:** AWS\*, Azure\*, Google Cloud, EC2, S3, RDS, CloudFront, Lambda, OpenNext
 - **Identity:** PingOne, Active Directory / LDAP
 - **Project Management:** Scrum\*, Kanban, Agile, Jira\*, GitHub Projects, Estimation and proofs of concept, Vendor partnership
-- **Leadership:** Hiring & interviewing, Mentoring & coaching, Technical delivery leadership, Vendor management, Technology strategy & budgeting, Written communication, Time management in changing priorities
+- **Leadership:** Hiring & interviewing, Mentoring & coaching, Technical delivery leadership, Vendor management, Technology strategy & budgeting, Written communication, Time management in changing priorities, Working without source control, Manual process documentation
 
 ## Experience
 
@@ -38,7 +38,7 @@ Consultant across 4+ client engagements in financial services, insurance, identi
 - Mentor and teach the company's apprentices.
 - Helped design a digital-identity company's webinar platform in Figma.
 
-**Technologies:** Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma, LLM evaluation, Written communication, Time management in changing priorities, Estimation and proofs of concept, Agile
+**Technologies:** Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma, LLM evaluation, Written communication, Time management in changing priorities, Estimation and proofs of concept, Agile, Enterprise architecture, Manual process documentation
 
 ### Fractional CTO — Patient Preferred Financial Services
 
@@ -50,7 +50,7 @@ Took over a clinic payment and patient-management platform from a larger develop
 - Modernized the platform from an AngularJS frontend, .NET Framework API, and SQL Server with SQL Jobs on Windows Server 2012 EC2 instances to SSR Next.js on AWS via OpenNext, modern .NET Minimal APIs on AWS Lambda, PostgreSQL on AWS RDS, and crontab on a nano Linux instance.
 - Built resiliency and fallback plans into critical third-party integrations, including ACH payments.
 
-**Technologies:** .NET Framework 4.5 → .NET 10, AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform, Production software engineering, Vendor partnership
+**Technologies:** .NET Framework 4.5 → .NET 10, AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform, Production software engineering, Vendor partnership, Enterprise architecture, Working without source control, Manual process documentation
 
 **Note:** Currently part-time, supporting new feature requests and regular software updates.
 
@@ -62,6 +62,8 @@ Modernized legacy .NET applications and the pipelines that ship them.
 
 - Set up CI/CD in GitHub Actions and supported on-prem-to-AWS migrations using Lambda and SNS.
 - Cut build times in existing pipelines by 80%+, tightening developer feedback loops.
+
+**Technologies:** Enterprise architecture, Manual process documentation
 
 ### Software Engineer 3 — Wellabe, Inc.
 
@@ -75,11 +77,15 @@ Led small teams modernizing the company's software and unifying its tech stack.
 - Mentored 7 junior and mid-level engineers and paired with each intern for their entire internship.
 - Improved business-critical daily batch programs and built a department wiki to centralize documentation.
 
+**Technologies:** Enterprise architecture, Manual process documentation
+
 ### Contract Senior Software Developer — Far Reach Inc.
 
 _March 2022 – June 2022 · Contract via Modis_
 
 Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap, and upgraded the company's internal .NET applications.
+
+**Technologies:** Enterprise architecture
 
 ### Software Engineer — Hy-Vee, Inc.
 
@@ -92,17 +98,23 @@ Worked across legacy .NET and WinForms applications and greenfield React, Kotlin
 - Led the move of widely used shared libraries from a file share to GitHub, with CI/CD, artifact storage, and automated tests.
 - Cut CI/CD build times by 50%+.
 
+**Technologies:** Enterprise architecture, Manual process documentation
+
 ### Software Developer — Stine Seed, Inc.
 
 _April 2019 – October 2019 · Dallas Center, IA_
 
 Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core), set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.
 
+**Technologies:** Enterprise architecture
+
 ### Associate .NET Developer — Brownells, Inc.
 
 _December 2017 – April 2019 · Grinnell, IA_
 
 Integrated a new third-party ERP with existing WMS and POS systems, building pub/sub message pathways and failover on IBM MQ, with a Razor Pages, jQuery, and Bootstrap frontend on .NET Framework APIs.
+
+**Technologies:** BizTalk migration, Manual process documentation
 
 ## Education & Certifications
 

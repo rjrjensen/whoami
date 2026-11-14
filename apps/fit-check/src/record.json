@@ -404,6 +404,14 @@
       "usedAt": []
     },
     {
+      "name": "Manual data entry",
+      "group": "Data",
+      "proficient": false,
+      "usedAt": [
+        "UPS"
+      ]
+    },
+    {
       "name": "Gradle",
       "group": "Build & Testing",
       "proficient": false,
@@ -462,6 +470,20 @@
       ]
     },
     {
+      "name": "Enterprise architecture",
+      "group": "Build & Testing",
+      "proficient": false,
+      "usedAt": [
+        "Source Allies",
+        "Patient Preferred Financial Services",
+        "Principal Financial Group",
+        "Wellabe, Inc.",
+        "Far Reach Inc.",
+        "Hy-Vee, Inc.",
+        "Stine Seed, Inc."
+      ]
+    },
+    {
       "name": "JetBrains IDEs",
       "group": "Tooling",
       "proficient": false,
@@ -512,6 +534,14 @@
       "group": "Tooling",
       "proficient": false,
       "usedAt": []
+    },
+    {
+      "name": "BizTalk migration",
+      "group": "Tooling",
+      "proficient": false,
+      "usedAt": [
+        "Brownells, Inc."
+      ]
     },
     {
       "name": "AWS",
@@ -697,6 +727,27 @@
       "usedAt": [
         "Source Allies"
       ]
+    },
+    {
+      "name": "Working without source control",
+      "group": "Leadership",
+      "proficient": false,
+      "usedAt": [
+        "Patient Preferred Financial Services"
+      ]
+    },
+    {
+      "name": "Manual process documentation",
+      "group": "Leadership",
+      "proficient": false,
+      "usedAt": [
+        "Source Allies",
+        "Patient Preferred Financial Services",
+        "Principal Financial Group",
+        "Wellabe, Inc.",
+        "Hy-Vee, Inc.",
+        "Brownells, Inc."
+      ]
     }
   ],
   "evidence": [
@@ -735,7 +786,9 @@
         "Written communication",
         "Time management in changing priorities",
         "Estimation and proofs of concept",
-        "Agile"
+        "Agile",
+        "Enterprise architecture",
+        "Manual process documentation"
       ]
     },
     {
@@ -752,7 +805,10 @@
         "SQL Jobs → Linux (crontab)",
         "Terraform",
         "Production software engineering",
-        "Vendor partnership"
+        "Vendor partnership",
+        "Enterprise architecture",
+        "Working without source control",
+        "Manual process documentation"
       ]
     },
     {
@@ -761,7 +817,10 @@
       "title": "Contract Senior Software Engineer, Principal Financial Group",
       "dates": "June 2024 – December 2024",
       "detail": "Modernized legacy .NET applications and the pipelines that ship them. Cut build times in existing pipelines by 80%+, tightening developer feedback loops. Set up CI/CD in GitHub Actions and supported on-prem-to-AWS migrations using Lambda and SNS.",
-      "technologies": []
+      "technologies": [
+        "Enterprise architecture",
+        "Manual process documentation"
+      ]
     },
     {
       "id": "job-wellabe-inc",
@@ -769,7 +828,10 @@
       "title": "Software Engineer 3, Wellabe, Inc.",
       "dates": "July 2022 – June 2024",
       "detail": "Led small teams modernizing the company's software and unifying its tech stack. Led the team that owned the company's main revenue-generating product, training and supporting every engineer on it. Mentored 7 junior and mid-level engineers and paired with each intern for their entire internship. Migrated WPF desktop apps to Blazor web apps and improved the performance of legacy software. Reengineered CI/CD to increase developer throughput and added test-coverage requirements. Improved business-critical daily batch programs and built a department wiki to centralize documentation.",
-      "technologies": []
+      "technologies": [
+        "Enterprise architecture",
+        "Manual process documentation"
+      ]
     },
     {
       "id": "job-far-reach-inc",
@@ -777,7 +839,9 @@
       "title": "Contract Senior Software Developer, Far Reach Inc.",
       "dates": "March 2022 – June 2022",
       "detail": "Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap, and upgraded the company's internal .NET applications.",
-      "technologies": []
+      "technologies": [
+        "Enterprise architecture"
+      ]
     },
     {
       "id": "job-hy-vee-inc",
@@ -785,7 +849,10 @@
       "title": "Software Engineer, Hy-Vee, Inc.",
       "dates": "October 2019 – March 2022",
       "detail": "Worked across legacy .NET and WinForms applications and greenfield React, Kotlin, Spring Boot, Ktor, and GraphQL services, federated with Apollo on Google Cloud. Helped build a Tax API on a task force, managing product tax values for 450+ grocery and convenience stores and publishing updates to every store over pub/sub. Seeded new stores with millions of tax records in batches, with a check after each batch that every item was accounted for. Led the move of widely used shared libraries from a file share to GitHub, with CI/CD, artifact storage, and automated tests. Cut CI/CD build times by 50%+.",
-      "technologies": []
+      "technologies": [
+        "Enterprise architecture",
+        "Manual process documentation"
+      ]
     },
     {
       "id": "job-stine-seed-inc",
@@ -793,7 +860,9 @@
       "title": "Software Developer, Stine Seed, Inc.",
       "dates": "April 2019 – October 2019",
       "detail": "Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core), set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.",
-      "technologies": []
+      "technologies": [
+        "Enterprise architecture"
+      ]
     },
     {
       "id": "job-brownells-inc",
@@ -801,7 +870,10 @@
       "title": "Associate .NET Developer, Brownells, Inc.",
       "dates": "December 2017 – April 2019",
       "detail": "Integrated a new third-party ERP with existing WMS and POS systems, building pub/sub message pathways and failover on IBM MQ, with a Razor Pages, jQuery, and Bootstrap frontend on .NET Framework APIs.",
-      "technologies": []
+      "technologies": [
+        "BizTalk migration",
+        "Manual process documentation"
+      ]
     },
     {
       "id": "job-ups",
@@ -809,7 +881,9 @@
       "title": "Package Handler → Local Sort Supervisor → Package Center Supervisor, UPS",
       "dates": "March 2013 – December 2017",
       "detail": "Promoted twice in two years. Supervised 30+ drivers and 40+ inside employees on safety, production, and attendance, and personally trained more than half of them. Package Center Supervisor (March 2015 – December 2017): Ran daytime delivery operations for every driver: kept routes on track, handled emergencies, and tracked fuel use, time-card accuracy, and the delivery-area map. Local Sort Supervisor (March 2014 – March 2015): Ran the evening sort of 30+ package cars into five outbound trailers, and handled training, certifications, terminations, and personnel management. Package Handler (March 2013 – March 2014): Loaded and unloaded trucks, then processed international shipments for air and freight; trained in hazardous-materials handling and classification.",
-      "technologies": []
+      "technologies": [
+        "Manual data entry"
+      ]
     },
     {
       "id": "edu-b-s-computer-science",
