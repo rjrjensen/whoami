@@ -109,6 +109,7 @@ skills:
       - { name: MongoDB }
       - { name: Redis }
       - { name: Elasticsearch }
+      - { name: Manual data entry }
   - name: Build & Testing
     variants: [base, lead]
     keywords:
@@ -121,6 +122,7 @@ skills:
       - { name: Gherkin }
       - { name: Production software engineering }
       - { name: LLM evaluation }
+      - { name: Enterprise architecture }
   - name: Tooling
     keywords:
       - { name: JetBrains IDEs }
@@ -131,6 +133,7 @@ skills:
       - { name: Postman, variants: [base, lead] }
       - { name: Figma, variants: [base, lead] }
       - { name: Payment scheduling and processing }
+      - { name: BizTalk migration }
   - name: Cloud
     keywords:
       - { name: AWS, proficient: true }
@@ -164,6 +167,8 @@ skills:
       - { name: Technology strategy & budgeting }
       - { name: Written communication }
       - { name: Time management in changing priorities }
+      - { name: Working without source control }
+      - { name: Manual process documentation }
 
 work:
   - name: Source Allies
@@ -191,7 +196,7 @@ work:
         tags: [design]
       - text: Mentor and teach the company's apprentices.
         tags: [leadership, mentoring]
-    technologies: [Vue.js, React, Java, Spring Boot, GraphQL, "C#", TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma, LLM evaluation, Written communication, Time management in changing priorities, Estimation and proofs of concept, Agile]
+    technologies: [Vue.js, React, Java, Spring Boot, GraphQL, "C#", TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma, LLM evaluation, Written communication, Time management in changing priorities, Estimation and proofs of concept, Agile, Enterprise architecture, Manual process documentation]
 
   - name: Patient Preferred Financial Services
     url: https://patientpreferredservices.com
@@ -211,7 +216,7 @@ work:
         tags: [architecture]
       - text: Built resiliency and fallback plans into critical third-party integrations, including ACH payments.
         tags: [architecture, vendors]
-    technologies: [".NET Framework 4.5 → .NET 10", AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform, Production software engineering, Vendor partnership]
+    technologies: [".NET Framework 4.5 → .NET 10", AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform, Production software engineering, Vendor partnership, Enterprise architecture, Working without source control, Manual process documentation]
 
   - name: Principal Financial Group
     position: Contract Senior Software Engineer
@@ -224,6 +229,7 @@ work:
         tags: [delivery]
       - text: Set up CI/CD in GitHub Actions and supported on-prem-to-AWS migrations using Lambda and SNS.
         tags: [architecture]
+    technologies: [Enterprise architecture, Manual process documentation]
 
   - name: Wellabe, Inc.
     position: Software Engineer 3
@@ -241,6 +247,7 @@ work:
       - text: Reengineered CI/CD to increase developer throughput and added test-coverage requirements.
         tags: [delivery]
       - text: Improved business-critical daily batch programs and built a department wiki to centralize documentation.
+    technologies: [Enterprise architecture, Manual process documentation]
 
   - name: Far Reach Inc.
     position: Contract Senior Software Developer
@@ -250,6 +257,7 @@ work:
     summary: >-
       Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using
       ASP.NET Boilerplate, PrimeNG, and Bootstrap, and upgraded the company's internal .NET applications.
+    technologies: [Enterprise architecture]
 
   - name: Hy-Vee, Inc.
     position: Software Engineer
@@ -269,6 +277,7 @@ work:
         tags: [delivery, leadership]
       - text: Cut CI/CD build times by 50%+.
         tags: [delivery]
+    technologies: [Enterprise architecture, Manual process documentation]
 
   - name: Stine Seed, Inc.
     position: Software Developer
@@ -278,6 +287,7 @@ work:
     summary: >-
       Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core),
       set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.
+    technologies: [Enterprise architecture]
 
   - name: Brownells, Inc.
     position: Associate .NET Developer
@@ -287,6 +297,7 @@ work:
     summary: >-
       Integrated a new third-party ERP with existing WMS and POS systems, building pub/sub message pathways and
       failover on IBM MQ, with a Razor Pages, jQuery, and Bootstrap frontend on .NET Framework APIs.
+    technologies: [BizTalk migration, Manual process documentation]
 
   - name: UPS
     position: Package Handler → Local Sort Supervisor → Package Center Supervisor
@@ -319,6 +330,7 @@ work:
           - >-
             Loaded and unloaded trucks, then processed international shipments for air and freight; trained in
             hazardous-materials handling and classification.
+    technologies: [Manual data entry]
 
 education:
   - institution: Trident University International
