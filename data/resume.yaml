@@ -77,6 +77,7 @@ skills:
       - { name: RxJS, variants: [base, lead] }
       - { name: HTMX, variants: [base, lead] }
       - { name: Material UI, variants: [base, lead] }
+      - { name: DevExpress }
   - name: DevOps / CI/CD
     keywords:
       - { name: Git, proficient: true }
@@ -110,6 +111,7 @@ skills:
       - { name: Redis }
       - { name: Elasticsearch }
       - { name: Manual data entry }
+      - { name: Data modeling }
   - name: Build & Testing
     variants: [base, lead]
     keywords:
@@ -123,6 +125,8 @@ skills:
       - { name: Production software engineering }
       - { name: LLM evaluation }
       - { name: Enterprise architecture }
+      - { name: Integration patterns }
+      - { name: Secure programming }
   - name: Tooling
     keywords:
       - { name: JetBrains IDEs }
@@ -134,6 +138,8 @@ skills:
       - { name: Figma, variants: [base, lead] }
       - { name: Payment scheduling and processing }
       - { name: BizTalk migration }
+      - { name: MS Office / VS Code }
+      - { name: SQL Server Data Tools }
   - name: Cloud
     keywords:
       - { name: AWS, proficient: true }
@@ -158,6 +164,8 @@ skills:
       - { name: GitHub Projects }
       - { name: Estimation and proofs of concept }
       - { name: Vendor partnership }
+      - { name: Technical delivery }
+      - { name: Platform strategy }
   - name: Leadership
     keywords:
       - { name: Hiring & interviewing }
@@ -169,6 +177,10 @@ skills:
       - { name: Time management in changing priorities }
       - { name: Working without source control }
       - { name: Manual process documentation }
+      - { name: Communication }
+      - { name: 12+ years software engineering }
+      - { name: Prioritization under change }
+      - { name: Stakeholder management }
 
 work:
   - name: Source Allies
@@ -196,7 +208,7 @@ work:
         tags: [design]
       - text: Mentor and teach the company's apprentices.
         tags: [leadership, mentoring]
-    technologies: [Vue.js, React, Java, Spring Boot, GraphQL, "C#", TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma, LLM evaluation, Written communication, Time management in changing priorities, Estimation and proofs of concept, Agile, Enterprise architecture, Manual process documentation]
+    technologies: [Vue.js, React, Java, Spring Boot, GraphQL, "C#", TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma, LLM evaluation, Written communication, Time management in changing priorities, Estimation and proofs of concept, Agile, Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management]
 
   - name: Patient Preferred Financial Services
     url: https://patientpreferredservices.com
@@ -216,7 +228,7 @@ work:
         tags: [architecture]
       - text: Built resiliency and fallback plans into critical third-party integrations, including ACH payments.
         tags: [architecture, vendors]
-    technologies: [".NET Framework 4.5 → .NET 10", AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform, Production software engineering, Vendor partnership, Enterprise architecture, Working without source control, Manual process documentation]
+    technologies: [".NET Framework 4.5 → .NET 10", AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform, Production software engineering, Vendor partnership, Enterprise architecture, Working without source control, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management]
 
   - name: Principal Financial Group
     position: Contract Senior Software Engineer
@@ -229,7 +241,7 @@ work:
         tags: [delivery]
       - text: Set up CI/CD in GitHub Actions and supported on-prem-to-AWS migrations using Lambda and SNS.
         tags: [architecture]
-    technologies: [Enterprise architecture, Manual process documentation]
+    technologies: [Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, MS Office / VS Code]
 
   - name: Wellabe, Inc.
     position: Software Engineer 3
@@ -247,7 +259,7 @@ work:
       - text: Reengineered CI/CD to increase developer throughput and added test-coverage requirements.
         tags: [delivery]
       - text: Improved business-critical daily batch programs and built a department wiki to centralize documentation.
-    technologies: [Enterprise architecture, Manual process documentation]
+    technologies: [Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Stakeholder management]
 
   - name: Far Reach Inc.
     position: Contract Senior Software Developer
@@ -257,7 +269,7 @@ work:
     summary: >-
       Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using
       ASP.NET Boilerplate, PrimeNG, and Bootstrap, and upgraded the company's internal .NET applications.
-    technologies: [Enterprise architecture]
+    technologies: [Enterprise architecture, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code]
 
   - name: Hy-Vee, Inc.
     position: Software Engineer
@@ -277,7 +289,7 @@ work:
         tags: [delivery, leadership]
       - text: Cut CI/CD build times by 50%+.
         tags: [delivery]
-    technologies: [Enterprise architecture, Manual process documentation]
+    technologies: [Enterprise architecture, Manual process documentation, Technical delivery, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management]
 
   - name: Stine Seed, Inc.
     position: Software Developer
@@ -287,7 +299,7 @@ work:
     summary: >-
       Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core),
       set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.
-    technologies: [Enterprise architecture]
+    technologies: [Enterprise architecture, Technical delivery, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change]
 
   - name: Brownells, Inc.
     position: Associate .NET Developer
@@ -297,7 +309,7 @@ work:
     summary: >-
       Integrated a new third-party ERP with existing WMS and POS systems, building pub/sub message pathways and
       failover on IBM MQ, with a Razor Pages, jQuery, and Bootstrap frontend on .NET Framework APIs.
-    technologies: [BizTalk migration, Manual process documentation]
+    technologies: [BizTalk migration, Manual process documentation, Git, Integration patterns, Communication, MS Office / VS Code]
 
   - name: UPS
     position: Package Handler → Local Sort Supervisor → Package Center Supervisor
@@ -330,7 +342,7 @@ work:
           - >-
             Loaded and unloaded trucks, then processed international shipments for air and freight; trained in
             hazardous-materials handling and classification.
-    technologies: [Manual data entry]
+    technologies: [Manual data entry, Git, Communication, MS Office / VS Code]
 
 education:
   - institution: Trident University International
