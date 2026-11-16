@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25",
+  "generatedAt": "2026-11-16",
   "preferences": {
     "workArrangement": "Open to on-site, hybrid, or remote",
     "workAuthorization": "US citizen; no sponsorship required"
@@ -246,6 +246,9 @@
                 "base",
                 "lead"
               ]
+            },
+            {
+              "name": "DevExpress"
             }
           ]
         },
@@ -356,6 +359,12 @@
             },
             {
               "name": "Elasticsearch"
+            },
+            {
+              "name": "Manual data entry"
+            },
+            {
+              "name": "Data modeling"
             }
           ]
         },
@@ -392,6 +401,15 @@
             },
             {
               "name": "LLM evaluation"
+            },
+            {
+              "name": "Enterprise architecture"
+            },
+            {
+              "name": "Integration patterns"
+            },
+            {
+              "name": "Secure programming"
             }
           ]
         },
@@ -433,6 +451,15 @@
             },
             {
               "name": "Payment scheduling and processing"
+            },
+            {
+              "name": "BizTalk migration"
+            },
+            {
+              "name": "MS Office / VS Code"
+            },
+            {
+              "name": "SQL Server Data Tools"
             }
           ]
         },
@@ -530,6 +557,12 @@
             },
             {
               "name": "Vendor partnership"
+            },
+            {
+              "name": "Technical delivery"
+            },
+            {
+              "name": "Platform strategy"
             }
           ]
         },
@@ -556,6 +589,24 @@
             },
             {
               "name": "Time management in changing priorities"
+            },
+            {
+              "name": "Working without source control"
+            },
+            {
+              "name": "Manual process documentation"
+            },
+            {
+              "name": "Communication"
+            },
+            {
+              "name": "12+ years software engineering"
+            },
+            {
+              "name": "Prioritization under change"
+            },
+            {
+              "name": "Stakeholder management"
             }
           ]
         }
@@ -598,7 +649,18 @@
             "Written communication",
             "Time management in changing priorities",
             "Estimation and proofs of concept",
-            "Agile"
+            "Agile",
+            "Enterprise architecture",
+            "Manual process documentation",
+            "Technical delivery",
+            "Platform strategy",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "Data modeling",
+            "MS Office / VS Code",
+            "Prioritization under change",
+            "Stakeholder management"
           ]
         },
         {
@@ -622,7 +684,19 @@
             "SQL Jobs → Linux (crontab)",
             "Terraform",
             "Production software engineering",
-            "Vendor partnership"
+            "Vendor partnership",
+            "Enterprise architecture",
+            "Working without source control",
+            "Manual process documentation",
+            "Technical delivery",
+            "Platform strategy",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "Data modeling",
+            "MS Office / VS Code",
+            "Prioritization under change",
+            "Stakeholder management"
           ]
         },
         {
@@ -635,6 +709,16 @@
           "highlights": [
             "Cut build times in existing pipelines by 80%+, tightening developer feedback loops.",
             "Set up CI/CD in GitHub Actions and supported on-prem-to-AWS migrations using Lambda and SNS."
+          ],
+          "technologies": [
+            "Enterprise architecture",
+            "Manual process documentation",
+            "Technical delivery",
+            "Platform strategy",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "MS Office / VS Code"
           ]
         },
         {
@@ -650,6 +734,18 @@
             "Migrated WPF desktop apps to Blazor web apps and improved the performance of legacy software.",
             "Reengineered CI/CD to increase developer throughput and added test-coverage requirements.",
             "Improved business-critical daily batch programs and built a department wiki to centralize documentation."
+          ],
+          "technologies": [
+            "Enterprise architecture",
+            "Manual process documentation",
+            "Technical delivery",
+            "Platform strategy",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "Data modeling",
+            "MS Office / VS Code",
+            "Stakeholder management"
           ]
         },
         {
@@ -659,6 +755,16 @@
           "startDate": "2022-03",
           "endDate": "2022-06",
           "summary": "Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap, and upgraded the company's internal .NET applications.",
+          "technologies": [
+            "Enterprise architecture",
+            "Technical delivery",
+            "Platform strategy",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "Data modeling",
+            "MS Office / VS Code"
+          ],
           "highlights": []
         },
         {
@@ -672,6 +778,18 @@
             "Seeded new stores with millions of tax records in batches, with a check after each batch that every item was accounted for.",
             "Led the move of widely used shared libraries from a file share to GitHub, with CI/CD, artifact storage, and automated tests.",
             "Cut CI/CD build times by 50%+."
+          ],
+          "technologies": [
+            "Enterprise architecture",
+            "Manual process documentation",
+            "Technical delivery",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "Data modeling",
+            "MS Office / VS Code",
+            "Prioritization under change",
+            "Stakeholder management"
           ]
         },
         {
@@ -681,6 +799,16 @@
           "startDate": "2019-04",
           "endDate": "2019-10",
           "summary": "Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core), set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.",
+          "technologies": [
+            "Enterprise architecture",
+            "Technical delivery",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "Data modeling",
+            "MS Office / VS Code",
+            "Prioritization under change"
+          ],
           "highlights": []
         },
         {
@@ -690,6 +818,14 @@
           "startDate": "2017-12",
           "endDate": "2019-04",
           "summary": "Integrated a new third-party ERP with existing WMS and POS systems, building pub/sub message pathways and failover on IBM MQ, with a Razor Pages, jQuery, and Bootstrap frontend on .NET Framework APIs.",
+          "technologies": [
+            "BizTalk migration",
+            "Manual process documentation",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "MS Office / VS Code"
+          ],
           "highlights": []
         },
         {
@@ -728,6 +864,12 @@
                 "Loaded and unloaded trucks, then processed international shipments for air and freight; trained in hazardous-materials handling and classification."
               ]
             }
+          ],
+          "technologies": [
+            "Manual data entry",
+            "Git",
+            "Communication",
+            "MS Office / VS Code"
           ],
           "highlights": []
         }
@@ -855,7 +997,18 @@
         ],
         "HTMX": [],
         "Material UI": [],
-        "Git": [],
+        "DevExpress": [],
+        "Git": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc.",
+          "Brownells, Inc.",
+          "UPS"
+        ],
         "GitHub": [
           "Principal Financial Group",
           "Hy-Vee, Inc."
@@ -895,6 +1048,17 @@
         "MongoDB": [],
         "Redis": [],
         "Elasticsearch": [],
+        "Manual data entry": [
+          "UPS"
+        ],
+        "Data modeling": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc."
+        ],
         "Gradle": [],
         "Maven": [],
         "Yarn": [],
@@ -908,8 +1072,38 @@
         "LLM evaluation": [
           "Source Allies"
         ],
+        "Enterprise architecture": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc."
+        ],
+        "Integration patterns": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc.",
+          "Brownells, Inc."
+        ],
+        "Secure programming": [],
         "JetBrains IDEs": [],
-        "Visual Studio / VS Code": [],
+        "Visual Studio / VS Code": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc.",
+          "Brownells, Inc.",
+          "UPS"
+        ],
         "SSMS / SSIS": [],
         "dbt": [
           "Source Allies"
@@ -920,6 +1114,21 @@
           "Source Allies"
         ],
         "Payment scheduling and processing": [],
+        "BizTalk migration": [
+          "Brownells, Inc."
+        ],
+        "MS Office / VS Code": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc.",
+          "Brownells, Inc.",
+          "UPS"
+        ],
+        "SQL Server Data Tools": [],
         "AWS": [
           "Source Allies",
           "Patient Preferred Financial Services",
@@ -969,6 +1178,22 @@
         "Vendor partnership": [
           "Patient Preferred Financial Services"
         ],
+        "Technical delivery": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc."
+        ],
+        "Platform strategy": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc."
+        ],
         "Hiring & interviewing": [],
         "Mentoring & coaching": [],
         "Technical delivery leadership": [],
@@ -979,6 +1204,41 @@
         ],
         "Time management in changing priorities": [
           "Source Allies"
+        ],
+        "Working without source control": [
+          "Patient Preferred Financial Services"
+        ],
+        "Manual process documentation": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Hy-Vee, Inc.",
+          "Brownells, Inc."
+        ],
+        "Communication": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc.",
+          "Brownells, Inc.",
+          "UPS"
+        ],
+        "12+ years software engineering": [],
+        "Prioritization under change": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc."
+        ],
+        "Stakeholder management": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Wellabe, Inc.",
+          "Hy-Vee, Inc."
         ]
       },
       "downloads": {
@@ -987,23 +1247,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 89561
+            "bytes": 101526
           },
           {
             "ext": "docx",
-            "bytes": 14736
+            "bytes": 15068
           },
           {
             "ext": "md",
-            "bytes": 8560
+            "bytes": 10570
           },
           {
             "ext": "json",
-            "bytes": 12123
+            "bytes": 14289
           },
           {
             "ext": "toml",
-            "bytes": 9972
+            "bytes": 12002
           }
         ]
       }
@@ -1128,6 +1388,9 @@
             },
             {
               "name": "Vue.js"
+            },
+            {
+              "name": "DevExpress"
             }
           ]
         },
@@ -1214,6 +1477,15 @@
             },
             {
               "name": "Payment scheduling and processing"
+            },
+            {
+              "name": "BizTalk migration"
+            },
+            {
+              "name": "MS Office / VS Code"
+            },
+            {
+              "name": "SQL Server Data Tools"
             }
           ]
         },
@@ -1269,6 +1541,12 @@
             },
             {
               "name": "Vendor partnership"
+            },
+            {
+              "name": "Technical delivery"
+            },
+            {
+              "name": "Platform strategy"
             }
           ]
         },
@@ -1295,6 +1573,24 @@
             },
             {
               "name": "Time management in changing priorities"
+            },
+            {
+              "name": "Working without source control"
+            },
+            {
+              "name": "Manual process documentation"
+            },
+            {
+              "name": "Communication"
+            },
+            {
+              "name": "12+ years software engineering"
+            },
+            {
+              "name": "Prioritization under change"
+            },
+            {
+              "name": "Stakeholder management"
             }
           ]
         }
@@ -1337,7 +1633,18 @@
             "Written communication",
             "Time management in changing priorities",
             "Estimation and proofs of concept",
-            "Agile"
+            "Agile",
+            "Enterprise architecture",
+            "Manual process documentation",
+            "Technical delivery",
+            "Platform strategy",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "Data modeling",
+            "MS Office / VS Code",
+            "Prioritization under change",
+            "Stakeholder management"
           ]
         },
         {
@@ -1361,7 +1668,19 @@
             "SQL Jobs → Linux (crontab)",
             "Terraform",
             "Production software engineering",
-            "Vendor partnership"
+            "Vendor partnership",
+            "Enterprise architecture",
+            "Working without source control",
+            "Manual process documentation",
+            "Technical delivery",
+            "Platform strategy",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "Data modeling",
+            "MS Office / VS Code",
+            "Prioritization under change",
+            "Stakeholder management"
           ]
         },
         {
@@ -1374,6 +1693,16 @@
           "highlights": [
             "Cut build times in existing pipelines by 80%+, tightening developer feedback loops.",
             "Set up CI/CD in GitHub Actions and supported on-prem-to-AWS migrations using Lambda and SNS."
+          ],
+          "technologies": [
+            "Enterprise architecture",
+            "Manual process documentation",
+            "Technical delivery",
+            "Platform strategy",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "MS Office / VS Code"
           ]
         },
         {
@@ -1389,6 +1718,18 @@
             "Migrated WPF desktop apps to Blazor web apps and improved the performance of legacy software.",
             "Reengineered CI/CD to increase developer throughput and added test-coverage requirements.",
             "Improved business-critical daily batch programs and built a department wiki to centralize documentation."
+          ],
+          "technologies": [
+            "Enterprise architecture",
+            "Manual process documentation",
+            "Technical delivery",
+            "Platform strategy",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "Data modeling",
+            "MS Office / VS Code",
+            "Stakeholder management"
           ]
         },
         {
@@ -1398,6 +1739,16 @@
           "startDate": "2022-03",
           "endDate": "2022-06",
           "summary": "Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap, and upgraded the company's internal .NET applications.",
+          "technologies": [
+            "Enterprise architecture",
+            "Technical delivery",
+            "Platform strategy",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "Data modeling",
+            "MS Office / VS Code"
+          ],
           "highlights": []
         },
         {
@@ -1411,6 +1762,18 @@
             "Helped build a Tax API on a task force, managing product tax values for 450+ grocery and convenience stores and publishing updates to every store over pub/sub.",
             "Seeded new stores with millions of tax records in batches, with a check after each batch that every item was accounted for.",
             "Cut CI/CD build times by 50%+."
+          ],
+          "technologies": [
+            "Enterprise architecture",
+            "Manual process documentation",
+            "Technical delivery",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "Data modeling",
+            "MS Office / VS Code",
+            "Prioritization under change",
+            "Stakeholder management"
           ]
         },
         {
@@ -1420,6 +1783,16 @@
           "startDate": "2019-04",
           "endDate": "2019-10",
           "summary": "Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core), set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.",
+          "technologies": [
+            "Enterprise architecture",
+            "Technical delivery",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "Data modeling",
+            "MS Office / VS Code",
+            "Prioritization under change"
+          ],
           "highlights": []
         },
         {
@@ -1429,6 +1802,14 @@
           "startDate": "2017-12",
           "endDate": "2019-04",
           "summary": "Integrated a new third-party ERP with existing WMS and POS systems, building pub/sub message pathways and failover on IBM MQ, with a Razor Pages, jQuery, and Bootstrap frontend on .NET Framework APIs.",
+          "technologies": [
+            "BizTalk migration",
+            "Manual process documentation",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "MS Office / VS Code"
+          ],
           "highlights": []
         },
         {
@@ -1467,6 +1848,12 @@
                 "Loaded and unloaded trucks, then processed international shipments for air and freight; trained in hazardous-materials handling and classification."
               ]
             }
+          ],
+          "technologies": [
+            "Manual data entry",
+            "Git",
+            "Communication",
+            "MS Office / VS Code"
           ],
           "highlights": []
         }
@@ -1577,7 +1964,18 @@
         "Vue.js": [
           "Source Allies"
         ],
-        "Git": [],
+        "DevExpress": [],
+        "Git": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc.",
+          "Brownells, Inc.",
+          "UPS"
+        ],
         "GitHub": [
           "Principal Financial Group",
           "Hy-Vee, Inc."
@@ -1601,12 +1999,37 @@
         "NuGet": [],
         "npm": [],
         "JetBrains IDEs": [],
-        "Visual Studio / VS Code": [],
+        "Visual Studio / VS Code": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc.",
+          "Brownells, Inc.",
+          "UPS"
+        ],
         "SSMS / SSIS": [],
         "dbt": [
           "Source Allies"
         ],
         "Payment scheduling and processing": [],
+        "BizTalk migration": [
+          "Brownells, Inc."
+        ],
+        "MS Office / VS Code": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc.",
+          "Brownells, Inc.",
+          "UPS"
+        ],
+        "SQL Server Data Tools": [],
         "AWS": [
           "Source Allies",
           "Patient Preferred Financial Services",
@@ -1639,6 +2062,22 @@
         "Vendor partnership": [
           "Patient Preferred Financial Services"
         ],
+        "Technical delivery": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc."
+        ],
+        "Platform strategy": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc."
+        ],
         "Hiring & interviewing": [],
         "Mentoring & coaching": [],
         "Technical delivery leadership": [],
@@ -1649,6 +2088,41 @@
         ],
         "Time management in changing priorities": [
           "Source Allies"
+        ],
+        "Working without source control": [
+          "Patient Preferred Financial Services"
+        ],
+        "Manual process documentation": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Hy-Vee, Inc.",
+          "Brownells, Inc."
+        ],
+        "Communication": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc.",
+          "Brownells, Inc.",
+          "UPS"
+        ],
+        "12+ years software engineering": [],
+        "Prioritization under change": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc."
+        ],
+        "Stakeholder management": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Wellabe, Inc.",
+          "Hy-Vee, Inc."
         ]
       },
       "downloads": {
@@ -1657,23 +2131,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 87213
+            "bytes": 98808
           },
           {
             "ext": "docx",
-            "bytes": 14466
+            "bytes": 14764
           },
           {
             "ext": "md",
-            "bytes": 8257
+            "bytes": 10166
           },
           {
             "ext": "json",
-            "bytes": 11338
+            "bytes": 13353
           },
           {
             "ext": "toml",
-            "bytes": 9535
+            "bytes": 11454
           }
         ]
       }
@@ -1873,6 +2347,9 @@
                 "base",
                 "lead"
               ]
+            },
+            {
+              "name": "DevExpress"
             }
           ]
         },
@@ -1983,6 +2460,12 @@
             },
             {
               "name": "Elasticsearch"
+            },
+            {
+              "name": "Manual data entry"
+            },
+            {
+              "name": "Data modeling"
             }
           ]
         },
@@ -2019,6 +2502,15 @@
             },
             {
               "name": "LLM evaluation"
+            },
+            {
+              "name": "Enterprise architecture"
+            },
+            {
+              "name": "Integration patterns"
+            },
+            {
+              "name": "Secure programming"
             }
           ]
         },
@@ -2060,6 +2552,15 @@
             },
             {
               "name": "Payment scheduling and processing"
+            },
+            {
+              "name": "BizTalk migration"
+            },
+            {
+              "name": "MS Office / VS Code"
+            },
+            {
+              "name": "SQL Server Data Tools"
             }
           ]
         },
@@ -2157,6 +2658,12 @@
             },
             {
               "name": "Vendor partnership"
+            },
+            {
+              "name": "Technical delivery"
+            },
+            {
+              "name": "Platform strategy"
             }
           ]
         },
@@ -2183,6 +2690,24 @@
             },
             {
               "name": "Time management in changing priorities"
+            },
+            {
+              "name": "Working without source control"
+            },
+            {
+              "name": "Manual process documentation"
+            },
+            {
+              "name": "Communication"
+            },
+            {
+              "name": "12+ years software engineering"
+            },
+            {
+              "name": "Prioritization under change"
+            },
+            {
+              "name": "Stakeholder management"
             }
           ]
         }
@@ -2225,7 +2750,18 @@
             "Written communication",
             "Time management in changing priorities",
             "Estimation and proofs of concept",
-            "Agile"
+            "Agile",
+            "Enterprise architecture",
+            "Manual process documentation",
+            "Technical delivery",
+            "Platform strategy",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "Data modeling",
+            "MS Office / VS Code",
+            "Prioritization under change",
+            "Stakeholder management"
           ]
         },
         {
@@ -2249,7 +2785,19 @@
             "SQL Jobs → Linux (crontab)",
             "Terraform",
             "Production software engineering",
-            "Vendor partnership"
+            "Vendor partnership",
+            "Enterprise architecture",
+            "Working without source control",
+            "Manual process documentation",
+            "Technical delivery",
+            "Platform strategy",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "Data modeling",
+            "MS Office / VS Code",
+            "Prioritization under change",
+            "Stakeholder management"
           ]
         },
         {
@@ -2262,6 +2810,16 @@
           "highlights": [
             "Set up CI/CD in GitHub Actions and supported on-prem-to-AWS migrations using Lambda and SNS.",
             "Cut build times in existing pipelines by 80%+, tightening developer feedback loops."
+          ],
+          "technologies": [
+            "Enterprise architecture",
+            "Manual process documentation",
+            "Technical delivery",
+            "Platform strategy",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "MS Office / VS Code"
           ]
         },
         {
@@ -2277,6 +2835,18 @@
             "Led the team that owned the company's main revenue-generating product, training and supporting every engineer on it.",
             "Mentored 7 junior and mid-level engineers and paired with each intern for their entire internship.",
             "Improved business-critical daily batch programs and built a department wiki to centralize documentation."
+          ],
+          "technologies": [
+            "Enterprise architecture",
+            "Manual process documentation",
+            "Technical delivery",
+            "Platform strategy",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "Data modeling",
+            "MS Office / VS Code",
+            "Stakeholder management"
           ]
         },
         {
@@ -2286,6 +2856,16 @@
           "startDate": "2022-03",
           "endDate": "2022-06",
           "summary": "Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap, and upgraded the company's internal .NET applications.",
+          "technologies": [
+            "Enterprise architecture",
+            "Technical delivery",
+            "Platform strategy",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "Data modeling",
+            "MS Office / VS Code"
+          ],
           "highlights": []
         },
         {
@@ -2299,6 +2879,18 @@
             "Seeded new stores with millions of tax records in batches, with a check after each batch that every item was accounted for.",
             "Led the move of widely used shared libraries from a file share to GitHub, with CI/CD, artifact storage, and automated tests.",
             "Cut CI/CD build times by 50%+."
+          ],
+          "technologies": [
+            "Enterprise architecture",
+            "Manual process documentation",
+            "Technical delivery",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "Data modeling",
+            "MS Office / VS Code",
+            "Prioritization under change",
+            "Stakeholder management"
           ]
         },
         {
@@ -2308,6 +2900,16 @@
           "startDate": "2019-04",
           "endDate": "2019-10",
           "summary": "Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core), set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.",
+          "technologies": [
+            "Enterprise architecture",
+            "Technical delivery",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "Data modeling",
+            "MS Office / VS Code",
+            "Prioritization under change"
+          ],
           "highlights": []
         },
         {
@@ -2317,6 +2919,14 @@
           "startDate": "2017-12",
           "endDate": "2019-04",
           "summary": "Integrated a new third-party ERP with existing WMS and POS systems, building pub/sub message pathways and failover on IBM MQ, with a Razor Pages, jQuery, and Bootstrap frontend on .NET Framework APIs.",
+          "technologies": [
+            "BizTalk migration",
+            "Manual process documentation",
+            "Git",
+            "Integration patterns",
+            "Communication",
+            "MS Office / VS Code"
+          ],
           "highlights": []
         }
       ],
@@ -2443,7 +3053,17 @@
         ],
         "HTMX": [],
         "Material UI": [],
-        "Git": [],
+        "DevExpress": [],
+        "Git": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc.",
+          "Brownells, Inc."
+        ],
         "GitHub": [
           "Principal Financial Group",
           "Hy-Vee, Inc."
@@ -2483,6 +3103,15 @@
         "MongoDB": [],
         "Redis": [],
         "Elasticsearch": [],
+        "Manual data entry": [],
+        "Data modeling": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc."
+        ],
         "Gradle": [],
         "Maven": [],
         "Yarn": [],
@@ -2496,8 +3125,37 @@
         "LLM evaluation": [
           "Source Allies"
         ],
+        "Enterprise architecture": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc."
+        ],
+        "Integration patterns": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc.",
+          "Brownells, Inc."
+        ],
+        "Secure programming": [],
         "JetBrains IDEs": [],
-        "Visual Studio / VS Code": [],
+        "Visual Studio / VS Code": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc.",
+          "Brownells, Inc."
+        ],
         "SSMS / SSIS": [],
         "dbt": [
           "Source Allies"
@@ -2508,6 +3166,20 @@
           "Source Allies"
         ],
         "Payment scheduling and processing": [],
+        "BizTalk migration": [
+          "Brownells, Inc."
+        ],
+        "MS Office / VS Code": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc.",
+          "Brownells, Inc."
+        ],
+        "SQL Server Data Tools": [],
         "AWS": [
           "Source Allies",
           "Patient Preferred Financial Services",
@@ -2557,6 +3229,22 @@
         "Vendor partnership": [
           "Patient Preferred Financial Services"
         ],
+        "Technical delivery": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc."
+        ],
+        "Platform strategy": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc."
+        ],
         "Hiring & interviewing": [],
         "Mentoring & coaching": [],
         "Technical delivery leadership": [],
@@ -2567,6 +3255,40 @@
         ],
         "Time management in changing priorities": [
           "Source Allies"
+        ],
+        "Working without source control": [
+          "Patient Preferred Financial Services"
+        ],
+        "Manual process documentation": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Hy-Vee, Inc.",
+          "Brownells, Inc."
+        ],
+        "Communication": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc.",
+          "Brownells, Inc."
+        ],
+        "12+ years software engineering": [],
+        "Prioritization under change": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc."
+        ],
+        "Stakeholder management": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Wellabe, Inc.",
+          "Hy-Vee, Inc."
         ]
       },
       "downloads": {
@@ -2575,23 +3297,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 76067
+            "bytes": 87315
           },
           {
             "ext": "docx",
-            "bytes": 14336
+            "bytes": 14648
           },
           {
             "ext": "md",
-            "bytes": 7710
+            "bytes": 9642
           },
           {
             "ext": "json",
-            "bytes": 11214
+            "bytes": 13304
           },
           {
             "ext": "toml",
-            "bytes": 9151
+            "bytes": 11105
           }
         ]
       }
