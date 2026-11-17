@@ -127,6 +127,8 @@ skills:
       - { name: Enterprise architecture }
       - { name: Integration patterns }
       - { name: Secure programming }
+      - { name: "Test automation (Playwright, Bruno)" }
+      - { name: Secure coding }
   - name: Tooling
     keywords:
       - { name: JetBrains IDEs }
@@ -208,7 +210,7 @@ work:
         tags: [design]
       - text: Mentor and teach the company's apprentices.
         tags: [leadership, mentoring]
-    technologies: [Vue.js, React, Java, Spring Boot, GraphQL, "C#", TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma, LLM evaluation, Written communication, Time management in changing priorities, Estimation and proofs of concept, Agile, Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management]
+    technologies: [Vue.js, React, Java, Spring Boot, GraphQL, "C#", TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma, LLM evaluation, Written communication, Time management in changing priorities, Estimation and proofs of concept, Agile, Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management, "Test automation (Playwright, Bruno)", Secure coding]
 
   - name: Patient Preferred Financial Services
     url: https://patientpreferredservices.com
@@ -228,7 +230,7 @@ work:
         tags: [architecture]
       - text: Built resiliency and fallback plans into critical third-party integrations, including ACH payments.
         tags: [architecture, vendors]
-    technologies: [".NET Framework 4.5 → .NET 10", AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform, Production software engineering, Vendor partnership, Enterprise architecture, Working without source control, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management]
+    technologies: [".NET Framework 4.5 → .NET 10", AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform, Production software engineering, Vendor partnership, Enterprise architecture, Working without source control, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management, "Test automation (Playwright, Bruno)", Secure coding]
 
   - name: Principal Financial Group
     position: Contract Senior Software Engineer
@@ -241,7 +243,7 @@ work:
         tags: [delivery]
       - text: Set up CI/CD in GitHub Actions and supported on-prem-to-AWS migrations using Lambda and SNS.
         tags: [architecture]
-    technologies: [Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, MS Office / VS Code]
+    technologies: [Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, MS Office / VS Code, Secure coding]
 
   - name: Wellabe, Inc.
     position: Software Engineer 3
@@ -259,7 +261,7 @@ work:
       - text: Reengineered CI/CD to increase developer throughput and added test-coverage requirements.
         tags: [delivery]
       - text: Improved business-critical daily batch programs and built a department wiki to centralize documentation.
-    technologies: [Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Stakeholder management]
+    technologies: [Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Stakeholder management, Secure coding]
 
   - name: Far Reach Inc.
     position: Contract Senior Software Developer
@@ -269,7 +271,7 @@ work:
     summary: >-
       Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using
       ASP.NET Boilerplate, PrimeNG, and Bootstrap, and upgraded the company's internal .NET applications.
-    technologies: [Enterprise architecture, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code]
+    technologies: [Enterprise architecture, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Secure coding]
 
   - name: Hy-Vee, Inc.
     position: Software Engineer
@@ -289,7 +291,7 @@ work:
         tags: [delivery, leadership]
       - text: Cut CI/CD build times by 50%+.
         tags: [delivery]
-    technologies: [Enterprise architecture, Manual process documentation, Technical delivery, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management]
+    technologies: [Enterprise architecture, Manual process documentation, Technical delivery, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management, "Test automation (Playwright, Bruno)", Secure coding]
 
   - name: Stine Seed, Inc.
     position: Software Developer
@@ -299,7 +301,7 @@ work:
     summary: >-
       Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core),
       set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.
-    technologies: [Enterprise architecture, Technical delivery, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change]
+    technologies: [Enterprise architecture, Technical delivery, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Secure coding]
 
   - name: Brownells, Inc.
     position: Associate .NET Developer
