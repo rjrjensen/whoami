@@ -36,7 +36,7 @@ Consultant across 4+ client engagements in financial services, insurance, identi
 - Redesigning a federally backed bank's high-traffic web application, which handles all of its money intake: reworked the frontend, built its first public API and secured it, and moved identity to PingOne, migrating Active Directory and LDAP users.
 - Helped design a digital-identity company's webinar platform in Figma.
 
-**Technologies:** Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma, LLM evaluation, Written communication, Time management in changing priorities, Estimation and proofs of concept, Agile, Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management
+**Technologies:** Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma, LLM evaluation, Written communication, Time management in changing priorities, Estimation and proofs of concept, Agile, Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management, Test automation (Playwright, Bruno), Secure coding
 
 ### Fractional CTO — Patient Preferred Financial Services
 
@@ -48,7 +48,7 @@ Took over a clinic payment and patient-management platform from a larger develop
 - Cut monthly AWS costs ~91% (~$1,400 → ~$120) over three years while improving availability, stability, and speed.
 - Modernized the platform from an AngularJS frontend, .NET Framework API, and SQL Server with SQL Jobs on Windows Server 2012 EC2 instances to SSR Next.js on AWS via OpenNext, modern .NET Minimal APIs on AWS Lambda, PostgreSQL on AWS RDS, and crontab on a nano Linux instance.
 
-**Technologies:** .NET Framework 4.5 → .NET 10, AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform, Production software engineering, Vendor partnership, Enterprise architecture, Working without source control, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management
+**Technologies:** .NET Framework 4.5 → .NET 10, AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform, Production software engineering, Vendor partnership, Enterprise architecture, Working without source control, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management, Test automation (Playwright, Bruno), Secure coding
 
 **Note:** Currently part-time, supporting new feature requests and regular software updates.
 
@@ -61,7 +61,7 @@ Modernized legacy .NET applications and the pipelines that ship them.
 - Cut build times in existing pipelines by 80%+, tightening developer feedback loops.
 - Set up CI/CD in GitHub Actions and supported on-prem-to-AWS migrations using Lambda and SNS.
 
-**Technologies:** Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, MS Office / VS Code
+**Technologies:** Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, MS Office / VS Code, Secure coding
 
 ### Software Engineer 3 — Wellabe, Inc.
 
@@ -75,7 +75,7 @@ Led small teams modernizing the company's software and unifying its tech stack.
 - Reengineered CI/CD to increase developer throughput and added test-coverage requirements.
 - Improved business-critical daily batch programs and built a department wiki to centralize documentation.
 
-**Technologies:** Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Stakeholder management
+**Technologies:** Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Stakeholder management, Secure coding
 
 ### Contract Senior Software Developer — Far Reach Inc.
 
@@ -83,7 +83,7 @@ _March 2022 – June 2022 · Contract via Modis_
 
 Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap, and upgraded the company's internal .NET applications.
 
-**Technologies:** Enterprise architecture, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code
+**Technologies:** Enterprise architecture, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Secure coding
 
 ### Software Engineer — Hy-Vee, Inc.
 
@@ -96,7 +96,7 @@ Worked across legacy .NET and WinForms applications and greenfield React, Kotlin
 - Seeded new stores with millions of tax records in batches, with a check after each batch that every item was accounted for.
 - Cut CI/CD build times by 50%+.
 
-**Technologies:** Enterprise architecture, Manual process documentation, Technical delivery, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management
+**Technologies:** Enterprise architecture, Manual process documentation, Technical delivery, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management, Test automation (Playwright, Bruno), Secure coding
 
 ### Software Developer — Stine Seed, Inc.
 
@@ -104,7 +104,7 @@ _April 2019 – October 2019 · Dallas Center, IA_
 
 Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core), set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.
 
-**Technologies:** Enterprise architecture, Technical delivery, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change
+**Technologies:** Enterprise architecture, Technical delivery, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Secure coding
 
 ### Associate .NET Developer — Brownells, Inc.
 

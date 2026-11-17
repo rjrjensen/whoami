@@ -30,7 +30,7 @@
       "position": "Software Consultant",
       "location": "Urbandale, IA",
       "startDate": "2024-12",
-      "summary": "Consultant across 4+ client engagements in financial services, insurance, identity management, and enterprise web, spanning full-stack development, delivery leadership, coaching, and generative AI.\n\nTechnologies: Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma, LLM evaluation, Written communication, Time management in changing priorities, Estimation and proofs of concept, Agile, Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management",
+      "summary": "Consultant across 4+ client engagements in financial services, insurance, identity management, and enterprise web, spanning full-stack development, delivery leadership, coaching, and generative AI.\n\nTechnologies: Vue.js, React, Java, Spring Boot, GraphQL, C#, TypeScript, Python, Node.js, AWS Bedrock, Azure, SQL Server, Databricks, dbt, PingOne, Active Directory / LDAP, Figma, LLM evaluation, Written communication, Time management in changing priorities, Estimation and proofs of concept, Agile, Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management, Test automation (Playwright, Bruno), Secure coding",
       "highlights": [
         "Ranked #1 interviewer for 2025 and the first half of 2026, with 30+ interviews and ~10 hires still with the company.",
         "Technical delivery lead for a regional mutual insurer's data engineering engagement (SQL Server, T-SQL, Databricks, dbt), including project management and coaching.",
@@ -47,7 +47,7 @@
       "position": "Fractional CTO",
       "location": "Remote",
       "startDate": "2021-11",
-      "summary": "Took over a clinic payment and patient-management platform from a larger development team and run it solo, reporting to leadership. Own technology strategy, budget, vendor relationships (DataX, ACHeck, Web.com), and security and compliance.\n\nTechnologies: .NET Framework 4.5 → .NET 10, AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform, Production software engineering, Vendor partnership, Enterprise architecture, Working without source control, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management",
+      "summary": "Took over a clinic payment and patient-management platform from a larger development team and run it solo, reporting to leadership. Own technology strategy, budget, vendor relationships (DataX, ACHeck, Web.com), and security and compliance.\n\nTechnologies: .NET Framework 4.5 → .NET 10, AngularJS → Next.js, SQL Server → PostgreSQL, EC2 → CloudFront + Lambda + OpenNext, SQL Jobs → Linux (crontab), Terraform, Production software engineering, Vendor partnership, Enterprise architecture, Working without source control, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management, Test automation (Playwright, Bruno), Secure coding",
       "highlights": [
         "Cut monthly AWS costs ~91% (~$1,400 → ~$120) over three years while improving availability, stability, and speed.",
         "Modernized the platform from an AngularJS frontend, .NET Framework API, and SQL Server with SQL Jobs on Windows Server 2012 EC2 instances to SSR Next.js on AWS via OpenNext, modern .NET Minimal APIs on AWS Lambda, PostgreSQL on AWS RDS, and crontab on a nano Linux instance.",
@@ -60,7 +60,7 @@
       "location": "Des Moines, IA (Remote)",
       "startDate": "2024-06",
       "endDate": "2024-12",
-      "summary": "Modernized legacy .NET applications and the pipelines that ship them.\n\nTechnologies: Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, MS Office / VS Code",
+      "summary": "Modernized legacy .NET applications and the pipelines that ship them.\n\nTechnologies: Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, MS Office / VS Code, Secure coding",
       "highlights": [
         "Cut build times in existing pipelines by 80%+, tightening developer feedback loops.",
         "Set up CI/CD in GitHub Actions and supported on-prem-to-AWS migrations using Lambda and SNS."
@@ -72,7 +72,7 @@
       "location": "Des Moines, IA",
       "startDate": "2022-07",
       "endDate": "2024-06",
-      "summary": "Led small teams modernizing the company's software and unifying its tech stack.\n\nTechnologies: Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Stakeholder management",
+      "summary": "Led small teams modernizing the company's software and unifying its tech stack.\n\nTechnologies: Enterprise architecture, Manual process documentation, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Stakeholder management, Secure coding",
       "highlights": [
         "Led the team that owned the company's main revenue-generating product, training and supporting every engineer on it.",
         "Mentored 7 junior and mid-level engineers and paired with each intern for their entire internship.",
@@ -86,7 +86,7 @@
       "position": "Contract Senior Software Developer",
       "startDate": "2022-03",
       "endDate": "2022-06",
-      "summary": "Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap, and upgraded the company's internal .NET applications.\n\nTechnologies: Enterprise architecture, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code",
+      "summary": "Built full-stack features for a homegrown ERP system with Angular, RxJS, .NET, and SQL Server on Azure, using ASP.NET Boilerplate, PrimeNG, and Bootstrap, and upgraded the company's internal .NET applications.\n\nTechnologies: Enterprise architecture, Technical delivery, Platform strategy, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Secure coding",
       "highlights": []
     },
     {
@@ -94,7 +94,7 @@
       "position": "Software Engineer",
       "startDate": "2019-10",
       "endDate": "2022-03",
-      "summary": "Worked across legacy .NET and WinForms applications and greenfield React, Kotlin, Spring Boot, Ktor, and GraphQL services, federated with Apollo on Google Cloud.\n\nTechnologies: Enterprise architecture, Manual process documentation, Technical delivery, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management",
+      "summary": "Worked across legacy .NET and WinForms applications and greenfield React, Kotlin, Spring Boot, Ktor, and GraphQL services, federated with Apollo on Google Cloud.\n\nTechnologies: Enterprise architecture, Manual process documentation, Technical delivery, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Stakeholder management, Test automation (Playwright, Bruno), Secure coding",
       "highlights": [
         "Helped build a Tax API on a task force, managing product tax values for 450+ grocery and convenience stores and publishing updates to every store over pub/sub.",
         "Seeded new stores with millions of tax records in batches, with a check after each batch that every item was accounted for.",
@@ -108,7 +108,7 @@
       "location": "Dallas Center, IA",
       "startDate": "2019-04",
       "endDate": "2019-10",
-      "summary": "Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core), set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.\n\nTechnologies: Enterprise architecture, Technical delivery, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change",
+      "summary": "Built features for employee portals that manage seed production, packaging, and sales (Angular, .NET Core), set up CI/CD in Azure DevOps, and kept a tight feedback loop with users.\n\nTechnologies: Enterprise architecture, Technical delivery, Git, Integration patterns, Communication, Data modeling, MS Office / VS Code, Prioritization under change, Secure coding",
       "highlights": []
     },
     {
@@ -276,7 +276,9 @@
         "LLM evaluation",
         "Enterprise architecture",
         "Integration patterns",
-        "Secure programming"
+        "Secure programming",
+        "Test automation (Playwright, Bruno)",
+        "Secure coding"
       ]
     },
     {

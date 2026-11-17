@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16",
+  "generatedAt": "2026-11-17",
   "preferences": {
     "workArrangement": "Open to on-site, hybrid, or remote",
     "workAuthorization": "US citizen; no sponsorship required"
@@ -410,6 +410,12 @@
             },
             {
               "name": "Secure programming"
+            },
+            {
+              "name": "Test automation (Playwright, Bruno)"
+            },
+            {
+              "name": "Secure coding"
             }
           ]
         },
@@ -660,7 +666,9 @@
             "Data modeling",
             "MS Office / VS Code",
             "Prioritization under change",
-            "Stakeholder management"
+            "Stakeholder management",
+            "Test automation (Playwright, Bruno)",
+            "Secure coding"
           ]
         },
         {
@@ -696,7 +704,9 @@
             "Data modeling",
             "MS Office / VS Code",
             "Prioritization under change",
-            "Stakeholder management"
+            "Stakeholder management",
+            "Test automation (Playwright, Bruno)",
+            "Secure coding"
           ]
         },
         {
@@ -718,7 +728,8 @@
             "Git",
             "Integration patterns",
             "Communication",
-            "MS Office / VS Code"
+            "MS Office / VS Code",
+            "Secure coding"
           ]
         },
         {
@@ -745,7 +756,8 @@
             "Communication",
             "Data modeling",
             "MS Office / VS Code",
-            "Stakeholder management"
+            "Stakeholder management",
+            "Secure coding"
           ]
         },
         {
@@ -763,7 +775,8 @@
             "Integration patterns",
             "Communication",
             "Data modeling",
-            "MS Office / VS Code"
+            "MS Office / VS Code",
+            "Secure coding"
           ],
           "highlights": []
         },
@@ -789,7 +802,9 @@
             "Data modeling",
             "MS Office / VS Code",
             "Prioritization under change",
-            "Stakeholder management"
+            "Stakeholder management",
+            "Test automation (Playwright, Bruno)",
+            "Secure coding"
           ]
         },
         {
@@ -807,7 +822,8 @@
             "Communication",
             "Data modeling",
             "MS Office / VS Code",
-            "Prioritization under change"
+            "Prioritization under change",
+            "Secure coding"
           ],
           "highlights": []
         },
@@ -1092,6 +1108,20 @@
           "Brownells, Inc."
         ],
         "Secure programming": [],
+        "Test automation (Playwright, Bruno)": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Hy-Vee, Inc."
+        ],
+        "Secure coding": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc."
+        ],
         "JetBrains IDEs": [],
         "Visual Studio / VS Code": [
           "Source Allies",
@@ -1247,23 +1277,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 101526
+            "bytes": 101906
           },
           {
             "ext": "docx",
-            "bytes": 15068
+            "bytes": 15116
           },
           {
             "ext": "md",
-            "bytes": 10570
+            "bytes": 10838
           },
           {
             "ext": "json",
-            "bytes": 14289
+            "bytes": 14577
           },
           {
             "ext": "toml",
-            "bytes": 12002
+            "bytes": 12274
           }
         ]
       }
@@ -1644,7 +1674,9 @@
             "Data modeling",
             "MS Office / VS Code",
             "Prioritization under change",
-            "Stakeholder management"
+            "Stakeholder management",
+            "Test automation (Playwright, Bruno)",
+            "Secure coding"
           ]
         },
         {
@@ -1680,7 +1712,9 @@
             "Data modeling",
             "MS Office / VS Code",
             "Prioritization under change",
-            "Stakeholder management"
+            "Stakeholder management",
+            "Test automation (Playwright, Bruno)",
+            "Secure coding"
           ]
         },
         {
@@ -1702,7 +1736,8 @@
             "Git",
             "Integration patterns",
             "Communication",
-            "MS Office / VS Code"
+            "MS Office / VS Code",
+            "Secure coding"
           ]
         },
         {
@@ -1729,7 +1764,8 @@
             "Communication",
             "Data modeling",
             "MS Office / VS Code",
-            "Stakeholder management"
+            "Stakeholder management",
+            "Secure coding"
           ]
         },
         {
@@ -1747,7 +1783,8 @@
             "Integration patterns",
             "Communication",
             "Data modeling",
-            "MS Office / VS Code"
+            "MS Office / VS Code",
+            "Secure coding"
           ],
           "highlights": []
         },
@@ -1773,7 +1810,9 @@
             "Data modeling",
             "MS Office / VS Code",
             "Prioritization under change",
-            "Stakeholder management"
+            "Stakeholder management",
+            "Test automation (Playwright, Bruno)",
+            "Secure coding"
           ]
         },
         {
@@ -1791,7 +1830,8 @@
             "Communication",
             "Data modeling",
             "MS Office / VS Code",
-            "Prioritization under change"
+            "Prioritization under change",
+            "Secure coding"
           ],
           "highlights": []
         },
@@ -2131,23 +2171,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 98808
+            "bytes": 99037
           },
           {
             "ext": "docx",
-            "bytes": 14764
+            "bytes": 14801
           },
           {
             "ext": "md",
-            "bytes": 10166
+            "bytes": 10382
           },
           {
             "ext": "json",
-            "bytes": 13353
+            "bytes": 13569
           },
           {
             "ext": "toml",
-            "bytes": 11454
+            "bytes": 11670
           }
         ]
       }
@@ -2511,6 +2551,12 @@
             },
             {
               "name": "Secure programming"
+            },
+            {
+              "name": "Test automation (Playwright, Bruno)"
+            },
+            {
+              "name": "Secure coding"
             }
           ]
         },
@@ -2761,7 +2807,9 @@
             "Data modeling",
             "MS Office / VS Code",
             "Prioritization under change",
-            "Stakeholder management"
+            "Stakeholder management",
+            "Test automation (Playwright, Bruno)",
+            "Secure coding"
           ]
         },
         {
@@ -2797,7 +2845,9 @@
             "Data modeling",
             "MS Office / VS Code",
             "Prioritization under change",
-            "Stakeholder management"
+            "Stakeholder management",
+            "Test automation (Playwright, Bruno)",
+            "Secure coding"
           ]
         },
         {
@@ -2819,7 +2869,8 @@
             "Git",
             "Integration patterns",
             "Communication",
-            "MS Office / VS Code"
+            "MS Office / VS Code",
+            "Secure coding"
           ]
         },
         {
@@ -2846,7 +2897,8 @@
             "Communication",
             "Data modeling",
             "MS Office / VS Code",
-            "Stakeholder management"
+            "Stakeholder management",
+            "Secure coding"
           ]
         },
         {
@@ -2864,7 +2916,8 @@
             "Integration patterns",
             "Communication",
             "Data modeling",
-            "MS Office / VS Code"
+            "MS Office / VS Code",
+            "Secure coding"
           ],
           "highlights": []
         },
@@ -2890,7 +2943,9 @@
             "Data modeling",
             "MS Office / VS Code",
             "Prioritization under change",
-            "Stakeholder management"
+            "Stakeholder management",
+            "Test automation (Playwright, Bruno)",
+            "Secure coding"
           ]
         },
         {
@@ -2908,7 +2963,8 @@
             "Communication",
             "Data modeling",
             "MS Office / VS Code",
-            "Prioritization under change"
+            "Prioritization under change",
+            "Secure coding"
           ],
           "highlights": []
         },
@@ -3145,6 +3201,20 @@
           "Brownells, Inc."
         ],
         "Secure programming": [],
+        "Test automation (Playwright, Bruno)": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Hy-Vee, Inc."
+        ],
+        "Secure coding": [
+          "Source Allies",
+          "Patient Preferred Financial Services",
+          "Principal Financial Group",
+          "Wellabe, Inc.",
+          "Far Reach Inc.",
+          "Hy-Vee, Inc.",
+          "Stine Seed, Inc."
+        ],
         "JetBrains IDEs": [],
         "Visual Studio / VS Code": [
           "Source Allies",
@@ -3297,23 +3367,23 @@
         "formats": [
           {
             "ext": "pdf",
-            "bytes": 87315
+            "bytes": 87677
           },
           {
             "ext": "docx",
-            "bytes": 14648
+            "bytes": 14700
           },
           {
             "ext": "md",
-            "bytes": 9642
+            "bytes": 9910
           },
           {
             "ext": "json",
-            "bytes": 13304
+            "bytes": 13592
           },
           {
             "ext": "toml",
-            "bytes": 11105
+            "bytes": 11377
           }
         ]
       }
