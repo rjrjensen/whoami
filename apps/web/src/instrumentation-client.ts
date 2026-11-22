@@ -89,6 +89,11 @@ function trackFitCheck(posthog: PostHog) {
   document.addEventListener("fitcheck:error", (event) => posthog.capture("fit_check_error", (event as CustomEvent).detail));
 }
 
+// The Contact page's Cal.com booker dispatches this when a booking goes through (booking-calendar.tsx).
+function trackBookings(posthog: PostHog) {
+  document.addEventListener("cal:booked", () => posthog.capture("meeting_booked"));
+}
+
 function trackScrollDepth(posthog: PostHog) {
   let path = location.pathname;
   let reached = new Set<number>();
@@ -148,6 +153,7 @@ if (analyticsAllowed()) {
       trackClicks(posthog);
       trackSkillPopovers(posthog);
       trackFitCheck(posthog);
+      trackBookings(posthog);
       trackScrollDepth(posthog);
     })
     .catch(() => {

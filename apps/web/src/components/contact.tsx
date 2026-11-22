@@ -1,4 +1,5 @@
 import type { Variant } from "@/lib/resume";
+import { BookingCalendar } from "./booking-calendar";
 
 export function Contact({ variant: v }: { variant: Variant }) {
   const { basics } = v;
@@ -6,35 +7,51 @@ export function Contact({ variant: v }: { variant: Variant }) {
   const linkedin = basics.profiles.find((p) => p.network === "LinkedIn");
 
   return (
-    <section id="contact" aria-labelledby="contact-title" className="bg-accent text-accent-ink">
-      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-        <h1 id="contact-title" className="font-display text-5xl sm:text-6xl">
-          Let&rsquo;s connect.
-        </h1>
-        <p className="mt-4 max-w-2xl text-lg opacity-90">
-          I&rsquo;m always open to interesting conversations, whether it&rsquo;s a job opportunity, a collaboration, a cool open-source
-          project, or just talking shop. If you&rsquo;re hiring, send me the job description and a little about the team. I&rsquo;ll get
-          back to you quickly, and I&rsquo;m happy to share my phone number once we&rsquo;ve connected.
-        </p>
-        <ul className="mt-8 flex flex-wrap gap-3">
-          <li>
-            <a
-              href={`mailto:${basics.email}?subject=${encodeURIComponent("Opportunity for Ryan")}`}
-              className="inline-flex min-h-12 items-center rounded-full bg-accent-ink px-6 font-medium text-accent transition-transform hover:-translate-y-0.5"
-            >
-              Email {basics.email}
-            </a>
-          </li>
-          {[linkedin, github].filter(Boolean).map((p) => (
-            <li key={p!.network}>
-              <a href={p!.url} className="inline-flex min-h-12 items-center rounded-full border border-current/40 px-6 font-medium hover:bg-white/10">
-                {p!.network}
-                <span className="sr-only"> profile (opens external site)</span>
+    <>
+      <section id="contact" aria-labelledby="contact-title" className="bg-accent text-accent-ink">
+        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+          <h1 id="contact-title" className="font-display text-5xl sm:text-6xl">
+            Let&rsquo;s connect.
+          </h1>
+          <p className="mt-4 max-w-2xl text-lg opacity-90">
+            I&rsquo;m always open to interesting conversations, whether it&rsquo;s a job opportunity, a collaboration, a cool open-source
+            project, or just talking shop. If you&rsquo;re hiring, send me the job description and a little about the team. I&rsquo;ll get
+            back to you quickly, and I&rsquo;m happy to share my phone number once we&rsquo;ve connected.
+          </p>
+          <ul className="mt-8 flex flex-wrap gap-3">
+            <li>
+              <a
+                href={`mailto:${basics.email}?subject=${encodeURIComponent("Opportunity for Ryan")}`}
+                className="inline-flex min-h-12 items-center rounded-full bg-accent-ink px-6 font-medium text-accent transition-transform hover:-translate-y-0.5"
+              >
+                Email {basics.email}
               </a>
             </li>
-          ))}
-        </ul>
-      </div>
-    </section>
+            {[linkedin, github].filter(Boolean).map((p) => (
+              <li key={p!.network}>
+                <a href={p!.url} className="inline-flex min-h-12 items-center rounded-full border border-current/40 px-6 font-medium hover:bg-white/10">
+                  {p!.network}
+                  <span className="sr-only"> profile (opens external site)</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section aria-labelledby="book-title" className="bg-bg">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+          <h2 id="book-title" className="font-display text-4xl sm:text-5xl">
+            Or grab a time on my calendar.
+          </h2>
+          <p className="mt-3 max-w-2xl text-lg text-muted">
+            Pick a quick call, a longer chat, or coffee. It&rsquo;s synced with my calendar, so any open slot is really open.
+          </p>
+          <div className="mt-8 overflow-hidden rounded-2xl border border-line bg-surface">
+            <BookingCalendar />
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
