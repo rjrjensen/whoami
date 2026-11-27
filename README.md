@@ -80,6 +80,7 @@ Analytics only runs on the deployed site. To try it locally, build with `NEXT_PU
 | `skill_popover_open` | a skill's "where I used it" popover opens | `skill`, `skill_group` |
 | `outbound_link_click` | a link to another site is clicked | `host`, `url` |
 | `contact_email_click` | the email link is clicked | |
+| `meeting_booked` | a visitor books a meeting in the Contact page calendar (Cal.com; no booking details are sent) | |
 | `page_turn` | the next/previous arrow at the bottom of a page is clicked, or the ← / → key is pressed | `from_page`, `to_page`, `direction` (`forward`/`back`), `method` (`click`/`keyboard`) |
 | `fit_check_submit` | the Fit Check button is clicked | |
 | `fit_check_result` | a Fit Check finishes, just before its report opens at `/fit-check` | `score`, `label`, `requirements`, `matcher` (`jev`/`claude`), `cached`, `recommended` (version) |
